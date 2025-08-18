@@ -61,7 +61,7 @@ export default function Chatbot() {
     // Add event listener with a small delay to prevent immediate triggering
     const timer = setTimeout(() => {
       document.addEventListener('click', handleClickOutside);
-    }, 100);
+    }, 300);
 
     return () => {
       clearTimeout(timer);
@@ -311,7 +311,11 @@ export default function Chatbot() {
                       {["Our Services", "Get Quote", "Contact Us", "View Projects"].map((suggestion) => (
                         <button
                           key={suggestion}
-                          onClick={() => handleSuggestionClick(suggestion)}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            handleSuggestionClick(suggestion);
+                          }}
                           className="text-xs bg-white border border-gray-300 hover:border-primary hover:text-primary px-3 py-1 rounded-full transition-colors"
                         >
                           {suggestion}
