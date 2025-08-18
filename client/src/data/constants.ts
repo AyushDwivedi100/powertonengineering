@@ -77,13 +77,13 @@ export const PRODUCTS = [
     id: "electrical",
     title: "Electrical Components",
     description: "Switches, relays, contactors, and power distribution equipment",
-    image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "measurement",
     title: "Measurement Instruments",
     description: "Digital meters, analyzers, and calibration equipment",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "solar",
@@ -193,7 +193,7 @@ export const PROJECTS = [
     location: "West Bengal",
     duration: "10 months",
     year: "2022",
-    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     highlights: ["Real-time Monitoring", "Quality Control", "Automated Operations", "Remote Management"]
   }
 ];

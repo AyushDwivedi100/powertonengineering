@@ -8,21 +8,21 @@ export default function GallerySection() {
   const galleryImages = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
       title: "Industrial Control Panel Installation",
       category: "Electrical Systems",
       description: "Advanced control panel setup for manufacturing facility"
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+      image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
       title: "Process Automation Implementation",
       category: "Automation",
       description: "Complete SCADA system deployment for chemical plant"
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1581092335878-1c43d93b6e07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+      image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
       title: "Safety System Integration",
       category: "Safety & Protection",
       description: "Comprehensive safety relay and protection system installation"
