@@ -24,22 +24,24 @@ export default function Chatbot() {
     scrollToBottom();
   }, [messages]);
 
-  // Handle scroll management and click outside detection
+  // Store scroll position using useRef to persist across renders
+  const scrollPositionRef = useRef(0);
+
+  // Handle scroll management when chatbot opens/closes
   useEffect(() => {
     if (isOpen) {
-      // Disable scroll but keep scrollbar visible
-      const scrollY = window.scrollY;
-      document.body.style.overflowY = 'scroll';
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
+      // Save current scroll position
+      scrollPositionRef.current = window.scrollY;
+      
+      // Prevent body scroll but keep current position visible
+      document.body.style.overflow = 'hidden';
       
       return () => {
-        document.body.style.overflowY = '';
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        window.scrollTo(0, scrollY);
+        // Restore scrolling
+        document.body.style.overflow = '';
+        
+        // Don't restore scroll position automatically - let it stay where it is
+        // This prevents the jarring jump back to original position
       };
     }
   }, [isOpen]);
