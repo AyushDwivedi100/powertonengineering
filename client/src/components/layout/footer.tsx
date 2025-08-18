@@ -9,9 +9,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold text-secondary mb-4">
-              POWERTON ENGINEERING
-            </h3>
+            <div className="flex items-center mb-4">
+              <img 
+                src="https://powertonengineering.in/assets/img/logo-new.jpg" 
+                alt="Powerton Engineering Pvt. Ltd." 
+                className="h-10 w-auto mr-3"
+                loading="lazy"
+              />
+              <h3 className="text-2xl font-bold text-secondary">
+                POWERTON ENGINEERING
+              </h3>
+            </div>
             <p className="text-gray-300 mb-6">
               Your trusted partner in delivering high-quality engineering solutions and services for industrial automation and electrical systems.
             </p>

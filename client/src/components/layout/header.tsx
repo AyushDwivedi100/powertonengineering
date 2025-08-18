@@ -62,6 +62,12 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto container-padding" role="navigation" aria-label="Main navigation">
         <div className="flex justify-between items-center py-3 sm:py-4">
           <Link href="/" className="flex items-center">
+            <img 
+              src="https://powertonengineering.in/assets/img/logo-new.jpg" 
+              alt="Powerton Engineering Pvt. Ltd." 
+              className="h-8 sm:h-10 md:h-12 w-auto mr-2 sm:mr-3"
+              loading="eager"
+            />
             <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-primary">
               <span className="text-secondary">POWERTON</span> 
               <span className="hidden xs:inline"> ENGINEERING</span>
