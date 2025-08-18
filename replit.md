@@ -7,7 +7,7 @@ This is a comprehensive business website for Powerton Engineering Pvt. Ltd., a c
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
-Logo preference: Use official Powerton Engineering logo (https://powertonengineering.in/assets/img/logo-new.jpg) throughout the website.
+Logo preference: Use official Powerton Engineering logo (https://powertonengineering.in/assets/img/logo-new.jpg) throughout the website. **Updated: Migrated from local asset to official URL in header and footer components.**
 
 ## System Architecture
 

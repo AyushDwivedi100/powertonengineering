@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY_INFO } from "@/data/constants";
-import logoImage from "@assets/logo-new-removebg-preview_1755497919444.png";
+
 
 export default function Header() {
   const [location] = useLocation();
@@ -63,7 +63,7 @@ export default function Header() {
         <div className="flex justify-between items-center py-3 sm:py-4">
           <Link href="/" className="flex items-center">
             <img 
-              src={logoImage} 
+              src="https://powertonengineering.in/assets/img/logo-new.jpg" 
               alt="Powerton Engineering Pvt. Ltd." 
               className="h-8 sm:h-10 md:h-12 w-auto"
               loading="eager"

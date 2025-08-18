@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY_INFO, SERVICES, PRODUCTS } from "@/data/constants";
-import logoImage from "@assets/logo-new-removebg-preview_1755497919444.png";
+
 
 export default function Footer() {
   return (
@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <img 
-                src={logoImage} 
+                src="https://powertonengineering.in/assets/img/logo-new.jpg" 
                 alt="Powerton Engineering Pvt. Ltd." 
                 className="h-12 w-auto mb-3"
                 loading="lazy"
