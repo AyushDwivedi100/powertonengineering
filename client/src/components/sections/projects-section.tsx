@@ -20,12 +20,12 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="section-padding bg-gray-50" role="main">
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="text-center mb-16">
-          <span className="text-secondary font-semibold text-lg">Our Projects</span>
-          <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="text-secondary font-semibold text-responsive-sm">Our Projects</span>
+          <h2 className="text-responsive-xl font-bold text-primary mt-2 sm:mt-4 mb-4 sm:mb-6">
             Successfully Delivered Engineering Solutions
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-responsive-base text-foreground/70 max-w-3xl mx-auto">
             Explore our portfolio of completed projects showcasing our expertise in industrial automation and electrical engineering.
           </p>
         </div>

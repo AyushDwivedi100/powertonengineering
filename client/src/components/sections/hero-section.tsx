@@ -31,15 +31,10 @@ export default function HeroSection() {
             Our broad portfolio of products and services provides all-encompassing solutions that drive industrial success, ensuring that every aspect of your engineering needs is covered.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-12">
             <Link href="/services" className="w-full sm:w-auto">
               <Button 
-                style={{ 
-                  backgroundColor: 'hsl(20, 91%, 48%)', 
-                  color: 'white',
-                  border: 'none'
-                }}
-                className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 transform hover:scale-105 transition-all hover:opacity-90"
+                className="btn-secondary w-full sm:w-auto text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 transform hover:scale-105 transition-all"
               >
                 Explore Our Services
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
@@ -47,12 +42,8 @@ export default function HeroSection() {
             </Link>
             <Link href="/quote" className="w-full sm:w-auto">
               <Button 
-                style={{ 
-                  backgroundColor: 'transparent', 
-                  color: 'white',
-                  border: '2px solid white'
-                }}
-                className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 hover:bg-white hover:text-blue-700 transition-all"
+                variant="outline"
+                className="w-full sm:w-auto text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border-2 border-white text-white hover:bg-white hover:text-primary transition-all"
               >
                 Get Free Quote
               </Button>
@@ -60,16 +51,16 @@ export default function HeroSection() {
           </div>
 
           {/* Key Features */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
-            <div className="flex items-center space-x-3 p-2 sm:p-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+            <div className="flex items-center space-x-2 sm:space-x-3 bg-white/10 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
               <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-secondary flex-shrink-0" />
               <span className="text-sm sm:text-base lg:text-lg">15+ Years Experience</span>
             </div>
-            <div className="flex items-center space-x-3 p-2 sm:p-0">
+            <div className="flex items-center space-x-2 sm:space-x-3 bg-white/10 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
               <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-secondary flex-shrink-0" />
               <span className="text-sm sm:text-base lg:text-lg">24/7 Technical Support</span>
             </div>
-            <div className="flex items-center space-x-3 p-2 sm:p-0 sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center space-x-2 sm:space-x-3 bg-white/10 rounded-lg p-3 sm:p-4 backdrop-blur-sm sm:col-span-2 lg:col-span-1">
               <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-secondary flex-shrink-0" />
               <span className="text-sm sm:text-base lg:text-lg">Pan-India Service</span>
             </div>

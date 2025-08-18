@@ -267,12 +267,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (min-width: 475px) {
-  html {
-    font-size: 15px;
-  }
-}
-
 @media (min-width: 640px) {
   html {
     font-size: 16px;
@@ -281,13 +275,13 @@ html {
 
 @media (min-width: 1024px) {
   html {
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 
 @media (min-width: 1280px) {
   html {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -315,22 +309,22 @@ body {
 
 @media (min-width: 640px) {
   .container-padding {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .container-padding {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 @media (min-width: 1280px) {
   .container-padding {
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
@@ -369,26 +363,135 @@ body {
 }
 
 /* Responsive typography utilities */
-.responsive-title {
-  font-size: 2rem;
+.text-responsive-xl {
+  font-size: 1.875rem;
   line-height: 1.2;
 }
 
 @media (min-width: 640px) {
-  .responsive-title {
-    font-size: 2.5rem;
+  .text-responsive-xl {
+    font-size: 2.25rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .responsive-title {
+  .text-responsive-xl {
     font-size: 3rem;
   }
 }
 
 @media (min-width: 1280px) {
-  .responsive-title {
-    font-size: 3.5rem;
+  .text-responsive-xl {
+    font-size: 3.75rem;
+  }
+}
+
+.text-responsive-lg {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+  .text-responsive-lg {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-lg {
+    font-size: 2.25rem;
+  }
+}
+
+.text-responsive-base {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .text-responsive-base {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-base {
+    font-size: 1.25rem;
+  }
+}
+
+.text-responsive-sm {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .text-responsive-sm {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-sm {
+    font-size: 1.125rem;
+  }
+}
+
+/* Responsive grid utilities */
+.grid-responsive-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.grid-responsive-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.grid-responsive-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-responsive-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
   }
 }
 

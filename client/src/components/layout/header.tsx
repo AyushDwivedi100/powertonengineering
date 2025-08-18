@@ -27,32 +27,30 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50" role="banner">
       {/* Top bar */}
-      <div className="bg-primary text-white py-1 sm:py-2">
-        <div className="max-w-7xl mx-auto container-padding flex flex-col sm:flex-row sm:justify-between items-center gap-2 sm:gap-0 text-xs sm:text-sm">
-          <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center sm:justify-start">
+      <div className="bg-primary text-white py-2 sm:py-3 hidden sm:block">
+        <div className="max-w-7xl mx-auto container-padding flex justify-between items-center text-sm">
+          <div className="flex items-center gap-6">
             <a 
               href={`tel:${COMPANY_INFO.phone}`} 
               className="flex items-center hover:text-secondary transition-colors"
               aria-label="Call us"
             >
-              <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" aria-hidden="true" />
-              <span className="hidden xs:inline">{COMPANY_INFO.phone}</span>
-              <span className="xs:hidden">Call</span>
+              <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
+              <span>{COMPANY_INFO.phone}</span>
             </a>
             <a 
               href={`mailto:${COMPANY_INFO.email}`} 
               className="flex items-center hover:text-secondary transition-colors"
               aria-label="Email us"
             >
-              <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" aria-hidden="true" />
-              <span className="hidden sm:inline">{COMPANY_INFO.email}</span>
-              <span className="sm:hidden">Email</span>
+              <Mail className="w-4 h-4 mr-2" aria-hidden="true" />
+              <span>{COMPANY_INFO.email}</span>
             </a>
           </div>
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             <span className="flex items-center">
               <MapPin className="w-4 h-4 mr-2" aria-hidden="true" />
-              <span className="text-xs lg:text-sm">{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} - Serving All India</span>
+              <span>{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} - Serving All India</span>
             </span>
           </div>
         </div>
@@ -69,6 +67,72 @@ export default function Header() {
               loading="eager"
             />
           </Link>
+
+          {/* Mobile menu button */}
+          <div className="lg:hidden">
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  className="text-foreground hover:bg-muted"
+                  aria-label="Open menu"
+                >
+                  <Menu className="w-6 h-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-72 sm:w-80">
+                <nav className="flex flex-col space-y-4 mt-8">
+                  <Link href="/" onClick={() => setIsOpen(false)}>
+                    <Button 
+                      variant="ghost" 
+                      className={`w-full justify-start text-left ${isActive("/") ? "bg-primary/10 text-primary" : ""}`}
+                    >
+                      Home
+                    </Button>
+                  </Link>
+                  {navigation.map((item) => (
+                    <Link key={item.name} href={item.href} onClick={() => setIsOpen(false)}>
+                      <Button 
+                        variant="ghost" 
+                        className={`w-full justify-start text-left ${isActive(item.href) ? "bg-primary/10 text-primary" : ""}`}
+                      >
+                        {item.name}
+                      </Button>
+                    </Link>
+                  ))}
+                  <div className="border-t pt-4 mt-4">
+                    <Link href="/quote" onClick={() => setIsOpen(false)}>
+                      <Button className="w-full btn-primary">
+                        Get Free Quote
+                      </Button>
+                    </Link>
+                  </div>
+                  {/* Mobile contact info */}
+                  <div className="border-t pt-4 mt-4 space-y-3">
+                    <a 
+                      href={`tel:${COMPANY_INFO.phone}`}
+                      className="flex items-center text-foreground/70 hover:text-primary transition-colors"
+                    >
+                      <Phone className="w-4 h-4 mr-3" />
+                      {COMPANY_INFO.phone}
+                    </a>
+                    <a 
+                      href={`mailto:${COMPANY_INFO.email}`}
+                      className="flex items-center text-foreground/70 hover:text-primary transition-colors"
+                    >
+                      <Mail className="w-4 h-4 mr-3" />
+                      {COMPANY_INFO.email}
+                    </a>
+                    <div className="flex items-start text-foreground/70">
+                      <MapPin className="w-4 h-4 mr-3 mt-1 flex-shrink-0" />
+                      <span className="text-sm">{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state}</span>
+                    </div>
+                  </div>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
 
           {/* Desktop navigation */}
           <div className="hidden lg:flex items-center space-x-8">
@@ -89,37 +153,6 @@ export default function Header() {
               </Button>
             </Link>
           </div>
-
-          {/* Mobile navigation */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden">
-                <Menu className="w-6 h-6" />
-                <span className="sr-only">Open mobile menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col space-y-4 mt-8">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`text-lg font-medium transition-colors ${
-                      isActive(item.href) ? "text-primary" : "text-gray-700 hover:text-primary"
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                <Link href="/quote" onClick={() => setIsOpen(false)}>
-                  <Button className="btn-secondary w-full mt-4">
-                    Get Quote
-                  </Button>
-                </Link>
-              </nav>
-            </SheetContent>
-          </Sheet>
         </div>
       </nav>
     </header>

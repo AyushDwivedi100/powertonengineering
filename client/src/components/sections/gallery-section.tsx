@@ -62,18 +62,18 @@ export default function GallerySection() {
   return (
     <section className="section-padding bg-muted/30" role="main">
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="text-center mb-16">
-          <span className="text-secondary font-semibold text-lg">Our Work</span>
-          <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="text-secondary font-semibold text-responsive-sm">Our Work</span>
+          <h2 className="text-responsive-xl font-bold text-primary mt-2 sm:mt-4 mb-4 sm:mb-6">
             Engineering Excellence in Action
           </h2>
-          <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
+          <p className="text-responsive-base text-foreground/70 max-w-3xl mx-auto">
             Explore our portfolio of successful installations, automation projects, and industrial solutions 
             delivered across various sectors and industries.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12">
           {galleryImages.map((item) => (
             <Card 
               key={item.id} 
@@ -83,7 +83,7 @@ export default function GallerySection() {
                 <img 
                   src={item.image} 
                   alt={`ID-${String(80 + item.id).padStart(3, '0')}: ${item.title}`}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -116,32 +116,32 @@ export default function GallerySection() {
         </div>
 
         {/* Statistics Row */}
-        <div className="bg-background border border-border rounded-2xl shadow-lg p-8 mb-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div className="bg-background border border-border rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mb-8 sm:mb-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-center">
             <div>
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">250+</div>
-              <div className="text-foreground/70">Projects Completed</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-1 sm:mb-2">250+</div>
+              <div className="text-foreground/70 text-xs sm:text-sm lg:text-base">Projects Completed</div>
             </div>
             <div>
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">150+</div>
-              <div className="text-foreground/70">Happy Clients</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-1 sm:mb-2">150+</div>
+              <div className="text-foreground/70 text-xs sm:text-sm lg:text-base">Happy Clients</div>
             </div>
             <div>
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">15+</div>
-              <div className="text-foreground/70">Years Experience</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-1 sm:mb-2">15+</div>
+              <div className="text-foreground/70 text-xs sm:text-sm lg:text-base">Years Experience</div>
             </div>
             <div>
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">50+</div>
-              <div className="text-foreground/70">Cities Served</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-1 sm:mb-2">50+</div>
+              <div className="text-foreground/70 text-xs sm:text-sm lg:text-base">Cities Served</div>
             </div>
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="text-center space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row justify-center items-center">
           <Link href="/projects">
-            <Button className="btn-primary text-lg px-8 py-4 mr-4">
+            <Button className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto">
               View All Projects
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </Link>
         </div>
