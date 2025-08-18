@@ -47,15 +47,10 @@ export default function Chatbot() {
 
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
-      // Prevent body scroll when chatbot is open
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
 
@@ -221,7 +216,7 @@ export default function Chatbot() {
         {isOpen && (
           <motion.div
             ref={chatWindowRef}
-            className="fixed bottom-6 right-6 z-40 w-80 sm:w-96 max-h-[calc(100vh-120px)]"
+            className="fixed bottom-24 right-6 z-40 w-80 sm:w-96 max-h-[calc(100vh-140px)]"
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
@@ -237,9 +232,9 @@ export default function Chatbot() {
                   </span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-0 flex flex-col max-h-[calc(100vh-220px)]">
+              <CardContent className="p-0 flex flex-col max-h-[calc(100vh-240px)]">
                 {/* Messages Area */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 min-h-[300px] max-h-[400px]">
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 min-h-[280px] max-h-[380px]">
                   {messages.map((message) => (
                     <div
                       key={message.id}
