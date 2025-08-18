@@ -147,7 +147,7 @@ export default function Projects() {
                     <div className="relative overflow-hidden">
                       <img 
                         src={project.image} 
-                        alt={`${project.title} - ${project.description}`}
+                        alt={`ID-${String(300 + PROJECTS.indexOf(project)).padStart(3, '0')}: ${project.title} - ${project.description}`}
                         className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
                       />

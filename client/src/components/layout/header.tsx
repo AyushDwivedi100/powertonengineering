@@ -64,7 +64,7 @@ export default function Header() {
           <Link href="/" className="flex items-center">
             <img 
               src="https://powertonengineering.in/assets/img/logo-new.jpg" 
-              alt="Powerton Engineering Pvt. Ltd." 
+              alt="ID-002: Powerton Engineering Pvt. Ltd. logo" 
               className="h-8 sm:h-10 md:h-12 w-auto"
               loading="eager"
             />

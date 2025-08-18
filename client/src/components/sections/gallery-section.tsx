@@ -82,7 +82,7 @@ export default function GallerySection() {
               <div className="relative overflow-hidden">
                 <img 
                   src={item.image} 
-                  alt={item.title}
+                  alt={`ID-${String(80 + item.id).padStart(3, '0')}: ${item.title}`}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />

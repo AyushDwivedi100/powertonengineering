@@ -33,7 +33,7 @@ export default function ProductsSection() {
               <div className="relative overflow-hidden">
                 <img 
                   src={product.image} 
-                  alt={`${product.title} - ${product.description}`} 
+                  alt={`ID-${String(10 + index).padStart(3, '0')}: ${product.title} - ${product.description}`} 
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />

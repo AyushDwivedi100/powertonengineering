@@ -49,7 +49,7 @@ export default function ClientsSection() {
                   <div className="relative w-12 h-12 mr-4">
                     <img 
                       src={testimonial.image} 
-                      alt={`${testimonial.name} - ${testimonial.location}`}
+                      alt={`ID-${String(100 + TESTIMONIALS.indexOf(testimonial)).padStart(3, '0')}: ${testimonial.name} - ${testimonial.location}`}
                       className="w-full h-full rounded-full object-cover shadow-md"
                       loading="lazy"
                     />

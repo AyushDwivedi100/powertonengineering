@@ -83,7 +83,7 @@ export default function About() {
             <div className={getAnimationClass('fade-in-left', storyAnimation.isVisible)}>
               <img 
                 src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
-                alt="Powerton Engineering industrial automation facility with modern control systems" 
+                alt="ID-004: Powerton Engineering industrial automation facility with modern control systems" 
                 className="rounded-xl shadow-2xl w-full"
                 loading="lazy"
               />

@@ -34,7 +34,7 @@ export default function AboutSection() {
             <div className="relative overflow-hidden rounded-xl shadow-2xl">
               <img 
                 src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
-                alt="Modern industrial automation control room with engineers monitoring electrical systems and instrumentation" 
+                alt="ID-003: Modern industrial automation control room with engineers monitoring electrical systems and instrumentation" 
                 className="w-full h-auto object-cover animate-fade-in transform hover:scale-105 transition-transform duration-300"
                 loading="lazy"
               />

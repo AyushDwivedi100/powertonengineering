@@ -30,16 +30,18 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          {PROJECTS.map((project) => (
+        <div ref={projectsAnimation.ref} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          {PROJECTS.map((project, index) => {
+            const isVisible = projectsAnimation.visibleItems.has(index);
+            return (
             <Card 
               key={project.id} 
-              className="overflow-hidden group hover:shadow-xl transition-all duration-300 card-hover"
+              className={`overflow-hidden group hover:shadow-xl transition-all duration-300 card-hover ${getAnimationClass('slide-in-scale', isVisible)}`}
             >
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image} 
-                  alt={`${project.title} - ${project.description}`}
+                  alt={`ID-${String(50 + index).padStart(3, '0')}: ${project.title} - ${project.description}`}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
@@ -99,7 +101,8 @@ export default function ProjectsSection() {
                 </div>
               </CardContent>
             </Card>
-          ))}
+          );
+          })}
         </div>
 
         <div className="text-center">
