@@ -71,49 +71,49 @@ export const PRODUCTS = [
     id: "instrumentation",
     title: "Instrumentation Components",
     description: "High-precision sensors, transmitters, and measurement devices",
-    image: "https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "electrical",
     title: "Electrical Components",
     description: "Switches, relays, contactors, and power distribution equipment",
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "measurement",
     title: "Measurement Instruments",
     description: "Digital meters, analyzers, and calibration equipment",
-    image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "solar",
     title: "Solar Products",
     description: "Solar panels, inverters, and complete renewable systems",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1508615070457-7baeba4003ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "automation",
     title: "Automation & Control",
     description: "PLC systems, HMI panels, and SCADA solutions",
-    image: "https://images.unsplash.com/photo-1553376944-52d1f27487b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "safety",
     title: "Safety & Protection",
     description: "Circuit breakers, safety relays, and protective equipment",
-    image: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1581092335878-1c43d93b6e07?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "pumps",
     title: "Mechanical Pumps",
     description: "Centrifugal pumps, spare parts, and maintenance kits",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "tools",
     title: "Industrial Tools",
     description: "Professional grade tools, tackles, and maintenance equipment",
-    image: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   }
 ];
 
@@ -157,7 +157,7 @@ export const PROJECTS = [
     location: "Uttar Pradesh",
     duration: "12 months",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     highlights: ["SCADA Implementation", "Safety Systems", "Control Panels", "Performance Monitoring"]
   },
   {
@@ -168,7 +168,7 @@ export const PROJECTS = [
     location: "Maharashtra",
     duration: "8 months",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     highlights: ["FDA Compliance", "Data Integrity", "Process Control", "Quality Monitoring"]
   },
   {
@@ -179,7 +179,7 @@ export const PROJECTS = [
     location: "Rajasthan",
     duration: "6 months",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     highlights: ["Grid Connection", "Monitoring Systems", "Performance Optimization", "Maintenance Planning"]
   },
   {
@@ -190,7 +190,7 @@ export const PROJECTS = [
     location: "West Bengal",
     duration: "10 months",
     year: "2022",
-    image: "https://images.unsplash.com/photo-1553376944-52d1f27487b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     highlights: ["Real-time Monitoring", "Quality Control", "Automated Operations", "Remote Management"]
   }
 ];

@@ -21,9 +21,9 @@ export default function ClientsSection() {
           {CLIENTS.map((client, index) => (
             <div 
               key={client} 
-              className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+              className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 min-h-[80px] border border-gray-100"
             >
-              <span className="text-gray-600 font-semibold text-sm text-center">{client}</span>
+              <span className="text-gray-700 font-semibold text-sm text-center leading-tight">{client}</span>
             </div>
           ))}
         </div>
@@ -46,7 +46,7 @@ export default function ClientsSection() {
                 </div>
                 <p className="text-gray-600 mb-6 italic">"{testimonial.comment}"</p>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-semibold mr-4 shadow-md">
                     <span>{testimonial.initials}</span>
                   </div>
                   <div>
