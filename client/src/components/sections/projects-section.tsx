@@ -47,20 +47,20 @@ export default function ProjectsSection() {
                   <Badge 
                     className={`mr-4 ${
                       categoryColors[project.category as keyof typeof categoryColors] || 
-                      "bg-gray-100 text-gray-800"
+                      "bg-muted text-muted-foreground"
                     }`}
                   >
                     {project.category}
                   </Badge>
-                  <span className="text-gray-500 text-sm">Completed {project.year}</span>
+                  <span className="text-muted-foreground text-sm">Completed {project.year}</span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{project.title}</h3>
-                <p className="text-gray-600 mb-6">{project.description}</p>
+                <h3 className="text-xl font-bold text-foreground mb-4">{project.title}</h3>
+                <p className="text-foreground/70 mb-6">{project.description}</p>
                 
                 {/* Project Highlights */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Features:</h4>
+                  <h4 className="text-sm font-semibold text-foreground mb-2">Key Features:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.highlights.map((highlight) => (
                       <span 
@@ -74,7 +74,7 @@ export default function ProjectsSection() {
                 </div>
                 
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4 text-sm text-gray-500">
+                  <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                     <span className="flex items-center">
                       <MapPin className="w-4 h-4 mr-1" aria-hidden="true" />
                       {project.location}

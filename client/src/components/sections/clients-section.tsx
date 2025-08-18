@@ -11,7 +11,7 @@ export default function ClientsSection() {
           <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
             Trusted By Leading Brands and Organizations
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
             We've partnered with industry leaders across various sectors to deliver exceptional engineering solutions.
           </p>
         </div>
@@ -21,9 +21,9 @@ export default function ClientsSection() {
           {CLIENTS.map((client, index) => (
             <div 
               key={client} 
-              className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 min-h-[80px] border border-gray-100"
+              className="flex items-center justify-center p-6 bg-background rounded-lg shadow-sm hover:shadow-md transition-all duration-300 min-h-[80px] border border-border"
             >
-              <span className="text-gray-700 font-semibold text-sm text-center leading-tight">{client}</span>
+              <span className="text-foreground font-semibold text-sm text-center leading-tight">{client}</span>
             </div>
           ))}
         </div>
@@ -35,7 +35,7 @@ export default function ClientsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {TESTIMONIALS.map((testimonial) => (
-            <Card key={testimonial.name} className="bg-gray-50 border border-gray-100">
+            <Card key={testimonial.name} className="bg-muted/50 border border-border">
               <CardContent className="p-8">
                 <div className="flex items-center mb-4">
                   <div className="flex text-secondary">
@@ -44,7 +44,7 @@ export default function ClientsSection() {
                     ))}
                   </div>
                 </div>
-                <p className="text-gray-600 mb-6 italic">"{testimonial.comment}"</p>
+                <p className="text-foreground/70 mb-6 italic">"{testimonial.comment}"</p>
                 <div className="flex items-center">
                   <div className="relative w-12 h-12 mr-4">
                     <img 
@@ -56,8 +56,8 @@ export default function ClientsSection() {
                     <div className="absolute inset-0 rounded-full ring-2 ring-primary/20"></div>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-600">{testimonial.location}</div>
+                    <div className="font-semibold text-foreground">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.location}</div>
                   </div>
                 </div>
               </CardContent>

@@ -8,7 +8,7 @@ This is a comprehensive business website for Powerton Engineering Pvt. Ltd., a c
 
 Preferred communication style: Simple, everyday language.
 Logo preference: Use official Powerton Engineering logo (https://powertonengineering.in/assets/img/logo-new.jpg) throughout the website. **Updated: Migrated from local asset to official URL in header and footer components.**
-Color theme consistency: Maintain consistent use of theme colors (primary: blue hsl(215, 89%, 33%), secondary: orange hsl(20, 91%, 48%)) throughout all components instead of hardcoded colors. **Updated: Systematically replaced hardcoded colors with theme variables across projects, about, and hero sections. Fixed hero section button text visibility by using inline styles to override conflicting shadcn/ui button variants.**
+Color theme consistency: Maintain consistent use of theme colors (primary: blue hsl(215, 89%, 33%), secondary: orange hsl(20, 91%, 48%)) throughout all components instead of hardcoded colors. **Updated: Comprehensive color contrast improvements completed across all website components. Systematically replaced gray hardcoded colors with theme-aware foreground/muted variants, ensuring proper text-background contrast and professional appearance while maintaining brand colors. Applied consistent theme color usage across all pages and sections with proper WCAG-compliant contrast ratios.**
 
 ## System Architecture
 

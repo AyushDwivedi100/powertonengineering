@@ -51,23 +51,23 @@ export default function GallerySection() {
   ];
 
   const categoryColors = {
-    "Electrical Systems": "bg-blue-100 text-blue-800",
-    "Automation": "bg-green-100 text-green-800",
-    "Safety & Protection": "bg-red-100 text-red-800",
-    "Renewable Energy": "bg-yellow-100 text-yellow-800",
-    "Measurement Systems": "bg-purple-100 text-purple-800",
-    "Mechanical Systems": "bg-cyan-100 text-cyan-800"
+    "Electrical Systems": "bg-primary/10 text-primary border-primary/20",
+    "Automation": "bg-secondary/10 text-secondary border-secondary/20",
+    "Safety & Protection": "bg-destructive/10 text-destructive border-destructive/20",
+    "Renewable Energy": "bg-accent/10 text-accent-foreground border-accent/20",
+    "Measurement Systems": "bg-primary/15 text-primary border-primary/30",
+    "Mechanical Systems": "bg-secondary/15 text-secondary border-secondary/30"
   };
 
   return (
-    <section className="section-padding bg-gray-50" role="main">
+    <section className="section-padding bg-muted/30" role="main">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
           <span className="text-secondary font-semibold text-lg">Our Work</span>
           <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
             Engineering Excellence in Action
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
             Explore our portfolio of successful installations, automation projects, and industrial solutions 
             delivered across various sectors and industries.
           </p>
@@ -94,7 +94,7 @@ export default function GallerySection() {
                     <Badge 
                       className={`mb-2 ${
                         categoryColors[item.category as keyof typeof categoryColors] || 
-                        "bg-gray-100 text-gray-800"
+                        "bg-muted text-muted-foreground"
                       }`}
                     >
                       {item.category}
@@ -116,23 +116,23 @@ export default function GallerySection() {
         </div>
 
         {/* Statistics Row */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
+        <div className="bg-background border border-border rounded-2xl shadow-lg p-8 mb-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">250+</div>
-              <div className="text-gray-600">Projects Completed</div>
+              <div className="text-foreground/70">Projects Completed</div>
             </div>
             <div>
               <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">150+</div>
-              <div className="text-gray-600">Happy Clients</div>
+              <div className="text-foreground/70">Happy Clients</div>
             </div>
             <div>
               <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">15+</div>
-              <div className="text-gray-600">Years Experience</div>
+              <div className="text-foreground/70">Years Experience</div>
             </div>
             <div>
               <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">50+</div>
-              <div className="text-gray-600">Cities Served</div>
+              <div className="text-foreground/70">Cities Served</div>
             </div>
           </div>
         </div>

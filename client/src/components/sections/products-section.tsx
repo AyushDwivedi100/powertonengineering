@@ -42,8 +42,8 @@ export default function ProductsSection() {
               </div>
               
               <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">{product.description}</p>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{product.title}</h3>
+                <p className="text-foreground/70 text-sm mb-4">{product.description}</p>
                 <Link href="/products">
                   <Button 
                     variant="ghost" 

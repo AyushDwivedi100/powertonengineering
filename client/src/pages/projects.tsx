@@ -233,37 +233,37 @@ export default function Projects() {
                   <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
                     {project.title}
                   </h2>
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
                     {project.description}
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-3">Project Scope</h3>
+                      <h3 className="text-lg font-bold text-foreground mb-3">Project Scope</h3>
                       <div className="space-y-2">
                         {project.highlights.map((highlight) => (
                           <div key={highlight} className="flex items-start">
-                            <CheckCircle className="w-4 h-4 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-600 text-sm">{highlight}</span>
+                            <CheckCircle className="w-4 h-4 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                            <span className="text-foreground/70 text-sm">{highlight}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-3">Project Details</h3>
+                      <h3 className="text-lg font-bold text-foreground mb-3">Project Details</h3>
                       <div className="space-y-3">
                         <div className="flex items-center">
                           <MapPin className="w-4 h-4 text-primary mr-3" />
-                          <span className="text-gray-600 text-sm">Location: {project.location}</span>
+                          <span className="text-foreground/70 text-sm">Location: {project.location}</span>
                         </div>
                         <div className="flex items-center">
                           <Clock className="w-4 h-4 text-primary mr-3" />
-                          <span className="text-gray-600 text-sm">Duration: {project.duration}</span>
+                          <span className="text-foreground/70 text-sm">Duration: {project.duration}</span>
                         </div>
                         <div className="flex items-center">
                           <Calendar className="w-4 h-4 text-primary mr-3" />
-                          <span className="text-gray-600 text-sm">Completed: {project.year}</span>
+                          <span className="text-foreground/70 text-sm">Completed: {project.year}</span>
                         </div>
                       </div>
                     </div>
@@ -279,26 +279,26 @@ export default function Projects() {
                 <div>
                   <Card className="border-none shadow-lg">
                     <CardContent className="p-8">
-                      <h3 className="text-xl font-bold text-gray-900 mb-6">Project Impact</h3>
+                      <h3 className="text-xl font-bold text-foreground mb-6">Project Impact</h3>
                       
                       <div className="space-y-6">
-                        <div className="bg-green-50 rounded-lg p-4">
-                          <h4 className="font-semibold text-green-800 mb-2">Energy Efficiency</h4>
-                          <p className="text-green-700 text-sm">
+                        <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
+                          <h4 className="font-semibold text-primary mb-2">Energy Efficiency</h4>
+                          <p className="text-foreground/80 text-sm">
                             Achieved 25-30% improvement in energy efficiency through advanced automation systems.
                           </p>
                         </div>
 
-                        <div className="bg-blue-50 rounded-lg p-4">
-                          <h4 className="font-semibold text-blue-800 mb-2">Operational Excellence</h4>
-                          <p className="text-blue-700 text-sm">
+                        <div className="bg-secondary/10 border border-secondary/20 rounded-lg p-4">
+                          <h4 className="font-semibold text-secondary mb-2">Operational Excellence</h4>
+                          <p className="text-foreground/80 text-sm">
                             Reduced manual intervention by 70% and improved process reliability significantly.
                           </p>
                         </div>
 
-                        <div className="bg-orange-50 rounded-lg p-4">
-                          <h4 className="font-semibold text-orange-800 mb-2">Safety Enhancement</h4>
-                          <p className="text-orange-700 text-sm">
+                        <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
+                          <h4 className="font-semibold text-accent-foreground mb-2">Safety Enhancement</h4>
+                          <p className="text-foreground/80 text-sm">
                             Implemented comprehensive safety systems ensuring zero incidents post-commissioning.
                           </p>
                         </div>

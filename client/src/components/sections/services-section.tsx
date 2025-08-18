@@ -39,7 +39,7 @@ export default function ServicesSection() {
           <h2 className="text-responsive-xl font-bold text-primary mt-2 sm:mt-4 mb-4 sm:mb-6">
             Expert solutions for all needs, delivered with exceptional care
           </h2>
-          <p className="text-responsive-sm text-gray-600 max-w-3xl mx-auto">
+          <p className="text-responsive-sm text-foreground/70 max-w-3xl mx-auto">
             From process automation to maintenance contracts, we provide comprehensive engineering solutions tailored to your industrial requirements.
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function ServicesSection() {
             return (
               <Card 
                 key={service.id} 
-                className="border border-gray-100 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 overflow-hidden"
+                className="border border-border group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 overflow-hidden"
               >
                 {/* Service Image */}
                 <div className="relative h-32 sm:h-40 overflow-hidden">
@@ -71,12 +71,12 @@ export default function ServicesSection() {
                 
                 <CardContent className="p-4 sm:p-6 md:p-8">
                   
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">{service.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{service.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">{service.title}</h3>
+                  <p className="text-sm sm:text-base text-foreground/70 mb-4 sm:mb-6">{service.description}</p>
                   
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature) => (
-                      <li key={feature} className="text-sm text-gray-600 flex items-center">
+                      <li key={feature} className="text-sm text-foreground/70 flex items-center">
                         <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-3"></div>
                         {feature}
                       </li>

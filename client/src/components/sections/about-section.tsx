@@ -27,7 +27,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="section-padding bg-gray-50" role="main">
+    <section id="about" className="section-padding bg-muted/30" role="main">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           <div className="order-2 lg:order-1 relative">
@@ -51,7 +51,7 @@ export default function AboutSection() {
             <h2 className="text-responsive-xl font-bold text-primary mt-2 sm:mt-4 mb-4 sm:mb-6">
               Welcome to Powerton Engineering Pvt. Ltd.
             </h2>
-            <p className="text-responsive-sm text-gray-600 mb-6 leading-relaxed">
+            <p className="text-responsive-sm text-foreground/70 mb-6 leading-relaxed">
               Your trusted partner in delivering high-quality engineering solutions and services. Founded with a vision to empower industries through innovation and excellence, we specialize in providing a comprehensive range of electrical and instrumentation products.
             </p>
             
@@ -64,8 +64,8 @@ export default function AboutSection() {
                       <Icon className="w-4 h-4 text-white" aria-hidden="true" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">{feature.title}</h3>
-                      <p className="text-gray-600 text-sm">{feature.description}</p>
+                      <h3 className="font-semibold text-foreground">{feature.title}</h3>
+                      <p className="text-foreground/70 text-sm">{feature.description}</p>
                     </div>
                   </div>
                 );

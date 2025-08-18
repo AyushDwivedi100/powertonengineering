@@ -124,7 +124,14 @@ export default function Services() {
               From process automation to maintenance contracts, we provide comprehensive engineering solutions tailored to your industrial requirements.
             </p>
             <Link href="/contact">
-              <Button className="btn-secondary text-lg px-8 py-4">
+              <Button 
+                style={{ 
+                  backgroundColor: 'hsl(20, 91%, 48%)', 
+                  color: 'white',
+                  border: 'none'
+                }}
+                className="text-lg px-8 py-4 hover:opacity-90"
+              >
                 Request Service Quote
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -140,7 +147,7 @@ export default function Services() {
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Our Service Portfolio
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
               Comprehensive engineering solutions backed by 15+ years of experience and expertise in industrial automation.
             </p>
           </div>
@@ -152,22 +159,22 @@ export default function Services() {
               return (
                 <Card 
                   key={service.id} 
-                  className="border border-gray-100 group hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  className="border border-border group hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                 >
                   <CardHeader>
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <IconComponent className="w-8 h-8 text-white" aria-hidden="true" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-900">{service.title}</CardTitle>
+                    <CardTitle className="text-xl font-bold text-foreground">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 mb-6">{service.description}</p>
+                    <p className="text-foreground/70 mb-6">{service.description}</p>
                     
                     <div className="space-y-2 mb-6">
-                      <h4 className="font-semibold text-gray-900 text-sm">Key Features:</h4>
+                      <h4 className="font-semibold text-foreground text-sm">Key Features:</h4>
                       {service.features.slice(0, 3).map((feature) => (
-                        <div key={feature} className="flex items-center text-sm text-gray-600">
-                          <CheckCircle className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
+                        <div key={feature} className="flex items-center text-sm text-foreground/70">
+                          <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
                           {feature}
                         </div>
                       ))}
@@ -201,7 +208,7 @@ export default function Services() {
           <section 
             key={service.id}
             id={`service-${service.id}`}
-            className={`section-padding ${isEven ? 'bg-gray-50' : 'bg-white'}`}
+            className={`section-padding ${isEven ? 'bg-muted/30' : 'bg-background'}`}
           >
             <div className="max-w-7xl mx-auto container-padding">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -213,17 +220,17 @@ export default function Services() {
                     <h2 className="text-3xl lg:text-4xl font-bold text-primary">{service.title}</h2>
                   </div>
                   
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-lg text-foreground/70 mb-8 leading-relaxed">
                     {details.overview}
                   </p>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Key Benefits</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-4">Key Benefits</h3>
                     <div className="space-y-3">
                       {details.benefits.map((benefit) => (
                         <div key={benefit} className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-600">{benefit}</span>
+                          <CheckCircle className="w-5 h-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                          <span className="text-foreground/70">{benefit}</span>
                         </div>
                       ))}
                     </div>
@@ -241,7 +248,7 @@ export default function Services() {
                     <CardContent className="p-8">
                       <div className="grid grid-cols-1 gap-6">
                         <div>
-                          <h4 className="font-bold text-gray-900 mb-4 flex items-center">
+                          <h4 className="font-bold text-foreground mb-4 flex items-center">
                             <Settings className="w-5 h-5 mr-2 text-primary" />
                             Technologies & Solutions
                           </h4>
@@ -255,7 +262,7 @@ export default function Services() {
                         </div>
 
                         <div>
-                          <h4 className="font-bold text-gray-900 mb-4 flex items-center">
+                          <h4 className="font-bold text-foreground mb-4 flex items-center">
                             <Users className="w-5 h-5 mr-2 text-primary" />
                             Target Industries
                           </h4>
@@ -268,12 +275,12 @@ export default function Services() {
                           </div>
                         </div>
 
-                        <div className="bg-gray-50 rounded-lg p-4">
-                          <div className="flex items-center text-sm text-gray-600">
+                        <div className="bg-muted/30 rounded-lg p-4">
+                          <div className="flex items-center text-sm text-foreground/70">
                             <Clock className="w-4 h-4 mr-2" />
                             <span>24/7 Support Available</span>
                           </div>
-                          <div className="flex items-center text-sm text-gray-600 mt-2">
+                          <div className="flex items-center text-sm text-foreground/70 mt-2">
                             <Award className="w-4 h-4 mr-2" />
                             <span>Industry Certified Solutions</span>
                           </div>
@@ -299,7 +306,14 @@ export default function Services() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Link href="/contact">
-              <Button className="btn-secondary text-lg px-8 py-4">
+              <Button 
+                style={{ 
+                  backgroundColor: 'hsl(20, 91%, 48%)', 
+                  color: 'white',
+                  border: 'none'
+                }}
+                className="text-lg px-8 py-4 hover:opacity-90"
+              >
                 Get Free Consultation
               </Button>
             </Link>

@@ -145,7 +145,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Our Core Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
               These values guide our decisions, shape our culture, and drive our commitment to excellence.
             </p>
           </div>
@@ -159,8 +159,8 @@ export default function About() {
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto mb-6">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                    <p className="text-gray-600">{value.description}</p>
+                    <h3 className="text-xl font-bold text-foreground mb-4">{value.title}</h3>
+                    <p className="text-foreground/70">{value.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -170,22 +170,22 @@ export default function About() {
       </section>
 
       {/* Certifications & Standards */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-muted/30">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Certifications & Quality Standards
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
               Our commitment to quality is validated by industry-recognized certifications and compliance standards.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert) => (
-              <div key={cert} className="flex items-center p-4 bg-white rounded-lg shadow">
-                <CheckCircle className="w-6 h-6 text-green-600 mr-4 flex-shrink-0" />
-                <span className="font-medium text-gray-900">{cert}</span>
+              <div key={cert} className="flex items-center p-4 bg-background border border-border rounded-lg shadow-sm">
+                <CheckCircle className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
+                <span className="font-medium text-foreground">{cert}</span>
               </div>
             ))}
           </div>
