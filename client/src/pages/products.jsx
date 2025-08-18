@@ -219,7 +219,7 @@ export default function Products() {
             <TabsContent value={selectedCategory} className="space-y-6 sm:space-y-8">
               <div className="grid-responsive-cards">
                 {filteredProducts.map((product) => {
-                  const details = productDetails[product.id as keyof typeof productDetails];
+                  const details = productDetails[product.id];
                   
                   return (
                     <Card 
@@ -295,7 +295,7 @@ export default function Products() {
         <section className="section-padding bg-gray-50">
           <div className="max-w-7xl mx-auto container-padding">
             {filteredProducts.map((product) => {
-              const details = productDetails[product.id as keyof typeof productDetails];
+              const details = productDetails[product.id];
               if (!details) return null;
 
               return (

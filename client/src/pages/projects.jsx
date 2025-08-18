@@ -151,7 +151,7 @@ export default function Projects() {
                       <div className="absolute top-4 left-4">
                         <Badge 
                           className={`${
-                            categoryColors[project.category as keyof typeof categoryColors] || 
+                            categoryColors[project.category] || 
                             "bg-gray-100 text-gray-800"
                           }`}
                         >
@@ -224,7 +224,7 @@ export default function Projects() {
                 <div>
                   <Badge 
                     className={`mb-4 ${
-                      categoryColors[project.category as keyof typeof categoryColors] || 
+                      categoryColors[project.category] || 
                       "bg-gray-100 text-gray-800"
                     }`}
                   >

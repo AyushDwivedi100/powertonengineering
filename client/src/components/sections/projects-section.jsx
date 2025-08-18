@@ -46,7 +46,7 @@ export default function ProjectsSection() {
                 <div className="flex items-center mb-4">
                   <Badge 
                     className={`mr-4 ${
-                      categoryColors[project.category as keyof typeof categoryColors] || 
+                      categoryColors[project.category] || 
                       "bg-gray-100 text-gray-800"
                     }`}
                   >

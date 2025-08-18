@@ -18,7 +18,7 @@ export default function Header() {
     { name: "Contact", href: "/contact" },
   ];
 
-  const isActive = (href: string) => {
+  const isActive = (href) => {
     if (href === "/" && location === "/") return true;
     if (href !== "/" && location.startsWith(href)) return true;
     return false;

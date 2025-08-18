@@ -5,25 +5,16 @@ import { Input } from "@/components/ui/input";
 import { MessageCircle, X, Send, Bot, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface Message {
-  id: string;
-  text: string;
-  sender: 'user' | 'bot';
-  timestamp: Date;
-}
-
-interface ChatbotResponse {
-  message: string;
-  suggestions?: string[];
-}
+// Message shape: { id, text, sender: 'user'|'bot', timestamp }
+// ChatbotResponse shape: { message, suggestions? }
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const chatWindowRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef(null);
+  const chatWindowRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -57,8 +48,8 @@ export default function Chatbot() {
   useEffect(() => {
     if (!isOpen) return;
 
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Element;
+    const handleClickOutside = (event) => {
+      const target = event.target;
       
       // Check if click is inside chatbot window
       if (chatWindowRef.current?.contains(target)) {
@@ -103,8 +94,8 @@ export default function Chatbot() {
     }
   }, [isOpen, messages.length]);
 
-  const addMessage = (text: string, sender: 'user' | 'bot') => {
-    const newMessage: Message = {
+  const addMessage = (text, sender) => {
+    const newMessage = {
       id: Date.now().toString(),
       text,
       sender,
@@ -113,7 +104,7 @@ export default function Chatbot() {
     setMessages(prev => [...prev, newMessage]);
   };
 
-  const addBotMessage = (response: ChatbotResponse) => {
+  const addBotMessage = (response) => {
     setIsTyping(true);
     setTimeout(() => {
       addMessage(response.message, 'bot');
@@ -121,7 +112,7 @@ export default function Chatbot() {
     }, 1000);
   };
 
-  const generateResponse = (userInput: string): ChatbotResponse => {
+  const generateResponse = (userInput) => {
     const input = userInput.toLowerCase();
 
     // Services related queries
@@ -196,13 +187,13 @@ export default function Chatbot() {
     setInputValue("");
   };
 
-  const handleSuggestionClick = (suggestion: string) => {
+  const handleSuggestionClick = (suggestion) => {
     addMessage(suggestion, 'user');
     const response = generateResponse(suggestion);
     addBotMessage(response);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleSendMessage();
     }
