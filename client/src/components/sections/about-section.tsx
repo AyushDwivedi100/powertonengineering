@@ -29,8 +29,8 @@ export default function AboutSection() {
   return (
     <section id="about" className="section-padding bg-gray-50" role="main">
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+          <div className="order-2 lg:order-1">
             <img 
               src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
               alt="Industrial control room with professional engineers working on automation systems" 
@@ -39,16 +39,16 @@ export default function AboutSection() {
             />
           </div>
           
-          <div className="animate-slide-in-right">
-            <span className="text-secondary font-semibold text-lg">About Us</span>
-            <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
+          <div className="animate-slide-in-right order-1 lg:order-2">
+            <span className="text-secondary font-semibold text-sm sm:text-base md:text-lg">About Us</span>
+            <h2 className="text-responsive-xl font-bold text-primary mt-2 sm:mt-4 mb-4 sm:mb-6">
               Welcome to Powerton Engineering Pvt. Ltd.
             </h2>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+            <p className="text-responsive-sm text-gray-600 mb-6 leading-relaxed">
               Your trusted partner in delivering high-quality engineering solutions and services. Founded with a vision to empower industries through innovation and excellence, we specialize in providing a comprehensive range of electrical and instrumentation products.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            <div className="grid-responsive-2 mb-6 sm:mb-8">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (

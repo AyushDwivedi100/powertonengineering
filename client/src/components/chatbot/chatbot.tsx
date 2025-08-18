@@ -97,50 +97,50 @@ export default function Chatbot() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-3 sm:bottom-6 right-3 sm:right-6 z-50">
       {/* Chat Trigger Button */}
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
-          className="bg-secondary hover:bg-secondary/90 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all"
+          className="bg-secondary hover:bg-secondary/90 text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all"
           size="icon"
           aria-label="Open chat assistant"
         >
-          <MessageCircle className="w-6 h-6" />
+          <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
         </Button>
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <Card className="w-80 h-96 flex flex-col shadow-2xl border border-gray-200">
-          <CardHeader className="bg-primary text-white p-4 rounded-t-lg">
+        <Card className="w-[calc(100vw-24px)] max-w-sm sm:w-80 h-[70vh] max-h-96 sm:h-96 flex flex-col shadow-2xl border border-gray-200">
+          <CardHeader className="bg-primary text-white p-3 sm:p-4 rounded-t-lg">
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle className="text-lg font-semibold">Engineering Assistant</CardTitle>
-                <p className="text-sm opacity-90">How can we help you?</p>
+                <CardTitle className="text-base sm:text-lg font-semibold">Engineering Assistant</CardTitle>
+                <p className="text-xs sm:text-sm opacity-90">How can we help you?</p>
               </div>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsOpen(false)}
-                className="text-white hover:bg-white/20"
+                className="text-white hover:bg-white/20 h-8 w-8 sm:h-10 sm:w-10"
                 aria-label="Close chat"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
             </div>
           </CardHeader>
 
           <CardContent className="flex-1 flex flex-col p-0">
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
               {messages.map((message) => (
                 <div
                   key={message.id}
                   className={`flex ${message.isBot ? "justify-start" : "justify-end"}`}
                 >
                   <div
-                    className={`max-w-[80%] p-3 rounded-lg text-sm ${
+                    className={`max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 rounded-lg text-xs sm:text-sm ${
                       message.isBot
                         ? "bg-gray-100 text-gray-900"
                         : "bg-primary text-white"
@@ -152,11 +152,11 @@ export default function Chatbot() {
               ))}
               {chatMutation.isPending && (
                 <div className="flex justify-start">
-                  <div className="bg-gray-100 text-gray-900 p-3 rounded-lg text-sm">
+                  <div className="bg-gray-100 text-gray-900 p-2 sm:p-3 rounded-lg text-xs sm:text-sm">
                     <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0.1s" }}></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0.1s" }}></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
                     </div>
                   </div>
                 </div>
@@ -165,8 +165,8 @@ export default function Chatbot() {
             </div>
 
             {/* Quick Actions */}
-            <div className="p-3 border-t border-gray-200">
-              <div className="grid grid-cols-2 gap-2 mb-3">
+            <div className="p-2 sm:p-3 border-t border-gray-200">
+              <div className="grid grid-cols-2 gap-1 sm:gap-2 mb-2 sm:mb-3">
                 {quickActions.map((action) => (
                   <Button
                     key={action.label}

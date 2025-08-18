@@ -27,30 +27,32 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50" role="banner">
       {/* Top bar */}
-      <div className="bg-primary text-white py-2">
-        <div className="max-w-7xl mx-auto container-padding flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-4">
+      <div className="bg-primary text-white py-1 sm:py-2">
+        <div className="max-w-7xl mx-auto container-padding flex flex-col sm:flex-row sm:justify-between items-center gap-2 sm:gap-0 text-xs sm:text-sm">
+          <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center sm:justify-start">
             <a 
               href={`tel:${COMPANY_INFO.phone}`} 
               className="flex items-center hover:text-secondary transition-colors"
               aria-label="Call us"
             >
-              <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
-              <span>{COMPANY_INFO.phone}</span>
+              <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" aria-hidden="true" />
+              <span className="hidden xs:inline">{COMPANY_INFO.phone}</span>
+              <span className="xs:hidden">Call</span>
             </a>
             <a 
               href={`mailto:${COMPANY_INFO.email}`} 
               className="flex items-center hover:text-secondary transition-colors"
               aria-label="Email us"
             >
-              <Mail className="w-4 h-4 mr-2" aria-hidden="true" />
-              <span>{COMPANY_INFO.email}</span>
+              <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" aria-hidden="true" />
+              <span className="hidden sm:inline">{COMPANY_INFO.email}</span>
+              <span className="sm:hidden">Email</span>
             </a>
           </div>
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center">
             <span className="flex items-center">
               <MapPin className="w-4 h-4 mr-2" aria-hidden="true" />
-              <span>{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} - Serving All India</span>
+              <span className="text-xs lg:text-sm">{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} - Serving All India</span>
             </span>
           </div>
         </div>
@@ -58,10 +60,12 @@ export default function Header() {
 
       {/* Main navigation */}
       <nav className="max-w-7xl mx-auto container-padding" role="navigation" aria-label="Main navigation">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-3 sm:py-4">
           <Link href="/" className="flex items-center">
-            <h1 className="text-2xl font-bold text-primary">
-              <span className="text-secondary">POWERTON</span> ENGINEERING
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-primary">
+              <span className="text-secondary">POWERTON</span> 
+              <span className="hidden xs:inline"> ENGINEERING</span>
+              <span className="xs:hidden block text-xs">ENG</span>
             </h1>
           </Link>
 

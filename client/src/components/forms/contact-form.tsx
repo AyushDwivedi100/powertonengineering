@@ -92,23 +92,23 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="text-gray-900">
-      <CardContent className="p-8">
+    <Card className="text-gray-900 border-none shadow-lg">
+      <CardContent className="p-4 sm:p-6 md:p-8">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+            <div className="grid-responsive-2">
               <FormField
                 control={form.control}
                 name="firstName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-semibold text-gray-700">
+                    <FormLabel className="text-xs sm:text-sm font-semibold text-gray-700">
                       First Name *
                     </FormLabel>
                     <FormControl>
                       <Input 
                         {...field} 
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent text-sm sm:text-base"
                         placeholder="Enter your first name"
                       />
                     </FormControl>

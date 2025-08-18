@@ -19,26 +19,26 @@ export default function HeroSection() {
         }}
       ></div>
       
-      <div className="relative max-w-7xl mx-auto container-padding py-20 lg:py-32">
+      <div className="relative max-w-7xl mx-auto container-padding py-12 sm:py-16 md:py-20 lg:py-32">
         <div className="max-w-4xl">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in">
+          <h1 className="text-responsive-2xl font-bold mb-4 sm:mb-6 leading-tight animate-fade-in">
             Comprehensive Solutions for <span className="text-secondary">Industrial Success</span>
           </h1>
-          <p className="text-xl lg:text-2xl mb-8 opacity-90 leading-relaxed animate-fade-in">
+          <p className="text-responsive-base mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in">
             Our broad portfolio of products and services provides all-encompassing solutions that drive industrial success, ensuring that every aspect of your engineering needs is covered.
           </p>
           
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
-            <Link href="/services">
-              <Button className="btn-secondary text-lg px-8 py-4 transform hover:scale-105 transition-all">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
+            <Link href="/services" className="w-full sm:w-auto">
+              <Button className="btn-secondary w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 transform hover:scale-105 transition-all">
                 Explore Our Services
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/contact" className="w-full sm:w-auto">
               <Button 
                 variant="outline" 
-                className="btn-outline text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
+                className="btn-outline w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 border-white text-white hover:bg-white hover:text-primary"
               >
                 Request Consultation
               </Button>

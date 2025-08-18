@@ -149,21 +149,21 @@ export default function Products() {
       <section className="section-padding bg-gradient-to-br from-primary to-blue-800 text-white">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-responsive-2xl font-bold mb-4 sm:mb-6">
               Industrial <span className="text-secondary">Product Catalog</span>
             </h1>
-            <p className="text-xl lg:text-2xl mb-8 opacity-90">
+            <p className="text-responsive-base mb-6 sm:mb-8 opacity-90">
               Comprehensive range of electrical and automation products designed for reliability, efficiency, and superior performance in industrial environments.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button className="btn-secondary text-lg px-8 py-4">
-                <Download className="mr-2 w-5 h-5" />
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+              <Button className="btn-secondary mobile-full btn-responsive">
+                <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                 Download Catalog
               </Button>
-              <Link href="/contact">
+              <Link href="/contact" className="mobile-full">
                 <Button 
                   variant="outline" 
-                  className="btn-outline text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
+                  className="btn-outline mobile-full btn-responsive border-white text-white hover:bg-white hover:text-primary"
                 >
                   Request Quote
                 </Button>
@@ -176,45 +176,47 @@ export default function Products() {
       {/* Product Categories */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto container-padding">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-responsive-xl font-bold text-primary mb-4 sm:mb-6">
               Product Categories
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-responsive-sm text-gray-600 max-w-3xl mx-auto">
               Explore our comprehensive range of industrial products organized by category for easy navigation.
             </p>
           </div>
 
           {/* Category Tabs */}
           <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
-            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-5 gap-2 bg-gray-100 p-2 rounded-lg mb-8">
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-1 sm:gap-2 bg-gray-100 p-1 sm:p-2 rounded-lg mb-6 sm:mb-8">
               {productCategories.slice(0, 5).map((category) => (
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className="data-[state=active]:bg-primary data-[state=active]:text-white"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-white text-xs sm:text-sm px-2 py-1 sm:px-3 sm:py-2"
                 >
-                  {category.name}
+                  <span className="hidden sm:inline">{category.name}</span>
+                  <span className="sm:hidden">{category.name.split(' ')[0]}</span>
                 </TabsTrigger>
               ))}
             </TabsList>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 mb-6 sm:mb-8">
               {productCategories.slice(5).map((category) => (
                 <Button
                   key={category.id}
                   variant={selectedCategory === category.id ? "default" : "outline"}
                   onClick={() => setSelectedCategory(category.id)}
-                  className="h-12"
+                  className="h-10 sm:h-12 text-xs sm:text-sm px-2 sm:px-4"
                 >
-                  {category.name}
+                  <span className="hidden sm:inline">{category.name}</span>
+                  <span className="sm:hidden">{category.name.split(' ')[0]}</span>
                 </Button>
               ))}
             </div>
 
             {/* Product Grid */}
-            <TabsContent value={selectedCategory} className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <TabsContent value={selectedCategory} className="space-y-6 sm:space-y-8">
+              <div className="grid-responsive-cards">
                 {filteredProducts.map((product) => {
                   const details = productDetails[product.id as keyof typeof productDetails];
                   

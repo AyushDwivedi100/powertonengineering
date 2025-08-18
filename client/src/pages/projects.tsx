@@ -61,21 +61,21 @@ export default function Projects() {
       <section className="section-padding bg-gradient-to-br from-primary to-blue-800 text-white">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-responsive-2xl font-bold mb-4 sm:mb-6">
               Our <span className="text-secondary">Project Portfolio</span>
             </h1>
-            <p className="text-xl lg:text-2xl mb-8 opacity-90">
+            <p className="text-responsive-base mb-6 sm:mb-8 opacity-90">
               Explore our portfolio of successfully completed engineering projects showcasing our expertise in industrial automation and electrical engineering.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button className="btn-secondary text-lg px-8 py-4">
-                <Download className="mr-2 w-5 h-5" />
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+              <Button className="btn-secondary mobile-full btn-responsive">
+                <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                 Download Portfolio
               </Button>
-              <Link href="/contact">
+              <Link href="/contact" className="mobile-full">
                 <Button 
                   variant="outline" 
-                  className="btn-outline text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
+                  className="btn-outline mobile-full btn-responsive border-white text-white hover:bg-white hover:text-primary"
                 >
                   Discuss Your Project
                 </Button>
