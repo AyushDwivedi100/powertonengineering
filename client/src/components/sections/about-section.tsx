@@ -33,9 +33,9 @@ export default function AboutSection() {
           <div className="order-2 lg:order-1 relative">
             <div className="relative overflow-hidden rounded-xl shadow-2xl">
               <img 
-                src="/attached_assets/logo-new-removebg-preview_1755497919444.png" 
-                alt="Powerton Engineering Pvt. Ltd. - Industrial Automation and Electrical Engineering Solutions" 
-                className="w-full h-auto object-contain animate-fade-in transform hover:scale-105 transition-transform duration-300 bg-white p-8 rounded-lg"
+                src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
+                alt="Modern industrial automation control room with engineers monitoring electrical systems and instrumentation" 
+                className="w-full h-auto object-cover animate-fade-in transform hover:scale-105 transition-transform duration-300"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
