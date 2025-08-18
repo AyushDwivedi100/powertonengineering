@@ -250,6 +250,7 @@
   bottom: 5rem !important;
   max-width: calc(100vw - 2rem) !important;
   transform: none !important;
+  pointer-events: auto !important;
 }
 
 @media (max-width: 640px) {
@@ -258,6 +259,21 @@
     bottom: 4.5rem !important;
     max-width: calc(100vw - 1rem) !important;
   }
+}
+
+/* Ensure page scroll is not affected by chatbot */
+body {
+  overflow-y: auto !important;
+  position: static !important;
+}
+
+/* Blur overlay should not affect page scrolling */
+.chatbot-overlay {
+  pointer-events: none;
+}
+
+.chatbot-overlay > * {
+  pointer-events: auto;
 }
 
 @keyframes floatIn {
