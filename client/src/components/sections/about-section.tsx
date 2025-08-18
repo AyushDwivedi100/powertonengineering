@@ -33,9 +33,9 @@ export default function AboutSection() {
           <div className="order-2 lg:order-1 relative">
             <div className="relative overflow-hidden rounded-xl shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1581092335878-1c43d93b6e07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
-                alt="Professional Indian engineers working on industrial automation and control systems" 
-                className="w-full h-auto object-cover animate-fade-in transform hover:scale-105 transition-transform duration-300"
+                src="/attached_assets/logo-new-removebg-preview_1755497919444.png" 
+                alt="Powerton Engineering Pvt. Ltd. - Industrial Automation and Electrical Engineering Solutions" 
+                className="w-full h-auto object-contain animate-fade-in transform hover:scale-105 transition-transform duration-300 bg-white p-8 rounded-lg"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
