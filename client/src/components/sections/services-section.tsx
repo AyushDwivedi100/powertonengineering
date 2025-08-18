@@ -86,9 +86,9 @@ export default function ServicesSection() {
                   <Link href="/services">
                     <Button 
                       variant="ghost" 
-                      className="text-secondary hover:text-secondary/80 p-0 font-semibold"
+                      className="text-secondary hover:bg-secondary/10 hover:text-secondary px-4 py-2 font-semibold transition-all duration-300 group"
                     >
-                      Learn More →
+                      Learn More <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </Button>
                   </Link>
                 </CardContent>
