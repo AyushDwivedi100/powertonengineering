@@ -10,6 +10,8 @@ import {
   Settings 
 } from "lucide-react";
 import { Link } from "wouter";
+import { motion } from "framer-motion";
+import { AnimatedSection, StaggeredList } from "@/hooks/use-scroll-animation";
 
 const iconMap = {
   "microchip": Cpu,
@@ -24,63 +26,120 @@ export default function ServicesSection() {
   return (
     <section id="services" className="section-padding bg-white" role="main">
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="text-center mb-12 sm:mb-16">
-          <span className="text-secondary font-semibold text-sm sm:text-base md:text-lg">Our Services</span>
-          <h2 className="text-responsive-xl font-bold text-primary mt-2 sm:mt-4 mb-4 sm:mb-6">
-            Expert solutions for all needs, delivered with exceptional care
-          </h2>
-          <p className="text-responsive-sm text-gray-600 max-w-3xl mx-auto">
-            From process automation to maintenance contracts, we provide comprehensive engineering solutions tailored to your industrial requirements.
-          </p>
-        </div>
+        <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
+          <div className="text-center mb-12 sm:mb-16">
+            <motion.span 
+              className="text-secondary font-semibold text-sm sm:text-base md:text-lg"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Our Services
+            </motion.span>
+            <motion.h2 
+              className="text-responsive-xl font-bold text-primary mt-2 sm:mt-4 mb-4 sm:mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              Expert solutions for all needs, delivered with exceptional care
+            </motion.h2>
+            <motion.p 
+              className="text-responsive-sm text-gray-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+            >
+              From process automation to maintenance contracts, we provide comprehensive engineering solutions tailored to your industrial requirements.
+            </motion.p>
+          </div>
+        </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <StaggeredList 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
+          stagger={0.15}
+          delay={0.3}
+        >
           {SERVICES.map((service, index) => {
             const IconComponent = iconMap[service.icon] || Settings;
             
             return (
-              <Card 
-                key={service.id} 
-                className="border border-gray-100 group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2"
+              <motion.div
+                key={service.id}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <CardContent className="p-4 sm:p-6 md:p-8">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                    <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" aria-hidden="true" />
-                  </div>
-                  
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">{service.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{service.description}</p>
-                  
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="text-sm text-gray-600 flex items-center">
-                        <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-3"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <Link href="/services">
-                    <Button 
-                      variant="ghost" 
-                      className="text-secondary hover:text-secondary/80 p-0 font-semibold"
+                <Card className="border border-gray-100 group hover:shadow-xl transition-all duration-300 hover-lift will-animate">
+                  <CardContent className="p-4 sm:p-6 md:p-8">
+                    <motion.div 
+                      className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform"
+                      whileHover={{ 
+                        scale: 1.15, 
+                        rotate: [0, -5, 5, 0],
+                        transition: { duration: 0.4 }
+                      }}
                     >
-                      Learn More →
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+                      <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" aria-hidden="true" />
+                    </motion.div>
+                    
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">{service.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{service.description}</p>
+                    
+                    <motion.ul 
+                      className="space-y-2 mb-6"
+                      initial="hidden"
+                      whileInView="visible"
+                      variants={{
+                        visible: {
+                          transition: {
+                            staggerChildren: 0.1
+                          }
+                        }
+                      }}
+                    >
+                      {service.features.map((feature, featureIndex) => (
+                        <motion.li 
+                          key={feature} 
+                          className="text-sm text-gray-600 flex items-center"
+                          variants={{
+                            hidden: { opacity: 0, x: -20 },
+                            visible: { opacity: 1, x: 0 }
+                          }}
+                        >
+                          <motion.div 
+                            className="w-1.5 h-1.5 bg-secondary rounded-full mr-3"
+                            whileHover={{ scale: 1.5 }}
+                            transition={{ duration: 0.2 }}
+                          />
+                          {feature}
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+                    
+                    <Link href="/services">
+                      <Button 
+                        variant="ghost" 
+                        className="text-secondary hover:text-secondary/80 p-0 font-semibold hover-scale"
+                      >
+                        Learn More →
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </motion.div>
             );
           })}
-        </div>
+        </StaggeredList>
 
-        <div className="text-center mt-12">
-          <Link href="/services">
-            <Button className="btn-primary text-lg px-8 py-4">
-              View All Services
-            </Button>
-          </Link>
-        </div>
+        <AnimatedSection animation="fadeInUp" delay={0.5} duration={0.6}>
+          <div className="text-center mt-12">
+            <Link href="/services">
+              <Button className="btn-primary text-lg px-8 py-4 hover-lift">
+                View All Services
+              </Button>
+            </Link>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

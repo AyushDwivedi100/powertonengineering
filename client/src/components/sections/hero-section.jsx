@@ -1,8 +1,59 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
+import { motion } from "framer-motion";
+import { StaggeredList } from "@/hooks/use-scroll-animation";
 
 export default function HeroSection() {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { 
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { 
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const statsVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.8,
+        delay: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
   return (
     <section 
       id="home" 
@@ -11,81 +62,159 @@ export default function HeroSection() {
     >
       <div className="absolute inset-0 bg-black bg-opacity-20"></div>
       
-      {/* Background Image */}
-      <div 
+      {/* Background Image with Parallax */}
+      <motion.div 
         className="absolute inset-0 bg-cover bg-center opacity-30"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
         }}
-      ></div>
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 10, ease: "easeOut" }}
+      />
       
       <div className="relative max-w-7xl mx-auto container-padding py-12 sm:py-16 md:py-20 lg:py-32">
-        <div className="max-w-4xl">
-          <h1 className="text-responsive-2xl font-bold mb-4 sm:mb-6 leading-tight animate-fade-in">
+        <motion.div 
+          className="max-w-4xl"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <motion.h1 
+            className="text-responsive-2xl font-bold mb-4 sm:mb-6 leading-tight will-animate"
+            variants={itemVariants}
+          >
             Comprehensive Solutions for <span className="text-secondary">Industrial Success</span>
-          </h1>
-          <p className="text-responsive-base mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in">
-            Our broad portfolio of products and services provides all-encompassing solutions that drive industrial success, ensuring that every aspect of your engineering needs is covered.
-          </p>
+          </motion.h1>
           
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
-            <Link href="/services" className="w-full sm:w-auto">
-              <Button className="btn-secondary w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 transform hover:scale-105 transition-all">
-                Explore Our Services
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-              </Button>
-            </Link>
-            <Link href="/quote" className="w-full sm:w-auto">
-              <Button 
-                variant="outline" 
-                className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 border-white text-white hover:bg-white hover:text-primary transition-all duration-300"
-              >
-                Request Consultation
-              </Button>
-            </Link>
-          </div>
+          <motion.p 
+            className="text-responsive-base mb-6 sm:mb-8 opacity-90 leading-relaxed will-animate"
+            variants={itemVariants}
+          >
+            Our broad portfolio of products and services provides all-encompassing solutions that drive industrial success, ensuring that every aspect of your engineering needs is covered.
+          </motion.p>
+          
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12"
+            variants={containerVariants}
+          >
+            <motion.div variants={buttonVariants}>
+              <Link href="/services" className="w-full sm:w-auto">
+                <Button className="btn-secondary w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 hover-lift transition-all duration-300">
+                  Explore Our Services
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                </Button>
+              </Link>
+            </motion.div>
+            <motion.div variants={buttonVariants}>
+              <Link href="/quote" className="w-full sm:w-auto">
+                <Button 
+                  variant="outline" 
+                  className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 border-white text-white hover:bg-white hover:text-primary hover-lift transition-all duration-300"
+                >
+                  Request Consultation
+                </Button>
+              </Link>
+            </motion.div>
+          </motion.div>
 
           {/* Key Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="flex items-center space-x-3">
-              <CheckCircle className="w-6 h-6 text-secondary" />
+          <StaggeredList 
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"
+            stagger={0.15}
+          >
+            <div className="flex items-center space-x-3 will-animate">
+              <CheckCircle className="w-6 h-6 text-secondary flex-shrink-0" />
               <span className="text-lg">15+ Years Experience</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <CheckCircle className="w-6 h-6 text-secondary" />
+            <div className="flex items-center space-x-3 will-animate">
+              <CheckCircle className="w-6 h-6 text-secondary flex-shrink-0" />
               <span className="text-lg">24/7 Technical Support</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <CheckCircle className="w-6 h-6 text-secondary" />
+            <div className="flex items-center space-x-3 will-animate">
+              <CheckCircle className="w-6 h-6 text-secondary flex-shrink-0" />
               <span className="text-lg">Pan-India Service</span>
             </div>
-          </div>
-        </div>
+          </StaggeredList>
+        </motion.div>
       </div>
 
       {/* Stats Section */}
-      <div className="relative bg-white bg-opacity-10 backdrop-blur-sm border-t border-white border-opacity-20">
+      <motion.div 
+        className="relative bg-white bg-opacity-10 backdrop-blur-sm border-t border-white border-opacity-20"
+        initial="hidden"
+        animate="visible"
+        variants={statsVariants}
+      >
         <div className="max-w-7xl mx-auto container-padding py-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">15+</div>
+          <StaggeredList 
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
+            stagger={0.1}
+            delay={0.3}
+          >
+            <div className="will-animate">
+              <motion.div 
+                className="text-3xl lg:text-4xl font-bold text-secondary mb-2"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 0.8,
+                  ease: [0.34, 1.56, 0.64, 1]
+                }}
+              >
+                15+
+              </motion.div>
               <div className="text-sm lg:text-base opacity-90">Years Experience</div>
             </div>
-            <div>
-              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">1200+</div>
+            <div className="will-animate">
+              <motion.div 
+                className="text-3xl lg:text-4xl font-bold text-secondary mb-2"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 0.9,
+                  ease: [0.34, 1.56, 0.64, 1]
+                }}
+              >
+                1200+
+              </motion.div>
               <div className="text-sm lg:text-base opacity-90">Projects Completed</div>
             </div>
-            <div>
-              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">450+</div>
+            <div className="will-animate">
+              <motion.div 
+                className="text-3xl lg:text-4xl font-bold text-secondary mb-2"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 1.0,
+                  ease: [0.34, 1.56, 0.64, 1]
+                }}
+              >
+                450+
+              </motion.div>
               <div className="text-sm lg:text-base opacity-90">Happy Clients</div>
             </div>
-            <div>
-              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">24/7</div>
+            <div className="will-animate">
+              <motion.div 
+                className="text-3xl lg:text-4xl font-bold text-secondary mb-2"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 1.1,
+                  ease: [0.34, 1.56, 0.64, 1]
+                }}
+              >
+                24/7
+              </motion.div>
               <div className="text-sm lg:text-base opacity-90">Support Available</div>
             </div>
-          </div>
+          </StaggeredList>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

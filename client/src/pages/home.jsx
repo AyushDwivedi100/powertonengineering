@@ -65,22 +65,22 @@ export default function Home() {
       />
       
       <HeroSection />
-      <AnimatedSection animation="fade-in-up" delay={100}>
+      <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
         <AboutSection />
       </AnimatedSection>
-      <AnimatedSection animation="fade-in-left" delay={200}>
+      <AnimatedSection animation="fadeInLeft" delay={0.2} duration={0.9}>
         <ServicesSection />
       </AnimatedSection>
-      <AnimatedSection animation="fade-in-right" delay={100}>
+      <AnimatedSection animation="fadeInRight" delay={0.1} duration={0.8}>
         <ProductsSection />
       </AnimatedSection>
-      <AnimatedSection animation="zoom-in" delay={150}>
+      <AnimatedSection animation="scaleIn" delay={0.15} duration={0.7}>
         <ClientsSection />
       </AnimatedSection>
-      <AnimatedSection animation="fade-in-up" delay={200}>
+      <AnimatedSection animation="slideInUp" delay={0.2} duration={0.9}>
         <ProjectsSection />
       </AnimatedSection>
-      <AnimatedSection animation="slide-in-up" delay={100}>
+      <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
         <ContactSection />
       </AnimatedSection>
     </>
