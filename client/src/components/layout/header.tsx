@@ -10,7 +10,6 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navigation = [
-    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Products", href: "/products" },
@@ -65,14 +64,9 @@ export default function Header() {
             <img 
               src="https://powertonengineering.in/assets/img/logo-new.jpg" 
               alt="Powerton Engineering Pvt. Ltd." 
-              className="h-8 sm:h-10 md:h-12 w-auto mr-2 sm:mr-3"
+              className="h-8 sm:h-10 md:h-12 w-auto"
               loading="eager"
             />
-            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-primary">
-              <span className="text-secondary">POWERTON</span> 
-              <span className="hidden xs:inline"> ENGINEERING</span>
-              <span className="xs:hidden block text-xs">ENG</span>
-            </h1>
           </Link>
 
           {/* Desktop navigation */}

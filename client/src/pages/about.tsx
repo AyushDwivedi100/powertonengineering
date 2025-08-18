@@ -75,8 +75,8 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
-                alt="Powerton Engineering team working on industrial automation project"
+                src="https://images.unsplash.com/photo-1553376944-52d1f27487b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
+                alt="Indian engineering team at Powerton working on advanced industrial automation systems"
                 className="rounded-xl shadow-2xl w-full"
                 loading="lazy"
               />

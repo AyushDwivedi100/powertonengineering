@@ -16,6 +16,7 @@ import Products from "@/pages/products";
 import Projects from "@/pages/projects";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
+import Chatbot from "@/components/chatbot/chatbot";
 
 function Router() {
   return (
@@ -29,6 +30,7 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>
+      <Chatbot />
     </Layout>
   );
 }

@@ -32,8 +32,8 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           <div className="order-2 lg:order-1">
             <img 
-              src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
-              alt="Industrial control room with professional engineers working on automation systems" 
+              src="https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
+              alt="Indian engineers working on industrial control systems in modern facility" 
               className="rounded-xl shadow-2xl w-full animate-fade-in"
               loading="lazy"
             />

@@ -71,19 +71,19 @@ export const PRODUCTS = [
     id: "instrumentation",
     title: "Instrumentation Components",
     description: "High-precision sensors, transmitters, and measurement devices",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "electrical",
     title: "Electrical Components",
     description: "Switches, relays, contactors, and power distribution equipment",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "measurement",
     title: "Measurement Instruments",
     description: "Digital meters, analyzers, and calibration equipment",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "solar",
@@ -95,19 +95,19 @@ export const PRODUCTS = [
     id: "automation",
     title: "Automation & Control",
     description: "PLC systems, HMI panels, and SCADA solutions",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1553376944-52d1f27487b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "safety",
     title: "Safety & Protection",
     description: "Circuit breakers, safety relays, and protective equipment",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "pumps",
     title: "Mechanical Pumps",
     description: "Centrifugal pumps, spare parts, and maintenance kits",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "tools",
