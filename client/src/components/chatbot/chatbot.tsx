@@ -49,17 +49,27 @@ export default function Chatbot() {
       document.addEventListener('mousedown', handleClickOutside);
       // Disable scroll but keep scrollbar visible
       const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = `${scrollBarWidth}px`;
+      document.body.style.overflowY = 'scroll';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${window.scrollY}px`;
+      document.body.style.width = '100%';
     } else {
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
+      const scrollY = document.body.style.top;
+      document.body.style.overflowY = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
+      document.body.style.overflowY = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
     };
   }, [isOpen]);
 
@@ -189,7 +199,7 @@ export default function Chatbot() {
     <>
       {/* Chatbot Toggle Button */}
       <motion.div
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed bottom-4 right-6 z-50"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 2 }}
@@ -225,7 +235,7 @@ export default function Chatbot() {
         {isOpen && (
           <motion.div
             ref={chatWindowRef}
-            className="fixed bottom-24 right-6 z-40 w-80 sm:w-96 max-h-[calc(100vh-200px)]"
+            className="fixed bottom-20 right-6 z-40 w-80 sm:w-96 max-h-[calc(100vh-180px)]"
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
