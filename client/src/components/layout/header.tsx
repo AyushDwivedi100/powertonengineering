@@ -83,7 +83,7 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <Link href="/contact">
+            <Link href="/quote">
               <Button className="btn-secondary">
                 Get Quote
               </Button>
@@ -112,7 +112,7 @@ export default function Header() {
                     {item.name}
                   </Link>
                 ))}
-                <Link href="/contact" onClick={() => setIsOpen(false)}>
+                <Link href="/quote" onClick={() => setIsOpen(false)}>
                   <Button className="btn-secondary w-full mt-4">
                     Get Quote
                   </Button>
