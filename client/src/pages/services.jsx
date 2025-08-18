@@ -147,7 +147,7 @@ export default function Services() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {SERVICES.map((service) => {
-              const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Settings;
+              const IconComponent = iconMap[service.icon] || Settings;
               
               return (
                 <Card 
@@ -193,8 +193,8 @@ export default function Services() {
 
       {/* Detailed Service Sections */}
       {SERVICES.map((service, index) => {
-        const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Settings;
-        const details = serviceDetails[service.id as keyof typeof serviceDetails];
+        const IconComponent = iconMap[service.icon] || Settings;
+        const details = serviceDetails[service.id];
         const isEven = index % 2 === 0;
         
         return (

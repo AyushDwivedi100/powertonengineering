@@ -1,4 +1,6 @@
 import { SEO } from "@/lib/seo";
+import { AnimatedSection, useScrollAnimations } from "@/hooks/use-scroll-animation";
+import { useEffect } from "react";
 import HeroSection from "@/components/sections/hero-section";
 import AboutSection from "@/components/sections/about-section";
 import ServicesSection from "@/components/sections/services-section";
@@ -8,6 +10,8 @@ import ProjectsSection from "@/components/sections/projects-section";
 import ContactSection from "@/components/sections/contact-section";
 
 export default function Home() {
+  useScrollAnimations();
+  
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -61,12 +65,24 @@ export default function Home() {
       />
       
       <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <ProductsSection />
-      <ClientsSection />
-      <ProjectsSection />
-      <ContactSection />
+      <AnimatedSection animation="fade-in-up" delay={100}>
+        <AboutSection />
+      </AnimatedSection>
+      <AnimatedSection animation="fade-in-left" delay={200}>
+        <ServicesSection />
+      </AnimatedSection>
+      <AnimatedSection animation="fade-in-right" delay={100}>
+        <ProductsSection />
+      </AnimatedSection>
+      <AnimatedSection animation="zoom-in" delay={150}>
+        <ClientsSection />
+      </AnimatedSection>
+      <AnimatedSection animation="fade-in-up" delay={200}>
+        <ProjectsSection />
+      </AnimatedSection>
+      <AnimatedSection animation="slide-in-up" delay={100}>
+        <ContactSection />
+      </AnimatedSection>
     </>
   );
 }

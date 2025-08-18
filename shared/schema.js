@@ -52,11 +52,9 @@ export const insertChatbotMessageSchema = createInsertSchema(chatbotMessages).om
   createdAt: true,
 });
 
-export type InsertContact = z.infer<typeof insertContactSchema>;
-export type Contact = typeof contacts.$inferSelect;
-
-export type InsertQuoteRequest = z.infer<typeof insertQuoteRequestSchema>;
-export type QuoteRequest = typeof quoteRequests.$inferSelect;
-
-export type InsertChatbotMessage = z.infer<typeof insertChatbotMessageSchema>;
-export type ChatbotMessage = typeof chatbotMessages.$inferSelect;
+// Export the schemas for use in components
+export const schemas = {
+  insertContact: insertContactSchema,
+  insertQuoteRequest: insertQuoteRequestSchema,
+  insertChatbotMessage: insertChatbotMessageSchema
+};
