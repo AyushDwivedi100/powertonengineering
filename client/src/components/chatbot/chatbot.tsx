@@ -82,10 +82,10 @@ export default function Chatbot() {
       setIsOpen(false);
     };
 
-    // Add small delay to prevent immediate triggering after opening
+    // Add delay to prevent immediate triggering after opening
     const timer = setTimeout(() => {
       document.addEventListener('mousedown', handleClickOutside);
-    }, 200);
+    }, 300);
 
     return () => {
       clearTimeout(timer);
@@ -229,16 +229,18 @@ export default function Chatbot() {
             e.preventDefault();
             e.stopPropagation();
             
-            // Prevent double-clicking issues
+            // Prevent rapid clicking issues
             if (isToggling) return;
             
             setIsToggling(true);
-            setIsOpen(prev => !prev);
             
-            // Reset toggle flag after a short delay
+            // Toggle the state directly without checking prev state
+            setIsOpen(!isOpen);
+            
+            // Reset toggle flag after animation completes
             setTimeout(() => {
               setIsToggling(false);
-            }, 300);
+            }, 400);
           }}
           className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 shadow-lg"
           aria-label={isOpen ? "Close chat" : "Open chat"}
@@ -262,6 +264,10 @@ export default function Chatbot() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsOpen(false);
+            }}
           />
         )}
       </AnimatePresence>
