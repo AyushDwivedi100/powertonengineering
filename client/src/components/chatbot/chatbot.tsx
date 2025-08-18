@@ -274,7 +274,7 @@ export default function Chatbot() {
               </CardHeader>
               <CardContent className="p-0 flex flex-col max-h-[calc(100vh-280px)]">
                 {/* Messages Area */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 min-h-[280px] max-h-[380px] scroll-smooth chatbot-messages">
+                <div className="flex-1 overflow-y-scroll p-4 space-y-4 bg-gray-50 min-h-[280px] max-h-[380px] scroll-smooth chatbot-messages">
                   {messages.map((message) => (
                     <div
                       key={message.id}
