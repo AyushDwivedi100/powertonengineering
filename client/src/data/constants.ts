@@ -123,21 +123,24 @@ export const TESTIMONIALS = [
     location: "West Bengal",
     rating: 5,
     comment: "Powerton Engineering made the process of going solar seamless and easy. Their team handled everything from start to finish, and we're thrilled with the results.",
-    initials: "AA"
+    initials: "AA",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
   },
   {
     name: "Sanjay Patil",
-    location: "Uttar Pradesh",
+    location: "Uttar Pradesh", 
     rating: 5,
     comment: "I am glad I chose Powerton Engineering for our installation, and I would not hesitate to recommend them to any of my friends.",
-    initials: "SP"
+    initials: "SP",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
   },
   {
     name: "Rhea Sharma",
     location: "Maharashtra",
     rating: 5,
     comment: "Excellent quality products and outstanding customer service. The technical expertise of the team is impressive and highly professional.",
-    initials: "RS"
+    initials: "RS",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80"
   }
 ];
 

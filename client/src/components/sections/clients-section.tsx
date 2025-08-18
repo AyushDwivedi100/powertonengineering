@@ -46,8 +46,14 @@ export default function ClientsSection() {
                 </div>
                 <p className="text-gray-600 mb-6 italic">"{testimonial.comment}"</p>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-semibold mr-4 shadow-md">
-                    <span>{testimonial.initials}</span>
+                  <div className="relative w-12 h-12 mr-4">
+                    <img 
+                      src={testimonial.image} 
+                      alt={`${testimonial.name} - ${testimonial.location}`}
+                      className="w-full h-full rounded-full object-cover shadow-md"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 rounded-full ring-2 ring-primary/20"></div>
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">{testimonial.name}</div>

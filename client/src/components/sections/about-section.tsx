@@ -30,13 +30,20 @@ export default function AboutSection() {
     <section id="about" className="section-padding bg-gray-50" role="main">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-          <div className="order-2 lg:order-1">
-            <img 
-              src="https://images.unsplash.com/photo-1581092335878-1c43d93b6e07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
-              alt="Professional Indian engineers working on industrial automation and control systems" 
-              className="rounded-xl shadow-2xl w-full animate-fade-in"
-              loading="lazy"
-            />
+          <div className="order-2 lg:order-1 relative">
+            <div className="relative overflow-hidden rounded-xl shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1581092335878-1c43d93b6e07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
+                alt="Professional Indian engineers working on industrial automation and control systems" 
+                className="w-full h-auto object-cover animate-fade-in transform hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -top-4 -right-4 w-16 h-16 bg-secondary/20 rounded-full blur-xl"></div>
+            <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-primary/20 rounded-full blur-xl"></div>
           </div>
           
           <div className="animate-slide-in-right order-1 lg:order-2">
