@@ -22,7 +22,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [isToggling, setIsToggling] = useState(false);
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatWindowRef = useRef<HTMLDivElement>(null);
 
@@ -54,42 +54,36 @@ export default function Chatbot() {
     }
   }, [isOpen]);
 
-  // Separate effect for click outside detection
+  // Click outside detection - only listen when open
   useEffect(() => {
     if (!isOpen) return;
 
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
       
-      // Check if click is inside chatbot window
+      // Don't close if clicking inside chatbot window
       if (chatWindowRef.current?.contains(target)) {
         return;
       }
       
-      // Check if click is on toggle button or its children
+      // Don't close if clicking the toggle button (let the button handle it)
       const toggleButton = document.querySelector('[data-chatbot-toggle="true"]');
       if (toggleButton?.contains(target)) {
-        return; // Don't close here - let the button's onClick handle it
-      }
-      
-      // Check if clicking on the blur overlay
-      if (target.classList?.contains('backdrop-blur-sm')) {
-        setIsOpen(false);
         return;
       }
       
-      // Click is outside - close chatbot (but not if it's on the toggle button)
+      // Close on outside click
       setIsOpen(false);
     };
 
-    // Add delay to prevent immediate triggering after opening
+    // Add event listener with a small delay to prevent immediate triggering
     const timer = setTimeout(() => {
-      document.addEventListener('mousedown', handleClickOutside);
-    }, 300);
+      document.addEventListener('click', handleClickOutside);
+    }, 100);
 
     return () => {
       clearTimeout(timer);
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('click', handleClickOutside);
     };
   }, [isOpen]);
 
@@ -229,23 +223,12 @@ export default function Chatbot() {
             e.preventDefault();
             e.stopPropagation();
             
-            // Prevent rapid clicking issues
-            if (isToggling) return;
-            
-            setIsToggling(true);
-            
-            // Toggle the state directly without checking prev state
-            setIsOpen(!isOpen);
-            
-            // Reset toggle flag after animation completes
-            setTimeout(() => {
-              setIsToggling(false);
-            }, 400);
+            // Simple toggle without complex state management
+            setIsOpen(prevState => !prevState);
           }}
           className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 shadow-lg"
           aria-label={isOpen ? "Close chat" : "Open chat"}
           data-chatbot-toggle="true"
-          disabled={isToggling}
         >
           {isOpen ? (
             <X className="w-6 h-6 text-white" />
@@ -264,10 +247,6 @@ export default function Chatbot() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsOpen(false);
-            }}
           />
         )}
       </AnimatePresence>
