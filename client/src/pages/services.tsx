@@ -106,9 +106,9 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="Engineering Services - Process Automation & Instrumentation | Powerton Engineering"
-        description="Comprehensive engineering services including process automation, instrumentation solutions, site installation, commissioning, and maintenance contracts. Expert technical support across India."
-        keywords="process automation, instrumentation services, site installation, commissioning services, AMC maintenance contracts, electrical engineering services, industrial automation India"
+        title="Industrial Automation Services - Process Control, Instrumentation & Electrical Solutions | Powerton Engineering"
+        description="Complete industrial automation services: process control systems, instrumentation, electrical panel design, SCADA development, HMI programming, control system integration, and industrial IoT solutions. Expert engineering team with 15+ years experience serving manufacturing, chemical, pharmaceutical, and power industries across India."
+        keywords="industrial automation services India, process control systems, instrumentation services, electrical panel design, SCADA systems development, HMI programming, control system integration, automation engineering, industrial IoT solutions, PLC programming, motor control centers, power control panels, process automation consultancy"
         canonicalUrl="https://powertonengineering.in/services"
       />
 

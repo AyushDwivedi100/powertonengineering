@@ -91,9 +91,9 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact Powerton Engineering - Get Expert Engineering Support"
-        description="Contact Powerton Engineering for industrial automation, electrical engineering, and instrumentation services. 24/7 support available. Located in Noida, serving all India."
-        keywords="contact powerton engineering, industrial automation support, electrical engineering contact, instrumentation services, Noida engineering company, technical support India"
+        title="Contact Powerton Engineering - Industrial Automation & Electrical Solutions | 24/7 Support"
+        description="Contact Powerton Engineering for industrial automation, electrical control panels, and instrumentation services. 24/7 technical support, free consultations, and on-site service. Located in Noida, Uttar Pradesh, serving all India with pan-India service network. Call +91-94627-71662 or email info@powertonengineering.in"
+        keywords="contact powerton engineering, industrial automation support, electrical engineering contact, instrumentation services, Noida engineering company, technical support India, 24/7 engineering support, automation consultancy, electrical panel manufacturer contact, process control support"
         canonicalUrl="https://powertonengineering.in/contact"
       />
 

@@ -49,9 +49,9 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Powerton Engineering - 15+ Years of Industrial Automation Excellence"
-        description="Learn about Powerton Engineering's journey in industrial automation, electrical engineering, and instrumentation solutions. Expert team serving industries across India since 2008."
-        keywords="about powerton engineering, industrial automation company, electrical engineering company, instrumentation services, automation experts India"
+        title="About Powerton Engineering - Leading Industrial Automation & Electrical Solutions Company | 15+ Years Excellence"
+        description="Discover Powerton Engineering's expertise in industrial automation, electrical control panels, and instrumentation solutions. ISO certified company with 15+ years serving 450+ clients across India. Expert engineering team with 24/7 support and pan-India service network."
+        keywords="about powerton engineering, industrial automation company India, electrical control panel manufacturer, instrumentation services company, automation experts Noida, electrical engineering company, process automation specialists, control system integrators, ISO certified manufacturer"
         canonicalUrl="https://powertonengineering.in/about"
       />
 

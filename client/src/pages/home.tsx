@@ -55,9 +55,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Powerton Engineering - Industrial Automation & Control Panels | India"
-        description="Leading manufacturer of electrical control panels, industrial automation systems, and instrumentation solutions. Expert engineering services across India with 15+ years experience."
-        keywords="electrical control panels, industrial automation, process automation, instrumentation, power control center, motor control center, electrical engineering, India, Noida"
+        title="Powerton Engineering - Industrial Automation & Electrical Control Panels | Leading Manufacturer India"
+        description="Powerton Engineering Pvt. Ltd. - Premier manufacturer of electrical control panels, industrial automation systems, and instrumentation solutions. 15+ years serving industries across India with ISO certified quality engineering products and 24/7 support services."
+        keywords="electrical control panels manufacturer India, industrial automation solutions, power control center PCC, motor control center MCC, instrumentation services, electrical engineering company, process automation, SCADA systems, HMI panels, industrial IoT, control system integration, Noida electrical company"
+        canonicalUrl="https://powertonengineering.in"
         structuredData={structuredData}
       />
       

@@ -51,9 +51,9 @@ export default function Projects() {
   return (
     <>
       <SEO
-        title="Engineering Projects Portfolio - Industrial Automation Cases | Powerton Engineering"
-        description="Explore our portfolio of successfully completed engineering projects including power plants, manufacturing automation, solar installations, and water treatment systems across India."
-        keywords="engineering projects, automation projects, power plant automation, manufacturing automation, solar projects, water treatment automation, industrial projects India"
+        title="Engineering Projects Portfolio - Industrial Automation & Electrical Projects | Powerton Engineering"
+        description="Explore our comprehensive portfolio of 1200+ successfully completed engineering projects: power plant automation, manufacturing control systems, solar installations, water treatment automation, and electrical infrastructure projects across India. Case studies with detailed technical specifications and project outcomes."
+        keywords="engineering projects portfolio, automation projects India, power plant automation, manufacturing automation, solar projects, water treatment automation, industrial projects, electrical infrastructure, control system projects, process automation cases, instrumentation projects"
         canonicalUrl="https://powertonengineering.in/projects"
       />
 

@@ -139,9 +139,9 @@ export default function Products() {
   return (
     <>
       <SEO
-        title="Industrial Products Catalog - Automation & Electrical Equipment | Powerton Engineering"
-        description="Comprehensive catalog of industrial automation products, electrical components, instrumentation, solar systems, pumps, and tools. Quality equipment for industrial applications."
-        keywords="industrial products, automation equipment, electrical components, instrumentation products, solar panels, industrial pumps, measurement instruments, safety equipment"
+        title="Industrial Products - Electrical Control Panels, Instrumentation & Automation Equipment | Powerton Engineering"
+        description="Comprehensive range of industrial products: electrical control panels, power control centers, motor control centers, instrumentation devices, automation equipment, measurement instruments, safety systems, and solar products. Quality assured components from leading manufacturers with technical support and warranty."
+        keywords="industrial products India, electrical control panels, power control center, motor control center, instrumentation devices, automation equipment, measurement instruments, industrial electrical components, control system components, safety equipment, solar products, electrical panels manufacturer"
         canonicalUrl="https://powertonengineering.in/products"
       />
 

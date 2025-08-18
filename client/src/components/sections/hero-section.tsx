@@ -21,10 +21,10 @@ export default function HeroSection() {
       
       <div className="relative max-w-7xl mx-auto container-padding py-12 sm:py-16 md:py-20 lg:py-32">
         <div className="max-w-4xl">
-          <h1 className="text-responsive-2xl font-bold mb-4 sm:mb-6 leading-tight animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight animate-fade-in">
             Comprehensive Solutions for <span className="text-secondary">Industrial Success</span>
           </h1>
-          <p className="text-responsive-base mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in">
+          <p className="text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in max-w-4xl">
             Our broad portfolio of products and services provides all-encompassing solutions that drive industrial success, ensuring that every aspect of your engineering needs is covered.
           </p>
           
@@ -46,18 +46,18 @@ export default function HeroSection() {
           </div>
 
           {/* Key Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="flex items-center space-x-3">
-              <CheckCircle className="w-6 h-6 text-secondary" />
-              <span className="text-lg">15+ Years Experience</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
+            <div className="flex items-center space-x-3 p-2 sm:p-0">
+              <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-secondary flex-shrink-0" />
+              <span className="text-sm sm:text-base lg:text-lg">15+ Years Experience</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <CheckCircle className="w-6 h-6 text-secondary" />
-              <span className="text-lg">24/7 Technical Support</span>
+            <div className="flex items-center space-x-3 p-2 sm:p-0">
+              <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-secondary flex-shrink-0" />
+              <span className="text-sm sm:text-base lg:text-lg">24/7 Technical Support</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <CheckCircle className="w-6 h-6 text-secondary" />
-              <span className="text-lg">Pan-India Service</span>
+            <div className="flex items-center space-x-3 p-2 sm:p-0 sm:col-span-2 lg:col-span-1">
+              <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-secondary flex-shrink-0" />
+              <span className="text-sm sm:text-base lg:text-lg">Pan-India Service</span>
             </div>
           </div>
         </div>
@@ -65,23 +65,23 @@ export default function HeroSection() {
 
       {/* Stats Section */}
       <div className="relative bg-white bg-opacity-10 backdrop-blur-sm border-t border-white border-opacity-20">
-        <div className="max-w-7xl mx-auto container-padding py-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">15+</div>
-              <div className="text-sm lg:text-base opacity-90">Years Experience</div>
+        <div className="max-w-7xl mx-auto container-padding py-6 sm:py-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-center">
+            <div className="p-2 sm:p-4">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-secondary mb-1 sm:mb-2">15+</div>
+              <div className="text-xs sm:text-sm lg:text-base opacity-90">Years Experience</div>
             </div>
-            <div>
-              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">1200+</div>
-              <div className="text-sm lg:text-base opacity-90">Projects Completed</div>
+            <div className="p-2 sm:p-4">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-secondary mb-1 sm:mb-2">1200+</div>
+              <div className="text-xs sm:text-sm lg:text-base opacity-90">Projects Completed</div>
             </div>
-            <div>
-              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">450+</div>
-              <div className="text-sm lg:text-base opacity-90">Happy Clients</div>
+            <div className="p-2 sm:p-4">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-secondary mb-1 sm:mb-2">450+</div>
+              <div className="text-xs sm:text-sm lg:text-base opacity-90">Happy Clients</div>
             </div>
-            <div>
-              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">24/7</div>
-              <div className="text-sm lg:text-base opacity-90">Support Available</div>
+            <div className="p-2 sm:p-4">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-secondary mb-1 sm:mb-2">24/7</div>
+              <div className="text-xs sm:text-sm lg:text-base opacity-90">Support Available</div>
             </div>
           </div>
         </div>
