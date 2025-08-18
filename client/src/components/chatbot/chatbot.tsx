@@ -22,6 +22,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [isToggling, setIsToggling] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatWindowRef = useRef<HTMLDivElement>(null);
 
@@ -68,17 +69,23 @@ export default function Chatbot() {
       // Check if click is on toggle button or its children
       const toggleButton = document.querySelector('[data-chatbot-toggle="true"]');
       if (toggleButton?.contains(target)) {
+        return; // Don't close here - let the button's onClick handle it
+      }
+      
+      // Check if clicking on the blur overlay
+      if (target.classList?.contains('backdrop-blur-sm')) {
+        setIsOpen(false);
         return;
       }
       
-      // Click is outside - close chatbot
+      // Click is outside - close chatbot (but not if it's on the toggle button)
       setIsOpen(false);
     };
 
-    // Add small delay to prevent immediate triggering
+    // Add small delay to prevent immediate triggering after opening
     const timer = setTimeout(() => {
       document.addEventListener('mousedown', handleClickOutside);
-    }, 150);
+    }, 200);
 
     return () => {
       clearTimeout(timer);
@@ -221,11 +228,22 @@ export default function Chatbot() {
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
+            
+            // Prevent double-clicking issues
+            if (isToggling) return;
+            
+            setIsToggling(true);
             setIsOpen(prev => !prev);
+            
+            // Reset toggle flag after a short delay
+            setTimeout(() => {
+              setIsToggling(false);
+            }, 300);
           }}
           className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 shadow-lg"
-          aria-label="Open chat"
+          aria-label={isOpen ? "Close chat" : "Open chat"}
           data-chatbot-toggle="true"
+          disabled={isToggling}
         >
           {isOpen ? (
             <X className="w-6 h-6 text-white" />
