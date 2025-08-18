@@ -18,13 +18,13 @@ export default function Footer() {
                 loading="lazy"
               />
             </div>
-            <p className="text-gray-300 mb-6">
+            <p className="text-white/80 mb-6">
               Your trusted partner in delivering high-quality engineering solutions and services for industrial automation and electrical systems.
             </p>
             <div className="flex space-x-4">
               <a 
                 href={COMPANY_INFO.socialMedia.linkedin} 
-                className="text-gray-400 hover:text-secondary transition-colors" 
+                className="text-white/60 hover:text-secondary transition-colors" 
                 aria-label="Follow us on LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -33,7 +33,7 @@ export default function Footer() {
               </a>
               <a 
                 href={COMPANY_INFO.socialMedia.twitter} 
-                className="text-gray-400 hover:text-secondary transition-colors" 
+                className="text-white/60 hover:text-secondary transition-colors" 
                 aria-label="Follow us on Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -42,7 +42,7 @@ export default function Footer() {
               </a>
               <a 
                 href={COMPANY_INFO.socialMedia.facebook} 
-                className="text-gray-400 hover:text-secondary transition-colors" 
+                className="text-white/60 hover:text-secondary transition-colors" 
                 aria-label="Follow us on Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -55,7 +55,7 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-3 text-gray-300">
+            <ul className="space-y-3 text-white/80">
               {SERVICES.slice(0, 4).map((service) => (
                 <li key={service.id}>
                   <Link 
@@ -80,7 +80,7 @@ export default function Footer() {
           {/* Products */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Products</h4>
-            <ul className="space-y-3 text-gray-300">
+            <ul className="space-y-3 text-white/80">
               {PRODUCTS.slice(0, 5).map((product) => (
                 <li key={product.id}>
                   <Link 
@@ -97,7 +97,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-3 text-gray-300">
+            <ul className="space-y-3 text-white/80">
               <li className="flex items-center">
                 <Phone className="w-4 h-4 mr-3 text-secondary" aria-hidden="true" />
                 <span>{COMPANY_INFO.phone}</span>
@@ -117,12 +117,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">
+            <p className="text-white/60 text-sm mb-4 md:mb-0">
               &copy; 2024 Powerton Engineering Pvt. Ltd. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm text-gray-400">
+            <div className="flex space-x-6 text-sm text-white/60">
               <a href="#" className="hover:text-secondary transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-secondary transition-colors">Terms of Service</a>
               <a href="#" className="hover:text-secondary transition-colors">Sitemap</a>
