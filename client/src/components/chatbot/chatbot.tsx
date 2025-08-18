@@ -213,7 +213,7 @@ export default function Chatbot() {
     <>
       {/* Chatbot Toggle Button */}
       <motion.div
-        className="fixed bottom-2 right-6 z-50"
+        className="fixed bottom-4 right-4 z-50"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 2 }}
@@ -256,11 +256,12 @@ export default function Chatbot() {
         {isOpen && (
           <motion.div
             ref={chatWindowRef}
-            className="fixed bottom-24 right-6 z-40 w-80 sm:w-96 max-h-[calc(100vh-200px)]"
+            className="chatbot-container fixed bottom-20 right-4 z-40 w-80 sm:w-96 max-h-[calc(100vh-200px)] max-w-[calc(100vw-2rem)]"
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
             transition={{ duration: 0.3 }}
+            style={{ position: 'fixed', right: '1rem', bottom: '5rem' }}
           >
             <Card className="shadow-2xl border-0">
               <CardHeader className="bg-primary text-white rounded-t-lg">
