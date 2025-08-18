@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section 
       id="home" 
-      className="relative bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden"
+      className="relative bg-gradient-to-br from-primary to-accent text-white overflow-hidden"
       role="banner"
     >
       <div className="absolute inset-0 bg-black bg-opacity-20"></div>

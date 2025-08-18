@@ -31,10 +31,10 @@ export default function Projects() {
   ];
 
   const categoryColors = {
-    "Power Plant": "bg-red-100 text-red-800",
-    "Manufacturing": "bg-blue-100 text-blue-800",
-    "Solar": "bg-green-100 text-green-800",
-    "Water Treatment": "bg-cyan-100 text-cyan-800"
+    "Power Plant": "bg-secondary/10 text-secondary",
+    "Manufacturing": "bg-primary/10 text-primary",
+    "Solar": "bg-accent/10 text-accent",
+    "Water Treatment": "bg-primary/20 text-primary"
   };
 
   const filteredProjects = selectedCategory === "all" 
@@ -58,7 +58,7 @@ export default function Projects() {
       />
 
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary to-blue-800 text-white">
+      <section className="section-padding bg-gradient-to-br from-primary to-accent text-white">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-responsive-2xl font-bold mb-4 sm:mb-6">
@@ -152,30 +152,30 @@ export default function Projects() {
                         <Badge 
                           className={`${
                             categoryColors[project.category as keyof typeof categoryColors] || 
-                            "bg-gray-100 text-gray-800"
+                            "bg-muted text-muted-foreground"
                           }`}
                         >
                           {project.category}
                         </Badge>
                       </div>
                       <div className="absolute top-4 right-4">
-                        <Badge className="bg-white text-gray-900">
+                        <Badge className="bg-background text-foreground">
                           {project.year}
                         </Badge>
                       </div>
                     </div>
                     
                     <CardContent className="p-8">
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">{project.title}</h3>
-                      <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+                      <h3 className="text-xl font-bold text-foreground mb-4">{project.title}</h3>
+                      <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
                       
                       {/* Project Details */}
                       <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="flex items-center text-sm text-gray-500">
+                        <div className="flex items-center text-sm text-muted-foreground">
                           <MapPin className="w-4 h-4 mr-2" />
                           {project.location}
                         </div>
-                        <div className="flex items-center text-sm text-gray-500">
+                        <div className="flex items-center text-sm text-muted-foreground">
                           <Clock className="w-4 h-4 mr-2" />
                           {project.duration}
                         </div>
@@ -183,20 +183,20 @@ export default function Projects() {
 
                       {/* Project Highlights */}
                       <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-3">Key Achievements:</h4>
+                        <h4 className="text-sm font-semibold text-foreground mb-3">Key Achievements:</h4>
                         <div className="grid grid-cols-2 gap-2">
                           {project.highlights.map((highlight) => (
-                            <div key={highlight} className="flex items-center text-xs text-gray-600">
-                              <CheckCircle className="w-3 h-3 text-green-600 mr-2 flex-shrink-0" />
+                            <div key={highlight} className="flex items-center text-xs text-muted-foreground">
+                              <CheckCircle className="w-3 h-3 text-primary mr-2 flex-shrink-0" />
                               {highlight}
                             </div>
                           ))}
                         </div>
                       </div>
                       
-                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <div className="flex items-center text-sm text-gray-500">
-                          <TrendingUp className="w-4 h-4 mr-2 text-green-600" />
+                      <div className="flex items-center justify-between pt-4 border-t border-border">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <TrendingUp className="w-4 h-4 mr-2 text-primary" />
                           <span>Successfully Completed</span>
                         </div>
                         <Button 
@@ -225,7 +225,7 @@ export default function Projects() {
                   <Badge 
                     className={`mb-4 ${
                       categoryColors[project.category as keyof typeof categoryColors] || 
-                      "bg-gray-100 text-gray-800"
+                      "bg-muted text-muted-foreground"
                     }`}
                   >
                     {project.category} Project

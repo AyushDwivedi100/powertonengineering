@@ -85,18 +85,18 @@ export default function About() {
               <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
                 Our Journey & Vision
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 Founded with a vision to empower industries through innovation and excellence, Powerton Engineering has grown to become a leading provider of electrical and instrumentation solutions across India.
               </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 From our headquarters in Noida, we serve clients nationwide with comprehensive engineering solutions including process automation, instrumentation, solar installations, and maintenance services.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-8">
                 {teamStats.map((stat) => (
-                  <div key={stat.label} className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div key={stat.label} className="text-center p-4 bg-muted rounded-lg">
                     <div className="text-2xl font-bold text-secondary mb-2">{stat.number}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
+                    <div className="text-sm text-muted-foreground">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -106,7 +106,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-muted/50">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Card className="border-none shadow-lg">
@@ -117,7 +117,7 @@ export default function About() {
                   </div>
                   <h3 className="text-2xl font-bold text-primary">Our Mission</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   To empower industries with innovative engineering solutions that enhance productivity, efficiency, and sustainability. We strive to be the preferred partner for businesses seeking reliable automation and electrical systems.
                 </p>
               </CardContent>
@@ -131,7 +131,7 @@ export default function About() {
                   </div>
                   <h3 className="text-2xl font-bold text-primary">Our Vision</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   To be India's leading engineering solutions provider, recognized for technical excellence, innovation, and customer satisfaction. We envision a future where our solutions drive industrial transformation.
                 </p>
               </CardContent>
