@@ -1,5 +1,6 @@
 import ContactForm from "@/components/forms/contact-form";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Link } from "wouter";
 import { COMPANY_INFO } from "@/data/constants";
 
 export default function ContactSection() {
@@ -18,7 +19,10 @@ export default function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
+            <h3 className="text-2xl font-bold mb-4">Get in Touch</h3>
+            <p className="text-blue-100 mb-6">
+              Need a detailed quote? <Link href="/quote" className="text-secondary hover:underline font-semibold">Visit our Quote Page</Link> for comprehensive project pricing.
+            </p>
             
             <div className="space-y-6 mb-8">
               <div className="flex items-start space-x-4">

@@ -56,7 +56,7 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-3 text-gray-300">
-              {SERVICES.slice(0, 5).map((service) => (
+              {SERVICES.slice(0, 4).map((service) => (
                 <li key={service.id}>
                   <Link 
                     href="/services" 
@@ -66,6 +66,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link 
+                  href="/quote" 
+                  className="text-secondary hover:text-secondary/80 transition-colors font-semibold"
+                >
+                  Get Quote →
+                </Link>
+              </li>
             </ul>
           </div>
 

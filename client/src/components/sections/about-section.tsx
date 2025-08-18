@@ -72,11 +72,21 @@ export default function AboutSection() {
               })}
             </div>
 
-            <Link href="/about">
-              <Button className="btn-primary">
-                Learn More About Us
-              </Button>
-            </Link>
+            <div className="space-y-4">
+              <Link href="/about">
+                <Button className="btn-primary mr-4">
+                  Learn More About Us
+                </Button>
+              </Link>
+              <Link href="/quote">
+                <Button 
+                  variant="outline" 
+                  className="btn-outline border-primary text-primary hover:bg-primary hover:text-white"
+                >
+                  Get Quote
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

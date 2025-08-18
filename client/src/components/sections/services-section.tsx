@@ -97,10 +97,18 @@ export default function ServicesSection() {
           })}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 space-x-4">
           <Link href="/services">
             <Button className="btn-primary text-lg px-8 py-4">
               View All Services
+            </Button>
+          </Link>
+          <Link href="/quote">
+            <Button 
+              variant="outline" 
+              className="btn-outline text-lg px-8 py-4 border-primary text-primary hover:bg-primary hover:text-white"
+            >
+              Get Quote
             </Button>
           </Link>
         </div>

@@ -57,10 +57,18 @@ export default function ProductsSection() {
           ))}
         </div>
 
-        <div className="text-center">
+        <div className="text-center space-x-4">
           <Link href="/products">
             <Button className="btn-primary text-lg px-8 py-4">
               View Complete Product Catalog
+            </Button>
+          </Link>
+          <Link href="/quote">
+            <Button 
+              variant="outline" 
+              className="btn-outline text-lg px-8 py-4 border-primary text-primary hover:bg-primary hover:text-white"
+            >
+              Request Quote
             </Button>
           </Link>
         </div>
