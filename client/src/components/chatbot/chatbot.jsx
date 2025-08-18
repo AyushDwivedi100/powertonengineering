@@ -56,20 +56,29 @@ export default function Chatbot() {
         return;
       }
       
-      // Check if click is on toggle button or its children
+      // Check if click is on toggle button or its children (more thorough check)
       const toggleButton = document.querySelector('[data-chatbot-toggle="true"]');
-      if (toggleButton?.contains(target)) {
+      if (toggleButton && (toggleButton === target || toggleButton.contains(target))) {
         return;
+      }
+      
+      // Check for any parent elements that might be the toggle button
+      let currentElement = target;
+      while (currentElement && currentElement !== document.body) {
+        if (currentElement.getAttribute('data-chatbot-toggle') === 'true') {
+          return;
+        }
+        currentElement = currentElement.parentElement;
       }
       
       // Click is outside - close chatbot
       setIsOpen(false);
     };
 
-    // Add small delay to prevent immediate triggering
+    // Add small delay to prevent immediate triggering and ensure button click is processed first
     const timer = setTimeout(() => {
       document.addEventListener('mousedown', handleClickOutside);
-    }, 150);
+    }, 200);
 
     return () => {
       clearTimeout(timer);
@@ -214,9 +223,13 @@ export default function Chatbot() {
             e.stopPropagation();
             setIsOpen(prev => !prev);
           }}
+          onMouseDown={(e) => {
+            e.stopPropagation();
+          }}
           className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 shadow-lg"
-          aria-label="Open chat"
+          aria-label="Toggle chat"
           data-chatbot-toggle="true"
+          data-testid="chatbot-toggle-button"
         >
           {isOpen ? (
             <X className="w-6 h-6 text-white" />
