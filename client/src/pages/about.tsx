@@ -82,12 +82,6 @@ export default function About() {
               />
             </div>
             <div>
-                alt="Indian engineering team at Powerton working on advanced industrial automation systems"
-                className="rounded-xl shadow-2xl w-full"
-                loading="lazy"
-              />
-            </div>
-            <div>
               <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
                 Our Journey & Vision
               </h2>
