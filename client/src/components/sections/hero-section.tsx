@@ -30,7 +30,7 @@ export default function HeroSection() {
           
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
             <Link href="/services" className="w-full sm:w-auto">
-              <Button className="btn-secondary w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 transform hover:scale-105 transition-all">
+              <Button className="bg-secondary hover:bg-secondary/90 text-white w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 transform hover:scale-105 transition-all">
                 Explore Our Services
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
@@ -38,7 +38,7 @@ export default function HeroSection() {
             <Link href="/quote" className="w-full sm:w-auto">
               <Button 
                 variant="outline" 
-                className="btn-outline w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 border-white text-white hover:bg-white hover:text-primary"
+                className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 border-white text-white hover:bg-white hover:text-primary transition-all"
               >
                 Get Free Quote
               </Button>
