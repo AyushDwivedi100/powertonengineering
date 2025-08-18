@@ -53,7 +53,7 @@ export default function ProductsSection() {
                 <Link href="/products">
                   <Button 
                     variant="ghost" 
-                    className="text-secondary hover:text-secondary/80 p-0 font-medium"
+                    className="text-secondary hover:bg-secondary/10 hover:text-secondary p-0 font-medium transition-colors"
                   >
                     View Products <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
