@@ -82,6 +82,8 @@ export default function About() {
               />
             </div>
             <div>
+              <img 
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
                 alt="Indian engineering team at Powerton working on advanced industrial automation systems"
                 className="rounded-xl shadow-2xl w-full"
                 loading="lazy"
