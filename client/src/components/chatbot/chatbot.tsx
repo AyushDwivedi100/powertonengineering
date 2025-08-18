@@ -199,7 +199,7 @@ export default function Chatbot() {
     <>
       {/* Chatbot Toggle Button */}
       <motion.div
-        className="fixed bottom-4 right-6 z-50"
+        className="fixed bottom-2 right-6 z-50"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 2 }}
@@ -235,7 +235,7 @@ export default function Chatbot() {
         {isOpen && (
           <motion.div
             ref={chatWindowRef}
-            className="fixed bottom-20 right-6 z-40 w-80 sm:w-96 max-h-[calc(100vh-180px)]"
+            className="fixed bottom-24 right-6 z-40 w-80 sm:w-96 max-h-[calc(100vh-200px)]"
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
@@ -251,9 +251,9 @@ export default function Chatbot() {
                   </span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-0 flex flex-col max-h-[calc(100vh-300px)]">
+              <CardContent className="p-0 flex flex-col max-h-[calc(100vh-280px)]">
                 {/* Messages Area */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 min-h-[250px] max-h-[300px] scroll-smooth chatbot-messages">
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 min-h-[280px] max-h-[380px] scroll-smooth chatbot-messages">
                   {messages.map((message) => (
                     <div
                       key={message.id}
