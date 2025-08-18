@@ -71,31 +71,31 @@ export const PRODUCTS = [
     id: "instrumentation",
     title: "Instrumentation Components",
     description: "High-precision sensors, transmitters, and measurement devices",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "electrical",
     title: "Electrical Components",
     description: "Switches, relays, contactors, and power distribution equipment",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1581092335878-1c43d93b6e07?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "measurement",
     title: "Measurement Instruments",
     description: "Digital meters, analyzers, and calibration equipment",
-    image: "https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "solar",
     title: "Solar Products",
     description: "Solar panels, inverters, and complete renewable systems",
-    image: "https://images.unsplash.com/photo-1508615070457-7baeba4003ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "automation",
     title: "Automation & Control",
     description: "PLC systems, HMI panels, and SCADA solutions",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   },
   {
     id: "safety",
