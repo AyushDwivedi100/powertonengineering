@@ -33,7 +33,7 @@ export default function Chatbot() {
     scrollToBottom();
   }, [messages]);
 
-  // Handle click outside to close chatbot
+  // Handle click outside to close chatbot and scroll management
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (isOpen && chatWindowRef.current && !chatWindowRef.current.contains(event.target as Node)) {
@@ -47,10 +47,19 @@ export default function Chatbot() {
 
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
+      // Disable scroll but keep scrollbar visible
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
     };
   }, [isOpen]);
 
@@ -216,7 +225,7 @@ export default function Chatbot() {
         {isOpen && (
           <motion.div
             ref={chatWindowRef}
-            className="fixed bottom-24 right-6 z-40 w-80 sm:w-96 max-h-[calc(100vh-140px)]"
+            className="fixed bottom-24 right-6 z-40 w-80 sm:w-96 max-h-[calc(100vh-200px)]"
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
@@ -232,9 +241,9 @@ export default function Chatbot() {
                   </span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-0 flex flex-col max-h-[calc(100vh-240px)]">
+              <CardContent className="p-0 flex flex-col max-h-[calc(100vh-300px)]">
                 {/* Messages Area */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 min-h-[280px] max-h-[380px]">
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 min-h-[250px] max-h-[300px] scroll-smooth chatbot-messages">
                   {messages.map((message) => (
                     <div
                       key={message.id}
