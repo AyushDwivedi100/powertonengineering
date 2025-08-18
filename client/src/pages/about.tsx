@@ -5,8 +5,15 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Users, Award, Globe, Target, Eye, Heart } from "lucide-react";
 import { Link } from "wouter";
 import { COMPANY_INFO } from "@/data/constants";
+import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function About() {
+  const heroAnimation = useScrollAnimation();
+  const storyAnimation = useScrollAnimation();
+  const missionAnimation = useScrollAnimation();
+  const valuesAnimation = useStaggeredAnimation(4);
+  const certsAnimation = useScrollAnimation();
+
   const values = [
     {
       icon: Target,
@@ -58,7 +65,7 @@ export default function About() {
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-primary to-blue-800 text-white">
         <div className="max-w-7xl mx-auto container-padding">
-          <div className="max-w-4xl mx-auto text-center">
+          <div ref={heroAnimation.ref} className={`max-w-4xl mx-auto text-center ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               About <span className="text-secondary">Powerton Engineering</span>
             </h1>
@@ -72,8 +79,8 @@ export default function About() {
       {/* Company Story */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto container-padding">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div ref={storyAnimation.ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className={getAnimationClass('fade-in-left', storyAnimation.isVisible)}>
               <img 
                 src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
                 alt="Powerton Engineering industrial automation facility with modern control systems" 
@@ -81,7 +88,7 @@ export default function About() {
                 loading="lazy"
               />
             </div>
-            <div>
+            <div className={getAnimationClass('fade-in-right', storyAnimation.isVisible)}>
               <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
                 Our Journey & Vision
               </h2>
@@ -108,8 +115,8 @@ export default function About() {
       {/* Mission & Vision */}
       <section className="section-padding bg-muted/50">
         <div className="max-w-7xl mx-auto container-padding">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <Card className="border-none shadow-lg">
+          <div ref={missionAnimation.ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <Card className={`border-none shadow-lg ${getAnimationClass('fade-in-up', missionAnimation.isVisible)}`}>
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
@@ -123,7 +130,7 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border-none shadow-lg">
+            <Card className={`border-none shadow-lg ${getAnimationClass('fade-in-up', missionAnimation.isVisible, 200)}`}>
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center mr-4">
@@ -150,11 +157,12 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value) => {
+          <div ref={valuesAnimation.ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => {
               const Icon = value.icon;
+              const isVisible = valuesAnimation.visibleItems.has(index);
               return (
-                <Card key={value.title} className="text-center border-none shadow-lg hover:shadow-xl transition-shadow">
+                <Card key={value.title} className={`text-center border-none shadow-lg hover:shadow-xl transition-shadow ${getAnimationClass('bounce-in-up', isVisible)}`}>
                   <CardContent className="p-8">
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto mb-6">
                       <Icon className="w-8 h-8 text-white" />

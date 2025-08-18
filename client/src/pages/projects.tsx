@@ -18,9 +18,13 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
+import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const heroAnimation = useScrollAnimation();
+  const statsAnimation = useStaggeredAnimation(4, 150);
+  const projectsAnimation = useStaggeredAnimation(PROJECTS.length, 200);
 
   const projectCategories = [
     { id: "all", name: "All Projects", count: PROJECTS.length },

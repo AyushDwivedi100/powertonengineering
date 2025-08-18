@@ -17,9 +17,13 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
+import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const heroAnimation = useScrollAnimation();
+  const categoriesAnimation = useScrollAnimation();
+  const productsAnimation = useStaggeredAnimation(PRODUCTS.length, 100);
 
   const productCategories = [
     { id: "all", name: "All Products", count: PRODUCTS.length },

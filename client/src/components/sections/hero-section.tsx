@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
+import { useScrollAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function HeroSection() {
+  const heroAnimation = useScrollAnimation();
+  
   return (
     <section 
       id="home" 
@@ -20,11 +23,11 @@ export default function HeroSection() {
       ></div>
       
       <div className="relative max-w-7xl mx-auto container-padding py-12 sm:py-16 md:py-20 lg:py-32">
-        <div className="max-w-4xl">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight animate-fade-in">
+        <div ref={heroAnimation.ref} className={`max-w-4xl ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             Comprehensive Solutions for <span className="text-secondary">Industrial Success</span>
           </h1>
-          <p className="text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in max-w-4xl">
+          <p className="text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 opacity-90 leading-relaxed max-w-4xl">
             Our broad portfolio of products and services provides all-encompassing solutions that drive industrial success, ensuring that every aspect of your engineering needs is covered.
           </p>
           

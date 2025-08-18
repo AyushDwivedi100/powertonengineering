@@ -4,8 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import { PROJECTS } from "@/data/constants";
 import { MapPin, Calendar, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function ProjectsSection() {
+  const headerAnimation = useScrollAnimation();
+  const projectsAnimation = useStaggeredAnimation(PROJECTS.length, 200);
+  
   const categoryColors = {
     "Power Plant": "bg-red-100 text-red-800",
     "Manufacturing": "bg-blue-100 text-blue-800",

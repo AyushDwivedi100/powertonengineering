@@ -3,12 +3,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { PRODUCTS } from "@/data/constants";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function ProductsSection() {
+  const headerAnimation = useScrollAnimation();
+  const productsAnimation = useStaggeredAnimation(PRODUCTS.length, 100);
+  
   return (
     <section id="products" className="section-padding bg-gray-50" role="main">
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="text-center mb-16">
+        <div ref={headerAnimation.ref} className={`text-center mb-16 ${getAnimationClass('fade-in-up', headerAnimation.isVisible)}`}>
           <span className="text-secondary font-semibold text-lg">Our Products</span>
           <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
             Industrial Automation Equipment Solutions
@@ -18,11 +22,13 @@ export default function ProductsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-          {PRODUCTS.map((product) => (
+        <div ref={productsAnimation.ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+          {PRODUCTS.map((product, index) => {
+            const isVisible = productsAnimation.visibleItems.has(index);
+            return (
             <Card 
               key={product.id} 
-              className="overflow-hidden group hover:shadow-xl transition-all duration-300 card-hover"
+              className={`overflow-hidden group hover:shadow-xl transition-all duration-300 card-hover ${getAnimationClass('slide-in-scale', isVisible)}`}
             >
               <div className="relative overflow-hidden">
                 <img 
@@ -54,7 +60,8 @@ export default function ProductsSection() {
                 </Link>
               </CardContent>
             </Card>
-          ))}
+          );
+          })}
         </div>
 
         <div className="text-center space-x-4">

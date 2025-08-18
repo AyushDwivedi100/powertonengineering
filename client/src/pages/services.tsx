@@ -17,6 +17,7 @@ import {
   Award
 } from "lucide-react";
 import { Link } from "wouter";
+import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 const iconMap = {
   "microchip": Cpu,
@@ -28,6 +29,10 @@ const iconMap = {
 };
 
 export default function Services() {
+  const heroAnimation = useScrollAnimation();
+  const overviewAnimation = useScrollAnimation();
+  const servicesGridAnimation = useStaggeredAnimation(SERVICES.length, 150);
+
   const serviceDetails = {
     "process-automation": {
       overview: "Advanced automation systems designed to streamline industrial processes, reduce manual intervention, and optimize operational efficiency.",
@@ -116,7 +121,7 @@ export default function Services() {
       <section className="relative section-padding bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: "url('https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
         <div className="relative max-w-7xl mx-auto container-padding">
-          <div className="max-w-4xl mx-auto text-center">
+          <div ref={heroAnimation.ref} className={`max-w-4xl mx-auto text-center ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Professional <span className="text-secondary">Engineering Services</span>
             </h1>
@@ -143,7 +148,7 @@ export default function Services() {
       {/* Services Overview */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto container-padding">
-          <div className="text-center mb-16">
+          <div ref={overviewAnimation.ref} className={`text-center mb-16 ${getAnimationClass('fade-in-up', overviewAnimation.isVisible)}`}>
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Our Service Portfolio
             </h2>
@@ -152,14 +157,15 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((service) => {
+          <div ref={servicesGridAnimation.ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SERVICES.map((service, index) => {
               const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Settings;
+              const isVisible = servicesGridAnimation.visibleItems.has(index);
               
               return (
                 <Card 
                   key={service.id} 
-                  className="border border-border group hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  className={`border border-border group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${getAnimationClass('slide-in-scale', isVisible)}`}
                 >
                   <CardHeader>
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">

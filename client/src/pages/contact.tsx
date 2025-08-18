@@ -16,8 +16,13 @@ import {
   CheckCircle
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/constants";
+import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function Contact() {
+  const heroAnimation = useScrollAnimation();
+  const contactMethodsAnimation = useStaggeredAnimation(4, 150);
+  const formAnimation = useScrollAnimation();
+
   const contactMethods = [
     {
       icon: Phone,
