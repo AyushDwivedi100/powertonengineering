@@ -146,8 +146,9 @@ export default function Products() {
       />
 
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary to-blue-800 text-white">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="relative section-padding bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: "url('https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
+        <div className="relative max-w-7xl mx-auto container-padding">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-responsive-2xl font-bold mb-4 sm:mb-6">
               Industrial <span className="text-secondary">Product Catalog</span>

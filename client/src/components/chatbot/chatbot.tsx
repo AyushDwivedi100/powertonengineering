@@ -33,43 +33,56 @@ export default function Chatbot() {
     scrollToBottom();
   }, [messages]);
 
-  // Handle click outside to close chatbot and scroll management
+  // Handle scroll management and click outside detection
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (isOpen && chatWindowRef.current && !chatWindowRef.current.contains(event.target as Node)) {
-        // Check if click is not on the toggle button
-        const toggleButton = document.querySelector('[aria-label="Open chat"]');
-        if (toggleButton && !toggleButton.contains(event.target as Node)) {
-          setIsOpen(false);
-        }
-      }
-    };
-
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
       // Disable scroll but keep scrollbar visible
-      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+      const scrollY = window.scrollY;
       document.body.style.overflowY = 'scroll';
       document.body.style.position = 'fixed';
-      document.body.style.top = `-${window.scrollY}px`;
+      document.body.style.top = `-${scrollY}px`;
       document.body.style.width = '100%';
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.overflowY = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
-      }
+      
+      return () => {
+        document.body.style.overflowY = '';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, scrollY);
+      };
     }
+  }, [isOpen]);
+
+  // Separate effect for click outside detection
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      
+      // Check if click is inside chatbot window
+      if (chatWindowRef.current?.contains(target)) {
+        return;
+      }
+      
+      // Check if click is on toggle button or its children
+      const toggleButton = document.querySelector('[data-chatbot-toggle="true"]');
+      if (toggleButton?.contains(target)) {
+        return;
+      }
+      
+      // Click is outside - close chatbot
+      setIsOpen(false);
+    };
+
+    // Add small delay to prevent immediate triggering
+    const timer = setTimeout(() => {
+      document.addEventListener('mousedown', handleClickOutside);
+    }, 150);
 
     return () => {
+      clearTimeout(timer);
       document.removeEventListener('mousedown', handleClickOutside);
-      document.body.style.overflowY = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
     };
   }, [isOpen]);
 
@@ -205,9 +218,14 @@ export default function Chatbot() {
         transition={{ delay: 2 }}
       >
         <Button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setIsOpen(prev => !prev);
+          }}
           className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 shadow-lg"
           aria-label="Open chat"
+          data-chatbot-toggle="true"
         >
           {isOpen ? (
             <X className="w-6 h-6 text-white" />
