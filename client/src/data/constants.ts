@@ -113,7 +113,7 @@ export const PRODUCTS = [
     id: "tools",
     title: "Industrial Tools",
     description: "Professional grade tools, tackles, and maintenance equipment",
-    image: "https://images.unsplash.com/photo-1572981779307-38f8b3805b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
+    image: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=240"
   }
 ];
 
@@ -157,7 +157,7 @@ export const PROJECTS = [
     location: "Uttar Pradesh",
     duration: "12 months",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1516192518150-0d8fee5425e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+    image: "https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     highlights: ["SCADA Implementation", "Safety Systems", "Control Panels", "Performance Monitoring"]
   },
   {
@@ -168,7 +168,7 @@ export const PROJECTS = [
     location: "Maharashtra",
     duration: "8 months",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+    image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     highlights: ["FDA Compliance", "Data Integrity", "Process Control", "Quality Monitoring"]
   },
   {
@@ -179,7 +179,7 @@ export const PROJECTS = [
     location: "Rajasthan",
     duration: "6 months",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+    image: "https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     highlights: ["Grid Connection", "Monitoring Systems", "Performance Optimization", "Maintenance Planning"]
   },
   {
@@ -190,7 +190,7 @@ export const PROJECTS = [
     location: "West Bengal",
     duration: "10 months",
     year: "2022",
-    image: "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+    image: "https://images.unsplash.com/photo-1553376944-52d1f27487b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     highlights: ["Real-time Monitoring", "Quality Control", "Automated Operations", "Remote Management"]
   }
 ];
