@@ -23,6 +23,7 @@ export default function Chatbot() {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatWindowRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -31,6 +32,32 @@ export default function Chatbot() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Handle click outside to close chatbot
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isOpen && chatWindowRef.current && !chatWindowRef.current.contains(event.target as Node)) {
+        // Check if click is not on the toggle button
+        const toggleButton = document.querySelector('[aria-label="Open chat"]');
+        if (toggleButton && !toggleButton.contains(event.target as Node)) {
+          setIsOpen(false);
+        }
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      // Prevent body scroll when chatbot is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   // Initialize with welcome message
   useEffect(() => {
@@ -176,11 +203,25 @@ export default function Chatbot() {
         </Button>
       </motion.div>
 
+      {/* Blur Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Chatbot Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed bottom-24 right-6 z-40 w-80 sm:w-96"
+            ref={chatWindowRef}
+            className="fixed bottom-6 right-6 z-40 w-80 sm:w-96 max-h-[calc(100vh-120px)]"
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
@@ -196,9 +237,9 @@ export default function Chatbot() {
                   </span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-0">
+              <CardContent className="p-0 flex flex-col max-h-[calc(100vh-220px)]">
                 {/* Messages Area */}
-                <div className="h-80 overflow-y-auto p-4 space-y-4 bg-gray-50">
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 min-h-[300px] max-h-[400px]">
                   {messages.map((message) => (
                     <div
                       key={message.id}
