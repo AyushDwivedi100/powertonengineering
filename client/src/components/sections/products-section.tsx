@@ -40,7 +40,7 @@ export default function ProductsSection() {
         </AnimatedSection>
 
         <StaggeredList 
-          className="grid-responsive-cards mb-12"
+          className="grid-responsive-cards mb-12 items-stretch"
           stagger={0.12}
           delay={0.3}
         >
@@ -49,6 +49,7 @@ export default function ProductsSection() {
               key={product.id}
               whileHover={{ y: -10, scale: 1.03 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
+              className="h-full"
             >
               <Card className="overflow-hidden group hover:shadow-xl transition-all duration-300 hover-lift will-animate h-full flex flex-col">
                 <motion.div 
