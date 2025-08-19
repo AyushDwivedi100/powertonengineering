@@ -27,9 +27,10 @@ export default function ClientsSection() {
   useEffect(() => {
     const logoInterval = setInterval(() => {
       setLogoCurrentIndex((prevIndex) => {
-        // Move to next set, cycling back to start when reaching the end
+        // Calculate the maximum index (so we always show 5 clients)
+        const maxIndex = Math.max(0, CLIENT_LOGOS.length - 5);
         const nextIndex = prevIndex + 1;
-        return nextIndex >= CLIENT_LOGOS.length ? 0 : nextIndex;
+        return nextIndex > maxIndex ? 0 : nextIndex;
       });
     }, 2500); // Change every 2.5 seconds
 
@@ -70,56 +71,43 @@ export default function ClientsSection() {
           </p>
         </div>
 
-        {/* Client Logos Slideshow - Show 5 at a time */}
+        {/* Client Logos Slideshow - Show 5 at a time with sliding carousel */}
         <div className="mb-16">
           <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8">
-            <div className="flex justify-center">
-              <div className="flex space-x-4 md:space-x-6 lg:space-x-8">
-                <AnimatePresence mode="wait">
-                  {CLIENT_LOGOS.slice(logoCurrentIndex, logoCurrentIndex + 5)
-                    .concat(
-                      logoCurrentIndex + 5 > CLIENT_LOGOS.length
-                        ? CLIENT_LOGOS.slice(0, (logoCurrentIndex + 5) - CLIENT_LOGOS.length)
-                        : []
-                    )
-                    .slice(0, 5)
-                    .map((client, index) => (
-                      <motion.div
-                        key={`${client.id}-${logoCurrentIndex}-${index}`}
-                        className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300"
-                        initial={{ opacity: 0, x: 100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -100 }}
-                        transition={{ 
-                          duration: 0.5,
-                          delay: index * 0.1,
-                          ease: "easeInOut"
-                        }}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        style={{
-                          width: "120px", // Base mobile width
-                          minWidth: "120px",
-                        }}
-                      >
-                        <div className="text-center w-full">
-                          <img
-                            src={client.logo}
-                            alt={`ID-820-${logoCurrentIndex + index}: ${client.name} company logo`}
-                            className="w-full h-8 md:h-10 lg:h-12 object-contain mb-1"
-                            loading="lazy"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.src = client.fallback;
-                            }}
-                          />
-                          <span className="text-xs md:text-xs lg:text-sm font-medium text-gray-600 block truncate">
-                            {client.name}
-                          </span>
-                        </div>
-                      </motion.div>
-                    ))}
-                </AnimatePresence>
-              </div>
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${logoCurrentIndex * 136}px)`,
+                width: `${CLIENT_LOGOS.length * 136}px`
+              }}
+            >
+              {CLIENT_LOGOS.map((client, index) => (
+                <motion.div
+                  key={client.id}
+                  className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300 mx-2 md:mx-3 lg:mx-4"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  style={{
+                    width: "120px",
+                    minWidth: "120px",
+                  }}
+                >
+                  <div className="text-center w-full">
+                    <img
+                      src={client.logo}
+                      alt={`ID-820-${index}: ${client.name} company logo`}
+                      className="w-full h-8 md:h-10 lg:h-12 object-contain mb-1"
+                      loading="lazy"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = client.fallback;
+                      }}
+                    />
+                    <span className="text-xs md:text-xs lg:text-sm font-medium text-gray-600 block truncate">
+                      {client.name}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
             {/* Responsive gradient overlays */}
@@ -133,7 +121,7 @@ export default function ClientsSection() {
               Trusted by industry leaders • showcase of our valued partners
             </p>
             <div className="flex justify-center mt-2 space-x-1">
-              {CLIENT_LOGOS.map((_, index) => (
+              {Array.from({ length: Math.max(0, CLIENT_LOGOS.length - 4) }).map((_, index) => (
                 <div
                   key={index}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
