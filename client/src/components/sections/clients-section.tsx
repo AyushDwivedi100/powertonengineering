@@ -23,15 +23,10 @@ export default function ClientsSection() {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  // Auto-slide functionality for client logos - show 5 at a time
+  // Auto-slide functionality for client logos - infinite loop
   useEffect(() => {
     const logoInterval = setInterval(() => {
-      setLogoCurrentIndex((prevIndex) => {
-        // Calculate the maximum index (so we always show 5 clients)
-        const maxIndex = Math.max(0, CLIENT_LOGOS.length - 5);
-        const nextIndex = prevIndex + 1;
-        return nextIndex > maxIndex ? 0 : nextIndex;
-      });
+      setLogoCurrentIndex((prevIndex) => (prevIndex + 1) % CLIENT_LOGOS.length);
     }, 2500); // Change every 2.5 seconds
 
     return () => clearInterval(logoInterval);
@@ -71,19 +66,20 @@ export default function ClientsSection() {
           </p>
         </div>
 
-        {/* Client Logos Slideshow - Show 5 at a time with sliding carousel */}
+        {/* Client Logos Slideshow - Infinite carousel with 5 visible */}
         <div className="mb-16">
           <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{
                 transform: `translateX(-${logoCurrentIndex * 136}px)`,
-                width: `${CLIENT_LOGOS.length * 136}px`
+                width: `${CLIENT_LOGOS.length * 2 * 136}px` // Double width for seamless loop
               }}
             >
-              {CLIENT_LOGOS.map((client, index) => (
+              {/* Render clients twice for seamless infinite loop */}
+              {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, index) => (
                 <motion.div
-                  key={client.id}
+                  key={`${client.id}-${Math.floor(index / CLIENT_LOGOS.length)}`}
                   className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300 mx-2 md:mx-3 lg:mx-4"
                   whileHover={{ scale: 1.05, y: -2 }}
                   style={{
@@ -121,7 +117,7 @@ export default function ClientsSection() {
               Trusted by industry leaders • showcase of our valued partners
             </p>
             <div className="flex justify-center mt-2 space-x-1">
-              {Array.from({ length: Math.max(0, CLIENT_LOGOS.length - 4) }).map((_, index) => (
+              {CLIENT_LOGOS.map((_, index) => (
                 <div
                   key={index}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
