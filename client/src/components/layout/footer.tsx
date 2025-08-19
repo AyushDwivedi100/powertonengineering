@@ -1,7 +1,8 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY_INFO, SERVICES, PRODUCTS } from "@/data/constants";
-import logoImage from "@assets/logo-new-removebg-preview_1755497919444.png";
+// Use official Powerton Engineering logo from website
+const logoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
 
 export default function Footer() {
   return (

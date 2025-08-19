@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY_INFO } from "@/data/constants";
-import logoImage from "@assets/logo-new-removebg-preview_1755497919444.png";
+// Use official Powerton Engineering logo from website
+const logoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
@@ -19,7 +20,7 @@ export default function Header() {
     { name: "Contact", href: "/contact" },
   ];
 
-  const isActive = (href) => {
+  const isActive = (href: string) => {
     if (href === "/" && location === "/") return true;
     if (href !== "/" && location.startsWith(href)) return true;
     return false;
