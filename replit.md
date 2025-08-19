@@ -8,8 +8,24 @@ This is a comprehensive business website for Powerton Engineering Pvt. Ltd., a c
 
 Preferred communication style: Simple, everyday language.
 Logo preference: Use official Powerton Engineering logo (https://powertonengineering.in/assets/img/logo-new.jpg) throughout the website. **Updated: Migrated from local asset to official URL in header and footer components.**
-Color theme consistency: Maintain consistent use of theme colors (primary: blue hsl(215, 89%, 33%), secondary: orange hsl(20, 91%, 48%)) throughout all components instead of hardcoded colors. **Updated: Comprehensive color contrast improvements completed across all website components. Systematically replaced gray hardcoded colors with theme-aware foreground/muted variants, ensuring proper text-background contrast and professional appearance while maintaining brand colors. Applied consistent theme color usage across all pages and sections with proper WCAG-compliant contrast ratios.**
-**Image Management System**: All images throughout the website must have unique IDs in their alt attributes for easy identification and replacement. Format: alt="ID-[unique-id]: [descriptive text]". This allows for quick image troubleshooting and replacement by referencing the ID when images fail to load. Any future AI agents should maintain this system and add IDs to new images.
+#### **2. Color Scheme Enforcement (MANDATORY)**
+- **PRIMARY BRAND COLOR**: `hsl(215, 89%, 33%)` (Blue) - Use for headers, buttons, links, brand elements
+- **SECONDARY BRAND COLOR**: `hsl(20, 91%, 48%)` (Orange) - Use for accents, CTAs, highlights
+- **FORBIDDEN**: Never use hardcoded colors like `#3B82F6`, `gray-500`, etc.
+- **REQUIRED**: Always use Tailwind CSS theme variables: `bg-primary`, `text-primary`, `bg-secondary`, `text-secondary`
+- **TEXT COLORS**: Use theme-aware variants: `text-foreground`, `text-muted-foreground`, `text-accent-foreground`
+- **BACKGROUNDS**: Use semantic colors: `bg-background`, `bg-muted`, `bg-accent`
+- **CONTRAST**: All color combinations must meet WCAG accessibility standards
+
+**Updated: Comprehensive color contrast improvements completed across all website components.**
+## AI Agent Guidelines for Future Development
+
+### **CRITICAL RULES - ALL AI AGENTS MUST FOLLOW**
+
+#### **1. Image Management System (MANDATORY)**
+- **RULE**: ALL images must have unique IDs in alt attributes: `alt="ID-[unique-id]: [descriptive text]"`
+- **PURPOSE**: Easy identification and replacement when images fail to load
+- **ENFORCEMENT**: Before adding ANY image, assign it a unique ID from available ranges
 
 **Current ID Ranges Assigned**:
 - ID-001-002: Logo images (header/footer)
@@ -22,19 +38,41 @@ Color theme consistency: Maintain consistent use of theme colors (primary: blue 
 - ID-500-599: Resource case study images
 - ID-600-699: Resource webinar images  
 - ID-700-799: Resource insight images
+- **Next Available**: ID-800+ (update this when used)
 
-When adding new images, use the next available range (800+) and update this documentation.
+**PROCESS**: When adding new images, use next available range and UPDATE this documentation immediately.
 
-**UI Consistency Analysis - August 19, 2025**:
-**COMPLETED**: Comprehensive UI consistency improvements implemented across all website pages:
-- ✅ **Hero Sections**: Standardized with `.hero-gradient`, `.hero-content`, `.hero-title`, `.hero-subtitle`, and `.hero-features` classes
-- ✅ **Section Headings**: Unified with `.section-title`, `.section-subtitle`, and `.section-eyebrow` classes for consistent typography hierarchy
-- ✅ **Container System**: Applied `.section-padding` and `.container-padding` for consistent spacing across breakpoints
-- ✅ **Grid Layouts**: Standardized with `.grid-responsive-cards`, `.grid-responsive-features`, and `.grid-responsive-4` for consistent layouts
-- ✅ **Card Components**: Enhanced with `.card-hover` and `.card-interactive` for consistent hover effects and transitions
-- ✅ **Button System**: Implemented `.btn-primary`, `.btn-secondary`, `.btn-outline`, and `.btn-responsive` for unified styling
-- ✅ **Color Consistency**: Replaced hardcoded colors with proper theme variables maintaining brand colors (primary: hsl(215, 89%, 33%), secondary: hsl(20, 91%, 48%))
-- ✅ **Responsive Typography**: Applied consistent responsive text scaling with proper contrast ratios across all sections
+#### **3. UI Consistency Standards (MANDATORY)**
+
+**COMPLETED SYSTEMS** - Always follow these established patterns:
+
+**Typography Hierarchy**:
+- **Page Titles**: `text-4xl md:text-5xl lg:text-6xl font-bold text-foreground`
+- **Section Titles**: `text-3xl md:text-4xl font-bold text-foreground`
+- **Subsection Titles**: `text-xl md:text-2xl font-semibold text-foreground`
+- **Body Text**: `text-base md:text-lg text-muted-foreground`
+- **Captions**: `text-sm text-muted-foreground`
+
+**Spacing System**:
+- **Section Padding**: `py-12 md:py-16 lg:py-20`
+- **Container Padding**: `px-4 md:px-6 lg:px-8`
+- **Card Spacing**: `p-6 md:p-8`
+- **Element Gaps**: `gap-4 md:gap-6 lg:gap-8`
+
+**Grid Layouts**:
+- **Cards**: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`
+- **Features**: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8`
+- **Two Column**: `grid grid-cols-1 lg:grid-cols-2 gap-12`
+
+**Button System**:
+- **Primary**: `bg-primary hover:bg-primary/90 text-primary-foreground`
+- **Secondary**: `bg-secondary hover:bg-secondary/90 text-secondary-foreground`
+- **Outline**: `border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground`
+
+**Card Components**:
+- **Base**: `bg-card border border-border rounded-lg p-6 shadow-sm`
+- **Hover Effect**: `hover:shadow-md hover:scale-[1.02] transition-all duration-300`
+- **Interactive**: `cursor-pointer hover:border-primary/50`
 
 ## Migration Status - August 19, 2025
 **COMPLETED**: Successfully migrated from Replit Agent to standard Replit environment with competitive feature enhancements
