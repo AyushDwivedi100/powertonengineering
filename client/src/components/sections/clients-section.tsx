@@ -26,11 +26,23 @@ export default function ClientsSection() {
   // Auto-slide functionality for client logos - infinite loop
   useEffect(() => {
     const logoInterval = setInterval(() => {
-      setLogoCurrentIndex((prevIndex) => (prevIndex + 1) % CLIENT_LOGOS.length);
+      setLogoCurrentIndex((prevIndex) => prevIndex + 1);
     }, 2500); // Change every 2.5 seconds
 
     return () => clearInterval(logoInterval);
   }, []);
+
+  // Reset position when we've moved through all original clients
+  useEffect(() => {
+    if (logoCurrentIndex >= CLIENT_LOGOS.length) {
+      // Wait for animation to complete, then reset without animation
+      const resetTimer = setTimeout(() => {
+        setLogoCurrentIndex(0);
+      }, 500); // Wait for transition to complete
+      
+      return () => clearTimeout(resetTimer);
+    }
+  }, [logoCurrentIndex]);
 
   const goToPrevious = () => {
     setIsAutoPlaying(false);
@@ -70,7 +82,7 @@ export default function ClientsSection() {
         <div className="mb-16">
           <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8">
             <div 
-              className="flex transition-transform duration-500 ease-in-out"
+              className={`flex ${logoCurrentIndex >= CLIENT_LOGOS.length ? '' : 'transition-transform duration-500 ease-in-out'}`}
               style={{
                 transform: `translateX(-${logoCurrentIndex * 136}px)`,
                 width: `${CLIENT_LOGOS.length * 2 * 136}px` // Double width for seamless loop
