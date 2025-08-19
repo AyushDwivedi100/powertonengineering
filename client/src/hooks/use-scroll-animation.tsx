@@ -275,3 +275,35 @@ export const useParallax = (speed = 0.5) => {
 
   return offset;
 };
+
+// Helper function to get animation class names
+export const getAnimationClass = (animation: string, isVisible: boolean) => {
+  if (!isVisible) return 'opacity-0 translate-y-8';
+  
+  const animations = {
+    fadeInUp: 'animate-fadeInUp',
+    fadeInDown: 'animate-fadeInDown', 
+    fadeInLeft: 'animate-fadeInLeft',
+    fadeInRight: 'animate-fadeInRight',
+    scaleIn: 'animate-scaleIn',
+    slideInUp: 'animate-slideInUp'
+  };
+  
+  return animations[animation] || animations.fadeInUp;
+};
+
+// Enhanced staggered animation hook
+export const useStaggeredAnimation = (delay: number = 100) => {
+  const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
+  
+  return {
+    ref,
+    isVisible,
+    getStaggeredStyle: (index: number) => ({
+      animationDelay: isVisible ? `${delay * index}ms` : '0ms',
+      opacity: isVisible ? 1 : 0,
+      transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+      transition: 'all 0.6s ease-out'
+    })
+  };
+};
