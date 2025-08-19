@@ -140,7 +140,7 @@ export default function Resources() {
   const [activeTab, setActiveTab] = useState("whitepapers");
   
   const heroAnimation = useScrollAnimation();
-  const contentAnimation = useStaggeredAnimation();
+  const contentAnimation = useStaggeredAnimation(4);
 
   const filteredContent = {
     whitepapers: WHITEPAPERS.filter(item => 
@@ -174,16 +174,16 @@ export default function Resources() {
       />
 
       {/* Hero Section */}
-      <section className={`py-20 bg-gradient-to-br from-primary to-primary/80 text-white ${getAnimationClass(heroAnimation)}`}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Knowledge Hub
+      <section className={`section-padding hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="hero-content">
+            <h1 className="hero-title">
+              Knowledge <span className="text-secondary">Hub</span>
             </h1>
-            <p className="text-xl mb-8 text-primary-foreground/90">
+            <p className="hero-subtitle">
               Explore comprehensive resources, insights, and expertise in industrial automation
             </p>
-            <div className="flex flex-wrap justify-center gap-8 text-sm">
+            <div className="hero-features">
               <div className="flex items-center gap-2">
                 <FileText className="w-5 h-5" />
                 <span>Technical Whitepapers</span>
@@ -206,8 +206,8 @@ export default function Resources() {
       </section>
 
       {/* Search Section */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="section-padding bg-white">
+        <div className="max-w-7xl mx-auto container-padding">
           <div className="max-w-2xl mx-auto">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />

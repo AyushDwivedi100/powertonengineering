@@ -146,16 +146,16 @@ export default function Technology() {
       />
 
       {/* Hero Section */}
-      <section className={`py-20 bg-gradient-to-br from-primary to-primary/80 text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Technology & Innovation
+      <section className={`section-padding hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="hero-content">
+            <h1 className="hero-title">
+              Technology & <span className="text-secondary">Innovation</span>
             </h1>
-            <p className="text-xl mb-8 text-primary-foreground/90">
+            <p className="hero-subtitle">
               Powering the future of industrial automation with cutting-edge technologies and innovative solutions
             </p>
-            <div className="flex flex-wrap justify-center gap-8 text-sm">
+            <div className="hero-features">
               <div className="flex items-center gap-2">
                 <Brain className="w-5 h-5" />
                 <span>AI-Powered Automation</span>
@@ -178,12 +178,11 @@ export default function Technology() {
       </section>
 
       {/* Technology Stack */}
-      <section className={`py-16 bg-white ${getAnimationClass('fade-in-up', stackAnimation.isVisible)}`}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
+      <section className={`section-padding bg-white ${getAnimationClass('fade-in-up', stackAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto container-padding">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Technology Stack</h2>
-              <p className="text-xl text-gray-600">
+              <h2 className="section-title">Our Technology Stack</h2>
+              <p className="section-subtitle">
                 Industry-leading platforms and tools that power our automation solutions
               </p>
             </div>
@@ -237,21 +236,19 @@ export default function Technology() {
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Innovation Areas */}
-      <section className={`py-16 bg-gray-50 ${getAnimationClass('fade-in-up', innovationAnimation.isVisible)}`}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Innovation Frontiers</h2>
-              <p className="text-xl text-gray-600">
-                Pioneering the next generation of industrial automation technologies
-              </p>
-            </div>
+      <section className={`section-padding bg-muted/30 ${getAnimationClass('fade-in-up', innovationAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Innovation Frontiers</h2>
+            <p className="section-subtitle">
+              Pioneering the next generation of industrial automation technologies
+            </p>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid-responsive-features">
               {INNOVATION_AREAS.map((area, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
@@ -289,78 +286,73 @@ export default function Technology() {
                 </Card>
               ))}
             </div>
-          </div>
         </div>
       </section>
 
       {/* Certifications */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Certifications & Partnerships</h2>
-              <p className="text-xl text-gray-600">
-                Certified expertise and strategic partnerships with industry leaders
-              </p>
-            </div>
+      <section className="section-padding bg-white">
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Certifications & Partnerships</h2>
+            <p className="section-subtitle">
+              Certified expertise and strategic partnerships with industry leaders
+            </p>
+          </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {CERTIFICATIONS.map((cert, index) => (
-                <Card key={index} className="text-center hover:shadow-md transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="text-primary mb-3 flex justify-center">{cert.icon}</div>
-                    <h4 className="text-sm font-semibold">{cert.name}</h4>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {CERTIFICATIONS.map((cert, index) => (
+              <Card key={index} className="text-center hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <div className="text-primary mb-3 flex justify-center">{cert.icon}</div>
+                  <h4 className="text-sm font-semibold">{cert.name}</h4>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-primary text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-4xl font-bold mb-2">15+</div>
-                <div className="text-primary-foreground/80">Years R&D Experience</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold mb-2">50+</div>
-                <div className="text-primary-foreground/80">Technology Platforms</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold mb-2">200+</div>
-                <div className="text-primary-foreground/80">Innovation Projects</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold mb-2">99.5%</div>
-                <div className="text-primary-foreground/80">System Reliability</div>
-              </div>
+      <section className="section-padding bg-primary text-white">
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold mb-2">15+</div>
+              <div className="text-primary-foreground/80">Years R&D Experience</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">50+</div>
+              <div className="text-primary-foreground/80">Technology Platforms</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">200+</div>
+              <div className="text-primary-foreground/80">Innovation Projects</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">99.5%</div>
+              <div className="text-primary-foreground/80">System Reliability</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      <section className="section-padding bg-muted/30">
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="text-center">
+            <h2 className="section-title mb-6">
               Ready to Leverage Advanced Technologies?
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="section-subtitle mb-8">
               Let our technology experts design a custom automation solution for your business
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="flex items-center gap-2">
+              <Button size="lg" className="btn-primary flex items-center gap-2">
                 <Users className="w-5 h-5" />
                 Schedule Consultation
                 <ArrowRight className="w-4 h-4" />
               </Button>
-              <Button size="lg" variant="outline" className="flex items-center gap-2">
+              <Button size="lg" variant="outline" className="btn-outline flex items-center gap-2">
                 <Settings className="w-5 h-5" />
                 Explore Solutions
               </Button>

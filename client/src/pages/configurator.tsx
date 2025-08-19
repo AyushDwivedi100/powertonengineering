@@ -186,13 +186,13 @@ export default function Configurator() {
       />
 
       {/* Hero Section */}
-      <section className={`py-20 bg-gradient-to-br from-primary to-primary/80 text-white ${getAnimationClass(heroAnimation)}`}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Project Configurator
+      <section className={`section-padding hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="hero-content">
+            <h1 className="hero-title">
+              Project <span className="text-secondary">Configurator</span>
             </h1>
-            <p className="text-xl mb-8 text-primary-foreground/90">
+            <p className="hero-subtitle">
               Get instant estimates for your automation project with our intelligent configurator
             </p>
             <div className="flex items-center justify-center gap-2 mb-8">

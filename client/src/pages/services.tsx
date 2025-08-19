@@ -118,14 +118,14 @@ export default function Services() {
       />
 
       {/* Hero Section */}
-      <section className="relative section-padding bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
+      <section className="relative section-padding hero-gradient text-white overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: "url('https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
         <div className="relative max-w-7xl mx-auto container-padding">
-          <div ref={heroAnimation.ref} className={`max-w-4xl mx-auto text-center ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+          <div ref={heroAnimation.ref} className={`hero-content ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+            <h1 className="hero-title">
               Professional <span className="text-secondary">Engineering Services</span>
             </h1>
-            <p className="text-xl lg:text-2xl mb-8 opacity-90">
+            <p className="hero-subtitle">
               From process automation to maintenance contracts, we provide comprehensive engineering solutions tailored to your industrial requirements.
             </p>
             <Link href="/contact">
@@ -149,15 +149,15 @@ export default function Services() {
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto container-padding">
           <div ref={overviewAnimation.ref} className={`text-center mb-16 ${getAnimationClass('fade-in-up', overviewAnimation.isVisible)}`}>
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
+            <h2 className="section-title">
               Our Service Portfolio
             </h2>
-            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
+            <p className="section-subtitle">
               Comprehensive engineering solutions backed by 15+ years of experience and expertise in industrial automation.
             </p>
           </div>
 
-          <div ref={servicesGridAnimation.ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div ref={servicesGridAnimation.ref} className="grid-responsive-cards">
             {SERVICES.map((service, index) => {
               const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Settings;
               const isVisible = servicesGridAnimation.visibleItems.has(index);
@@ -165,7 +165,7 @@ export default function Services() {
               return (
                 <Card 
                   key={service.id} 
-                  className={`border border-border group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${getAnimationClass('slide-in-scale', isVisible)}`}
+                  className={`border border-border group card-hover ${getAnimationClass('slide-in-scale', isVisible)}`}
                 >
                   <CardHeader>
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">

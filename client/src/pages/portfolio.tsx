@@ -155,10 +155,6 @@ export default function Portfolio() {
   const [selectedStatus, setSelectedStatus] = useState("All");
   const [showFilters, setShowFilters] = useState(false);
 
-  const heroAnimation = useScrollAnimation();
-  const statsAnimation = useScrollAnimation();
-  const projectsAnimation = useStaggeredAnimation();
-
   const filteredProjects = PORTFOLIO_PROJECTS.filter(project => {
     const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          project.client.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -169,6 +165,10 @@ export default function Portfolio() {
     
     return matchesSearch && matchesIndustry && matchesCategory && matchesStatus;
   });
+
+  const heroAnimation = useScrollAnimation();
+  const statsAnimation = useScrollAnimation();
+  const projectsAnimation = useStaggeredAnimation(filteredProjects.length);
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -206,16 +206,16 @@ export default function Portfolio() {
       />
 
       {/* Hero Section */}
-      <section className={`py-20 bg-gradient-to-br from-primary to-primary/80 text-white ${getAnimationClass(heroAnimation)}`}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Our Project Portfolio
+      <section className={`section-padding hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="hero-content">
+            <h1 className="hero-title">
+              Our Project <span className="text-secondary">Portfolio</span>
             </h1>
-            <p className="text-xl mb-8 text-primary-foreground/90">
+            <p className="hero-subtitle">
               Discover our engineering excellence through 1200+ successful projects across diverse industries
             </p>
-            <div className="flex flex-wrap justify-center gap-8 text-sm">
+            <div className="hero-features">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5" />
                 <span>1200+ Projects Completed</span>
@@ -234,24 +234,24 @@ export default function Portfolio() {
       </section>
 
       {/* Stats Section */}
-      <section className={`py-16 bg-gray-50 ${getAnimationClass(statsAnimation)}`}>
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">1200+</div>
-              <div className="text-gray-600">Projects Completed</div>
+      <section className={`section-padding bg-muted/30 ${getAnimationClass('fade-in-up', statsAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 text-center">
+            <div>
+              <div className="text-responsive-xl font-bold text-primary mb-2">1200+</div>
+              <div className="text-responsive-sm text-foreground/70">Projects Completed</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">15+</div>
-              <div className="text-gray-600">Years Experience</div>
+            <div>
+              <div className="text-responsive-xl font-bold text-primary mb-2">15+</div>
+              <div className="text-responsive-sm text-foreground/70">Years Experience</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">500+</div>
-              <div className="text-gray-600">Happy Clients</div>
+            <div>
+              <div className="text-responsive-xl font-bold text-primary mb-2">500+</div>
+              <div className="text-responsive-sm text-foreground/70">Happy Clients</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">₹200+</div>
-              <div className="text-gray-600">Crores Projects Value</div>
+            <div>
+              <div className="text-responsive-xl font-bold text-primary mb-2">₹200+</div>
+              <div className="text-responsive-sm text-foreground/70">Crores Projects Value</div>
             </div>
           </div>
         </div>
