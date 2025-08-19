@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { TESTIMONIALS, CLIENTS } from "@/data/constants";
+import { TESTIMONIALS, CLIENTS, CLIENT_LOGOS } from "@/data/constants";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,8 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function ClientsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [logoSlideIndex, setLogoSlideIndex] = useState(0);
   
-  // Auto-slide functionality
+  // Auto-slide functionality for testimonials
   useEffect(() => {
     if (!isAutoPlaying) return;
     
@@ -21,6 +22,17 @@ export default function ClientsSection() {
     
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
+
+  // Auto-slide functionality for client logos (3 seconds interval)
+  useEffect(() => {
+    const logoInterval = setInterval(() => {
+      setLogoSlideIndex((prevIndex) => 
+        prevIndex >= CLIENT_LOGOS.length - 5 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Change logos every 3 seconds
+    
+    return () => clearInterval(logoInterval);
+  }, []);
   
   const goToPrevious = () => {
     setIsAutoPlaying(false);
@@ -49,16 +61,57 @@ export default function ClientsSection() {
           </p>
         </div>
 
-        {/* Client Logos Grid */}
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-70 hover:opacity-100 transition-opacity duration-300 mb-16">
-          {CLIENTS.map((client, index) => (
-            <div 
-              key={client} 
-              className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+        {/* Client Logos Slideshow */}
+        <div className="mb-16">
+          <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-8">
+            <motion.div
+              className="flex space-x-8"
+              animate={{
+                x: `-${logoSlideIndex * (180 + 32)}px` // 180px logo width + 32px gap
+              }}
+              transition={{
+                duration: 0.8,
+                ease: "easeInOut"
+              }}
+              style={{
+                width: `${CLIENT_LOGOS.length * (180 + 32)}px`
+              }}
             >
-              <span className="text-gray-600 font-semibold text-sm text-center">{client}</span>
-            </div>
-          ))}
+              {/* Create multiple copies for seamless loop */}
+              {[...CLIENT_LOGOS, ...CLIENT_LOGOS.slice(0, 5)].map((client, index) => (
+                <motion.div
+                  key={`${client.id}-${index}`}
+                  className="flex-shrink-0 w-45 h-20 bg-white rounded-lg border border-gray-200 p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300"
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (index % 5) * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  style={{ width: '180px' }}
+                >
+                  <div className="text-center">
+                    <img 
+                      src={client.logo} 
+                      alt={`ID-820-${index}: ${client.name} company logo`}
+                      className="w-full h-12 object-contain mb-1"
+                      loading="lazy"
+                    />
+                    <span className="text-xs font-medium text-gray-600">{client.name}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+            
+            {/* Subtle gradient overlays for seamless effect */}
+            <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10"></div>
+            <div className="absolute top-0 right-0 w-16 h-full bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10"></div>
+          </div>
+          
+          {/* Auto-sliding indicator */}
+          <div className="text-center mt-4">
+            <p className="text-sm text-gray-500">
+              Trusted by industry leaders • Automatically showcasing our valued partners
+            </p>
+          </div>
         </div>
 
         {/* Testimonials Carousel Section */}

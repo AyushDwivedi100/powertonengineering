@@ -144,6 +144,84 @@ export const TESTIMONIALS = [
   }
 ];
 
+export const CLIENT_LOGOS = [
+  {
+    id: "sci-group",
+    name: "SCI Group",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=SCI+Group"
+  },
+  {
+    id: "agribio",
+    name: "Agribio Ltd",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Agribio+Ltd"
+  },
+  {
+    id: "motherson",
+    name: "Motherson",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Motherson"
+  },
+  {
+    id: "praj",
+    name: "Praj Industries",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Praj+Industries"
+  },
+  {
+    id: "thermax",
+    name: "Thermax",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Thermax"
+  },
+  {
+    id: "ankur",
+    name: "Ankur Scientific",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Ankur+Scientific"
+  },
+  {
+    id: "dls",
+    name: "DLS Group",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=DLS+Group"
+  },
+  {
+    id: "boudh",
+    name: "Boudh Industries",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Boudh+Industries"
+  },
+  {
+    id: "lokmangal",
+    name: "Lokmangal",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Lokmangal"
+  },
+  {
+    id: "marcuras",
+    name: "Marcuras",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Marcuras"
+  },
+  {
+    id: "nv-group",
+    name: "NV Group",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=NV+Group"
+  },
+  {
+    id: "anand-nv",
+    name: "Anand NV",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Anand+NV"
+  },
+  {
+    id: "dhanuka",
+    name: "Dhanuka",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Dhanuka"
+  },
+  {
+    id: "mjson",
+    name: "MJSON",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=MJSON"
+  },
+  {
+    id: "procient",
+    name: "Procient",
+    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Procient"
+  }
+];
+
 export const CLIENTS = [
   "SCI Group", "Agribio Ltd", "Motherson", "Praj Industries", "Thermax", "Ankur Scientific",
   "DLS Group", "Boudh Industries", "Lokmangal", "Marcuras", "NV Group", "Anand NVH",
