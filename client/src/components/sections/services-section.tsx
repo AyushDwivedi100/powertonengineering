@@ -38,7 +38,7 @@ export default function ServicesSection() {
       
       {/* Content */}
       <div className="relative z-10">
-      <div className="max-w-7xl mx-auto container-padding">
+      <div className="container-responsive container-padding">
         <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
           <div className="text-center mb-12 sm:mb-16">
             <motion.span 
@@ -69,7 +69,7 @@ export default function ServicesSection() {
         </AnimatedSection>
 
         <StaggeredList 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
+          className="grid-responsive-3"
           stagger={0.15}
           delay={0.3}
         >

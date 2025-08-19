@@ -18,18 +18,18 @@ export default function ContactSection() {
       
       {/* Content */}
       <div className="relative z-10">
-        <div className="max-w-7xl mx-auto container-padding">
+        <div className="container-responsive container-padding">
         <div className="text-center mb-16">
           <span className="text-secondary font-semibold text-lg">Contact Us</span>
-          <h2 className="text-3xl lg:text-5xl font-bold mt-4 mb-6">
+          <h2 className="text-responsive-title font-bold mt-4 mb-6">
             Let's Discuss Your Engineering Needs
           </h2>
-          <p className="text-xl opacity-90 max-w-3xl mx-auto">
+          <p className="text-responsive-body opacity-90 container-responsive">
             Ready to start your next project? Get in touch with our expert team for customized solutions and professional consultation.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="flex-responsive gap-8 sm:gap-12">
           <div>
             <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
             

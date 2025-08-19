@@ -43,8 +43,8 @@ export default function AboutSection() {
       
       {/* Content */}
       <div className="relative z-10">
-      <div className="max-w-7xl mx-auto container-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+      <div className="container-responsive container-padding">
+        <div className="flex-responsive items-center">
           <AnimatedSection 
             animation="fadeInLeft" 
             delay={0.2}
@@ -68,7 +68,7 @@ export default function AboutSection() {
             className="order-1 lg:order-2"
           >
             <motion.span 
-              className="text-secondary font-semibold text-sm sm:text-base md:text-lg"
+              className="text-secondary font-semibold text-responsive-caption"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
