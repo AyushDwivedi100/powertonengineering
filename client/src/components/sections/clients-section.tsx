@@ -162,17 +162,7 @@ export default function ClientsSection() {
             <div className="absolute top-0 right-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10"></div>
           </div>
 
-          {/* Scroll status indicator */}
-          <div className="text-center mt-3 md:mt-4">
-            <p className="text-xs md:text-sm text-gray-500 px-4">
-              Trusted by industry leaders • {isHovered ? 'hover paused' : (isScrolling ? 'scrolling...' : 'paused')} • showcase of our valued partners
-            </p>
-            <div className="flex justify-center mt-2 space-x-1">
-              <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                isScrolling ? "bg-primary animate-pulse" : "bg-gray-400"
-              }`} />
-            </div>
-          </div>
+
         </div>
 
         {/* Testimonials Carousel Section */}
