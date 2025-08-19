@@ -148,77 +148,92 @@ export const CLIENT_LOGOS = [
   {
     id: "sci-group",
     name: "SCI Group",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=SCI+Group"
+    logo: "https://logo.clearbit.com/scigrp.com",
+    fallback: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "agribio",
     name: "Agribio Ltd",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Agribio+Ltd"
+    logo: "https://logo.clearbit.com/agribiogermany.com",
+    fallback: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "motherson",
     name: "Motherson",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Motherson"
+    logo: "https://logo.clearbit.com/motherson.com",
+    fallback: "https://images.unsplash.com/photo-1560472355-536de3962603?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "praj",
     name: "Praj Industries",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Praj+Industries"
+    logo: "https://logo.clearbit.com/praj.net",
+    fallback: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "thermax",
     name: "Thermax",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Thermax"
+    logo: "https://logo.clearbit.com/thermaxglobal.com",
+    fallback: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "ankur",
     name: "Ankur Scientific",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Ankur+Scientific"
+    logo: "https://logo.clearbit.com/ankurscientific.com",
+    fallback: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "dls",
     name: "DLS Group",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=DLS+Group"
+    logo: "https://logo.clearbit.com/dlsindia.co.in",
+    fallback: "https://images.unsplash.com/photo-1558618047-3c8c76d4d6c4?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "boudh",
     name: "Boudh Industries",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Boudh+Industries"
+    logo: "https://logo.clearbit.com/boudhindustries.com",
+    fallback: "https://images.unsplash.com/photo-1565043666747-69f6646db2e5?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "lokmangal",
     name: "Lokmangal",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Lokmangal"
+    logo: "https://logo.clearbit.com/lokmangal.com",
+    fallback: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "marcuras",
     name: "Marcuras",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Marcuras"
+    logo: "https://logo.clearbit.com/marcuras.com",
+    fallback: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "nv-group",
     name: "NV Group",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=NV+Group"
+    logo: "https://logo.clearbit.com/nvgroup.com",
+    fallback: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "anand-nv",
     name: "Anand NV",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Anand+NV"
+    logo: "https://logo.clearbit.com/anandnv.com",
+    fallback: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "dhanuka",
-    name: "Dhanuka",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Dhanuka"
+    name: "Dhanuka Agritech",
+    logo: "https://logo.clearbit.com/dhanuka.com",
+    fallback: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "mjson",
     name: "MJSON",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=MJSON"
+    logo: "https://logo.clearbit.com/mjson.com",
+    fallback: "https://images.unsplash.com/photo-1560472355-536de3962603?w=180&h=80&fit=crop&q=80"
   },
   {
     id: "procient",
     name: "Procient",
-    logo: "https://via.placeholder.com/180x80/f8f9fa/6c757d?text=Procient"
+    logo: "https://logo.clearbit.com/procient.com",
+    fallback: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=180&h=80&fit=crop&q=80"
   }
 ];
 

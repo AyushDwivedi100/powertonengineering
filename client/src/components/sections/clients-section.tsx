@@ -94,6 +94,9 @@ export default function ClientsSection() {
                       alt={`ID-820-${index}: ${client.name} company logo`}
                       className="w-full h-12 object-contain mb-1"
                       loading="lazy"
+                      onError={(e) => {
+                        e.target.src = client.fallback;
+                      }}
                     />
                     <span className="text-xs font-medium text-gray-600">{client.name}</span>
                   </div>
