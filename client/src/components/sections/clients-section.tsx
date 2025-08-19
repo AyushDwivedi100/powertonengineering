@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function ClientsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [logoSlideIndex, setLogoSlideIndex] = useState(0);
 
   // Auto-slide functionality for testimonials
   useEffect(() => {
@@ -22,32 +21,6 @@ export default function ClientsSection() {
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
-
-  // Auto-slide functionality for client logos (responsive timing)
-  useEffect(() => {
-    const logoInterval = setInterval(() => {
-      setLogoSlideIndex((prevIndex) => {
-        // Reset to 0 when we've shown all original logos
-        if (prevIndex >= CLIENT_LOGOS.length) {
-          return 1; // Start from 1 to continue the animation
-        }
-        return prevIndex + 1;
-      });
-    }, 2500); // Faster on mobile for better UX
-
-    return () => clearInterval(logoInterval);
-  }, []);
-
-  // Reset animation position when we've completed one full cycle
-  useEffect(() => {
-    if (logoSlideIndex >= CLIENT_LOGOS.length) {
-      // Reset position instantly after animation completes
-      const timer = setTimeout(() => {
-        setLogoSlideIndex(0);
-      }, 800);
-      return () => clearTimeout(timer);
-    }
-  }, [logoSlideIndex]);
 
   const goToPrevious = () => {
     setIsAutoPlaying(false);
@@ -86,15 +59,8 @@ export default function ClientsSection() {
         {/* Client Logos Slideshow - Infinite Circular - Responsive */}
         <div className="mb-16">
           <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8">
-            <motion.div
-              className="flex space-x-4 md:space-x-6 lg:space-x-8"
-              animate={{
-                x: `-${logoSlideIndex * 136}px`, // 120px width + 16px gap
-              }}
-              transition={{
-                duration: logoSlideIndex === 0 ? 0 : 0.8,
-                ease: "easeInOut",
-              }}
+            <div 
+              className="flex space-x-4 md:space-x-6 lg:space-x-8 animate-infinite-scroll"
               style={{
                 width: `${CLIENT_LOGOS.length * 2 * 136}px`, // Total width for double set
               }}
@@ -103,10 +69,10 @@ export default function ClientsSection() {
               {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, index) => (
                 <motion.div
                   key={`${client.id}-${Math.floor(index / CLIENT_LOGOS.length)}-${index % CLIENT_LOGOS.length}`}
-                  className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300"
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (index % 5) * 0.1 }}
+                  className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300 hover:animate-none"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: (index % 10) * 0.1 }}
                   whileHover={{ scale: 1.05, y: -2 }}
                   style={{
                     width: "120px", // Base mobile width
@@ -130,7 +96,7 @@ export default function ClientsSection() {
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
 
             {/* Responsive gradient overlays */}
             <div className="absolute top-0 left-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10"></div>
