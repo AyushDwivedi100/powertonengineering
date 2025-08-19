@@ -26,11 +26,28 @@ export default function ClientsSection() {
   // Auto-slide functionality for client logos (3 seconds interval) - infinite loop
   useEffect(() => {
     const logoInterval = setInterval(() => {
-      setLogoSlideIndex((prevIndex) => prevIndex + 1);
+      setLogoSlideIndex((prevIndex) => {
+        // Reset to 0 when we've shown all original logos
+        if (prevIndex >= CLIENT_LOGOS.length) {
+          return 1; // Start from 1 to continue the animation
+        }
+        return prevIndex + 1;
+      });
     }, 3000); // Change logos every 3 seconds
     
     return () => clearInterval(logoInterval);
   }, []);
+
+  // Reset animation position when we've completed one full cycle
+  useEffect(() => {
+    if (logoSlideIndex >= CLIENT_LOGOS.length) {
+      // Reset position instantly after animation completes
+      const timer = setTimeout(() => {
+        setLogoSlideIndex(0);
+      }, 800); // Wait for animation to complete
+      return () => clearTimeout(timer);
+    }
+  }, [logoSlideIndex]);
   
   const goToPrevious = () => {
     setIsAutoPlaying(false);
@@ -65,10 +82,10 @@ export default function ClientsSection() {
             <motion.div
               className="flex space-x-8"
               animate={{
-                x: `-${(logoSlideIndex % CLIENT_LOGOS.length) * (180 + 32)}px`
+                x: `-${logoSlideIndex * (180 + 32)}px`
               }}
               transition={{
-                duration: 0.8,
+                duration: logoSlideIndex === 0 ? 0 : 0.8, // No transition when resetting
                 ease: "easeInOut"
               }}
               style={{
