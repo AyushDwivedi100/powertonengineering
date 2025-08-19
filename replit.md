@@ -9,6 +9,21 @@ This is a comprehensive business website for Powerton Engineering Pvt. Ltd., a c
 Preferred communication style: Simple, everyday language.
 Logo preference: Use official Powerton Engineering logo (https://powertonengineering.in/assets/img/logo-new.jpg) throughout the website. **Updated: Migrated from local asset to official URL in header and footer components.**
 Color theme consistency: Maintain consistent use of theme colors (primary: blue hsl(215, 89%, 33%), secondary: orange hsl(20, 91%, 48%)) throughout all components instead of hardcoded colors. **Updated: Comprehensive color contrast improvements completed across all website components. Systematically replaced gray hardcoded colors with theme-aware foreground/muted variants, ensuring proper text-background contrast and professional appearance while maintaining brand colors. Applied consistent theme color usage across all pages and sections with proper WCAG-compliant contrast ratios.**
+**Image Management System**: All images throughout the website must have unique IDs in their alt attributes for easy identification and replacement. Format: alt="ID-[unique-id]: [descriptive text]". This allows for quick image troubleshooting and replacement by referencing the ID when images fail to load. Any future AI agents should maintain this system and add IDs to new images.
+
+**Current ID Ranges Assigned**:
+- ID-001-002: Logo images (header/footer)
+- ID-003: About section image
+- ID-050-059: Project section images
+- ID-080-089: Gallery section images
+- ID-200-299: Portfolio project images
+- ID-300-399: Service section images
+- ID-400-499: Resource whitepaper images
+- ID-500-599: Resource case study images
+- ID-600-699: Resource webinar images  
+- ID-700-799: Resource insight images
+
+When adding new images, use the next available range (800+) and update this documentation.
 
 ## Migration Status - August 19, 2025
 **COMPLETED**: Successfully migrated from Replit Agent to standard Replit environment with competitive feature enhancements

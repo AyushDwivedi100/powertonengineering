@@ -57,7 +57,7 @@ export default function ServicesSection() {
                 <div className="relative h-32 sm:h-40 overflow-hidden">
                   <img 
                     src={serviceImages[service.id as keyof typeof serviceImages]} 
-                    alt={`${service.title} - ${service.description}`}
+                    alt={`ID-${String(300 + index).padStart(3, '0')}: ${service.title} - ${service.description}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />

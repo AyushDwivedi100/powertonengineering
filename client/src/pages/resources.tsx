@@ -244,7 +244,7 @@ export default function Resources() {
                       <div className="relative h-48">
                         <img
                           src={paper.image}
-                          alt={paper.title}
+                          alt={`ID-${String(400 + index).padStart(3, '0')}: ${paper.title}`}
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute top-4 right-4">
@@ -295,7 +295,7 @@ export default function Resources() {
                       <div className="relative h-64">
                         <img
                           src={study.image}
-                          alt={study.title}
+                          alt={`ID-${String(500 + index).padStart(3, '0')}: ${study.title}`}
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute top-4 right-4">
@@ -347,7 +347,7 @@ export default function Resources() {
                       <div className="relative h-48">
                         <img
                           src={webinar.image}
-                          alt={webinar.title}
+                          alt={`ID-${String(600 + index).padStart(3, '0')}: ${webinar.title}`}
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute top-4 right-4">
@@ -395,7 +395,7 @@ export default function Resources() {
                       <div className="relative h-48">
                         <img
                           src={insight.image}
-                          alt={insight.title}
+                          alt={`ID-${String(700 + index).padStart(3, '0')}: ${insight.title}`}
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute top-4 right-4">

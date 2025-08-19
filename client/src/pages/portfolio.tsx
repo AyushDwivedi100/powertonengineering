@@ -354,7 +354,7 @@ export default function Portfolio() {
                   <div className="relative h-48">
                     <img
                       src={project.image}
-                      alt={project.title}
+                      alt={`ID-${String(200 + index).padStart(3, '0')}: ${project.title}`}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute top-4 right-4">
