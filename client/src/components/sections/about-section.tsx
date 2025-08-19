@@ -53,7 +53,7 @@ export default function AboutSection() {
           >
             <motion.img 
               src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
-              alt="Professional Indian engineers working on industrial automation and control systems" 
+              alt="ID-003: Professional Indian engineers working on industrial automation and control systems" 
               className="rounded-xl shadow-2xl w-full hover-lift will-animate"
               loading="lazy"
               whileHover={{ scale: 1.02 }}

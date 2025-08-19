@@ -114,7 +114,7 @@ export default function Header() {
             <Link href="/" className="flex items-center">
               <motion.img 
                 src={logoImage} 
-                alt="Powerton Engineering Pvt. Ltd." 
+                alt="ID-001: Powerton Engineering Pvt. Ltd. logo" 
                 className="h-8 sm:h-10 md:h-12 w-auto"
                 loading="eager"
                 whileHover={{ scale: 1.05 }}

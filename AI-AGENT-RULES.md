@@ -23,18 +23,20 @@
 **Format**: `alt="ID-[unique-id]: [descriptive text]"`
 
 **Current ID Ranges** (UPDATE when used):
-- ID-001-002: Logo images
-- ID-003-049: General content images  
-- ID-050-059: Project showcase images
-- ID-080-089: Gallery images
-- ID-200-299: Portfolio images
-- ID-300-399: Service images
-- ID-400-499: Resource whitepapers
-- ID-500-599: Case studies
-- ID-600-699: Webinars
-- ID-700-799: Industry insights
-- ID-800-809: Background images for sections
-- **NEXT AVAILABLE**: ID-810+
+- ID-001-002: Logo images ✓ ASSIGNED
+- ID-003-005: About section images ✓ ASSIGNED
+- ID-050-059: Project and product showcase images ✓ ASSIGNED
+- ID-080-089: Gallery images ✓ ASSIGNED
+- ID-200-299: Portfolio images (reserved)
+- ID-300-399: Service images (reserved)
+- ID-400-499: Resource whitepapers (reserved)
+- ID-500-599: Case studies (reserved)
+- ID-600-699: Webinars (reserved)
+- ID-700-799: Industry insights (reserved)
+- ID-800-809: Background images for sections (reserved)
+- ID-810-813: Hero and contact background images ✓ ASSIGNED
+- ID-820-829: Client logo carousel images ✓ ASSIGNED
+- **NEXT AVAILABLE**: ID-830+
 
 **PROCESS**:
 1. Find next available ID range

@@ -59,7 +59,7 @@ export default function ProductsSection() {
                 >
                   <motion.img 
                     src={product.image} 
-                    alt={`${product.title} - ${product.description}`} 
+                    alt={`ID-050: ${product.title} - ${product.description}`} 
                     className="w-full h-48 object-cover"
                     loading="lazy"
                     whileHover={{ scale: 1.1 }}

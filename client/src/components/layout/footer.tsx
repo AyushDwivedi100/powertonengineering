@@ -26,7 +26,7 @@ export default function Footer() {
             <div className="mb-4">
               <img 
                 src={logoImage} 
-                alt="Powerton Engineering Pvt. Ltd." 
+                alt="ID-002: Powerton Engineering Pvt. Ltd. logo" 
                 className="h-12 w-auto mb-3"
                 loading="lazy"
               />
