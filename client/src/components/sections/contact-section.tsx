@@ -1,6 +1,7 @@
 import ContactForm from "@/components/forms/contact-form";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { COMPANY_INFO } from "@/data/constants";
+import { motion } from "framer-motion";
 
 export default function ContactSection() {
   return (
@@ -8,13 +9,40 @@ export default function ContactSection() {
       id="contact" 
       className="relative section-padding text-white overflow-hidden" 
       role="main"
-      style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
-      }}
     >
-      {/* Background overlay for contrast */}
-      <div className="absolute inset-0 bg-primary/85"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/60 to-blue-800/80"></div>
+      {/* Blurred Background Image - Electrical Control Panels */}
+      <div className="absolute inset-0">
+        <motion.div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat filter blur-md"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1200')",
+            backgroundPosition: 'center 40%'
+          }}
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 0.7 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          aria-label="ID-812: Electrical control panels background"
+        />
+        
+        {/* Secondary blurred layer for enhanced depth */}
+        <motion.div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat filter blur-lg opacity-20"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1200')",
+            backgroundPosition: 'center 60%'
+          }}
+          initial={{ scale: 1.2, opacity: 0 }}
+          animate={{ scale: 1.05, opacity: 0.3 }}
+          transition={{ duration: 2, delay: 0.3, ease: "easeOut" }}
+          aria-label="ID-813: Industrial machinery depth layer"
+        />
+      </div>
+
+      {/* Dark overlay for optimal text contrast */}
+      <div className="absolute inset-0 bg-black/50"></div>
+      
+      {/* Gradient overlay with brand colors */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-blue-800/60 to-primary/80"></div>
       
       {/* Content */}
       <div className="relative z-10">
