@@ -23,24 +23,36 @@ export default function ClientsSection() {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  // Auto-slide functionality for client logos - sliding window of 5
-  useEffect(() => {
-    const logoInterval = setInterval(() => {
-      setLogoCurrentIndex((prevIndex) => (prevIndex + 1) % CLIENT_LOGOS.length);
-    }, 2500); // Change every 2.5 seconds
+  // Infinite scroll with pause/resume intervals
+  const [isScrolling, setIsScrolling] = useState(true);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-    return () => clearInterval(logoInterval);
+  useEffect(() => {
+    // Control scroll on/off with intervals
+    const pauseResumeInterval = setInterval(() => {
+      setIsScrolling(prev => !prev);
+    }, 4000); // Pause for 4 seconds, then resume for 4 seconds
+
+    return () => clearInterval(pauseResumeInterval);
   }, []);
 
-  // Get 5 clients starting from current index (with wrapping)
-  const getVisibleClients = () => {
-    const visible = [];
-    for (let i = 0; i < 5; i++) {
-      const index = (logoCurrentIndex + i) % CLIENT_LOGOS.length;
-      visible.push({ ...CLIENT_LOGOS[index], displayIndex: index });
-    }
-    return visible;
-  };
+  useEffect(() => {
+    if (!isScrolling) return;
+
+    // Smooth continuous scrolling when active
+    const scrollInterval = setInterval(() => {
+      setScrollPosition(prev => {
+        const newPos = prev + 1;
+        // Reset position when we've scrolled through first set of clients
+        if (newPos >= CLIENT_LOGOS.length * 150) {
+          return 0;
+        }
+        return newPos;
+      });
+    }, 50); // Smooth 50ms updates
+
+    return () => clearInterval(scrollInterval);
+  }, [isScrolling]);
 
   const goToPrevious = () => {
     setIsAutoPlaying(false);
@@ -76,72 +88,64 @@ export default function ClientsSection() {
           </p>
         </div>
 
-        {/* Client Logos Slideshow - Sliding window of 5 */}
+        {/* Client Logos Slideshow - Infinite scroll with pause/resume */}
         <div className="mb-16">
           <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8">
-            <div className="flex justify-center">
-              <div className="flex space-x-4 md:space-x-6 lg:space-x-8">
-                <AnimatePresence initial={false}>
-                  {getVisibleClients().map((client, index) => (
-                    <motion.div
-                      key={`${client.id}-${logoCurrentIndex}-${index}`}
-                      className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300"
-                      initial={index === 4 ? { opacity: 0, x: 100, scale: 0.8 } : false}
-                      animate={{ opacity: 1, x: 0, scale: 1 }}
-                      exit={index === 0 ? { opacity: 0, x: -100, scale: 0.8 } : false}
-                      transition={{ 
-                        duration: 0.5,
-                        ease: "easeInOut"
+            <div 
+              className="flex transition-transform ease-linear"
+              style={{
+                transform: `translateX(-${scrollPosition}px)`,
+                width: `${CLIENT_LOGOS.length * 2 * 150}px`, // Double width for seamless loop
+                transitionDuration: isScrolling ? '0ms' : '300ms' // Smooth when pausing
+              }}
+            >
+              {/* Render clients twice for seamless infinite loop */}
+              {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, index) => (
+                <div
+                  key={`${client.id}-${Math.floor(index / CLIENT_LOGOS.length)}`}
+                  className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300 mx-2 md:mx-3 lg:mx-4"
+                  style={{
+                    width: "130px",
+                    minWidth: "130px",
+                  }}
+                  onMouseEnter={() => setIsScrolling(false)}
+                  onMouseLeave={() => setIsScrolling(true)}
+                >
+                  <div className="text-center w-full">
+                    <img
+                      src={client.logo}
+                      alt={`ID-820-${index}: ${client.name} company logo`}
+                      className="w-full h-8 md:h-10 lg:h-12 object-contain mb-1"
+                      loading="lazy"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = client.fallback;
                       }}
-                      layout
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      style={{
-                        width: "120px",
-                        minWidth: "120px",
-                      }}
-                    >
-                      <div className="text-center w-full">
-                        <img
-                          src={client.logo}
-                          alt={`ID-820-${client.displayIndex}: ${client.name} company logo`}
-                          className="w-full h-8 md:h-10 lg:h-12 object-contain mb-1"
-                          loading="lazy"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = client.fallback;
-                          }}
-                        />
-                        <span className="text-xs md:text-xs lg:text-sm font-medium text-gray-600 block truncate">
-                          {client.name}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
-              </div>
+                    />
+                    <span className="text-xs md:text-xs lg:text-sm font-medium text-gray-600 block truncate">
+                      {client.name}
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
+
+
 
             {/* Responsive gradient overlays */}
             <div className="absolute top-0 left-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10"></div>
             <div className="absolute top-0 right-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10"></div>
           </div>
 
-          {/* Auto-sliding indicator */}
+          {/* Scroll status indicator */}
           <div className="text-center mt-3 md:mt-4">
             <p className="text-xs md:text-sm text-gray-500 px-4">
-              Trusted by industry leaders • showcase of our valued partners
+              Trusted by industry leaders • {isScrolling ? 'scrolling...' : 'paused'} • showcase of our valued partners
             </p>
             <div className="flex justify-center mt-2 space-x-1">
-              {CLIENT_LOGOS.map((_, index) => (
-                <div
-                  key={index}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === logoCurrentIndex
-                      ? "bg-primary"
-                      : "bg-gray-300"
-                  }`}
-                />
-              ))}
+              <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                isScrolling ? "bg-primary animate-pulse" : "bg-gray-400"
+              }`} />
             </div>
           </div>
         </div>
