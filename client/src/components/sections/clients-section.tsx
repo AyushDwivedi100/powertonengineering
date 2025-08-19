@@ -159,12 +159,7 @@ export default function ClientsSection() {
             ))}
           </div>
 
-          {/* Auto-play indicator */}
-          <div className="text-center mt-4">
-            <p className="text-sm text-gray-500">
-              {isAutoPlaying ? 'Auto-playing • Click arrows to pause' : 'Paused • Will resume in 8 seconds'}
-            </p>
-          </div>
+
         </div>
       </div>
     </section>
