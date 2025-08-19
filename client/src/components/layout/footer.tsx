@@ -113,10 +113,16 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <MapPin className="w-4 h-4 mr-3 text-secondary mt-1" aria-hidden="true" />
-                <span>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.city}, ${COMPANY_INFO.address.state} ${COMPANY_INFO.address.pincode}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-secondary transition-colors cursor-pointer"
+                  aria-label="Open office location in Google Maps"
+                >
                   {COMPANY_INFO.address.street}<br />
                   {COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} {COMPANY_INFO.address.pincode}
-                </span>
+                </a>
               </li>
             </ul>
           </div>

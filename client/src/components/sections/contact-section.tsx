@@ -62,8 +62,16 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Address</h4>
-                  <p className="opacity-90">{COMPANY_INFO.address.street}</p>
-                  <p className="opacity-90">{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} {COMPANY_INFO.address.pincode}</p>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.city}, ${COMPANY_INFO.address.state} ${COMPANY_INFO.address.pincode}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-secondary transition-colors cursor-pointer block"
+                    aria-label="Open office location in Google Maps"
+                  >
+                    <p className="opacity-90 hover:opacity-100">{COMPANY_INFO.address.street}</p>
+                    <p className="opacity-90 hover:opacity-100">{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} {COMPANY_INFO.address.pincode}</p>
+                  </a>
                   <p className="text-sm opacity-70">Nearest Metro: {COMPANY_INFO.address.landmark}</p>
                 </div>
               </div>

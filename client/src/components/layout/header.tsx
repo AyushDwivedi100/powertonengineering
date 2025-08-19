@@ -81,17 +81,22 @@ export default function Header() {
               <span className="sm:hidden">Email</span>
             </motion.a>
           </motion.div>
-          <motion.div 
-            className="hidden md:flex items-center"
+          <motion.a
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.city}, ${COMPANY_INFO.address.state} ${COMPANY_INFO.address.pincode}`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center hover:text-secondary transition-colors cursor-pointer hover-scale"
+            aria-label="Open office location in Google Maps"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
+            whileHover={{ scale: 1.05 }}
           >
             <span className="flex items-center">
-              <MapPin className="w-4 h-4 mr-2" aria-hidden="true" />
+              <MapPin className="w-4 h-4 mr-2 text-secondary" aria-hidden="true" />
               <span className="text-xs lg:text-sm">{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} - Serving All India</span>
             </span>
-          </motion.div>
+          </motion.a>
         </div>
       </motion.div>
 
