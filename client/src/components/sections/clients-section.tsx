@@ -23,12 +23,10 @@ export default function ClientsSection() {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  // Auto-slide functionality for client logos (3 seconds interval)
+  // Auto-slide functionality for client logos (3 seconds interval) - infinite loop
   useEffect(() => {
     const logoInterval = setInterval(() => {
-      setLogoSlideIndex((prevIndex) => 
-        prevIndex >= CLIENT_LOGOS.length - 5 ? 0 : prevIndex + 1
-      );
+      setLogoSlideIndex((prevIndex) => prevIndex + 1);
     }, 3000); // Change logos every 3 seconds
     
     return () => clearInterval(logoInterval);
@@ -61,26 +59,26 @@ export default function ClientsSection() {
           </p>
         </div>
 
-        {/* Client Logos Slideshow */}
+        {/* Client Logos Slideshow - Infinite Circular */}
         <div className="mb-16">
           <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-8">
             <motion.div
               className="flex space-x-8"
               animate={{
-                x: `-${logoSlideIndex * (180 + 32)}px` // 180px logo width + 32px gap
+                x: `-${(logoSlideIndex % CLIENT_LOGOS.length) * (180 + 32)}px`
               }}
               transition={{
                 duration: 0.8,
                 ease: "easeInOut"
               }}
               style={{
-                width: `${CLIENT_LOGOS.length * (180 + 32)}px`
+                width: `${(CLIENT_LOGOS.length * 2) * (180 + 32)}px` // Double width for seamless loop
               }}
             >
-              {/* Create multiple copies for seamless loop */}
-              {[...CLIENT_LOGOS, ...CLIENT_LOGOS.slice(0, 5)].map((client, index) => (
+              {/* Create double set for truly infinite circular effect */}
+              {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, index) => (
                 <motion.div
-                  key={`${client.id}-${index}`}
+                  key={`${client.id}-${Math.floor(index / CLIENT_LOGOS.length)}-${index % CLIENT_LOGOS.length}`}
                   className="flex-shrink-0 w-45 h-20 bg-white rounded-lg border border-gray-200 p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300"
                   initial={{ opacity: 0, x: 100 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -112,7 +110,7 @@ export default function ClientsSection() {
           {/* Auto-sliding indicator */}
           <div className="text-center mt-4">
             <p className="text-sm text-gray-500">
-              Trusted by industry leaders • Automatically showcasing our valued partners
+              Trusted by industry leaders • Continuous showcase of our valued partners
             </p>
           </div>
         </div>
