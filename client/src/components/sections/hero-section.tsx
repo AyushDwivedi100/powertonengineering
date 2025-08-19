@@ -131,21 +131,39 @@ export default function HeroSection() {
       className="relative bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden"
       role="banner"
     >
-      <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+      {/* Blurred Background Image - Industrial Engineering */}
+      <div className="absolute inset-0">
+        <motion.div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat filter blur-sm"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1200')",
+            backgroundPosition: 'center 20%'
+          }}
+          aria-label="ID-810: Industrial engineering facility background"
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 0.6 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+        />
+        
+        {/* Secondary blurred layer for depth */}
+        <motion.div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat filter blur-lg opacity-30"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1200')",
+            backgroundPosition: 'center 30%'
+          }}
+          aria-label="ID-811: Secondary industrial background for depth"
+          initial={{ scale: 1.2, opacity: 0 }}
+          animate={{ scale: 1.05, opacity: 0.4 }}
+          transition={{ duration: 3, delay: 0.5, ease: "easeOut" }}
+        />
+      </div>
       
-      {/* Background Image with Parallax - Industrial Engineering */}
-      <motion.div 
-        className="absolute inset-0 bg-cover bg-center opacity-40"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
-        }}
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 10, ease: "easeOut" }}
-      />
+      {/* Dark overlay for text contrast */}
+      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       
-      {/* Additional overlay for better text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-blue-900/70"></div>
+      {/* Gradient overlay for brand colors */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-blue-800/60 to-primary/80"></div>
       
       <div className="relative max-w-7xl mx-auto container-padding py-12 sm:py-16 md:py-20 lg:py-32">
         <motion.div 

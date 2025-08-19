@@ -39,7 +39,8 @@ Logo preference: Use official Powerton Engineering logo (https://powertonenginee
 - ID-600-699: Resource webinar images  
 - ID-700-799: Resource insight images
 - ID-800-809: Background images for sections
-- **Next Available**: ID-810+ (update this when used)
+- ID-810-811: Hero section blurred background images
+- **Next Available**: ID-812+ (update this when used)
 
 **PROCESS**: When adding new images, use next available range and UPDATE this documentation immediately.
 
@@ -81,12 +82,25 @@ Logo preference: Use official Powerton Engineering logo (https://powertonenginee
 ## Windows Compatibility Fixes - August 19, 2025
 **COMPLETED**: Enhanced Windows compatibility for smooth cross-platform operation
 - ✅ **Host Binding**: Changed server binding from `localhost` to `0.0.0.0` for proper Windows network access
-- ✅ **Environment Variables**: Fixed NODE_ENV handling for Windows systems 
+- ✅ **Environment Variables**: Verified cross-env package works for Windows NODE_ENV handling
+- ✅ **npm run dev**: Confirmed standard command works properly on Windows systems
 - ✅ **Path Resolution**: Ensured proper Windows path handling throughout the application
-- ✅ **Batch Scripts**: Created `run-windows.bat` for native Windows execution
-- ✅ **Setup Scripts**: Added `windows-setup.js` for automated Windows environment verification
-- ✅ **Cross-platform Starter**: Created `start-dev.js` with Windows shell compatibility
-- **Result**: Application now runs smoothly on Windows, Linux, and macOS with consistent behavior
+- ✅ **Alternative Scripts**: Created multiple Windows execution options:
+  - `dev.cmd` - Windows command script
+  - `run-windows.bat` - Enhanced batch file with dependency checking
+  - `scripts/dev.js` - Cross-platform Node.js starter
+- ✅ **Documentation**: Added `README-WINDOWS.md` and `QUICK-START.md` for Windows users
+- ✅ **Setup Scripts**: Added `windows-setup.js` for automated environment verification
+- **Result**: `npm run dev` works seamlessly on Windows, with multiple fallback options available
+
+## Hero Section Enhancement - August 19, 2025
+**COMPLETED**: Enhanced hero section with professional blurred background imagery
+- ✅ **Dual-Layer Background**: Added primary and secondary blurred background images for visual depth
+- ✅ **Motion Effects**: Implemented smooth scale and opacity animations on background layers
+- ✅ **Professional Images**: Selected high-quality industrial engineering images from Unsplash
+- ✅ **Proper Layering**: Dark and gradient overlays ensure optimal text contrast and readability
+- ✅ **Image IDs Assigned**: ID-810 (primary blur), ID-811 (secondary blur depth layer)
+- **Result**: Hero section now features stunning blurred industrial backgrounds while maintaining excellent text readability
 
 ## Navigation Updates - August 19, 2025
 **COMPLETED**: Streamlined navigation structure for better user experience

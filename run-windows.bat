@@ -29,5 +29,19 @@ if %ERRORLEVEL% neq 0 (
 echo Starting development server...
 echo The application will be available at http://localhost:5000
 echo Press Ctrl+C to stop the server
+echo.
 
+REM Check if node_modules exists
+if not exist "node_modules" (
+    echo Installing dependencies...
+    npm install
+    if %ERRORLEVEL% neq 0 (
+        echo ERROR: Failed to install dependencies
+        pause
+        exit /b 1
+    )
+)
+
+echo.
+echo Starting Powerton Engineering application...
 npm run dev
