@@ -38,7 +38,7 @@ export default function AboutSection() {
       }}
     >
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-gray-50/95"></div>
+      <div className="absolute inset-0 bg-muted/95"></div>
       <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-gray-100/80"></div>
       
       {/* Content */}
@@ -84,7 +84,7 @@ export default function AboutSection() {
               Welcome to Powerton Engineering Pvt. Ltd.
             </motion.h2>
             <motion.p 
-              className="text-responsive-sm text-gray-600 mb-6 leading-relaxed"
+              className="text-responsive-sm text-muted-foreground mb-6 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.7 }}
@@ -109,8 +109,8 @@ export default function AboutSection() {
                       <Icon className="w-4 h-4 text-white" aria-hidden="true" />
                     </motion.div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">{feature.title}</h3>
-                      <p className="text-gray-600 text-sm">{feature.description}</p>
+                      <h3 className="font-semibold text-foreground">{feature.title}</h3>
+                      <p className="text-muted-foreground text-sm">{feature.description}</p>
                     </div>
                   </div>
                 );

@@ -224,7 +224,7 @@ export default function News() {
       "Partnership": "bg-indigo-100 text-indigo-800",
       "Quality": "bg-pink-100 text-pink-800"
     };
-    return colors[category as keyof typeof colors] || "bg-gray-100 text-gray-800";
+    return colors[category as keyof typeof colors] || "bg-muted text-foreground";
   };
 
   const getStatusColor = (status: string) => {
@@ -234,7 +234,7 @@ export default function News() {
       "Engineering Phase": "bg-purple-100 text-purple-800",
       "In Progress": "bg-orange-100 text-orange-800"
     };
-    return colors[status as keyof typeof colors] || "bg-gray-100 text-gray-800";
+    return colors[status as keyof typeof colors] || "bg-muted text-foreground";
   };
 
   const structuredData = {

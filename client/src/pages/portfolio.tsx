@@ -264,7 +264,7 @@ export default function Portfolio() {
             {/* Search Bar */}
             <div className="mb-8">
               <div className="relative max-w-md mx-auto">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
                 <Input
                   placeholder="Search projects, clients, or technologies..."
                   value={searchTerm}
@@ -288,7 +288,7 @@ export default function Portfolio() {
 
             {/* Filters */}
             {showFilters && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 p-6 bg-gray-50 rounded-lg">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 p-6 bg-muted rounded-lg">
                 <div>
                   <label className="block text-sm font-medium mb-2">Industry</label>
                   <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
@@ -333,7 +333,7 @@ export default function Portfolio() {
 
             {/* Results Count */}
             <div className="text-center mb-8">
-              <p className="text-gray-600">
+              <p className="text-muted-foreground">
                 Showing {filteredProjects.length} of {PORTFOLIO_PROJECTS.length} projects
               </p>
             </div>
@@ -342,7 +342,7 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -378,7 +378,7 @@ export default function Portfolio() {
                       <Badge variant="secondary">{project.category}</Badge>
                     </div>
                     <CardTitle className="text-lg">{project.title}</CardTitle>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-muted-foreground">
                       <div className="flex items-center gap-1 mb-1">
                         <Building className="w-4 h-4" />
                         {project.client}
@@ -395,7 +395,7 @@ export default function Portfolio() {
                   </CardHeader>
                   
                   <CardContent>
-                    <p className="text-gray-600 mb-4 text-sm line-clamp-3">
+                    <p className="text-muted-foreground mb-4 text-sm line-clamp-3">
                       {project.description}
                     </p>
                     
@@ -413,7 +413,7 @@ export default function Portfolio() {
                       
                       <div>
                         <h4 className="font-semibold text-sm mb-2">Key Results:</h4>
-                        <div className="space-y-1 text-xs text-gray-600">
+                        <div className="space-y-1 text-xs text-muted-foreground">
                           {Object.entries(project.results).map(([key, value]) => (
                             <div key={key} className="flex justify-between">
                               <span className="capitalize">{key}:</span>
@@ -430,7 +430,7 @@ export default function Portfolio() {
 
             {filteredProjects.length === 0 && (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">No projects found matching your criteria.</p>
+                <p className="text-muted-foreground text-lg">No projects found matching your criteria.</p>
                 <Button
                   variant="outline"
                   onClick={() => {

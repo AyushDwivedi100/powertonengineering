@@ -132,7 +132,7 @@ export default function Contact() {
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Multiple Ways to Reach Us
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Choose the communication method that works best for you. We're available 24/7 for emergency support.
             </p>
           </div>
@@ -146,7 +146,7 @@ export default function Contact() {
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">{method.title}</h3>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{method.title}</h3>
                     <p className="text-sm text-secondary font-medium mb-3">{method.subtitle}</p>
                     <a 
                       href={method.action}
@@ -154,7 +154,7 @@ export default function Contact() {
                     >
                       {method.content}
                     </a>
-                    <p className="text-sm text-gray-600">{method.description}</p>
+                    <p className="text-sm text-muted-foreground">{method.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -164,13 +164,13 @@ export default function Contact() {
       </section>
 
       {/* Contact Forms */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-muted">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Send Us a Message
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Whether you need general information or a detailed project quote, we have the right form for your needs.
             </p>
           </div>
@@ -190,7 +190,7 @@ export default function Contact() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-2xl text-center">General Contact Form</CardTitle>
-                    <p className="text-gray-600 text-center">
+                    <p className="text-muted-foreground text-center">
                       For general inquiries, service information, or technical questions
                     </p>
                   </CardHeader>
@@ -204,7 +204,7 @@ export default function Contact() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-2xl text-center">Request Project Quote</CardTitle>
-                    <p className="text-gray-600 text-center">
+                    <p className="text-muted-foreground text-center">
                       Get a detailed quote for your specific project requirements
                     </p>
                   </CardHeader>
@@ -230,35 +230,35 @@ export default function Contact() {
               {officeLocations.map((location) => (
                 <Card key={location.name} className="mb-6 border-none shadow-lg">
                   <CardContent className="p-8">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">{location.name}</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-4">{location.name}</h3>
                     
                     <div className="space-y-4">
                       <div className="flex items-start">
                         <MapPin className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
                         <div>
-                          <p className="text-gray-600">{location.address}</p>
-                          <p className="text-gray-600">{location.city}</p>
-                          <p className="text-sm text-gray-500">{location.landmark}</p>
+                          <p className="text-muted-foreground">{location.address}</p>
+                          <p className="text-muted-foreground">{location.city}</p>
+                          <p className="text-sm text-muted-foreground">{location.landmark}</p>
                         </div>
                       </div>
 
                       <div className="flex items-center">
                         <Phone className="w-5 h-5 text-primary mr-3" />
-                        <a href={`tel:${location.phone}`} className="text-gray-600 hover:text-primary">
+                        <a href={`tel:${location.phone}`} className="text-muted-foreground hover:text-primary">
                           {location.phone}
                         </a>
                       </div>
 
                       <div className="flex items-center">
                         <Mail className="w-5 h-5 text-primary mr-3" />
-                        <a href={`mailto:${location.email}`} className="text-gray-600 hover:text-primary">
+                        <a href={`mailto:${location.email}`} className="text-muted-foreground hover:text-primary">
                           {location.email}
                         </a>
                       </div>
 
                       <div className="flex items-center">
                         <Clock className="w-5 h-5 text-primary mr-3" />
-                        <span className="text-gray-600">{location.hours}</span>
+                        <span className="text-muted-foreground">{location.hours}</span>
                       </div>
                     </div>
 
@@ -293,9 +293,9 @@ export default function Contact() {
                           <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mr-4">
                             <Icon className="w-6 h-6 text-white" />
                           </div>
-                          <h3 className="text-lg font-bold text-gray-900">{service.title}</h3>
+                          <h3 className="text-lg font-bold text-foreground">{service.title}</h3>
                         </div>
-                        <p className="text-gray-600">{service.description}</p>
+                        <p className="text-muted-foreground">{service.description}</p>
                       </CardContent>
                     </Card>
                   );
@@ -323,7 +323,7 @@ export default function Contact() {
       </section>
 
       {/* Business Hours */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-muted">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
@@ -335,8 +335,8 @@ export default function Contact() {
             <Card className="text-center border-none shadow-lg">
               <CardContent className="p-8">
                 <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Regular Hours</h3>
-                <div className="space-y-2 text-gray-600">
+                <h3 className="text-xl font-bold text-foreground mb-4">Regular Hours</h3>
+                <div className="space-y-2 text-muted-foreground">
                   <p>Monday - Saturday</p>
                   <p className="font-semibold">9:00 AM - 6:00 PM</p>
                 </div>
@@ -346,8 +346,8 @@ export default function Contact() {
             <Card className="text-center border-none shadow-lg">
               <CardContent className="p-8">
                 <Phone className="w-12 h-12 text-secondary mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Emergency Support</h3>
-                <div className="space-y-2 text-gray-600">
+                <h3 className="text-xl font-bold text-foreground mb-4">Emergency Support</h3>
+                <div className="space-y-2 text-muted-foreground">
                   <p>24/7 Availability</p>
                   <p className="font-semibold">All Days</p>
                 </div>
@@ -357,8 +357,8 @@ export default function Contact() {
             <Card className="text-center border-none shadow-lg">
               <CardContent className="p-8">
                 <Mail className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Email Response</h3>
-                <div className="space-y-2 text-gray-600">
+                <h3 className="text-xl font-bold text-foreground mb-4">Email Response</h3>
+                <div className="space-y-2 text-muted-foreground">
                   <p>Within 24 Hours</p>
                   <p className="font-semibold">Guaranteed</p>
                 </div>

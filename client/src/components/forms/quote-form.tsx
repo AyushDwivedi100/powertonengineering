@@ -89,34 +89,34 @@ export default function QuoteForm() {
 
   if (isSubmitted) {
     return (
-      <Card className="text-gray-900 border-none shadow-lg">
+      <Card className="text-foreground border-none shadow-lg">
         <CardContent className="p-8 text-center">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-8 h-8 text-green-600" />
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Quote Request Received!</h3>
-          <p className="text-gray-600 mb-6 leading-relaxed">
+          <h3 className="text-2xl font-bold text-foreground mb-4">Quote Request Received!</h3>
+          <p className="text-muted-foreground mb-6 leading-relaxed">
             Thank you for your detailed project information. Our engineering team will analyze your requirements and prepare a comprehensive quote including:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-left">
             <div className="flex items-center">
               <CheckCircle className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" />
-              <span className="text-sm text-gray-600">Detailed cost breakdown</span>
+              <span className="text-sm text-muted-foreground">Detailed cost breakdown</span>
             </div>
             <div className="flex items-center">
               <CheckCircle className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" />
-              <span className="text-sm text-gray-600">Project timeline</span>
+              <span className="text-sm text-muted-foreground">Project timeline</span>
             </div>
             <div className="flex items-center">
               <CheckCircle className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" />
-              <span className="text-sm text-gray-600">Technical specifications</span>
+              <span className="text-sm text-muted-foreground">Technical specifications</span>
             </div>
             <div className="flex items-center">
               <CheckCircle className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" />
-              <span className="text-sm text-gray-600">Implementation plan</span>
+              <span className="text-sm text-muted-foreground">Implementation plan</span>
             </div>
           </div>
-          <p className="text-sm text-gray-500 mb-6">
+          <p className="text-sm text-muted-foreground mb-6">
             Expected response time: Within 24 hours
           </p>
           <Button 
@@ -131,18 +131,18 @@ export default function QuoteForm() {
   }
 
   return (
-    <Card className="text-gray-900 border-none shadow-lg">
+    <Card className="text-foreground border-none shadow-lg">
       <CardContent className="p-8">
         <div className="flex items-center mb-6">
           <Calculator className="w-6 h-6 text-secondary mr-3" />
-          <h3 className="text-xl font-bold text-gray-900">Project Quote Request</h3>
+          <h3 className="text-xl font-bold text-foreground">Project Quote Request</h3>
         </div>
         
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             {/* Personal Information */}
             <div className="space-y-4">
-              <h4 className="text-lg font-semibold text-gray-900 border-b pb-2">Contact Information</h4>
+              <h4 className="text-lg font-semibold text-foreground border-b pb-2">Contact Information</h4>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormField
@@ -150,7 +150,7 @@ export default function QuoteForm() {
                   name="firstName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-gray-700">
+                      <FormLabel className="text-sm font-semibold text-foreground">
                         First Name *
                       </FormLabel>
                       <FormControl>
@@ -170,7 +170,7 @@ export default function QuoteForm() {
                   name="lastName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-gray-700">
+                      <FormLabel className="text-sm font-semibold text-foreground">
                         Last Name *
                       </FormLabel>
                       <FormControl>
@@ -192,7 +192,7 @@ export default function QuoteForm() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-gray-700">
+                      <FormLabel className="text-sm font-semibold text-foreground">
                         Email Address *
                       </FormLabel>
                       <FormControl>
@@ -213,7 +213,7 @@ export default function QuoteForm() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-gray-700">
+                      <FormLabel className="text-sm font-semibold text-foreground">
                         Phone Number *
                       </FormLabel>
                       <FormControl>
@@ -235,7 +235,7 @@ export default function QuoteForm() {
                 name="company"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-semibold text-gray-700">
+                    <FormLabel className="text-sm font-semibold text-foreground">
                       Company/Organization
                     </FormLabel>
                     <FormControl>
@@ -254,14 +254,14 @@ export default function QuoteForm() {
 
             {/* Project Information */}
             <div className="space-y-4">
-              <h4 className="text-lg font-semibold text-gray-900 border-b pb-2">Project Details</h4>
+              <h4 className="text-lg font-semibold text-foreground border-b pb-2">Project Details</h4>
               
               <FormField
                 control={form.control}
                 name="service"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-semibold text-gray-700">
+                    <FormLabel className="text-sm font-semibold text-foreground">
                       Primary Service Required *
                     </FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -288,7 +288,7 @@ export default function QuoteForm() {
                 name="projectDetails"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-semibold text-gray-700">
+                    <FormLabel className="text-sm font-semibold text-foreground">
                       Detailed Project Description *
                     </FormLabel>
                     <FormControl>
@@ -316,7 +316,7 @@ export default function QuoteForm() {
                   name="budget"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-gray-700">
+                      <FormLabel className="text-sm font-semibold text-foreground">
                         Estimated Budget Range
                       </FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -343,7 +343,7 @@ export default function QuoteForm() {
                   name="timeline"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-gray-700">
+                      <FormLabel className="text-sm font-semibold text-foreground">
                         Expected Timeline
                       </FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -368,7 +368,7 @@ export default function QuoteForm() {
             </div>
 
             {/* Additional Information */}
-            <div className="bg-blue-50 rounded-lg p-4">
+            <div className="bg-primary/10 rounded-lg p-4">
               <div className="flex items-start">
                 <FileText className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-blue-800">
@@ -391,7 +391,7 @@ export default function QuoteForm() {
               {quoteMutation.isPending ? "Submitting Quote Request..." : "Submit Quote Request"}
             </Button>
 
-            <p className="text-xs text-gray-500 text-center">
+            <p className="text-xs text-muted-foreground text-center">
               By submitting this form, you agree to be contacted by our team regarding your project requirements. 
               We respect your privacy and will not share your information with third parties.
             </p>

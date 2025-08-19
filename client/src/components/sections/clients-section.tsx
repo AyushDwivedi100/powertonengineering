@@ -104,7 +104,7 @@ export default function ClientsSection() {
           <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
             Trusted By Leading Brands and Organizations
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We've partnered with industry leaders across various sectors to
             deliver exceptional engineering solutions.
           </p>
@@ -113,7 +113,7 @@ export default function ClientsSection() {
         {/* Client Logos Slideshow - Infinite scroll with pause/resume */}
         <div className="mb-16">
           <div 
-            className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8"
+            className="relative overflow-hidden bg-muted rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
@@ -147,7 +147,7 @@ export default function ClientsSection() {
                         target.src = client.fallback;
                       }}
                     />
-                    <span className="text-xs md:text-xs lg:text-sm font-medium text-gray-600 block truncate">
+                    <span className="text-xs md:text-xs lg:text-sm font-medium text-muted-foreground block truncate">
                       {client.name}
                     </span>
                   </div>
@@ -178,7 +178,7 @@ export default function ClientsSection() {
             variant="outline"
             size="icon"
             onClick={goToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-gray-50 border-gray-200 shadow-lg"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-muted border-gray-200 shadow-lg"
             aria-label="Previous testimonial"
             data-testid="button-previous-testimonial"
           >
@@ -189,7 +189,7 @@ export default function ClientsSection() {
             variant="outline"
             size="icon"
             onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-gray-50 border-gray-200 shadow-lg"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-muted border-gray-200 shadow-lg"
             aria-label="Next testimonial"
             data-testid="button-next-testimonial"
           >
@@ -225,7 +225,7 @@ export default function ClientsSection() {
                       </div>
 
                       {/* Testimonial Text */}
-                      <blockquote className="text-lg md:text-xl text-gray-700 mb-8 italic leading-relaxed">
+                      <blockquote className="text-lg md:text-xl text-foreground mb-8 italic leading-relaxed">
                         "{TESTIMONIALS[currentIndex].comment}"
                       </blockquote>
 
@@ -237,10 +237,10 @@ export default function ClientsSection() {
                           </span>
                         </div>
                         <div className="text-left">
-                          <div className="font-bold text-gray-900 text-lg">
+                          <div className="font-bold text-foreground text-lg">
                             {TESTIMONIALS[currentIndex].name}
                           </div>
-                          <div className="text-gray-600">
+                          <div className="text-muted-foreground">
                             {TESTIMONIALS[currentIndex].location}
                           </div>
                         </div>
@@ -265,7 +265,7 @@ export default function ClientsSection() {
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex
                     ? "bg-primary w-8"
-                    : "bg-gray-300 hover:bg-gray-400"
+                    : "bg-muted hover:bg-muted/80"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
                 data-testid={`dot-testimonial-${index}`}

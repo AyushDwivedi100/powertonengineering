@@ -70,7 +70,7 @@ export default function NewsArticle() {
       "Industry News": "bg-purple-100 text-purple-800 border-purple-300",
       "Company Update": "bg-orange-100 text-orange-800 border-orange-300"
     };
-    return colors[category as keyof typeof colors] || "bg-gray-100 text-gray-800 border-gray-300";
+    return colors[category as keyof typeof colors] || "bg-muted text-foreground border-gray-300";
   };
 
   return (

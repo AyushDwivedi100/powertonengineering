@@ -208,17 +208,17 @@ export default function Configurator() {
       </section>
 
       {/* Configurator */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             {/* Progress Bar */}
             <div className="mb-8">
-              <div className="flex justify-between text-sm text-gray-600 mb-2">
+              <div className="flex justify-between text-sm text-muted-foreground mb-2">
                 <span>Step {currentStep} of 4</span>
                 <span>{Math.round(progress)}% Complete</span>
               </div>
               <Progress value={progress} className="w-full" />
-              <div className="flex justify-between text-xs text-gray-500 mt-2">
+              <div className="flex justify-between text-xs text-muted-foreground mt-2">
                 <span>Project Type</span>
                 <span>Requirements</span>
                 <span>Details</span>
@@ -312,11 +312,11 @@ export default function Configurator() {
                     {currentStep === 2 && (
                       <div className="space-y-6">
                         <h3 className="text-lg font-semibold">Core Requirements</h3>
-                        <p className="text-gray-600">Select the core functionalities you need:</p>
+                        <p className="text-muted-foreground">Select the core functionalities you need:</p>
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {REQUIREMENTS.map(req => (
-                            <div key={req.id} className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-gray-50">
+                            <div key={req.id} className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-muted">
                               <Checkbox
                                 id={req.id}
                                 checked={config.requirements.includes(req.id)}
@@ -331,7 +331,7 @@ export default function Configurator() {
                               <Label htmlFor={req.id} className="flex-1 cursor-pointer">
                                 <div className="flex justify-between items-center">
                                   <span>{req.label}</span>
-                                  <span className="text-sm text-gray-500">₹{req.price.toLocaleString()}</span>
+                                  <span className="text-sm text-muted-foreground">₹{req.price.toLocaleString()}</span>
                                 </div>
                               </Label>
                             </div>
@@ -344,11 +344,11 @@ export default function Configurator() {
                     {currentStep === 3 && (
                       <div className="space-y-6">
                         <h3 className="text-lg font-semibold">Additional Features</h3>
-                        <p className="text-gray-600">Enhance your system with advanced features:</p>
+                        <p className="text-muted-foreground">Enhance your system with advanced features:</p>
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {ADDITIONAL_FEATURES.map(feat => (
-                            <div key={feat.id} className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-gray-50">
+                            <div key={feat.id} className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-muted">
                               <Checkbox
                                 id={feat.id}
                                 checked={config.additionalFeatures.includes(feat.id)}
@@ -363,7 +363,7 @@ export default function Configurator() {
                               <Label htmlFor={feat.id} className="flex-1 cursor-pointer">
                                 <div className="flex justify-between items-center">
                                   <span>{feat.label}</span>
-                                  <span className="text-sm text-gray-500">₹{feat.price.toLocaleString()}</span>
+                                  <span className="text-sm text-muted-foreground">₹{feat.price.toLocaleString()}</span>
                                 </div>
                               </Label>
                             </div>
@@ -428,7 +428,7 @@ export default function Configurator() {
                         {config.existingInfrastructure && (
                           <div>
                             <h4 className="font-medium mb-2">Existing Infrastructure</h4>
-                            <p className="text-sm text-gray-600 p-3 bg-gray-50 rounded">{config.existingInfrastructure}</p>
+                            <p className="text-sm text-muted-foreground p-3 bg-muted rounded">{config.existingInfrastructure}</p>
                           </div>
                         )}
                       </div>
@@ -506,7 +506,7 @@ export default function Configurator() {
                             <span>Total Estimate:</span>
                             <span className="text-primary">₹{estimate.totalEstimate.toLocaleString()}</span>
                           </div>
-                          <p className="text-xs text-gray-500 mt-1">
+                          <p className="text-xs text-muted-foreground mt-1">
                             *Preliminary estimate. Final pricing may vary based on detailed requirements.
                           </p>
                         </div>
@@ -531,7 +531,7 @@ export default function Configurator() {
                     )}
 
                     {!config.projectType && (
-                      <div className="text-center text-gray-500 py-8">
+                      <div className="text-center text-muted-foreground py-8">
                         <Calculator className="w-12 h-12 mx-auto mb-4 opacity-50" />
                         <p>Select project details to see cost estimate</p>
                       </div>

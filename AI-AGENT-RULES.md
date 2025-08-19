@@ -36,7 +36,8 @@
 - ID-800-809: Background images for sections (reserved)
 - ID-810-813: Hero and contact background images ✓ ASSIGNED
 - ID-820-829: Client logo carousel images ✓ ASSIGNED
-- **NEXT AVAILABLE**: ID-830+
+- ID-830: Products showcase image ✓ ASSIGNED
+- **NEXT AVAILABLE**: ID-831+
 
 **PROCESS**:
 1. Find next available ID range

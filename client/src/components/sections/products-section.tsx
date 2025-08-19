@@ -8,7 +8,7 @@ import { AnimatedSection, StaggeredList } from "@/hooks/use-scroll-animation";
 
 export default function ProductsSection() {
   return (
-    <section id="products" className="section-padding bg-gray-50" role="main">
+    <section id="products" className="section-padding bg-muted" role="main">
       <div className="container-responsive container-padding">
         <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
           <div className="text-center mb-16">
@@ -29,7 +29,7 @@ export default function ProductsSection() {
               Industrial Automation Equipment Solutions
             </motion.h2>
             <motion.p 
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -68,10 +68,10 @@ export default function ProductsSection() {
                 </motion.div>
                 
                 <CardContent className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
                     {product.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-4 flex-1">{product.description}</p>
+                  <p className="text-muted-foreground text-sm mb-4 flex-1">{product.description}</p>
                   <div className="mt-auto">
                     <Link href="/products" className="group/button">
                       <Button 

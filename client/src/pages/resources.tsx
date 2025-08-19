@@ -210,7 +210,7 @@ export default function Resources() {
         <div className="max-w-7xl mx-auto container-padding">
           <div className="max-w-2xl mx-auto">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
               <Input
                 placeholder="Search resources, topics, or technologies..."
                 value={searchTerm}
@@ -223,7 +223,7 @@ export default function Resources() {
       </section>
 
       {/* Main Content */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -253,7 +253,7 @@ export default function Resources() {
                       </div>
                       <CardHeader>
                         <CardTitle className="text-lg">{paper.title}</CardTitle>
-                        <p className="text-gray-600 text-sm">{paper.description}</p>
+                        <p className="text-muted-foreground text-sm">{paper.description}</p>
                         <div className="flex flex-wrap gap-2 mt-2">
                           {paper.tags.map(tag => (
                             <Badge key={tag} variant="outline" className="text-xs">
@@ -263,7 +263,7 @@ export default function Resources() {
                         </div>
                       </CardHeader>
                       <CardContent>
-                        <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
+                        <div className="flex justify-between items-center text-sm text-muted-foreground mb-4">
                           <div className="flex items-center gap-1">
                             <Clock className="w-4 h-4" />
                             {paper.readTime}
@@ -304,7 +304,7 @@ export default function Resources() {
                       </div>
                       <CardHeader>
                         <CardTitle className="text-xl">{study.title}</CardTitle>
-                        <p className="text-gray-600">{study.description}</p>
+                        <p className="text-muted-foreground">{study.description}</p>
                       </CardHeader>
                       <CardContent>
                         <div className="space-y-4">
@@ -312,14 +312,14 @@ export default function Resources() {
                             <h4 className="font-semibold mb-2">Key Results:</h4>
                             <ul className="space-y-1">
                               {study.results.map((result, idx) => (
-                                <li key={idx} className="text-sm text-gray-600 flex items-center gap-2">
+                                <li key={idx} className="text-sm text-muted-foreground flex items-center gap-2">
                                   <div className="w-2 h-2 bg-primary rounded-full"></div>
                                   {result}
                                 </li>
                               ))}
                             </ul>
                           </div>
-                          <div className="flex justify-between items-center text-sm text-gray-500">
+                          <div className="flex justify-between items-center text-sm text-muted-foreground">
                             <div className="flex items-center gap-1">
                               <Clock className="w-4 h-4" />
                               {study.readTime}
@@ -358,7 +358,7 @@ export default function Resources() {
                       </div>
                       <CardHeader>
                         <CardTitle className="text-xl">{webinar.title}</CardTitle>
-                        <p className="text-gray-600">{webinar.description}</p>
+                        <p className="text-muted-foreground">{webinar.description}</p>
                       </CardHeader>
                       <CardContent>
                         <div className="space-y-4">
@@ -373,7 +373,7 @@ export default function Resources() {
                               <Users className="w-4 h-4" />
                               <span>{webinar.registrants} registered</span>
                             </div>
-                            <p className="text-gray-600">
+                            <p className="text-muted-foreground">
                               <strong>Speaker:</strong> {webinar.speaker}
                             </p>
                           </div>
@@ -404,10 +404,10 @@ export default function Resources() {
                       </div>
                       <CardHeader>
                         <CardTitle className="text-lg">{insight.title}</CardTitle>
-                        <p className="text-gray-600 text-sm">{insight.excerpt}</p>
+                        <p className="text-muted-foreground text-sm">{insight.excerpt}</p>
                       </CardHeader>
                       <CardContent>
-                        <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
+                        <div className="flex justify-between items-center text-sm text-muted-foreground mb-4">
                           <div className="flex items-center gap-1">
                             <Clock className="w-4 h-4" />
                             {insight.readTime}
@@ -431,7 +431,7 @@ export default function Resources() {
             {/* No Results */}
             {searchTerm && Object.values(filteredContent).flat().length === 0 && (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">No resources found matching "{searchTerm}"</p>
+                <p className="text-muted-foreground text-lg">No resources found matching "{searchTerm}"</p>
                 <Button
                   variant="outline"
                   onClick={() => setSearchTerm("")}

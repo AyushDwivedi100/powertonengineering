@@ -267,7 +267,7 @@ export default function Projects() {
                     <Icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">{stat.number}</div>
-                  <div className="text-gray-600">{stat.label}</div>
+                  <div className="text-muted-foreground">{stat.label}</div>
                 </div>
               );
             })}
@@ -299,7 +299,7 @@ export default function Projects() {
                 {/* Search Bar */}
                 <div className="max-w-md mx-auto">
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
                     <Input
                       placeholder="Search projects, clients, or technologies..."
                       value={searchTerm}

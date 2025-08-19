@@ -69,15 +69,15 @@ export default function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <Card className="text-gray-900">
+      <Card className="text-foreground">
         <CardContent className="p-8 text-center">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent Successfully!</h3>
-          <p className="text-gray-600 mb-6">
+          <h3 className="text-xl font-bold text-foreground mb-2">Message Sent Successfully!</h3>
+          <p className="text-muted-foreground mb-6">
             Thank you for your inquiry. Our team will review your message and respond within 24 hours.
           </p>
           <Button 
@@ -92,7 +92,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="text-gray-900 border-none shadow-lg">
+    <Card className="text-foreground border-none shadow-lg">
       <CardContent className="p-4 sm:p-6 md:p-8">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
@@ -102,7 +102,7 @@ export default function ContactForm() {
                 name="firstName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-xs sm:text-sm font-semibold text-gray-700">
+                    <FormLabel className="text-xs sm:text-sm font-semibold text-foreground">
                       First Name *
                     </FormLabel>
                     <FormControl>
@@ -122,7 +122,7 @@ export default function ContactForm() {
                 name="lastName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-semibold text-gray-700">
+                    <FormLabel className="text-sm font-semibold text-foreground">
                       Last Name *
                     </FormLabel>
                     <FormControl>
@@ -144,7 +144,7 @@ export default function ContactForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-semibold text-gray-700">
+                    <FormLabel className="text-sm font-semibold text-foreground">
                       Email *
                     </FormLabel>
                     <FormControl>
@@ -165,7 +165,7 @@ export default function ContactForm() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-semibold text-gray-700">
+                    <FormLabel className="text-sm font-semibold text-foreground">
                       Phone *
                     </FormLabel>
                     <FormControl>
@@ -187,7 +187,7 @@ export default function ContactForm() {
               name="service"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-semibold text-gray-700">
+                  <FormLabel className="text-sm font-semibold text-foreground">
                     Service of Interest *
                   </FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -214,7 +214,7 @@ export default function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-semibold text-gray-700">
+                  <FormLabel className="text-sm font-semibold text-foreground">
                     Project Details *
                   </FormLabel>
                   <FormControl>
@@ -243,7 +243,7 @@ export default function ContactForm() {
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel className="text-sm text-gray-600">
+                    <FormLabel className="text-sm text-muted-foreground">
                       I agree to the{" "}
                       <a href="/privacy-policy" className="text-secondary hover:underline">
                         Privacy Policy

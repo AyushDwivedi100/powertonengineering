@@ -277,7 +277,7 @@ export default function Chatbot() {
               </CardHeader>
               <CardContent className="p-0 flex flex-col max-h-[calc(100vh-280px)]">
                 {/* Messages Area */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 min-h-[280px] max-h-[380px] scroll-smooth chatbot-messages">
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-muted min-h-[280px] max-h-[380px] scroll-smooth chatbot-messages">
                   {messages.map((message) => (
                     <div
                       key={message.id}
@@ -287,7 +287,7 @@ export default function Chatbot() {
                         className={`max-w-[80%] p-3 rounded-lg ${
                           message.sender === 'user'
                             ? 'bg-primary text-white'
-                            : 'bg-white text-gray-800 shadow-sm border'
+                            : 'bg-background text-foreground shadow-sm border'
                         }`}
                       >
                         <div className="flex items-start gap-2">
@@ -312,9 +312,9 @@ export default function Chatbot() {
                         <div className="flex items-center gap-2">
                           <Bot className="w-4 h-4 text-primary" />
                           <div className="flex space-x-1">
-                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                            <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"></div>
+                            <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                            <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                           </div>
                         </div>
                       </div>

@@ -140,7 +140,7 @@ export default function Services() {
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Our Service Portfolio
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Comprehensive engineering solutions backed by 15+ years of experience and expertise in industrial automation.
             </p>
           </div>
@@ -158,15 +158,15 @@ export default function Services() {
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <IconComponent className="w-8 h-8 text-white" aria-hidden="true" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-900">{service.title}</CardTitle>
+                    <CardTitle className="text-xl font-bold text-foreground">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 mb-6">{service.description}</p>
+                    <p className="text-muted-foreground mb-6">{service.description}</p>
                     
                     <div className="space-y-2 mb-6">
-                      <h4 className="font-semibold text-gray-900 text-sm">Key Features:</h4>
+                      <h4 className="font-semibold text-foreground text-sm">Key Features:</h4>
                       {service.features.slice(0, 3).map((feature) => (
-                        <div key={feature} className="flex items-center text-sm text-gray-600">
+                        <div key={feature} className="flex items-center text-sm text-muted-foreground">
                           <CheckCircle className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
                           {feature}
                         </div>
@@ -201,7 +201,7 @@ export default function Services() {
           <section 
             key={service.id}
             id={`service-${service.id}`}
-            className={`section-padding ${isEven ? 'bg-gray-50' : 'bg-white'}`}
+            className={`section-padding ${isEven ? 'bg-muted' : 'bg-white'}`}
           >
             <div className="max-w-7xl mx-auto container-padding">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -213,17 +213,17 @@ export default function Services() {
                     <h2 className="text-3xl lg:text-4xl font-bold text-primary">{service.title}</h2>
                   </div>
                   
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                     {details.overview}
                   </p>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Key Benefits</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-4">Key Benefits</h3>
                     <div className="space-y-3">
                       {details.benefits.map((benefit) => (
                         <div key={benefit} className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-600">{benefit}</span>
+                          <span className="text-muted-foreground">{benefit}</span>
                         </div>
                       ))}
                     </div>
@@ -241,7 +241,7 @@ export default function Services() {
                     <CardContent className="p-8">
                       <div className="grid grid-cols-1 gap-6">
                         <div>
-                          <h4 className="font-bold text-gray-900 mb-4 flex items-center">
+                          <h4 className="font-bold text-foreground mb-4 flex items-center">
                             <Settings className="w-5 h-5 mr-2 text-primary" />
                             Technologies & Solutions
                           </h4>
@@ -255,7 +255,7 @@ export default function Services() {
                         </div>
 
                         <div>
-                          <h4 className="font-bold text-gray-900 mb-4 flex items-center">
+                          <h4 className="font-bold text-foreground mb-4 flex items-center">
                             <Users className="w-5 h-5 mr-2 text-primary" />
                             Target Industries
                           </h4>
@@ -268,12 +268,12 @@ export default function Services() {
                           </div>
                         </div>
 
-                        <div className="bg-gray-50 rounded-lg p-4">
-                          <div className="flex items-center text-sm text-gray-600">
+                        <div className="bg-muted rounded-lg p-4">
+                          <div className="flex items-center text-sm text-muted-foreground">
                             <Clock className="w-4 h-4 mr-2" />
                             <span>24/7 Support Available</span>
                           </div>
-                          <div className="flex items-center text-sm text-gray-600 mt-2">
+                          <div className="flex items-center text-sm text-muted-foreground mt-2">
                             <Award className="w-4 h-4 mr-2" />
                             <span>Industry Certified Solutions</span>
                           </div>

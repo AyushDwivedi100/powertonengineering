@@ -153,7 +153,7 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`text-gray-700 hover:text-primary transition-colors font-medium relative ${
+                  className={`text-foreground hover:text-primary transition-colors font-medium relative ${
                     isActive(item.href) ? "text-primary" : ""
                   }`}
                 >
@@ -243,7 +243,7 @@ export default function Header() {
                         className={`text-lg font-medium transition-colors hover-scale block ${
                           isActive(item.href)
                             ? "text-primary"
-                            : "text-gray-700 hover:text-primary"
+                            : "text-foreground hover:text-primary"
                         }`}
                         onClick={() => setIsOpen(false)}
                       >

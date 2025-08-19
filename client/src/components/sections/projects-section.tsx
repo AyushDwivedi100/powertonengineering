@@ -7,21 +7,21 @@ import { Link } from "wouter";
 
 export default function ProjectsSection() {
   const categoryColors = {
-    "Power Plant": "bg-red-100 text-red-800",
-    "Manufacturing": "bg-blue-100 text-blue-800",
-    "Solar": "bg-green-100 text-green-800",
-    "Water Treatment": "bg-cyan-100 text-cyan-800"
+    "Power Plant": "bg-secondary/10 text-secondary",
+    "Manufacturing": "bg-primary/10 text-primary",
+    "Solar": "bg-secondary/10 text-secondary",
+    "Water Treatment": "bg-primary/10 text-primary"
   };
 
   return (
-    <section id="projects" className="section-padding bg-gray-50" role="main">
+    <section id="projects" className="section-padding bg-muted" role="main">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
           <span className="text-secondary font-semibold text-lg">Our Projects</span>
           <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
             Successfully Delivered Engineering Solutions
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Explore our portfolio of completed projects showcasing our expertise in industrial automation and electrical engineering.
           </p>
         </div>
@@ -47,20 +47,20 @@ export default function ProjectsSection() {
                   <Badge 
                     className={`mr-4 ${
                       categoryColors[project.category as keyof typeof categoryColors] || 
-                      "bg-gray-100 text-gray-800"
+                      "bg-muted text-foreground"
                     }`}
                   >
                     {project.category}
                   </Badge>
-                  <span className="text-gray-500 text-sm">Completed {project.year}</span>
+                  <span className="text-muted-foreground text-sm">Completed {project.year}</span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{project.title}</h3>
-                <p className="text-gray-600 mb-6">{project.description}</p>
+                <h3 className="text-xl font-bold text-foreground mb-4">{project.title}</h3>
+                <p className="text-muted-foreground mb-6">{project.description}</p>
                 
                 {/* Project Highlights */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Features:</h4>
+                  <h4 className="text-sm font-semibold text-foreground mb-2">Key Features:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.highlights.map((highlight) => (
                       <span 
@@ -74,7 +74,7 @@ export default function ProjectsSection() {
                 </div>
                 
                 <div className="flex items-center justify-between mt-auto">
-                  <div className="flex items-center space-x-4 text-sm text-gray-500">
+                  <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                     <span className="flex items-center">
                       <MapPin className="w-4 h-4 mr-1" aria-hidden="true" />
                       {project.location}

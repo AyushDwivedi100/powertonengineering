@@ -14,8 +14,8 @@ export default function Footer() {
       }}
     >
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-gray-900/90"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 to-gray-800/85"></div>
+      <div className="absolute inset-0 bg-background/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-background/95 to-background/85"></div>
       
       {/* Content */}
       <div className="relative z-10">
@@ -31,13 +31,13 @@ export default function Footer() {
                 loading="lazy"
               />
             </div>
-            <p className="text-gray-300 mb-6">
+            <p className="text-muted-foreground mb-6">
               Your trusted partner in delivering high-quality engineering solutions and services for industrial automation and electrical systems.
             </p>
             <div className="flex space-x-4">
               <a 
                 href={COMPANY_INFO.socialMedia.linkedin} 
-                className="text-gray-400 hover:text-secondary transition-colors" 
+                className="text-muted-foreground hover:text-secondary transition-colors" 
                 aria-label="Follow us on LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -46,7 +46,7 @@ export default function Footer() {
               </a>
               <a 
                 href={COMPANY_INFO.socialMedia.twitter} 
-                className="text-gray-400 hover:text-secondary transition-colors" 
+                className="text-muted-foreground hover:text-secondary transition-colors" 
                 aria-label="Follow us on Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -55,7 +55,7 @@ export default function Footer() {
               </a>
               <a 
                 href={COMPANY_INFO.socialMedia.facebook} 
-                className="text-gray-400 hover:text-secondary transition-colors" 
+                className="text-muted-foreground hover:text-secondary transition-colors" 
                 aria-label="Follow us on Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -68,7 +68,7 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-3 text-gray-300">
+            <ul className="space-y-3 text-muted-foreground">
               {SERVICES.slice(0, 5).map((service) => (
                 <li key={service.id}>
                   <Link 
@@ -85,7 +85,7 @@ export default function Footer() {
           {/* Products */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Products</h4>
-            <ul className="space-y-3 text-gray-300">
+            <ul className="space-y-3 text-muted-foreground">
               {PRODUCTS.slice(0, 5).map((product) => (
                 <li key={product.id}>
                   <Link 
@@ -102,7 +102,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-3 text-gray-300">
+            <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-center">
                 <Phone className="w-4 h-4 mr-3 text-secondary" aria-hidden="true" />
                 <span>{COMPANY_INFO.phone}</span>
@@ -130,10 +130,10 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">
+            <p className="text-muted-foreground text-sm mb-4 md:mb-0">
               &copy; 2024 Powerton Engineering Pvt. Ltd. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm text-gray-400">
+            <div className="flex space-x-6 text-sm text-muted-foreground">
               <a href="/privacy-policy" className="hover:text-secondary transition-colors">Privacy Policy</a>
               <a href="/terms-of-service" className="hover:text-secondary transition-colors">Terms of Service</a>
               <a href="/sitemap" className="hover:text-secondary transition-colors">Sitemap</a>

@@ -181,14 +181,14 @@ export default function Products() {
             <h2 className="text-responsive-xl font-bold text-primary mb-4 sm:mb-6">
               Product Categories
             </h2>
-            <p className="text-responsive-sm text-gray-600 max-w-3xl mx-auto">
+            <p className="text-responsive-sm text-muted-foreground max-w-3xl mx-auto">
               Explore our comprehensive range of industrial products organized by category for easy navigation.
             </p>
           </div>
 
           {/* Category Tabs */}
           <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-1 sm:gap-2 bg-gray-100 p-1 sm:p-2 rounded-lg mb-6 sm:mb-8">
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-1 sm:gap-2 bg-muted p-1 sm:p-2 rounded-lg mb-6 sm:mb-8">
               {productCategories.slice(0, 5).map((category) => (
                 <TabsTrigger
                   key={category.id}
@@ -229,7 +229,7 @@ export default function Products() {
                       <div className="relative overflow-hidden">
                         <img 
                           src={product.image} 
-                          alt={`${product.title} - ${product.description}`} 
+                          alt={`ID-830: ${product.title} - ${product.description}`} 
                           className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                           loading="lazy"
                         />
@@ -242,16 +242,16 @@ export default function Products() {
                       </div>
                       
                       <CardContent className="p-6">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.title}</h3>
-                        <p className="text-gray-600 text-sm mb-4">{product.description}</p>
+                        <h3 className="text-lg font-semibold text-foreground mb-2">{product.title}</h3>
+                        <p className="text-muted-foreground text-sm mb-4">{product.description}</p>
                         
                         {details && (
                           <div className="space-y-4">
                             <div>
-                              <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Features:</h4>
+                              <h4 className="text-sm font-semibold text-foreground mb-2">Key Features:</h4>
                               <div className="space-y-1">
                                 {details.features.slice(0, 2).map((feature) => (
-                                  <div key={feature} className="flex items-center text-xs text-gray-600">
+                                  <div key={feature} className="flex items-center text-xs text-muted-foreground">
                                     <CheckCircle className="w-3 h-3 text-green-600 mr-2 flex-shrink-0" />
                                     {feature}
                                   </div>
@@ -292,7 +292,7 @@ export default function Products() {
 
       {/* Detailed Product Information */}
       {selectedCategory !== "all" && (
-        <section className="section-padding bg-gray-50">
+        <section className="section-padding bg-muted">
           <div className="max-w-7xl mx-auto container-padding">
             {filteredProducts.map((product) => {
               const details = productDetails[product.id];
@@ -304,30 +304,30 @@ export default function Products() {
                     <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
                       {product.title}
                     </h2>
-                    <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                    <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                       {details.fullDescription}
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4">Applications</h3>
+                        <h3 className="text-xl font-bold text-foreground mb-4">Applications</h3>
                         <div className="space-y-2">
                           {details.applications.map((app) => (
                             <div key={app} className="flex items-center">
                               <CheckCircle className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" />
-                              <span className="text-gray-600">{app}</span>
+                              <span className="text-muted-foreground">{app}</span>
                             </div>
                           ))}
                         </div>
                       </div>
 
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4">Key Features</h3>
+                        <h3 className="text-xl font-bold text-foreground mb-4">Key Features</h3>
                         <div className="space-y-2">
                           {details.features.map((feature) => (
                             <div key={feature} className="flex items-center">
                               <Settings className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
-                              <span className="text-gray-600">{feature}</span>
+                              <span className="text-muted-foreground">{feature}</span>
                             </div>
                           ))}
                         </div>
@@ -338,7 +338,7 @@ export default function Products() {
                   <div>
                     <Card className="border-none shadow-lg">
                       <CardHeader>
-                        <CardTitle className="text-xl font-bold text-gray-900">
+                        <CardTitle className="text-xl font-bold text-foreground">
                           Technical Specifications
                         </CardTitle>
                       </CardHeader>
@@ -347,7 +347,7 @@ export default function Products() {
                           {details.specifications.map((spec, index) => (
                             <div key={index} className="flex items-start">
                               <div className="w-2 h-2 bg-secondary rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                              <span className="text-gray-600">{spec}</span>
+                              <span className="text-muted-foreground">{spec}</span>
                             </div>
                           ))}
                         </div>
@@ -389,8 +389,8 @@ export default function Products() {
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto mb-6">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Quality Assurance</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-bold text-foreground mb-4">Quality Assurance</h3>
+                <p className="text-muted-foreground">
                   All products undergo rigorous testing and quality control processes to ensure reliability and performance.
                 </p>
               </CardContent>
@@ -401,8 +401,8 @@ export default function Products() {
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto mb-6">
                   <Settings className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Technical Support</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-bold text-foreground mb-4">Technical Support</h3>
+                <p className="text-muted-foreground">
                   Comprehensive technical support and documentation to help you select and implement the right solutions.
                 </p>
               </CardContent>
@@ -413,8 +413,8 @@ export default function Products() {
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto mb-6">
                   <Zap className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Innovation</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-bold text-foreground mb-4">Innovation</h3>
+                <p className="text-muted-foreground">
                   Latest technology and innovative solutions to meet evolving industrial requirements and challenges.
                 </p>
               </CardContent>

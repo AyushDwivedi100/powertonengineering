@@ -225,7 +225,7 @@ export default function Technology() {
                               <h4 className="font-semibold">{tech.name}</h4>
                               <Badge variant="secondary">{tech.level}% Proficiency</Badge>
                             </div>
-                            <p className="text-sm text-gray-600">{tech.description}</p>
+                            <p className="text-sm text-muted-foreground">{tech.description}</p>
                             <Progress value={tech.level} className="h-2" />
                           </div>
                         ))}
@@ -256,7 +256,7 @@ export default function Technology() {
                       <div className="text-primary">{area.icon}</div>
                       <div>
                         <CardTitle className="text-xl">{area.title}</CardTitle>
-                        <p className="text-gray-600 text-sm mt-1">{area.description}</p>
+                        <p className="text-muted-foreground text-sm mt-1">{area.description}</p>
                       </div>
                     </div>
                   </CardHeader>

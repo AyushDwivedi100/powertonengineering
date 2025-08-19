@@ -58,7 +58,7 @@ export default function ServicesSection() {
               Expert solutions for all needs, delivered with exceptional care
             </motion.h2>
             <motion.p 
-              className="text-responsive-sm text-gray-600 max-w-3xl mx-auto"
+              className="text-responsive-sm text-muted-foreground max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -95,8 +95,8 @@ export default function ServicesSection() {
                       <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" aria-hidden="true" />
                     </motion.div>
                     
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">{service.title}</h3>
-                    <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{service.description}</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">{service.title}</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">{service.description}</p>
                     
                     <motion.ul 
                       className="space-y-2 mb-6"
@@ -113,7 +113,7 @@ export default function ServicesSection() {
                       {service.features.map((feature, featureIndex) => (
                         <motion.li 
                           key={feature} 
-                          className="text-sm text-gray-600 flex items-center"
+                          className="text-sm text-muted-foreground flex items-center"
                           variants={{
                             hidden: { opacity: 0, x: -20 },
                             visible: { opacity: 1, x: 0 }
