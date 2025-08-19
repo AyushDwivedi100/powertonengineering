@@ -17,7 +17,6 @@ import {
   Award
 } from "lucide-react";
 import { Link } from "wouter";
-import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 const iconMap = {
   "microchip": Cpu,
@@ -29,10 +28,6 @@ const iconMap = {
 };
 
 export default function Services() {
-  const heroAnimation = useScrollAnimation();
-  const overviewAnimation = useScrollAnimation();
-  const servicesGridAnimation = useStaggeredAnimation(SERVICES.length, 150);
-
   const serviceDetails = {
     "process-automation": {
       overview: "Advanced automation systems designed to streamline industrial processes, reduce manual intervention, and optimize operational efficiency.",
@@ -111,32 +106,25 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="Industrial Automation Services - Process Control, Instrumentation & Electrical Solutions | Powerton Engineering"
-        description="Complete industrial automation services: process control systems, instrumentation, electrical panel design, SCADA development, HMI programming, control system integration, and industrial IoT solutions. Expert engineering team with 15+ years experience serving manufacturing, chemical, pharmaceutical, and power industries across India."
-        keywords="industrial automation services India, process control systems, instrumentation services, electrical panel design, SCADA systems development, HMI programming, control system integration, automation engineering, industrial IoT solutions, PLC programming, motor control centers, power control panels, process automation consultancy"
+        title="Engineering Services - Process Automation & Instrumentation | Powerton Engineering"
+        description="Comprehensive engineering services including process automation, instrumentation solutions, site installation, commissioning, and maintenance contracts. Expert technical support across India."
+        keywords="process automation, instrumentation services, site installation, commissioning services, AMC maintenance contracts, electrical engineering services, industrial automation India"
         canonicalUrl="https://powertonengineering.in/services"
       />
 
       {/* Hero Section */}
-      <section className="relative section-padding hero-gradient text-white overflow-hidden">
+      <section className="relative section-padding bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: "url('https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
         <div className="relative max-w-7xl mx-auto container-padding">
-          <div ref={heroAnimation.ref} className={`hero-content ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
-            <h1 className="hero-title">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Professional <span className="text-secondary">Engineering Services</span>
             </h1>
-            <p className="hero-subtitle">
+            <p className="text-xl lg:text-2xl mb-8 opacity-90">
               From process automation to maintenance contracts, we provide comprehensive engineering solutions tailored to your industrial requirements.
             </p>
             <Link href="/contact">
-              <Button 
-                style={{ 
-                  backgroundColor: 'hsl(20, 91%, 48%)', 
-                  color: 'white',
-                  border: 'none'
-                }}
-                className="text-lg px-8 py-4 hover:opacity-90"
-              >
+              <Button className="btn-secondary text-lg px-8 py-4">
                 Request Service Quote
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -148,39 +136,38 @@ export default function Services() {
       {/* Services Overview */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto container-padding">
-          <div ref={overviewAnimation.ref} className={`text-center mb-16 ${getAnimationClass('fade-in-up', overviewAnimation.isVisible)}`}>
-            <h2 className="section-title">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Our Service Portfolio
             </h2>
-            <p className="section-subtitle">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive engineering solutions backed by 15+ years of experience and expertise in industrial automation.
             </p>
           </div>
 
-          <div ref={servicesGridAnimation.ref} className="grid-responsive-cards">
-            {SERVICES.map((service, index) => {
-              const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Settings;
-              const isVisible = servicesGridAnimation.visibleItems.has(index);
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SERVICES.map((service) => {
+              const IconComponent = iconMap[service.icon] || Settings;
               
               return (
                 <Card 
                   key={service.id} 
-                  className={`border border-border group card-hover ${getAnimationClass('slide-in-scale', isVisible)}`}
+                  className="border border-gray-100 group hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                 >
                   <CardHeader>
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <IconComponent className="w-8 h-8 text-white" aria-hidden="true" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-foreground">{service.title}</CardTitle>
+                    <CardTitle className="text-xl font-bold text-gray-900">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-foreground/70 mb-6">{service.description}</p>
+                    <p className="text-gray-600 mb-6">{service.description}</p>
                     
                     <div className="space-y-2 mb-6">
-                      <h4 className="font-semibold text-foreground text-sm">Key Features:</h4>
+                      <h4 className="font-semibold text-gray-900 text-sm">Key Features:</h4>
                       {service.features.slice(0, 3).map((feature) => (
-                        <div key={feature} className="flex items-center text-sm text-foreground/70">
-                          <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
+                        <div key={feature} className="flex items-center text-sm text-gray-600">
+                          <CheckCircle className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
                           {feature}
                         </div>
                       ))}
@@ -206,15 +193,15 @@ export default function Services() {
 
       {/* Detailed Service Sections */}
       {SERVICES.map((service, index) => {
-        const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Settings;
-        const details = serviceDetails[service.id as keyof typeof serviceDetails];
+        const IconComponent = iconMap[service.icon] || Settings;
+        const details = serviceDetails[service.id];
         const isEven = index % 2 === 0;
         
         return (
           <section 
             key={service.id}
             id={`service-${service.id}`}
-            className={`section-padding ${isEven ? 'bg-muted/30' : 'bg-background'}`}
+            className={`section-padding ${isEven ? 'bg-gray-50' : 'bg-white'}`}
           >
             <div className="max-w-7xl mx-auto container-padding">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -226,17 +213,17 @@ export default function Services() {
                     <h2 className="text-3xl lg:text-4xl font-bold text-primary">{service.title}</h2>
                   </div>
                   
-                  <p className="text-lg text-foreground/70 mb-8 leading-relaxed">
+                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                     {details.overview}
                   </p>
 
                   <div className="mb-8">
-                    <h3 className="text-xl font-bold text-foreground mb-4">Key Benefits</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Key Benefits</h3>
                     <div className="space-y-3">
                       {details.benefits.map((benefit) => (
                         <div key={benefit} className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                          <span className="text-foreground/70">{benefit}</span>
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-600">{benefit}</span>
                         </div>
                       ))}
                     </div>
@@ -254,7 +241,7 @@ export default function Services() {
                     <CardContent className="p-8">
                       <div className="grid grid-cols-1 gap-6">
                         <div>
-                          <h4 className="font-bold text-foreground mb-4 flex items-center">
+                          <h4 className="font-bold text-gray-900 mb-4 flex items-center">
                             <Settings className="w-5 h-5 mr-2 text-primary" />
                             Technologies & Solutions
                           </h4>
@@ -268,7 +255,7 @@ export default function Services() {
                         </div>
 
                         <div>
-                          <h4 className="font-bold text-foreground mb-4 flex items-center">
+                          <h4 className="font-bold text-gray-900 mb-4 flex items-center">
                             <Users className="w-5 h-5 mr-2 text-primary" />
                             Target Industries
                           </h4>
@@ -281,12 +268,12 @@ export default function Services() {
                           </div>
                         </div>
 
-                        <div className="bg-muted/30 rounded-lg p-4">
-                          <div className="flex items-center text-sm text-foreground/70">
+                        <div className="bg-gray-50 rounded-lg p-4">
+                          <div className="flex items-center text-sm text-gray-600">
                             <Clock className="w-4 h-4 mr-2" />
                             <span>24/7 Support Available</span>
                           </div>
-                          <div className="flex items-center text-sm text-foreground/70 mt-2">
+                          <div className="flex items-center text-sm text-gray-600 mt-2">
                             <Award className="w-4 h-4 mr-2" />
                             <span>Industry Certified Solutions</span>
                           </div>
@@ -312,14 +299,7 @@ export default function Services() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Link href="/contact">
-              <Button 
-                style={{ 
-                  backgroundColor: 'hsl(20, 91%, 48%)', 
-                  color: 'white',
-                  border: 'none'
-                }}
-                className="text-lg px-8 py-4 hover:opacity-90"
-              >
+              <Button className="btn-secondary text-lg px-8 py-4">
                 Get Free Consultation
               </Button>
             </Link>

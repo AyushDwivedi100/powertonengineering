@@ -17,13 +17,9 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
-import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const heroAnimation = useScrollAnimation();
-  const categoriesAnimation = useScrollAnimation();
-  const productsAnimation = useStaggeredAnimation(PRODUCTS.length, 100);
 
   const productCategories = [
     { id: "all", name: "All Products", count: PRODUCTS.length },
@@ -143,14 +139,14 @@ export default function Products() {
   return (
     <>
       <SEO
-        title="Industrial Products - Electrical Control Panels, Instrumentation & Automation Equipment | Powerton Engineering"
-        description="Comprehensive range of industrial products: electrical control panels, power control centers, motor control centers, instrumentation devices, automation equipment, measurement instruments, safety systems, and solar products. Quality assured components from leading manufacturers with technical support and warranty."
-        keywords="industrial products India, electrical control panels, power control center, motor control center, instrumentation devices, automation equipment, measurement instruments, industrial electrical components, control system components, safety equipment, solar products, electrical panels manufacturer"
+        title="Industrial Products Catalog - Automation & Electrical Equipment | Powerton Engineering"
+        description="Comprehensive catalog of industrial automation products, electrical components, instrumentation, solar systems, pumps, and tools. Quality equipment for industrial applications."
+        keywords="industrial products, automation equipment, electrical components, instrumentation products, solar panels, industrial pumps, measurement instruments, safety equipment"
         canonicalUrl="https://powertonengineering.in/products"
       />
 
       {/* Hero Section */}
-      <section className="relative section-padding hero-gradient text-white overflow-hidden">
+      <section className="relative section-padding bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: "url('https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
         <div className="relative max-w-7xl mx-auto container-padding">
           <div className="max-w-4xl mx-auto text-center">
@@ -223,7 +219,7 @@ export default function Products() {
             <TabsContent value={selectedCategory} className="space-y-6 sm:space-y-8">
               <div className="grid-responsive-cards">
                 {filteredProducts.map((product) => {
-                  const details = productDetails[product.id as keyof typeof productDetails];
+                  const details = productDetails[product.id];
                   
                   return (
                     <Card 
@@ -233,7 +229,7 @@ export default function Products() {
                       <div className="relative overflow-hidden">
                         <img 
                           src={product.image} 
-                          alt={`ID-${String(200 + PRODUCTS.indexOf(product)).padStart(3, '0')}: ${product.title} - ${product.description}`} 
+                          alt={`${product.title} - ${product.description}`} 
                           className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                           loading="lazy"
                         />
@@ -299,7 +295,7 @@ export default function Products() {
         <section className="section-padding bg-gray-50">
           <div className="max-w-7xl mx-auto container-padding">
             {filteredProducts.map((product) => {
-              const details = productDetails[product.id as keyof typeof productDetails];
+              const details = productDetails[product.id];
               if (!details) return null;
 
               return (

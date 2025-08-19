@@ -1,0 +1,119 @@
+Microsoft Windows [Version 10.0.26100.4946]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Ayush_Work\powerton-dls\powertonengineering>npm i
+npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+
+added 607 packages, and audited 608 packages in 33s
+
+72 packages are looking for funding
+  run `npm fund` for details
+
+10 vulnerabilities (3 low, 7 moderate)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+C:\Ayush_Work\powerton-dls\powertonengineering>npm run dev
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+'NODE_ENV' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Ayush_Work\powerton-dls\powertonengineering>npm install
+
+added 99 packages, removed 71 packages, changed 471 packages, and audited 636 packages in 40s
+
+75 packages are looking for funding
+  run `npm fund` for details
+
+5 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+C:\Ayush_Work\powerton-dls\powertonengineering>npx tsx server/index.ts
+node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen ENOTSUP: operation not supported on socket 0.0.0.0:5000
+    at Server.setupListenHandle [as _listen2] (node:net:1917:21)
+    at listenInCluster (node:net:1996:12)
+    at node:net:2205:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1975:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'ENOTSUP',
+  errno: -4049,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 5000
+}
+
+Node.js v22.16.0
+
+C:\Ayush_Work\powerton-dls\powertonengineering>set NODE_ENV=development && npx tsx server/index.ts
+C:\Ayush_Work\powerton-dls\powertonengineering\server\vite.ts:74
+    throw new Error(
+          ^
+
+
+Error: Could not find the build directory: C:\Ayush_Work\powerton-dls\powertonengineering\server\public, make sure to build the client first
+    at serveStatic (C:\Ayush_Work\powerton-dls\powertonengineering\server\vite.ts:74:11)
+    at <anonymous> (C:\Ayush_Work\powerton-dls\powertonengineering\server\index.ts:56:5)
+
+Node.js v22.16.0
+
+C:\Ayush_Work\powerton-dls\powertonengineering>npm run build
+
+> rest-express@1.0.0 build
+> vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+
+vite v5.4.19 building for production...
+✓ 1768 modules transformed.
+x Build failed in 3.75s
+error during build:
+[vite:esbuild] Transform failed with 1 error:
+C:/Ayush_Work/powerton-dls/powertonengineering/client/src/components/ui/form.jsx:17:15: ERROR: Expected ";" but found "extends"
+file: C:/Ayush_Work/powerton-dls/powertonengineering/client/src/components/ui/form.jsx:17:15
+
+Expected ";" but found "extends"
+15 |  const Form = FormProvider
+16 |
+17 |    TFieldValues extends FieldValues = FieldValues,
+   |                 ^
+18 |    TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+19 |  > = {
+
+    at failureErrorWithLog (C:\Ayush_Work\powerton-dls\powertonengineering\node_modules\vite\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Ayush_Work\powerton-dls\powertonengineering\node_modules\vite\node_modules\esbuild\lib\main.js:755:50
+    at responseCallbacks.<computed> (C:\Ayush_Work\powerton-dls\powertonengineering\node_modules\vite\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Ayush_Work\powerton-dls\powertonengineering\node_modules\vite\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Ayush_Work\powerton-dls\powertonengineering\node_modules\vite\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+
+C:\Ayush_Work\powerton-dls\powertonengineering>npm start
+
+> rest-express@1.0.0 start
+> NODE_ENV=production node dist/index.js
+
+'NODE_ENV' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Ayush_Work\powerton-dls\powertonengineering>

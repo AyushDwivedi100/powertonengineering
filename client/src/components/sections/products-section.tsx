@@ -3,82 +3,117 @@ import { Card, CardContent } from "@/components/ui/card";
 import { PRODUCTS } from "@/data/constants";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
-import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
+import { motion } from "framer-motion";
+import { AnimatedSection, StaggeredList } from "@/hooks/use-scroll-animation";
 
 export default function ProductsSection() {
-  const headerAnimation = useScrollAnimation();
-  const productsAnimation = useStaggeredAnimation(PRODUCTS.length, 100);
-  
   return (
     <section id="products" className="section-padding bg-gray-50" role="main">
       <div className="max-w-7xl mx-auto container-padding">
-        <div ref={headerAnimation.ref} className={`text-center mb-16 ${getAnimationClass('fade-in-up', headerAnimation.isVisible)}`}>
-          <span className="text-secondary font-semibold text-lg">Our Products</span>
-          <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
-            Industrial Automation Equipment Solutions
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive range of electrical and automation products designed for reliability, efficiency, and superior performance in industrial environments.
-          </p>
-        </div>
-
-        <div ref={productsAnimation.ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-          {PRODUCTS.map((product, index) => {
-            const isVisible = productsAnimation.visibleItems.has(index);
-            return (
-            <Card 
-              key={product.id} 
-              className={`overflow-hidden group hover:shadow-xl transition-all duration-300 card-hover ${getAnimationClass('slide-in-scale', isVisible)}`}
+        <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
+          <div className="text-center mb-16">
+            <motion.span 
+              className="text-secondary font-semibold text-lg"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={product.image} 
-                  alt={`ID-${String(10 + index).padStart(3, '0')}: ${product.title} - ${product.description}`} 
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+              Our Products
+            </motion.span>
+            <motion.h2 
+              className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              Industrial Automation Equipment Solutions
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+            >
+              Comprehensive range of electrical and automation products designed for reliability, efficiency, and superior performance in industrial environments.
+            </motion.p>
+          </div>
+        </AnimatedSection>
+
+        <StaggeredList 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12"
+          stagger={0.12}
+          delay={0.3}
+        >
+          {PRODUCTS.map((product, index) => (
+            <motion.div
+              key={product.id}
+              whileHover={{ y: -10, scale: 1.03 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <Card className="overflow-hidden group hover:shadow-xl transition-all duration-300 hover-lift will-animate">
+                <motion.div 
+                  className="relative overflow-hidden"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.img 
+                    src={product.image} 
+                    alt={`${product.title} - ${product.description}`} 
+                    className="w-full h-48 object-cover"
+                    loading="lazy"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  />
+                  <motion.div 
+                    className="absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"
+                    whileHover={{ backgroundColor: "rgba(59, 130, 246, 0.2)" }}
+                  />
+                </motion.div>
                 
-                {/* Product Category Badge */}
-                <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="bg-white/20 backdrop-blur-sm text-white px-2 py-1 rounded text-xs font-medium">
-                    Industrial Grade
-                  </span>
-                </div>
-              </div>
-              
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-2">{product.title}</h3>
-                <p className="text-foreground/70 text-sm mb-4">{product.description}</p>
-                <Link href="/products">
-                  <Button 
-                    variant="ghost" 
-                    className="text-secondary hover:bg-secondary/10 hover:text-secondary p-0 font-medium transition-colors"
+                <CardContent className="p-6">
+                  <motion.h3 
+                    className="text-lg font-semibold text-gray-900 mb-2"
+                    whileHover={{ color: "#3B82F6" }}
+                    transition={{ duration: 0.2 }}
                   >
-                    View Products <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          );
-          })}
-        </div>
+                    {product.title}
+                  </motion.h3>
+                  <p className="text-gray-600 text-sm mb-4">{product.description}</p>
+                  <Link href="/products">
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Button 
+                        variant="ghost" 
+                        className="text-secondary hover:text-secondary/80 p-0 font-medium"
+                      >
+                        View Products 
+                        <motion.div
+                          className="inline-block ml-2"
+                          whileHover={{ x: 3 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ArrowRight className="w-4 h-4" />
+                        </motion.div>
+                      </Button>
+                    </motion.div>
+                  </Link>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </StaggeredList>
 
-        <div className="text-center space-x-4">
-          <Link href="/products">
-            <Button className="btn-primary text-lg px-8 py-4">
-              View Complete Product Catalog
-            </Button>
-          </Link>
-          <Link href="/quote">
-            <Button 
-              variant="outline" 
-              className="btn-outline text-lg px-8 py-4 border-primary text-primary hover:bg-primary hover:text-white"
-            >
-              Request Quote
-            </Button>
-          </Link>
-        </div>
+        <AnimatedSection animation="fadeInUp" delay={0.4} duration={0.6}>
+          <div className="text-center">
+            <Link href="/products">
+              <Button className="btn-primary text-lg px-8 py-4 hover-lift">
+                View Complete Product Catalog
+              </Button>
+            </Link>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

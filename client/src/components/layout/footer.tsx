@@ -1,6 +1,7 @@
 import { Link } from "wouter";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY_INFO, SERVICES, PRODUCTS } from "@/data/constants";
-
+import logoImage from "@assets/logo-new-removebg-preview_1755497919444.png";
 
 export default function Footer() {
   return (
@@ -11,19 +12,19 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <img 
-                src="https://powertonengineering.in/assets/img/logo-new.jpg" 
-                alt="ID-001: Powerton Engineering Pvt. Ltd. logo" 
+                src={logoImage} 
+                alt="Powerton Engineering Pvt. Ltd." 
                 className="h-12 w-auto mb-3"
                 loading="lazy"
               />
             </div>
-            <p className="text-white/80 mb-6">
+            <p className="text-gray-300 mb-6">
               Your trusted partner in delivering high-quality engineering solutions and services for industrial automation and electrical systems.
             </p>
             <div className="flex space-x-4">
               <a 
                 href={COMPANY_INFO.socialMedia.linkedin} 
-                className="text-white/60 hover:text-secondary transition-colors" 
+                className="text-gray-400 hover:text-secondary transition-colors" 
                 aria-label="Follow us on LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -32,7 +33,7 @@ export default function Footer() {
               </a>
               <a 
                 href={COMPANY_INFO.socialMedia.twitter} 
-                className="text-white/60 hover:text-secondary transition-colors" 
+                className="text-gray-400 hover:text-secondary transition-colors" 
                 aria-label="Follow us on Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -41,7 +42,7 @@ export default function Footer() {
               </a>
               <a 
                 href={COMPANY_INFO.socialMedia.facebook} 
-                className="text-white/60 hover:text-secondary transition-colors" 
+                className="text-gray-400 hover:text-secondary transition-colors" 
                 aria-label="Follow us on Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -54,8 +55,8 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-3 text-white/80">
-              {SERVICES.slice(0, 4).map((service) => (
+            <ul className="space-y-3 text-gray-300">
+              {SERVICES.slice(0, 5).map((service) => (
                 <li key={service.id}>
                   <Link 
                     href="/services" 
@@ -65,21 +66,13 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link 
-                  href="/quote" 
-                  className="text-secondary hover:text-secondary/80 transition-colors font-semibold"
-                >
-                  Get Quote →
-                </Link>
-              </li>
             </ul>
           </div>
 
           {/* Products */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Products</h4>
-            <ul className="space-y-3 text-white/80">
+            <ul className="space-y-3 text-gray-300">
               {PRODUCTS.slice(0, 5).map((product) => (
                 <li key={product.id}>
                   <Link 
@@ -96,24 +89,17 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-3 text-white/80">
+            <ul className="space-y-3 text-gray-300">
               <li className="flex items-center">
-                <svg className="w-4 h-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
+                <Phone className="w-4 h-4 mr-3 text-secondary" aria-hidden="true" />
                 <span>{COMPANY_INFO.phone}</span>
               </li>
               <li className="flex items-center">
-                <svg className="w-4 h-4 mr-3 text-secondary" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
+                <Mail className="w-4 h-4 mr-3 text-secondary" aria-hidden="true" />
                 <span>{COMPANY_INFO.email}</span>
               </li>
               <li className="flex items-start">
-                <svg className="w-4 h-4 mr-3 text-secondary mt-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                </svg>
+                <MapPin className="w-4 h-4 mr-3 text-secondary mt-1" aria-hidden="true" />
                 <span>
                   {COMPANY_INFO.address.street}<br />
                   {COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} {COMPANY_INFO.address.pincode}
@@ -123,12 +109,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-8">
+        <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white/60 text-sm mb-4 md:mb-0">
+            <p className="text-gray-400 text-sm mb-4 md:mb-0">
               &copy; 2024 Powerton Engineering Pvt. Ltd. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm text-white/60">
+            <div className="flex space-x-6 text-sm text-gray-400">
               <a href="#" className="hover:text-secondary transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-secondary transition-colors">Terms of Service</a>
               <a href="#" className="hover:text-secondary transition-colors">Sitemap</a>

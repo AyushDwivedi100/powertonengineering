@@ -21,13 +21,13 @@ const contactFormSchema = insertContactSchema.extend({
   })
 });
 
-type ContactFormData = z.infer<typeof contactFormSchema>;
+// ContactFormData type: z.infer<typeof contactFormSchema>
 
 export default function ContactForm() {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const form = useForm<ContactFormData>({
+  const form = useForm({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
       firstName: "",
@@ -41,7 +41,7 @@ export default function ContactForm() {
   });
 
   const contactMutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
+    mutationFn: async (data) => {
       const response = await apiRequest("POST", "/api/contacts", data);
       return response.json();
     },
@@ -63,7 +63,7 @@ export default function ContactForm() {
     }
   });
 
-  const onSubmit = (data: ContactFormData) => {
+  const onSubmit = (data) => {
     contactMutation.mutate(data);
   };
 

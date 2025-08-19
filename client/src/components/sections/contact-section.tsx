@@ -1,28 +1,24 @@
 import ContactForm from "@/components/forms/contact-form";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { Link } from "wouter";
 import { COMPANY_INFO } from "@/data/constants";
 
 export default function ContactSection() {
   return (
     <section id="contact" className="section-padding bg-primary text-white" role="main">
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="text-center mb-12 sm:mb-16">
-          <span className="text-secondary font-semibold text-responsive-sm">Contact Us</span>
-          <h2 className="text-responsive-xl font-bold mt-2 sm:mt-4 mb-4 sm:mb-6">
+        <div className="text-center mb-16">
+          <span className="text-secondary font-semibold text-lg">Contact Us</span>
+          <h2 className="text-3xl lg:text-5xl font-bold mt-4 mb-6">
             Let's Discuss Your Engineering Needs
           </h2>
-          <p className="text-responsive-base opacity-90 max-w-3xl mx-auto">
+          <p className="text-xl opacity-90 max-w-3xl mx-auto">
             Ready to start your next project? Get in touch with our expert team for customized solutions and professional consultation.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-responsive-lg font-bold mb-4 sm:mb-6">Get in Touch</h3>
-            <p className="text-white/80 mb-4 sm:mb-6 text-responsive-sm">
-              Need a detailed quote? <Link href="/quote" className="text-secondary hover:underline font-semibold">Visit our Quote Page</Link> for comprehensive project pricing.
-            </p>
+            <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
             
             <div className="space-y-6 mb-8">
               <div className="flex items-start space-x-4">

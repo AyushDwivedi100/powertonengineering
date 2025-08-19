@@ -18,13 +18,9 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
-import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const heroAnimation = useScrollAnimation();
-  const statsAnimation = useStaggeredAnimation(4, 150);
-  const projectsAnimation = useStaggeredAnimation(PROJECTS.length, 200);
 
   const projectCategories = [
     { id: "all", name: "All Projects", count: PROJECTS.length },
@@ -35,10 +31,10 @@ export default function Projects() {
   ];
 
   const categoryColors = {
-    "Power Plant": "bg-secondary/10 text-secondary",
-    "Manufacturing": "bg-primary/10 text-primary",
-    "Solar": "bg-accent/10 text-accent",
-    "Water Treatment": "bg-primary/20 text-primary"
+    "Power Plant": "bg-red-100 text-red-800",
+    "Manufacturing": "bg-blue-100 text-blue-800",
+    "Solar": "bg-green-100 text-green-800",
+    "Water Treatment": "bg-cyan-100 text-cyan-800"
   };
 
   const filteredProjects = selectedCategory === "all" 
@@ -55,14 +51,14 @@ export default function Projects() {
   return (
     <>
       <SEO
-        title="Engineering Projects Portfolio - Industrial Automation & Electrical Projects | Powerton Engineering"
-        description="Explore our comprehensive portfolio of 1200+ successfully completed engineering projects: power plant automation, manufacturing control systems, solar installations, water treatment automation, and electrical infrastructure projects across India. Case studies with detailed technical specifications and project outcomes."
-        keywords="engineering projects portfolio, automation projects India, power plant automation, manufacturing automation, solar projects, water treatment automation, industrial projects, electrical infrastructure, control system projects, process automation cases, instrumentation projects"
+        title="Engineering Projects Portfolio - Industrial Automation Cases | Powerton Engineering"
+        description="Explore our portfolio of successfully completed engineering projects including power plants, manufacturing automation, solar installations, and water treatment systems across India."
+        keywords="engineering projects, automation projects, power plant automation, manufacturing automation, solar projects, water treatment automation, industrial projects India"
         canonicalUrl="https://powertonengineering.in/projects"
       />
 
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary to-accent text-white">
+      <section className="section-padding bg-gradient-to-br from-primary to-blue-800 text-white">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-responsive-2xl font-bold mb-4 sm:mb-6">
@@ -147,7 +143,7 @@ export default function Projects() {
                     <div className="relative overflow-hidden">
                       <img 
                         src={project.image} 
-                        alt={`ID-${String(300 + PROJECTS.indexOf(project)).padStart(3, '0')}: ${project.title} - ${project.description}`}
+                        alt={`${project.title} - ${project.description}`}
                         className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
                       />
@@ -155,31 +151,31 @@ export default function Projects() {
                       <div className="absolute top-4 left-4">
                         <Badge 
                           className={`${
-                            categoryColors[project.category as keyof typeof categoryColors] || 
-                            "bg-muted text-muted-foreground"
+                            categoryColors[project.category] || 
+                            "bg-gray-100 text-gray-800"
                           }`}
                         >
                           {project.category}
                         </Badge>
                       </div>
                       <div className="absolute top-4 right-4">
-                        <Badge className="bg-background text-foreground">
+                        <Badge className="bg-white text-gray-900">
                           {project.year}
                         </Badge>
                       </div>
                     </div>
                     
                     <CardContent className="p-8">
-                      <h3 className="text-xl font-bold text-foreground mb-4">{project.title}</h3>
-                      <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">{project.title}</h3>
+                      <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
                       
                       {/* Project Details */}
                       <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="flex items-center text-sm text-muted-foreground">
+                        <div className="flex items-center text-sm text-gray-500">
                           <MapPin className="w-4 h-4 mr-2" />
                           {project.location}
                         </div>
-                        <div className="flex items-center text-sm text-muted-foreground">
+                        <div className="flex items-center text-sm text-gray-500">
                           <Clock className="w-4 h-4 mr-2" />
                           {project.duration}
                         </div>
@@ -187,20 +183,20 @@ export default function Projects() {
 
                       {/* Project Highlights */}
                       <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-foreground mb-3">Key Achievements:</h4>
+                        <h4 className="text-sm font-semibold text-gray-900 mb-3">Key Achievements:</h4>
                         <div className="grid grid-cols-2 gap-2">
                           {project.highlights.map((highlight) => (
-                            <div key={highlight} className="flex items-center text-xs text-muted-foreground">
-                              <CheckCircle className="w-3 h-3 text-primary mr-2 flex-shrink-0" />
+                            <div key={highlight} className="flex items-center text-xs text-gray-600">
+                              <CheckCircle className="w-3 h-3 text-green-600 mr-2 flex-shrink-0" />
                               {highlight}
                             </div>
                           ))}
                         </div>
                       </div>
                       
-                      <div className="flex items-center justify-between pt-4 border-t border-border">
-                        <div className="flex items-center text-sm text-muted-foreground">
-                          <TrendingUp className="w-4 h-4 mr-2 text-primary" />
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div className="flex items-center text-sm text-gray-500">
+                          <TrendingUp className="w-4 h-4 mr-2 text-green-600" />
                           <span>Successfully Completed</span>
                         </div>
                         <Button 
@@ -228,8 +224,8 @@ export default function Projects() {
                 <div>
                   <Badge 
                     className={`mb-4 ${
-                      categoryColors[project.category as keyof typeof categoryColors] || 
-                      "bg-muted text-muted-foreground"
+                      categoryColors[project.category] || 
+                      "bg-gray-100 text-gray-800"
                     }`}
                   >
                     {project.category} Project
@@ -237,37 +233,37 @@ export default function Projects() {
                   <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
                     {project.title}
                   </h2>
-                  <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
+                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                     {project.description}
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <div>
-                      <h3 className="text-lg font-bold text-foreground mb-3">Project Scope</h3>
+                      <h3 className="text-lg font-bold text-gray-900 mb-3">Project Scope</h3>
                       <div className="space-y-2">
                         {project.highlights.map((highlight) => (
                           <div key={highlight} className="flex items-start">
-                            <CheckCircle className="w-4 h-4 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                            <span className="text-foreground/70 text-sm">{highlight}</span>
+                            <CheckCircle className="w-4 h-4 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-600 text-sm">{highlight}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-bold text-foreground mb-3">Project Details</h3>
+                      <h3 className="text-lg font-bold text-gray-900 mb-3">Project Details</h3>
                       <div className="space-y-3">
                         <div className="flex items-center">
                           <MapPin className="w-4 h-4 text-primary mr-3" />
-                          <span className="text-foreground/70 text-sm">Location: {project.location}</span>
+                          <span className="text-gray-600 text-sm">Location: {project.location}</span>
                         </div>
                         <div className="flex items-center">
                           <Clock className="w-4 h-4 text-primary mr-3" />
-                          <span className="text-foreground/70 text-sm">Duration: {project.duration}</span>
+                          <span className="text-gray-600 text-sm">Duration: {project.duration}</span>
                         </div>
                         <div className="flex items-center">
                           <Calendar className="w-4 h-4 text-primary mr-3" />
-                          <span className="text-foreground/70 text-sm">Completed: {project.year}</span>
+                          <span className="text-gray-600 text-sm">Completed: {project.year}</span>
                         </div>
                       </div>
                     </div>
@@ -283,26 +279,26 @@ export default function Projects() {
                 <div>
                   <Card className="border-none shadow-lg">
                     <CardContent className="p-8">
-                      <h3 className="text-xl font-bold text-foreground mb-6">Project Impact</h3>
+                      <h3 className="text-xl font-bold text-gray-900 mb-6">Project Impact</h3>
                       
                       <div className="space-y-6">
-                        <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
-                          <h4 className="font-semibold text-primary mb-2">Energy Efficiency</h4>
-                          <p className="text-foreground/80 text-sm">
+                        <div className="bg-green-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-green-800 mb-2">Energy Efficiency</h4>
+                          <p className="text-green-700 text-sm">
                             Achieved 25-30% improvement in energy efficiency through advanced automation systems.
                           </p>
                         </div>
 
-                        <div className="bg-secondary/10 border border-secondary/20 rounded-lg p-4">
-                          <h4 className="font-semibold text-secondary mb-2">Operational Excellence</h4>
-                          <p className="text-foreground/80 text-sm">
+                        <div className="bg-blue-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-blue-800 mb-2">Operational Excellence</h4>
+                          <p className="text-blue-700 text-sm">
                             Reduced manual intervention by 70% and improved process reliability significantly.
                           </p>
                         </div>
 
-                        <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
-                          <h4 className="font-semibold text-accent-foreground mb-2">Safety Enhancement</h4>
-                          <p className="text-foreground/80 text-sm">
+                        <div className="bg-orange-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-orange-800 mb-2">Safety Enhancement</h4>
+                          <p className="text-orange-700 text-sm">
                             Implemented comprehensive safety systems ensuring zero incidents post-commissioning.
                           </p>
                         </div>

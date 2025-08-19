@@ -14,11 +14,6 @@ import About from "@/pages/about";
 import Services from "@/pages/services";
 import Products from "@/pages/products";
 import Projects from "@/pages/projects";
-import Portfolio from "@/pages/portfolio";
-import Resources from "@/pages/resources";
-import Configurator from "@/pages/configurator";
-import Technology from "@/pages/technology";
-import Quote from "@/pages/quote";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
 import Chatbot from "@/components/chatbot/chatbot";
@@ -32,11 +27,6 @@ function Router() {
         <Route path="/services" component={Services} />
         <Route path="/products" component={Products} />
         <Route path="/projects" component={Projects} />
-        <Route path="/portfolio" component={Portfolio} />
-        <Route path="/resources" component={Resources} />
-        <Route path="/configurator" component={Configurator} />
-        <Route path="/technology" component={Technology} />
-        <Route path="/quote" component={Quote} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>

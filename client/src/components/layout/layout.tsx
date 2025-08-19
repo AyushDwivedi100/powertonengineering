@@ -2,11 +2,7 @@ import Header from "./header";
 import Footer from "./footer";
 import Chatbot from "@/components/chatbot/chatbot";
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children }) {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />

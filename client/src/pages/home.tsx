@@ -1,14 +1,17 @@
 import { SEO } from "@/lib/seo";
+import { AnimatedSection, useScrollAnimations } from "@/hooks/use-scroll-animation";
+import { useEffect } from "react";
 import HeroSection from "@/components/sections/hero-section";
 import AboutSection from "@/components/sections/about-section";
 import ServicesSection from "@/components/sections/services-section";
 import ProductsSection from "@/components/sections/products-section";
 import ClientsSection from "@/components/sections/clients-section";
 import ProjectsSection from "@/components/sections/projects-section";
-import GallerySection from "@/components/sections/gallery-section";
 import ContactSection from "@/components/sections/contact-section";
 
 export default function Home() {
+  useScrollAnimations();
+  
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -55,21 +58,31 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Powerton Engineering - Industrial Automation & Electrical Control Panels | Leading Manufacturer India"
-        description="Powerton Engineering Pvt. Ltd. - Premier manufacturer of electrical control panels, industrial automation systems, and instrumentation solutions. 15+ years serving industries across India with ISO certified quality engineering products and 24/7 support services."
-        keywords="electrical control panels manufacturer India, industrial automation solutions, power control center PCC, motor control center MCC, instrumentation services, electrical engineering company, process automation, SCADA systems, HMI panels, industrial IoT, control system integration, Noida electrical company"
-        canonicalUrl="https://powertonengineering.in"
+        title="Powerton Engineering - Industrial Automation & Control Panels | India"
+        description="Leading manufacturer of electrical control panels, industrial automation systems, and instrumentation solutions. Expert engineering services across India with 15+ years experience."
+        keywords="electrical control panels, industrial automation, process automation, instrumentation, power control center, motor control center, electrical engineering, India, Noida"
         structuredData={structuredData}
       />
       
       <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <ProductsSection />
-      <ProjectsSection />
-      <GallerySection />
-      <ClientsSection />
-      <ContactSection />
+      <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
+        <AboutSection />
+      </AnimatedSection>
+      <AnimatedSection animation="fadeInLeft" delay={0.2} duration={0.9}>
+        <ServicesSection />
+      </AnimatedSection>
+      <AnimatedSection animation="fadeInRight" delay={0.1} duration={0.8}>
+        <ProductsSection />
+      </AnimatedSection>
+      <AnimatedSection animation="scaleIn" delay={0.15} duration={0.7}>
+        <ClientsSection />
+      </AnimatedSection>
+      <AnimatedSection animation="slideInUp" delay={0.2} duration={0.9}>
+        <ProjectsSection />
+      </AnimatedSection>
+      <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
+        <ContactSection />
+      </AnimatedSection>
     </>
   );
 }

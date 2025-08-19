@@ -5,15 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Users, Award, Globe, Target, Eye, Heart } from "lucide-react";
 import { Link } from "wouter";
 import { COMPANY_INFO } from "@/data/constants";
-import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function About() {
-  const heroAnimation = useScrollAnimation();
-  const storyAnimation = useScrollAnimation();
-  const missionAnimation = useScrollAnimation();
-  const valuesAnimation = useStaggeredAnimation(4);
-  const certsAnimation = useScrollAnimation();
-
   const values = [
     {
       icon: Target,
@@ -56,16 +49,16 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Powerton Engineering - Leading Industrial Automation & Electrical Solutions Company | 15+ Years Excellence"
-        description="Discover Powerton Engineering's expertise in industrial automation, electrical control panels, and instrumentation solutions. ISO certified company with 15+ years serving 450+ clients across India. Expert engineering team with 24/7 support and pan-India service network."
-        keywords="about powerton engineering, industrial automation company India, electrical control panel manufacturer, instrumentation services company, automation experts Noida, electrical engineering company, process automation specialists, control system integrators, ISO certified manufacturer"
+        title="About Powerton Engineering - 15+ Years of Industrial Automation Excellence"
+        description="Learn about Powerton Engineering's journey in industrial automation, electrical engineering, and instrumentation solutions. Expert team serving industries across India since 2008."
+        keywords="about powerton engineering, industrial automation company, electrical engineering company, instrumentation services, automation experts India"
         canonicalUrl="https://powertonengineering.in/about"
       />
 
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-primary to-blue-800 text-white">
         <div className="max-w-7xl mx-auto container-padding">
-          <div ref={heroAnimation.ref} className={`max-w-4xl mx-auto text-center ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+          <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               About <span className="text-secondary">Powerton Engineering</span>
             </h1>
@@ -79,31 +72,39 @@ export default function About() {
       {/* Company Story */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto container-padding">
-          <div ref={storyAnimation.ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className={getAnimationClass('fade-in-left', storyAnimation.isVisible)}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
               <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
-                alt="ID-004: Powerton Engineering industrial automation facility with modern control systems" 
+                src="https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
+                alt="Powerton Engineering industrial automation facility with modern control systems" 
                 className="rounded-xl shadow-2xl w-full"
                 loading="lazy"
               />
             </div>
-            <div className={getAnimationClass('fade-in-right', storyAnimation.isVisible)}>
+            <div>
+              <img 
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
+                alt="Indian engineering team at Powerton working on advanced industrial automation systems"
+                className="rounded-xl shadow-2xl w-full"
+                loading="lazy"
+              />
+            </div>
+            <div>
               <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
                 Our Journey & Vision
               </h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 Founded with a vision to empower industries through innovation and excellence, Powerton Engineering has grown to become a leading provider of electrical and instrumentation solutions across India.
               </p>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 From our headquarters in Noida, we serve clients nationwide with comprehensive engineering solutions including process automation, instrumentation, solar installations, and maintenance services.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-8">
                 {teamStats.map((stat) => (
-                  <div key={stat.label} className="text-center p-4 bg-muted rounded-lg">
+                  <div key={stat.label} className="text-center p-4 bg-gray-50 rounded-lg">
                     <div className="text-2xl font-bold text-secondary mb-2">{stat.number}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                    <div className="text-sm text-gray-600">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -113,10 +114,10 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="section-padding bg-muted/50">
+      <section className="section-padding bg-gray-50">
         <div className="max-w-7xl mx-auto container-padding">
-          <div ref={missionAnimation.ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <Card className={`border-none shadow-lg ${getAnimationClass('fade-in-up', missionAnimation.isVisible)}`}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <Card className="border-none shadow-lg">
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
@@ -124,13 +125,13 @@ export default function About() {
                   </div>
                   <h3 className="text-2xl font-bold text-primary">Our Mission</h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   To empower industries with innovative engineering solutions that enhance productivity, efficiency, and sustainability. We strive to be the preferred partner for businesses seeking reliable automation and electrical systems.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className={`border-none shadow-lg ${getAnimationClass('fade-in-up', missionAnimation.isVisible, 200)}`}>
+            <Card className="border-none shadow-lg">
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center mr-4">
@@ -138,7 +139,7 @@ export default function About() {
                   </div>
                   <h3 className="text-2xl font-bold text-primary">Our Vision</h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   To be India's leading engineering solutions provider, recognized for technical excellence, innovation, and customer satisfaction. We envision a future where our solutions drive industrial transformation.
                 </p>
               </CardContent>
@@ -152,23 +153,22 @@ export default function About() {
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Our Core Values</h2>
-            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               These values guide our decisions, shape our culture, and drive our commitment to excellence.
             </p>
           </div>
 
-          <div ref={valuesAnimation.ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value) => {
               const Icon = value.icon;
-              const isVisible = valuesAnimation.visibleItems.has(index);
               return (
-                <Card key={value.title} className={`text-center border-none shadow-lg hover:shadow-xl transition-shadow ${getAnimationClass('bounce-in-up', isVisible)}`}>
+                <Card key={value.title} className="text-center border-none shadow-lg hover:shadow-xl transition-shadow">
                   <CardContent className="p-8">
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto mb-6">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-4">{value.title}</h3>
-                    <p className="text-foreground/70">{value.description}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
+                    <p className="text-gray-600">{value.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -178,22 +178,22 @@ export default function About() {
       </section>
 
       {/* Certifications & Standards */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding bg-gray-50">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Certifications & Quality Standards
             </h2>
-            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our commitment to quality is validated by industry-recognized certifications and compliance standards.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert) => (
-              <div key={cert} className="flex items-center p-4 bg-background border border-border rounded-lg shadow-sm">
-                <CheckCircle className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
-                <span className="font-medium text-foreground">{cert}</span>
+              <div key={cert} className="flex items-center p-4 bg-white rounded-lg shadow">
+                <CheckCircle className="w-6 h-6 text-green-600 mr-4 flex-shrink-0" />
+                <span className="font-medium text-gray-900">{cert}</span>
               </div>
             ))}
           </div>

@@ -20,7 +20,7 @@ const quoteFormSchema = insertQuoteRequestSchema.extend({
   timeline: z.string().optional()
 });
 
-type QuoteFormData = z.infer<typeof quoteFormSchema>;
+// QuoteFormData type: z.infer<typeof quoteFormSchema>
 
 const budgetRanges = [
   { value: "under-5-lakh", label: "Under ₹5 Lakh" },
@@ -45,7 +45,7 @@ export default function QuoteForm() {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const form = useForm<QuoteFormData>({
+  const form = useForm({
     resolver: zodResolver(quoteFormSchema),
     defaultValues: {
       firstName: "",
@@ -61,7 +61,7 @@ export default function QuoteForm() {
   });
 
   const quoteMutation = useMutation({
-    mutationFn: async (data: QuoteFormData) => {
+    mutationFn: async (data) => {
       const response = await apiRequest("POST", "/api/quote-requests", data);
       return response.json();
     },
@@ -83,7 +83,7 @@ export default function QuoteForm() {
     }
   });
 
-  const onSubmit = (data: QuoteFormData) => {
+  const onSubmit = (data) => {
     quoteMutation.mutate(data);
   };
 

@@ -16,13 +16,8 @@ import {
   CheckCircle
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/constants";
-import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function Contact() {
-  const heroAnimation = useScrollAnimation();
-  const contactMethodsAnimation = useStaggeredAnimation(4, 150);
-  const formAnimation = useScrollAnimation();
-
   const contactMethods = [
     {
       icon: Phone,
@@ -96,23 +91,23 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact Powerton Engineering - Industrial Automation & Electrical Solutions | 24/7 Support"
-        description="Contact Powerton Engineering for industrial automation, electrical control panels, and instrumentation services. 24/7 technical support, free consultations, and on-site service. Located in Noida, Uttar Pradesh, serving all India with pan-India service network. Call +91-94627-71662 or email info@powertonengineering.in"
-        keywords="contact powerton engineering, industrial automation support, electrical engineering contact, instrumentation services, Noida engineering company, technical support India, 24/7 engineering support, automation consultancy, electrical panel manufacturer contact, process control support"
+        title="Contact Powerton Engineering - Get Expert Engineering Support"
+        description="Contact Powerton Engineering for industrial automation, electrical engineering, and instrumentation services. 24/7 support available. Located in Noida, serving all India."
+        keywords="contact powerton engineering, industrial automation support, electrical engineering contact, instrumentation services, Noida engineering company, technical support India"
         canonicalUrl="https://powertonengineering.in/contact"
       />
 
       {/* Hero Section */}
-      <section className="section-padding hero-gradient text-white">
+      <section className="section-padding bg-gradient-to-br from-primary to-blue-800 text-white">
         <div className="max-w-7xl mx-auto container-padding">
-          <div className="hero-content">
-            <h1 className="hero-title">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Get in <span className="text-secondary">Touch</span>
             </h1>
-            <p className="hero-subtitle">
+            <p className="text-xl lg:text-2xl mb-8 opacity-90">
               Ready to start your next project? Our expert team is here to help you with customized engineering solutions and professional consultation.
             </p>
-            <div className="hero-features">
+            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-lg">
               <div className="flex items-center">
                 <CheckCircle className="w-6 h-6 text-secondary mr-3" />
                 <span>Free Consultation</span>
@@ -134,15 +129,15 @@ export default function Contact() {
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
-            <h2 className="section-title">
+            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Multiple Ways to Reach Us
             </h2>
-            <p className="section-subtitle">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Choose the communication method that works best for you. We're available 24/7 for emergency support.
             </p>
           </div>
 
-          <div className="grid-responsive-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactMethods.map((method) => {
               const Icon = method.icon;
               return (

@@ -1,14 +1,5 @@
 import { Helmet } from "react-helmet-async";
 
-interface SEOProps {
-  title?: string;
-  description?: string;
-  keywords?: string;
-  ogImage?: string;
-  canonicalUrl?: string;
-  structuredData?: object;
-}
-
 export function SEO({
   title = "Powerton Engineering Pvt. Ltd. - Industrial Control Panels & Automation Solutions",
   description = "Leading manufacturer of electrical control panels, industrial automation systems, and instrumentation solutions. Serving industries across India with quality engineering products and services.",
@@ -16,7 +7,7 @@ export function SEO({
   ogImage = "https://powertonengineering.in/og-image.jpg",
   canonicalUrl,
   structuredData
-}: SEOProps) {
+}) {
   const defaultStructuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",

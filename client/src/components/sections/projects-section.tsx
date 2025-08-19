@@ -4,12 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { PROJECTS } from "@/data/constants";
 import { MapPin, Calendar, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
-import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 export default function ProjectsSection() {
-  const headerAnimation = useScrollAnimation();
-  const projectsAnimation = useStaggeredAnimation(PROJECTS.length, 200);
-  
   const categoryColors = {
     "Power Plant": "bg-red-100 text-red-800",
     "Manufacturing": "bg-blue-100 text-blue-800",
@@ -20,28 +16,26 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="section-padding bg-gray-50" role="main">
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="text-center mb-12 sm:mb-16">
-          <span className="text-secondary font-semibold text-responsive-sm">Our Projects</span>
-          <h2 className="text-responsive-xl font-bold text-primary mt-2 sm:mt-4 mb-4 sm:mb-6">
+        <div className="text-center mb-16">
+          <span className="text-secondary font-semibold text-lg">Our Projects</span>
+          <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
             Successfully Delivered Engineering Solutions
           </h2>
-          <p className="text-responsive-base text-foreground/70 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Explore our portfolio of completed projects showcasing our expertise in industrial automation and electrical engineering.
           </p>
         </div>
 
-        <div ref={projectsAnimation.ref} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          {PROJECTS.map((project, index) => {
-            const isVisible = projectsAnimation.visibleItems.has(index);
-            return (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          {PROJECTS.map((project) => (
             <Card 
               key={project.id} 
-              className={`overflow-hidden group hover:shadow-xl transition-all duration-300 card-hover ${getAnimationClass('slide-in-scale', isVisible)}`}
+              className="overflow-hidden group hover:shadow-xl transition-all duration-300 card-hover"
             >
               <div className="relative overflow-hidden">
                 <img 
-                  src={index === 3 ? "https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500" : project.image} 
-                  alt={`ID-${String(50 + index).padStart(3, '0')}: ${project.title} - ${project.description}`}
+                  src={project.image} 
+                  alt={`${project.title} - ${project.description}`}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
@@ -52,21 +46,21 @@ export default function ProjectsSection() {
                 <div className="flex items-center mb-4">
                   <Badge 
                     className={`mr-4 ${
-                      categoryColors[project.category as keyof typeof categoryColors] || 
-                      "bg-muted text-muted-foreground"
+                      categoryColors[project.category] || 
+                      "bg-gray-100 text-gray-800"
                     }`}
                   >
                     {project.category}
                   </Badge>
-                  <span className="text-muted-foreground text-sm">Completed {project.year}</span>
+                  <span className="text-gray-500 text-sm">Completed {project.year}</span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-foreground mb-4">{project.title}</h3>
-                <p className="text-foreground/70 mb-6">{project.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{project.title}</h3>
+                <p className="text-gray-600 mb-6">{project.description}</p>
                 
                 {/* Project Highlights */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-foreground mb-2">Key Features:</h4>
+                  <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Features:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.highlights.map((highlight) => (
                       <span 
@@ -80,7 +74,7 @@ export default function ProjectsSection() {
                 </div>
                 
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                  <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <span className="flex items-center">
                       <MapPin className="w-4 h-4 mr-1" aria-hidden="true" />
                       {project.location}
@@ -101,8 +95,7 @@ export default function ProjectsSection() {
                 </div>
               </CardContent>
             </Card>
-          );
-          })}
+          ))}
         </div>
 
         <div className="text-center">
