@@ -27,19 +27,17 @@ export default function Header() {
     return false;
   };
 
-
-
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50" role="banner">
       {/* Top bar */}
-      <motion.div 
+      <motion.div
         className="bg-primary text-white py-1 sm:py-2"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <div className="max-w-7xl mx-auto container-padding flex flex-col sm:flex-row sm:justify-between items-center gap-2 sm:gap-0 text-xs sm:text-sm">
-          <motion.div 
+          <motion.div
             className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center sm:justify-start"
             initial="hidden"
             animate="visible"
@@ -48,38 +46,44 @@ export default function Header() {
               visible: {
                 transition: {
                   staggerChildren: 0.1,
-                  delayChildren: 0.2
-                }
-              }
+                  delayChildren: 0.2,
+                },
+              },
             }}
           >
-            <motion.a 
-              href={`tel:${COMPANY_INFO.phone}`} 
+            <motion.a
+              href={`tel:${COMPANY_INFO.phone}`}
               className="flex items-center hover:text-secondary transition-colors hover-scale"
               aria-label="Call us"
               variants={{
                 hidden: { opacity: 0, x: -20 },
-                visible: { opacity: 1, x: 0 }
+                visible: { opacity: 1, x: 0 },
               }}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" aria-hidden="true" />
+              <Phone
+                className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-secondary"
+                aria-hidden="true"
+              />
               <span className="hidden xs:inline">{COMPANY_INFO.phone}</span>
               <span className="xs:hidden">Call</span>
             </motion.a>
-            <motion.a 
-              href={`mailto:${COMPANY_INFO.email}`} 
+            <motion.a
+              href={`mailto:${COMPANY_INFO.email}`}
               className="flex items-center hover:text-secondary transition-colors hover-scale"
               aria-label="Email us"
               variants={{
                 hidden: { opacity: 0, x: -20 },
-                visible: { opacity: 1, x: 0 }
+                visible: { opacity: 1, x: 0 },
               }}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" aria-hidden="true" />
+              <Mail
+                className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-secondary"
+                aria-hidden="true"
+              />
               <span className="hidden sm:inline">{COMPANY_INFO.email}</span>
               <span className="sm:hidden">Email</span>
             </motion.a>
@@ -96,15 +100,25 @@ export default function Header() {
             whileHover={{ scale: 1.05 }}
           >
             <span className="flex items-center">
-              <MapPin className="w-4 h-4 mr-2 text-secondary" aria-hidden="true" />
-              <span className="text-xs lg:text-sm">{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} - Serving All India</span>
+              <MapPin
+                className="w-4 h-4 mr-2 text-secondary"
+                aria-hidden="true"
+              />
+              <span className="text-xs lg:text-sm">
+                {COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} -
+                Serving All India
+              </span>
             </span>
           </motion.a>
         </div>
       </motion.div>
 
       {/* Main navigation */}
-      <nav className="max-w-7xl mx-auto container-padding" role="navigation" aria-label="Main navigation">
+      <nav
+        className="max-w-7xl mx-auto container-padding"
+        role="navigation"
+        aria-label="Main navigation"
+      >
         <div className="flex justify-between items-center py-3 sm:py-4">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -112,9 +126,9 @@ export default function Header() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Link href="/" className="flex items-center">
-              <motion.img 
-                src={logoImage} 
-                alt="ID-001: Powerton Engineering Pvt. Ltd. logo" 
+              <motion.img
+                src={logoImage}
+                alt="ID-001: Powerton Engineering Pvt. Ltd. logo"
                 className="h-8 sm:h-10 md:h-12 w-auto"
                 loading="eager"
                 whileHover={{ scale: 1.05 }}
@@ -124,7 +138,7 @@ export default function Header() {
           </motion.div>
 
           {/* Desktop navigation */}
-          <motion.div 
+          <motion.div
             className="hidden lg:flex items-center space-x-6"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -135,7 +149,7 @@ export default function Header() {
                 key={item.name}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.4 + (index * 0.1) }}
+                transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
               >
                 <Link
                   href={item.href}
@@ -168,9 +182,7 @@ export default function Header() {
               className="ml-2"
             >
               <Link href="/quote">
-                <Button className="btn-secondary hover-lift">
-                  Get Quote
-                </Button>
+                <Button className="btn-secondary hover-lift">Get Quote</Button>
               </Link>
             </motion.div>
           </motion.div>
@@ -183,7 +195,11 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: 0.5 }}
               >
-                <Button variant="ghost" size="icon" className="lg:hidden hover-scale">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="lg:hidden hover-scale"
+                >
                   <motion.div
                     animate={{ rotate: isOpen ? 90 : 0 }}
                     transition={{ duration: 0.3 }}
@@ -196,18 +212,21 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <AnimatePresence>
-                <motion.nav 
+                <motion.nav
                   className="flex flex-col space-y-4 mt-8"
                   initial="closed"
                   animate="open"
                   exit="closed"
                   variants={{
                     open: {
-                      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+                      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
                     },
                     closed: {
-                      transition: { staggerChildren: 0.05, staggerDirection: -1 }
-                    }
+                      transition: {
+                        staggerChildren: 0.05,
+                        staggerDirection: -1,
+                      },
+                    },
                   }}
                 >
                   {navigation.map((item) => (
@@ -215,14 +234,16 @@ export default function Header() {
                       key={item.name}
                       variants={{
                         open: { opacity: 1, x: 0 },
-                        closed: { opacity: 0, x: -20 }
+                        closed: { opacity: 0, x: -20 },
                       }}
                       transition={{ duration: 0.3 }}
                     >
                       <Link
                         href={item.href}
                         className={`text-lg font-medium transition-colors hover-scale block ${
-                          isActive(item.href) ? "text-primary" : "text-gray-700 hover:text-primary"
+                          isActive(item.href)
+                            ? "text-primary"
+                            : "text-gray-700 hover:text-primary"
                         }`}
                         onClick={() => setIsOpen(false)}
                       >
@@ -238,7 +259,7 @@ export default function Header() {
                   <motion.div
                     variants={{
                       open: { opacity: 1, x: 0 },
-                      closed: { opacity: 0, x: -20 }
+                      closed: { opacity: 0, x: -20 },
                     }}
                     transition={{ duration: 0.3 }}
                   >

@@ -18,7 +18,7 @@ import Contact from "@/pages/contact";
 import Quote from "@/pages/quote";
 
 import News from "@/pages/news";
-
+import Sitemap from "@/pages/sitemap";
 
 import NotFound from "@/pages/not-found";
 import Chatbot from "@/components/chatbot/chatbot";
@@ -34,7 +34,7 @@ function Router() {
         <Route path="/projects" component={Projects} />
 
         <Route path="/news" component={News} />
-
+        <Route path="/sitemap" component={Sitemap} />
 
         <Route path="/quote" component={Quote} />
         <Route path="/contact" component={Contact} />
