@@ -344,10 +344,12 @@ export default function News() {
                             </Badge>
                           ))}
                         </div>
-                        <Button variant="outline" size="sm" className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                          Read More
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
+                        <a href={`/news/${item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}>
+                          <Button variant="outline" size="sm" className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                            Read More
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Button>
+                        </a>
                       </CardContent>
                     </Card>
                   ))}
@@ -397,9 +399,11 @@ export default function News() {
                         </div>
                         <h3 className="text-lg font-semibold text-foreground mb-2 line-clamp-2">{item.title}</h3>
                         <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{item.excerpt}</p>
-                        <Button variant="outline" size="sm" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                          Read More
-                        </Button>
+                        <a href={`/news/${item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}>
+                          <Button variant="outline" size="sm" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                            Read More
+                          </Button>
+                        </a>
                       </CardContent>
                     </Card>
                   ))}

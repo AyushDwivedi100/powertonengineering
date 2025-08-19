@@ -18,7 +18,11 @@ import Contact from "@/pages/contact";
 import Quote from "@/pages/quote";
 
 import News from "@/pages/news";
+import NewsArticle from "@/pages/news-article";
 import Sitemap from "@/pages/sitemap";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import TermsOfService from "@/pages/terms-of-service";
+import PortfolioDownload from "@/pages/portfolio-download";
 
 import NotFound from "@/pages/not-found";
 import Chatbot from "@/components/chatbot/chatbot";
@@ -34,7 +38,11 @@ function Router() {
         <Route path="/projects" component={Projects} />
 
         <Route path="/news" component={News} />
+        <Route path="/news/:slug" component={NewsArticle} />
         <Route path="/sitemap" component={Sitemap} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/terms-of-service" component={TermsOfService} />
+        <Route path="/portfolio-download" component={PortfolioDownload} />
 
         <Route path="/quote" component={Quote} />
         <Route path="/contact" component={Contact} />

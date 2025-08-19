@@ -134,8 +134,8 @@ export default function Footer() {
               &copy; 2024 Powerton Engineering Pvt. Ltd. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-secondary transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-secondary transition-colors">Terms of Service</a>
+              <a href="/privacy-policy" className="hover:text-secondary transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="hover:text-secondary transition-colors">Terms of Service</a>
               <a href="/sitemap" className="hover:text-secondary transition-colors">Sitemap</a>
             </div>
           </div>

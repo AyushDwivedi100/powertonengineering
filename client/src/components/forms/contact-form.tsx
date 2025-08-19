@@ -245,7 +245,7 @@ export default function ContactForm() {
                   <div className="space-y-1 leading-none">
                     <FormLabel className="text-sm text-gray-600">
                       I agree to the{" "}
-                      <a href="#" className="text-secondary hover:underline">
+                      <a href="/privacy-policy" className="text-secondary hover:underline">
                         Privacy Policy
                       </a>{" "}
                       and consent to being contacted about my inquiry. *

@@ -105,12 +105,14 @@ export default function ProjectsSection() {
               View All Projects
             </Button>
           </Link>
-          <Button 
-            variant="outline" 
-            className="btn-outline text-lg px-8 py-4"
-          >
-            Download Portfolio
-          </Button>
+          <a href="/portfolio-download">
+            <Button 
+              variant="outline" 
+              className="btn-outline text-lg px-8 py-4"
+            >
+              Download Portfolio
+            </Button>
+          </a>
         </div>
       </div>
     </section>

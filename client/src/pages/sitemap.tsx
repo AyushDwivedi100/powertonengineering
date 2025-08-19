@@ -34,6 +34,16 @@ export default function Sitemap() {
       icon: <Newspaper className="w-5 h-5 text-primary" />,
       links: [
         { path: "/news", label: "News & Updates", description: "Latest news and updates from Powerton Engineering" },
+        { path: "/portfolio-download", label: "Portfolio Downloads", description: "Download comprehensive project portfolios and documentation" },
+      ]
+    },
+    {
+      title: "Legal & Information",
+      icon: <FileText className="w-5 h-5 text-primary" />,
+      links: [
+        { path: "/privacy-policy", label: "Privacy Policy", description: "How we collect, use, and protect your personal information" },
+        { path: "/terms-of-service", label: "Terms of Service", description: "Terms and conditions for using our website and services" },
+        { path: "/sitemap", label: "Sitemap", description: "Complete navigation map of our website" },
       ]
     }
   ];
