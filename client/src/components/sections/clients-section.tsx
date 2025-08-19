@@ -41,7 +41,7 @@ export default function ClientsSection() {
           return 'scroll';
         }
       });
-    }, scrollPhase === 'scroll' ? 5000 : 2000); // 5 seconds scrolling, 2 seconds pause
+    }, scrollPhase === 'scroll' ? 4000 : 2000); // 4 seconds scrolling, 2 seconds pause
 
     return () => clearInterval(pauseResumeInterval);
   }, [scrollPhase]);
