@@ -28,10 +28,10 @@ export default function ClientsSection() {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
-    // Control scroll on/off with intervals
+    // Control scroll on/off with intervals - longer pause to see cards properly
     const pauseResumeInterval = setInterval(() => {
       setIsScrolling(prev => !prev);
-    }, 4000); // Pause for 4 seconds, then resume for 4 seconds
+    }, 6000); // Pause for 6 seconds, then scroll for 6 seconds
 
     return () => clearInterval(pauseResumeInterval);
   }, []);
@@ -39,17 +39,20 @@ export default function ClientsSection() {
   useEffect(() => {
     if (!isScrolling) return;
 
-    // Smooth continuous scrolling when active
+    // Card width (130px) + margins (16px left + 16px right) = 162px total per card
+    const cardTotalWidth = 162;
+    
+    // Smooth continuous scrolling when active - timed to show exactly one card transition
     const scrollInterval = setInterval(() => {
       setScrollPosition(prev => {
-        const newPos = prev + 1;
+        const newPos = prev + 2; // Slower scroll speed for better visibility
         // Reset position when we've scrolled through first set of clients
-        if (newPos >= CLIENT_LOGOS.length * 150) {
+        if (newPos >= CLIENT_LOGOS.length * cardTotalWidth) {
           return 0;
         }
         return newPos;
       });
-    }, 50); // Smooth 50ms updates
+    }, 50); // 50ms updates but slower increment
 
     return () => clearInterval(scrollInterval);
   }, [isScrolling]);
@@ -95,7 +98,7 @@ export default function ClientsSection() {
               className="flex transition-transform ease-linear"
               style={{
                 transform: `translateX(-${scrollPosition}px)`,
-                width: `${CLIENT_LOGOS.length * 2 * 150}px`, // Double width for seamless loop
+                width: `${CLIENT_LOGOS.length * 2 * 162}px`, // Double width for seamless loop (162px per card)
                 transitionDuration: isScrolling ? '0ms' : '300ms' // Smooth when pausing
               }}
             >
