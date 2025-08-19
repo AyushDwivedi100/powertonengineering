@@ -19,7 +19,7 @@ import Quote from "@/pages/quote";
 
 import Resources from "@/pages/resources";
 
-import Configurator from "@/pages/configurator";
+
 import NotFound from "@/pages/not-found";
 import Chatbot from "@/components/chatbot/chatbot";
 
@@ -35,7 +35,7 @@ function Router() {
 
         <Route path="/resources" component={Resources} />
 
-        <Route path="/configurator" component={Configurator} />
+
         <Route path="/quote" component={Quote} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />

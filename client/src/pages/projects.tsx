@@ -228,7 +228,7 @@ export default function Projects() {
       />
 
       {/* Hero Section */}
-      <section className={`py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+      <section className={`py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white ${getAnimationClass('fade-in-up', true)}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6">
@@ -256,7 +256,7 @@ export default function Projects() {
       </section>
 
       {/* Project Statistics */}
-      <section className={`py-12 md:py-16 lg:py-20 bg-muted/30 ${getAnimationClass('fade-in-up', statsAnimation.isVisible)}`}>
+      <section className={`py-12 md:py-16 lg:py-20 bg-muted/30 ${getAnimationClass('fade-in-up', true)}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat) => {
@@ -379,7 +379,7 @@ export default function Projects() {
                   return (
                     <Card 
                       key={project.id} 
-                      className={`bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer ${getAnimationClass('fade-in-up', projectsAnimation.visibleItems.has(index))}`}
+                      className={`bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer ${getAnimationClass('fade-in-up', true)}`}
                     >
                       <div className="aspect-video rounded-lg overflow-hidden mb-4">
                         <img 
