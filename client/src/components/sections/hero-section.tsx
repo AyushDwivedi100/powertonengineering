@@ -192,7 +192,7 @@ export default function HeroSection() {
           >
             <motion.div variants={buttonVariants}>
               <Link href="/services" className="w-full sm:w-auto">
-                <Button className="btn-secondary w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 hover-lift transition-all duration-300">
+                <Button className="btn-secondary w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 hover-lift transition-all duration-300 hover:bg-primary">
                   Explore Our Services
                   <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
@@ -202,7 +202,7 @@ export default function HeroSection() {
               <Link href="/quote" className="w-full sm:w-auto">
                 <Button 
                   variant="outline" 
-                  className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 border-white text-white hover:bg-white hover:text-primary hover-lift transition-all duration-300"
+                  className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 border-white text-secondary hover:bg-white hover:text-primary hover-lift transition-all duration-300"
                 >
                   Request Consultation
                 </Button>

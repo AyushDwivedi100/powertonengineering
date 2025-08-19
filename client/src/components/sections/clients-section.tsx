@@ -9,17 +9,17 @@ export default function ClientsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [logoSlideIndex, setLogoSlideIndex] = useState(0);
-  
+
   // Auto-slide functionality for testimonials
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === TESTIMONIALS.length - 1 ? 0 : prevIndex + 1
+      setCurrentIndex((prevIndex) =>
+        prevIndex === TESTIMONIALS.length - 1 ? 0 : prevIndex + 1,
       );
     }, 4000); // Change testimonial every 4 seconds
-    
+
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
@@ -34,7 +34,7 @@ export default function ClientsSection() {
         return prevIndex + 1;
       });
     }, 2500); // Faster on mobile for better UX
-    
+
     return () => clearInterval(logoInterval);
   }, []);
 
@@ -48,17 +48,21 @@ export default function ClientsSection() {
       return () => clearTimeout(timer);
     }
   }, [logoSlideIndex]);
-  
+
   const goToPrevious = () => {
     setIsAutoPlaying(false);
-    setCurrentIndex(currentIndex === 0 ? TESTIMONIALS.length - 1 : currentIndex - 1);
+    setCurrentIndex(
+      currentIndex === 0 ? TESTIMONIALS.length - 1 : currentIndex - 1,
+    );
     // Resume auto-play after 8 seconds
     setTimeout(() => setIsAutoPlaying(true), 8000);
   };
-  
+
   const goToNext = () => {
     setIsAutoPlaying(false);
-    setCurrentIndex(currentIndex === TESTIMONIALS.length - 1 ? 0 : currentIndex + 1);
+    setCurrentIndex(
+      currentIndex === TESTIMONIALS.length - 1 ? 0 : currentIndex + 1,
+    );
     // Resume auto-play after 8 seconds
     setTimeout(() => setIsAutoPlaying(true), 8000);
   };
@@ -67,12 +71,15 @@ export default function ClientsSection() {
     <section className="section-padding bg-white" role="main">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
-          <span className="text-secondary font-semibold text-lg">Our Clients</span>
+          <span className="text-secondary font-semibold text-lg">
+            Our Clients
+          </span>
           <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
             Trusted By Leading Brands and Organizations
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We've partnered with industry leaders across various sectors to deliver exceptional engineering solutions.
+            We've partnered with industry leaders across various sectors to
+            deliver exceptional engineering solutions.
           </p>
         </div>
 
@@ -82,14 +89,14 @@ export default function ClientsSection() {
             <motion.div
               className="flex space-x-4 md:space-x-6 lg:space-x-8"
               animate={{
-                x: `-${logoSlideIndex * 136}px` // 120px width + 16px gap
+                x: `-${logoSlideIndex * 136}px`, // 120px width + 16px gap
               }}
               transition={{
                 duration: logoSlideIndex === 0 ? 0 : 0.8,
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
               style={{
-                width: `${(CLIENT_LOGOS.length * 2) * 136}px` // Total width for double set
+                width: `${CLIENT_LOGOS.length * 2 * 136}px`, // Total width for double set
               }}
             >
               {/* Create double set for truly infinite circular effect */}
@@ -101,14 +108,14 @@ export default function ClientsSection() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: (index % 5) * 0.1 }}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  style={{ 
-                    width: '120px', // Base mobile width
-                    minWidth: '120px'
+                  style={{
+                    width: "120px", // Base mobile width
+                    minWidth: "120px",
                   }}
                 >
                   <div className="text-center w-full">
-                    <img 
-                      src={client.logo} 
+                    <img
+                      src={client.logo}
                       alt={`ID-820-${index}: ${client.name} company logo`}
                       className="w-full h-8 md:h-10 lg:h-12 object-contain mb-1"
                       loading="lazy"
@@ -124,23 +131,25 @@ export default function ClientsSection() {
                 </motion.div>
               ))}
             </motion.div>
-            
+
             {/* Responsive gradient overlays */}
             <div className="absolute top-0 left-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10"></div>
             <div className="absolute top-0 right-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10"></div>
           </div>
-          
+
           {/* Auto-sliding indicator */}
           <div className="text-center mt-3 md:mt-4">
             <p className="text-xs md:text-sm text-gray-500 px-4">
-              Trusted by industry leaders • Continuous showcase of our valued partners
+              Trusted by industry leaders • showcase of our valued partners
             </p>
           </div>
         </div>
 
         {/* Testimonials Carousel Section */}
         <div className="text-center mb-12">
-          <h3 className="text-2xl font-bold text-primary mb-8">What Our Clients Say</h3>
+          <h3 className="text-2xl font-bold text-primary mb-8">
+            What Our Clients Say
+          </h3>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
@@ -155,7 +164,7 @@ export default function ClientsSection() {
           >
             <ChevronLeft className="w-5 h-5" />
           </Button>
-          
+
           <Button
             variant="outline"
             size="icon"
@@ -183,21 +192,29 @@ export default function ClientsSection() {
                       {/* Rating Stars */}
                       <div className="flex justify-center items-center mb-6">
                         <div className="flex text-secondary">
-                          {[...Array(TESTIMONIALS[currentIndex].rating)].map((_, i) => (
-                            <Star key={i} className="w-5 h-5 fill-current" aria-hidden="true" />
-                          ))}
+                          {[...Array(TESTIMONIALS[currentIndex].rating)].map(
+                            (_, i) => (
+                              <Star
+                                key={i}
+                                className="w-5 h-5 fill-current"
+                                aria-hidden="true"
+                              />
+                            ),
+                          )}
                         </div>
                       </div>
-                      
+
                       {/* Testimonial Text */}
                       <blockquote className="text-lg md:text-xl text-gray-700 mb-8 italic leading-relaxed">
                         "{TESTIMONIALS[currentIndex].comment}"
                       </blockquote>
-                      
+
                       {/* Client Info */}
                       <div className="flex items-center justify-center">
                         <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white font-semibold mr-4">
-                          <span className="text-lg">{TESTIMONIALS[currentIndex].initials}</span>
+                          <span className="text-lg">
+                            {TESTIMONIALS[currentIndex].initials}
+                          </span>
                         </div>
                         <div className="text-left">
                           <div className="font-bold text-gray-900 text-lg">
@@ -226,17 +243,15 @@ export default function ClientsSection() {
                   setTimeout(() => setIsAutoPlaying(true), 8000);
                 }}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'bg-primary w-8' 
-                    : 'bg-gray-300 hover:bg-gray-400'
+                  index === currentIndex
+                    ? "bg-primary w-8"
+                    : "bg-gray-300 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
                 data-testid={`dot-testimonial-${index}`}
               />
             ))}
           </div>
-
-
         </div>
       </div>
     </section>
