@@ -82,25 +82,23 @@ export default function Sitemap() {
                 
                 <div className="grid gap-4">
                   {section.links.map((link, linkIndex) => (
-                    <div key={linkIndex} className="group">
-                      <Link href={link.path}>
-                        <a className="block p-4 rounded-lg border border-transparent hover:border-primary/20 hover:bg-accent/50 transition-all duration-200">
-                          <div className="flex items-start justify-between gap-4">
-                            <div className="flex-1">
-                              <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                                {link.label}
-                              </h3>
-                              <p className="text-sm text-muted-foreground mt-1">
-                                {link.description}
-                              </p>
-                            </div>
-                            <div className="text-xs text-muted-foreground font-mono bg-muted px-2 py-1 rounded">
-                              {link.path}
-                            </div>
+                    <Link key={linkIndex} href={link.path}>
+                      <div className="group block p-4 rounded-lg border border-transparent hover:border-primary/20 hover:bg-accent/50 transition-all duration-200 cursor-pointer">
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-1">
+                            <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                              {link.label}
+                            </h3>
+                            <p className="text-sm text-muted-foreground mt-1">
+                              {link.description}
+                            </p>
                           </div>
-                        </a>
-                      </Link>
-                    </div>
+                          <div className="text-xs text-muted-foreground font-mono bg-muted px-2 py-1 rounded">
+                            {link.path}
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -117,16 +115,16 @@ export default function Sitemap() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
-                <a className="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors">
+                <div className="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors cursor-pointer">
                   <Mail className="w-4 h-4 mr-2" />
                   Contact Us
-                </a>
+                </div>
               </Link>
               <Link href="/quote">
-                <a className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg transition-colors">
+                <div className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg transition-colors cursor-pointer">
                   <Calculator className="w-4 h-4 mr-2" />
                   Request Quote
-                </a>
+                </div>
               </Link>
             </div>
           </div>
