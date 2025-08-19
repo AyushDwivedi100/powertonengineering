@@ -82,8 +82,8 @@ export default function ServicesSection() {
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <Card className="border border-gray-100 group hover:shadow-xl transition-all duration-300 hover-lift will-animate">
-                  <CardContent className="p-4 sm:p-6 md:p-8">
+                <Card className="border border-gray-100 group hover:shadow-xl transition-all duration-300 hover-lift will-animate h-full flex flex-col">
+                  <CardContent className="p-4 sm:p-6 md:p-8 flex-1 flex flex-col">
                     <motion.div 
                       className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform"
                       whileHover={{ 
@@ -129,15 +129,17 @@ export default function ServicesSection() {
                       ))}
                     </motion.ul>
                     
-                    <Link href="/services" className="group/button">
-                      <Button 
-                        variant="ghost" 
-                        className="text-secondary hover:text-secondary hover:bg-transparent p-0 font-semibold transition-all duration-300"
-                      >
-                        Learn More 
-                        <span className="ml-2 transform group-hover/button:translate-x-2 transition-transform duration-300">→</span>
-                      </Button>
-                    </Link>
+                    <div className="mt-auto">
+                      <Link href="/services" className="group/button">
+                        <Button 
+                          variant="ghost" 
+                          className="text-secondary hover:text-secondary hover:bg-transparent p-0 font-semibold transition-all duration-300"
+                        >
+                          Learn More 
+                          <span className="ml-2 transform group-hover/button:translate-x-2 transition-transform duration-300">→</span>
+                        </Button>
+                      </Link>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>

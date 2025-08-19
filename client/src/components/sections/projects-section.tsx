@@ -30,7 +30,7 @@ export default function ProjectsSection() {
           {PROJECTS.map((project) => (
             <Card 
               key={project.id} 
-              className="overflow-hidden group hover:shadow-xl transition-all duration-300 card-hover"
+              className="overflow-hidden group hover:shadow-xl transition-all duration-300 card-hover h-full flex flex-col"
             >
               <div className="relative overflow-hidden">
                 <img 
@@ -42,11 +42,11 @@ export default function ProjectsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
-              <CardContent className="p-8">
+              <CardContent className="p-8 flex-1 flex flex-col">
                 <div className="flex items-center mb-4">
                   <Badge 
                     className={`mr-4 ${
-                      categoryColors[project.category] || 
+                      categoryColors[project.category as keyof typeof categoryColors] || 
                       "bg-gray-100 text-gray-800"
                     }`}
                   >
@@ -73,7 +73,7 @@ export default function ProjectsSection() {
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mt-auto">
                   <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <span className="flex items-center">
                       <MapPin className="w-4 h-4 mr-1" aria-hidden="true" />

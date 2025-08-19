@@ -50,7 +50,7 @@ export default function ProductsSection() {
               whileHover={{ y: -10, scale: 1.03 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <Card className="overflow-hidden group hover:shadow-xl transition-all duration-300 hover-lift will-animate">
+              <Card className="overflow-hidden group hover:shadow-xl transition-all duration-300 hover-lift will-animate h-full flex flex-col">
                 <motion.div 
                   className="relative overflow-hidden"
                   whileHover={{ scale: 1.02 }}
@@ -64,23 +64,24 @@ export default function ProductsSection() {
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
                   />
-
                 </motion.div>
                 
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex-1 flex flex-col">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     {product.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-                  <Link href="/products" className="group/button">
-                    <Button 
-                      variant="ghost" 
-                      className="text-secondary hover:text-secondary hover:bg-transparent p-0 font-medium transition-all duration-300"
-                    >
-                      View Products 
-                      <ArrowRight className="w-4 h-4 ml-2 transform group-hover/button:translate-x-2 transition-transform duration-300" />
-                    </Button>
-                  </Link>
+                  <p className="text-gray-600 text-sm mb-4 flex-1">{product.description}</p>
+                  <div className="mt-auto">
+                    <Link href="/products" className="group/button">
+                      <Button 
+                        variant="ghost" 
+                        className="text-secondary hover:text-secondary hover:bg-transparent p-0 font-medium transition-all duration-300"
+                      >
+                        View Products 
+                        <ArrowRight className="w-4 h-4 ml-2 transform group-hover/button:translate-x-2 transition-transform duration-300" />
+                      </Button>
+                    </Link>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
