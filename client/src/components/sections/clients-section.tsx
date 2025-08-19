@@ -26,18 +26,35 @@ export default function ClientsSection() {
   // Infinite scroll with pause/resume intervals
   const [isScrolling, setIsScrolling] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [scrollPhase, setScrollPhase] = useState('scroll'); // 'scroll' or 'pause'
 
   useEffect(() => {
-    // Control scroll on/off with intervals - shorter pause for better flow
+    // Control scroll/pause cycle with different timings
     const pauseResumeInterval = setInterval(() => {
-      setIsScrolling(prev => !prev);
-    }, 2000); // Pause for 2 seconds, then scroll for 2 seconds
+      setScrollPhase(prev => {
+        if (prev === 'scroll') {
+          setIsScrolling(false);
+          return 'pause';
+        } else {
+          setIsScrolling(true);
+          return 'scroll';
+        }
+      });
+    }, scrollPhase === 'scroll' ? 7000 : 2000); // 7 seconds scrolling, 2 seconds pause
 
     return () => clearInterval(pauseResumeInterval);
-  }, []);
+  }, [scrollPhase]);
+
+  // Override scrolling when hovered
+  useEffect(() => {
+    if (isHovered) {
+      setIsScrolling(false);
+    }
+  }, [isHovered]);
 
   useEffect(() => {
-    if (!isScrolling) return;
+    if (!isScrolling || isHovered) return;
 
     // Card width (130px) + margins (16px left + 16px right) = 162px total per card
     const cardTotalWidth = 162;
@@ -55,7 +72,7 @@ export default function ClientsSection() {
     }, 50); // 50ms updates but slower increment
 
     return () => clearInterval(scrollInterval);
-  }, [isScrolling]);
+  }, [isScrolling, isHovered]);
 
   const goToPrevious = () => {
     setIsAutoPlaying(false);
@@ -95,8 +112,8 @@ export default function ClientsSection() {
         <div className="mb-16">
           <div 
             className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8"
-            onMouseEnter={() => setIsScrolling(false)}
-            onMouseLeave={() => setIsScrolling(true)}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             <div 
               className="flex transition-transform ease-linear"
@@ -115,8 +132,7 @@ export default function ClientsSection() {
                     width: "130px",
                     minWidth: "130px",
                   }}
-                  onMouseEnter={() => setIsScrolling(false)}
-                  onMouseLeave={() => setIsScrolling(true)}
+
                 >
                   <div className="text-center w-full">
                     <img
@@ -147,7 +163,7 @@ export default function ClientsSection() {
           {/* Scroll status indicator */}
           <div className="text-center mt-3 md:mt-4">
             <p className="text-xs md:text-sm text-gray-500 px-4">
-              Trusted by industry leaders • {isScrolling ? 'scrolling...' : 'paused'} • showcase of our valued partners
+              Trusted by industry leaders • {isHovered ? 'hover paused' : (isScrolling ? 'scrolling...' : 'paused')} • showcase of our valued partners
             </p>
             <div className="flex justify-center mt-2 space-x-1">
               <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
