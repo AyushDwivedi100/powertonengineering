@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
+import { Menu, Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY_INFO } from "@/data/constants";
 // Use official Powerton Engineering logo from website
 const logoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
@@ -17,23 +16,11 @@ export default function Header() {
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Products", href: "/products" },
-    { 
-      name: "Projects", 
-      href: "/projects",
-      dropdown: [
-        { name: "Projects", href: "/projects" },
-        { name: "Portfolio", href: "/portfolio" }
-      ]
-    },
-    { 
-      name: "Tools", 
-      href: "#",
-      dropdown: [
-        { name: "Calculator", href: "/configurator" },
-        { name: "Resources", href: "/resources" },
-        { name: "Technology", href: "/technology" }
-      ]
-    },
+    { name: "Projects", href: "/projects" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Calculator", href: "/configurator" },
+    { name: "Get Quote", href: "/quote" },
+    { name: "Resources", href: "/resources" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -43,9 +30,7 @@ export default function Header() {
     return false;
   };
 
-  const isDropdownActive = (dropdown: any[]) => {
-    return dropdown?.some(item => isActive(item.href));
-  };
+
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50" role="banner">
@@ -155,71 +140,28 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.4 + (index * 0.1) }}
               >
-                {item.dropdown ? (
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <button
-                        className={`text-gray-700 hover:text-primary transition-colors font-medium relative flex items-center gap-1 ${
-                          isDropdownActive(item.dropdown) ? "text-primary" : ""
-                        }`}
-                      >
-                        <motion.span
-                          whileHover={{ y: -2 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          {item.name}
-                        </motion.span>
-                        <ChevronDown className="w-4 h-4" />
-                        {isDropdownActive(item.dropdown) && (
-                          <motion.div
-                            className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                            layoutId="activeNav"
-                            initial={{ opacity: 0, scaleX: 0 }}
-                            animate={{ opacity: 1, scaleX: 1 }}
-                            transition={{ duration: 0.3 }}
-                          />
-                        )}
-                      </button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start" className="w-48">
-                      {item.dropdown.map((dropdownItem) => (
-                        <DropdownMenuItem key={dropdownItem.name} asChild>
-                          <Link 
-                            href={dropdownItem.href}
-                            className={`block px-2 py-1.5 text-sm hover:bg-accent rounded cursor-pointer ${
-                              isActive(dropdownItem.href) ? "bg-accent text-primary" : ""
-                            }`}
-                          >
-                            {dropdownItem.name}
-                          </Link>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={`text-gray-700 hover:text-primary transition-colors font-medium relative ${
-                      isActive(item.href) ? "text-primary" : ""
-                    }`}
+                <Link
+                  href={item.href}
+                  className={`text-gray-700 hover:text-primary transition-colors font-medium relative ${
+                    isActive(item.href) ? "text-primary" : ""
+                  }`}
+                >
+                  <motion.span
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <motion.span
-                      whileHover={{ y: -2 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {item.name}
-                    </motion.span>
-                    {isActive(item.href) && (
-                      <motion.div
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                        layoutId="activeNav"
-                        initial={{ opacity: 0, scaleX: 0 }}
-                        animate={{ opacity: 1, scaleX: 1 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    )}
-                  </Link>
-                )}
+                    {item.name}
+                  </motion.span>
+                  {isActive(item.href) && (
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                      layoutId="activeNav"
+                      initial={{ opacity: 0, scaleX: 0 }}
+                      animate={{ opacity: 1, scaleX: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </Link>
               </motion.div>
             ))}
             <motion.div
@@ -279,45 +221,20 @@ export default function Header() {
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      {item.dropdown ? (
-                        <>
-                          <div className="text-lg font-semibold text-primary mb-2">
-                            {item.name}
-                          </div>
-                          {item.dropdown.map((dropdownItem) => (
-                            <Link
-                              key={dropdownItem.name}
-                              href={dropdownItem.href}
-                              className={`text-base font-medium transition-colors hover-scale block mb-2 ml-4 ${
-                                isActive(dropdownItem.href) ? "text-primary" : "text-gray-700 hover:text-primary"
-                              }`}
-                              onClick={() => setIsOpen(false)}
-                            >
-                              <motion.span
-                                whileHover={{ x: 5 }}
-                                transition={{ duration: 0.2 }}
-                              >
-                                {dropdownItem.name}
-                              </motion.span>
-                            </Link>
-                          ))}
-                        </>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          className={`text-lg font-medium transition-colors hover-scale block ${
-                            isActive(item.href) ? "text-primary" : "text-gray-700 hover:text-primary"
-                          }`}
-                          onClick={() => setIsOpen(false)}
+                      <Link
+                        href={item.href}
+                        className={`text-lg font-medium transition-colors hover-scale block ${
+                          isActive(item.href) ? "text-primary" : "text-gray-700 hover:text-primary"
+                        }`}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <motion.span
+                          whileHover={{ x: 5 }}
+                          transition={{ duration: 0.2 }}
                         >
-                          <motion.span
-                            whileHover={{ x: 5 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            {item.name}
-                          </motion.span>
-                        </Link>
-                      )}
+                          {item.name}
+                        </motion.span>
+                      </Link>
                     </motion.div>
                   ))}
                   <motion.div

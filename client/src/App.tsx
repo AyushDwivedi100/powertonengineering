@@ -18,7 +18,7 @@ import Contact from "@/pages/contact";
 import Quote from "@/pages/quote";
 import Portfolio from "@/pages/portfolio";
 import Resources from "@/pages/resources";
-import Technology from "@/pages/technology";
+
 import Configurator from "@/pages/configurator";
 import NotFound from "@/pages/not-found";
 import Chatbot from "@/components/chatbot/chatbot";
@@ -34,7 +34,7 @@ function Router() {
         <Route path="/projects" component={Projects} />
         <Route path="/portfolio" component={Portfolio} />
         <Route path="/resources" component={Resources} />
-        <Route path="/technology" component={Technology} />
+
         <Route path="/configurator" component={Configurator} />
         <Route path="/quote" component={Quote} />
         <Route path="/contact" component={Contact} />
