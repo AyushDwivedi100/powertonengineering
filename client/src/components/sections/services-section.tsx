@@ -24,7 +24,20 @@ const iconMap = {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="section-padding bg-white" role="main">
+    <section 
+      id="services" 
+      className="relative section-padding overflow-hidden" 
+      role="main"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
+      }}
+    >
+      {/* Background overlay for readability */}
+      <div className="absolute inset-0 bg-white/92"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-white/95 to-gray-50/85"></div>
+      
+      {/* Content */}
+      <div className="relative z-10">
       <div className="max-w-7xl mx-auto container-padding">
         <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
           <div className="text-center mb-12 sm:mb-16">
@@ -140,6 +153,7 @@ export default function ServicesSection() {
             </Link>
           </div>
         </AnimatedSection>
+        </div>
       </div>
     </section>
   );

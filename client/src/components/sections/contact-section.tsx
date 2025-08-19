@@ -4,8 +4,21 @@ import { COMPANY_INFO } from "@/data/constants";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="section-padding bg-primary text-white" role="main">
-      <div className="max-w-7xl mx-auto container-padding">
+    <section 
+      id="contact" 
+      className="relative section-padding text-white overflow-hidden" 
+      role="main"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
+      }}
+    >
+      {/* Background overlay for contrast */}
+      <div className="absolute inset-0 bg-primary/85"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/60 to-blue-800/80"></div>
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
           <span className="text-secondary font-semibold text-lg">Contact Us</span>
           <h2 className="text-3xl lg:text-5xl font-bold mt-4 mb-6">
@@ -77,6 +90,7 @@ export default function ContactSection() {
           <div>
             <ContactForm />
           </div>
+        </div>
         </div>
       </div>
     </section>

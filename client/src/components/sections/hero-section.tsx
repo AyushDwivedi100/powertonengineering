@@ -117,16 +117,19 @@ export default function HeroSection() {
     >
       <div className="absolute inset-0 bg-black bg-opacity-20"></div>
       
-      {/* Background Image with Parallax */}
+      {/* Background Image with Parallax - Industrial Engineering */}
       <motion.div 
-        className="absolute inset-0 bg-cover bg-center opacity-30"
+        className="absolute inset-0 bg-cover bg-center opacity-40"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
+          backgroundImage: "url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
         }}
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 10, ease: "easeOut" }}
       />
+      
+      {/* Additional overlay for better text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-blue-900/70"></div>
       
       <div className="relative max-w-7xl mx-auto container-padding py-12 sm:py-16 md:py-20 lg:py-32">
         <motion.div 

@@ -6,8 +6,20 @@ const logoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12" role="contentinfo">
-      <div className="max-w-7xl mx-auto container-padding">
+    <footer 
+      className="relative text-white py-12 overflow-hidden" 
+      role="contentinfo"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
+      }}
+    >
+      {/* Background overlay */}
+      <div className="absolute inset-0 bg-gray-900/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 to-gray-800/85"></div>
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <div className="max-w-7xl mx-auto container-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
@@ -121,6 +133,7 @@ export default function Footer() {
               <a href="#" className="hover:text-secondary transition-colors">Sitemap</a>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </footer>

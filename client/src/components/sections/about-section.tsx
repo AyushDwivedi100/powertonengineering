@@ -29,7 +29,20 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="section-padding bg-gray-50" role="main">
+    <section 
+      id="about" 
+      className="relative section-padding overflow-hidden" 
+      role="main"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1563789031959-4c02607c3c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
+      }}
+    >
+      {/* Background overlay */}
+      <div className="absolute inset-0 bg-gray-50/95"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-gray-100/80"></div>
+      
+      {/* Content */}
+      <div className="relative z-10">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           <AnimatedSection 
@@ -116,6 +129,7 @@ export default function AboutSection() {
               </Link>
             </motion.div>
           </AnimatedSection>
+        </div>
         </div>
       </div>
     </section>

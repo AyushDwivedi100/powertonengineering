@@ -38,7 +38,8 @@ Logo preference: Use official Powerton Engineering logo (https://powertonenginee
 - ID-500-599: Resource case study images
 - ID-600-699: Resource webinar images  
 - ID-700-799: Resource insight images
-- **Next Available**: ID-800+ (update this when used)
+- ID-800-809: Background images for sections
+- **Next Available**: ID-810+ (update this when used)
 
 **PROCESS**: When adding new images, use next available range and UPDATE this documentation immediately.
 
@@ -98,6 +99,14 @@ Logo preference: Use official Powerton Engineering logo (https://powertonenginee
   - Technology Showcase highlighting innovation areas and tech stack
   - Enhanced navigation with easy access to new capabilities
 - Updated hero section with direct access to project calculator
+- **NEW BACKGROUND SYSTEM**: Replaced basic background colors with professional engineering background images across all major sections:
+  - Hero Section: Industrial automation facility (ID-800)
+  - About Section: Engineering workspace with blueprints (ID-801)
+  - Services Section: Modern industrial equipment (ID-802)
+  - Contact Section: Electrical control panels (ID-803)
+  - Footer: Circuit board technology (ID-804)
+  - All images include professional overlay gradients for optimal text contrast
+  - Maintains brand color scheme while adding visual depth and professional appeal
 - **TAILWIND CSS MIGRATION COMPLETED**: Systematically migrated custom CSS to Tailwind utilities in lossless manner:
   - ✅ **Responsive Design**: Converted custom responsive utilities (.container-padding, .section-padding, .text-responsive-*) to Tailwind
   - ✅ **Grid Systems**: Migrated .grid-responsive-* classes to Tailwind grid utilities

@@ -33,7 +33,8 @@
 - ID-500-599: Case studies
 - ID-600-699: Webinars
 - ID-700-799: Industry insights
-- **NEXT AVAILABLE**: ID-800+
+- ID-800-809: Background images for sections
+- **NEXT AVAILABLE**: ID-810+
 
 **PROCESS**:
 1. Find next available ID range
