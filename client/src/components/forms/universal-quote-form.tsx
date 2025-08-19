@@ -190,9 +190,11 @@ export default function UniversalQuoteForm() {
   return (
     <Card className="text-foreground">
       <CardContent className="p-6">
-        <div className="text-xs text-muted-foreground mb-4 p-2 bg-muted/50 rounded">
-          🚀 Mode: {config.mode} | Forms: {config.mode === 'static' ? 'Formspree' : 'Backend API'}
-        </div>
+        {config.mode === 'development' && (
+          <div className="text-xs text-muted-foreground mb-4 p-2 bg-muted/50 rounded">
+            🚀 Mode: {config.mode} | Forms: {config.mode === 'static' ? 'Formspree' : 'Backend API'}
+          </div>
+        )}
         
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">

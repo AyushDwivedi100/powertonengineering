@@ -96,13 +96,14 @@ Logo preference: Use official Powerton Engineering logo (https://powertonenginee
 
 ## System Architecture
 
-### **🚀 NEW: DEPLOYMENT-FLEXIBLE ARCHITECTURE (August 19, 2025)**
+### **🚀 PURE STATIC WEBSITE ARCHITECTURE (August 19, 2025)**
 
-**UNIVERSAL DEPLOYMENT SYSTEM** - Automatically adapts to any hosting platform:
-- **Auto-Detection**: Detects deployment environment (static, fullstack, serverless)
-- **Smart Form Handling**: Backend API ↔ Formspree fallback ↔ Static forms
-- **Intelligent Chatbot**: Backend AI ↔ Static responses with seamless switching
-- **Zero Configuration**: Works out-of-the-box on any hosting platform
+**STATIC-FIRST DEPLOYMENT** - Pure static website with zero backend dependencies:
+- **Production Mode**: Always runs as static website (no Node.js server needed)
+- **Form Handling**: Formspree integration for contact and quote forms
+- **Smart Chatbot**: Keyword-based responses with professional customer support
+- **Windows Compatible**: `npm run build` + `npm start` creates complete static website
+- **Zero Dependencies**: No database, no backend server, just HTML/CSS/JS files
 
 ### Frontend Architecture
 - **Framework**: React 18 with JavaScript (JSX)

@@ -18,17 +18,9 @@ const detectDeploymentMode = (): DeploymentMode => {
     return 'development';
   }
   
-  // Check for backend availability
-  if (import.meta.env.VITE_BACKEND_URL || window.location.pathname.includes('/api/')) {
-    return 'fullstack';
-  }
-  
-  // Check for serverless functions (Vercel, Netlify)
-  if (import.meta.env.VITE_VERCEL_URL || import.meta.env.VITE_NETLIFY) {
-    return 'serverless';
-  }
-  
-  // Default to static (Hostinger Premium, etc.)
+  // For production builds, always use static mode
+  // This ensures npm run build + npm start works as static website
+  // No backend or database dependencies
   return 'static';
 };
 
