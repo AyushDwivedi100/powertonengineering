@@ -64,40 +64,22 @@ export default function ProductsSection() {
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
                   />
-                  <motion.div 
-                    className="absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"
-                    whileHover={{ backgroundColor: "rgba(59, 130, 246, 0.2)" }}
-                  />
+
                 </motion.div>
                 
                 <CardContent className="p-6">
-                  <motion.h3 
-                    className="text-lg font-semibold text-gray-900 mb-2"
-                    whileHover={{ color: "#3B82F6" }}
-                    transition={{ duration: 0.2 }}
-                  >
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     {product.title}
-                  </motion.h3>
+                  </h3>
                   <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-                  <Link href="/products">
-                    <motion.div
-                      whileHover={{ x: 5 }}
-                      transition={{ duration: 0.2 }}
+                  <Link href="/products" className="group/button">
+                    <Button 
+                      variant="ghost" 
+                      className="text-secondary hover:text-secondary hover:bg-transparent p-0 font-medium transition-all duration-300"
                     >
-                      <Button 
-                        variant="ghost" 
-                        className="text-secondary hover:text-secondary/80 p-0 font-medium"
-                      >
-                        View Products 
-                        <motion.div
-                          className="inline-block ml-2"
-                          whileHover={{ x: 3 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <ArrowRight className="w-4 h-4" />
-                        </motion.div>
-                      </Button>
-                    </motion.div>
+                      View Products 
+                      <ArrowRight className="w-4 h-4 ml-2 transform group-hover/button:translate-x-2 transition-transform duration-300" />
+                    </Button>
                   </Link>
                 </CardContent>
               </Card>

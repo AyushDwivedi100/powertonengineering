@@ -84,12 +84,13 @@ export default function ProjectsSection() {
                       {project.duration}
                     </span>
                   </div>
-                  <Link href="/projects">
+                  <Link href="/projects" className="group/button">
                     <Button 
                       variant="ghost" 
-                      className="text-secondary hover:text-secondary/80 font-semibold"
+                      className="text-secondary hover:text-secondary hover:bg-transparent font-semibold transition-all duration-300"
                     >
-                      View Details <ArrowRight className="ml-2 w-4 h-4" />
+                      View Details 
+                      <ArrowRight className="ml-2 w-4 h-4 transform group-hover/button:translate-x-2 transition-transform duration-300" />
                     </Button>
                   </Link>
                 </div>

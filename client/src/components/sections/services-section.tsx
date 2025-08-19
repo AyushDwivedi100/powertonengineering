@@ -74,7 +74,7 @@ export default function ServicesSection() {
           delay={0.3}
         >
           {SERVICES.map((service, index) => {
-            const IconComponent = iconMap[service.icon] || Settings;
+            const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Settings;
             
             return (
               <motion.div
@@ -129,12 +129,13 @@ export default function ServicesSection() {
                       ))}
                     </motion.ul>
                     
-                    <Link href="/services">
+                    <Link href="/services" className="group/button">
                       <Button 
                         variant="ghost" 
-                        className="text-secondary hover:text-secondary/80 p-0 font-semibold hover-scale"
+                        className="text-secondary hover:text-secondary hover:bg-transparent p-0 font-semibold transition-all duration-300"
                       >
-                        Learn More →
+                        Learn More 
+                        <span className="ml-2 transform group-hover/button:translate-x-2 transition-transform duration-300">→</span>
                       </Button>
                     </Link>
                   </CardContent>
