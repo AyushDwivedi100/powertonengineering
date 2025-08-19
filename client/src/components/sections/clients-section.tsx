@@ -41,17 +41,19 @@ export default function ClientsSection() {
           return 'scroll';
         }
       });
-    }, scrollPhase === 'scroll' ? 7000 : 2000); // 7 seconds scrolling, 2 seconds pause
+    }, scrollPhase === 'scroll' ? 6000 : 2000); // 6 seconds scrolling, 2 seconds pause
 
     return () => clearInterval(pauseResumeInterval);
   }, [scrollPhase]);
 
-  // Override scrolling when hovered
+  // Immediate hover control - override automatic cycle
   useEffect(() => {
     if (isHovered) {
       setIsScrolling(false);
+    } else if (!isHovered && scrollPhase === 'scroll') {
+      setIsScrolling(true);
     }
-  }, [isHovered]);
+  }, [isHovered, scrollPhase]);
 
   useEffect(() => {
     if (!isScrolling || isHovered) return;
