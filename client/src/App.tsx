@@ -16,7 +16,7 @@ import Products from "@/pages/products";
 import Projects from "@/pages/projects";
 import Contact from "@/pages/contact";
 import Quote from "@/pages/quote";
-import Portfolio from "@/pages/portfolio";
+
 import Resources from "@/pages/resources";
 
 import Configurator from "@/pages/configurator";
@@ -32,7 +32,7 @@ function Router() {
         <Route path="/services" component={Services} />
         <Route path="/products" component={Products} />
         <Route path="/projects" component={Projects} />
-        <Route path="/portfolio" component={Portfolio} />
+
         <Route path="/resources" component={Resources} />
 
         <Route path="/configurator" component={Configurator} />

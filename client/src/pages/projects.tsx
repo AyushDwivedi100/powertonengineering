@@ -1,45 +1,209 @@
+import { useState } from "react";
 import { SEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PROJECTS } from "@/data/constants";
 import { 
+  Filter, 
+  Search, 
   MapPin, 
   Calendar, 
+  Users, 
+  DollarSign,
+  CheckCircle,
+  Clock,
+  Building,
+  Zap,
+  Cog,
+  Factory,
   ArrowRight, 
   Download,
-  Users,
   Award,
   Target,
-  TrendingUp,
-  CheckCircle,
-  Clock
+  TrendingUp
 } from "lucide-react";
 import { Link } from "wouter";
-import { useState } from "react";
+import { useScrollAnimation, useStaggeredAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
+
+// Enhanced project data combining basic projects with detailed portfolio information
+const PORTFOLIO_PROJECTS = [
+  {
+    id: 1,
+    title: "Smart Manufacturing Plant Automation",
+    client: "Tata Steel Ltd.",
+    industry: "Manufacturing",
+    location: "Jamshedpur, India",
+    duration: "18 months",
+    budget: "₹50-75 Lakhs",
+    status: "Completed",
+    year: 2024,
+    description: "Complete automation of steel manufacturing process with PLC integration, SCADA systems, and real-time monitoring.",
+    technologies: ["PLC Programming", "SCADA", "HMI", "Industrial IoT"],
+    results: {
+      efficiency: "40% improvement",
+      downtime: "65% reduction",
+      savings: "₹2.5 Cr annually"
+    },
+    image: "https://images.unsplash.com/photo-1565300075136-f58d3cb0a9b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+    category: "Process Automation"
+  },
+  {
+    id: 2,
+    title: "Power Distribution Control Center",
+    client: "NTPC Limited",
+    industry: "Power Generation",
+    location: "Delhi, India",
+    duration: "12 months",
+    budget: "₹1-2 Crores",
+    status: "Completed",
+    year: 2024,
+    description: "Advanced power distribution system with automated load balancing and remote monitoring capabilities.",
+    technologies: ["MCC Panels", "Protection Systems", "Energy Management", "Remote Monitoring"],
+    results: {
+      efficiency: "35% improvement",
+      reliability: "99.8% uptime",
+      savings: "₹1.8 Cr annually"
+    },
+    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+    category: "Power Systems"
+  },
+  {
+    id: 3,
+    title: "Solar Power Plant Automation",
+    client: "Adani Green Energy",
+    industry: "Renewable Energy",
+    location: "Rajasthan, India",
+    duration: "8 months",
+    budget: "₹25-50 Lakhs",
+    status: "Completed",
+    year: 2023,
+    description: "Automated solar tracking system with weather monitoring and grid synchronization.",
+    technologies: ["Solar Inverters", "Grid Sync", "Weather Monitoring", "Data Analytics"],
+    results: {
+      efficiency: "25% improvement",
+      generation: "150 MW capacity",
+      roi: "18 months payback"
+    },
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+    category: "Solar Solutions"
+  },
+  {
+    id: 4,
+    title: "Chemical Process Automation",
+    client: "Indian Oil Corporation",
+    industry: "Chemical",
+    location: "Mumbai, India",
+    duration: "15 months",
+    budget: "₹75 Lakhs - 1 Cr",
+    status: "In Progress",
+    year: 2024,
+    description: "Complete process automation for chemical refinery with safety systems and environmental monitoring.",
+    technologies: ["Process Control", "Safety Systems", "Environmental Monitoring", "Batch Control"],
+    results: {
+      safety: "Zero incidents",
+      compliance: "100% regulatory",
+      efficiency: "30% improvement"
+    },
+    image: "https://images.unsplash.com/photo-1582478686849-df4aca7a4ce0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+    category: "Process Automation"
+  },
+  {
+    id: 5,
+    title: "Water Treatment Plant Control",
+    client: "Delhi Jal Board",
+    industry: "Water Treatment",
+    location: "New Delhi, India",
+    duration: "10 months",
+    budget: "₹35-50 Lakhs",
+    status: "Completed",
+    year: 2023,
+    description: "Automated water treatment plant with quality monitoring and distribution control systems.",
+    technologies: ["Water Quality Sensors", "Flow Control", "Chemical Dosing", "SCADA"],
+    results: {
+      quality: "99.9% purity",
+      efficiency: "45% improvement",
+      capacity: "500 MLD treatment"
+    },
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+    category: "Water Systems"
+  },
+  {
+    id: 6,
+    title: "Food Processing Automation",
+    client: "Nestle India Ltd.",
+    industry: "Food & Beverage",
+    location: "Gurgaon, India",
+    duration: "6 months",
+    budget: "₹15-25 Lakhs",
+    status: "Completed",
+    year: 2023,
+    description: "Automated food processing line with quality control and packaging automation.",
+    technologies: ["Conveyor Systems", "Quality Control", "Packaging Automation", "Traceability"],
+    results: {
+      productivity: "60% increase",
+      quality: "99.5% consistency",
+      waste: "30% reduction"
+    },
+    image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+    category: "Process Automation"
+  }
+];
+
+const INDUSTRIES = ["All", "Manufacturing", "Power Generation", "Renewable Energy", "Chemical", "Water Treatment", "Food & Beverage"];
+const CATEGORIES = ["All", "Process Automation", "Power Systems", "Solar Solutions", "Water Systems"];
+const STATUSES = ["All", "Completed", "In Progress"];
 
 export default function Projects() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedIndustry, setSelectedIndustry] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedStatus, setSelectedStatus] = useState("All");
+  const [showFilters, setShowFilters] = useState(false);
+  const [selectedTab, setSelectedTab] = useState("portfolio");
 
-  const projectCategories = [
-    { id: "all", name: "All Projects", count: PROJECTS.length },
-    { id: "Power Plant", name: "Power Generation", count: 1 },
-    { id: "Manufacturing", name: "Manufacturing", count: 1 },
-    { id: "Solar", name: "Solar Energy", count: 1 },
-    { id: "Water Treatment", name: "Water Treatment", count: 1 }
-  ];
+  const filteredProjects = PORTFOLIO_PROJECTS.filter(project => {
+    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         project.client.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         project.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesIndustry = selectedIndustry === "All" || project.industry === selectedIndustry;
+    const matchesCategory = selectedCategory === "All" || project.category === selectedCategory;
+    const matchesStatus = selectedStatus === "All" || project.status === selectedStatus;
+    
+    return matchesSearch && matchesIndustry && matchesCategory && matchesStatus;
+  });
 
-  const categoryColors = {
-    "Power Plant": "bg-red-100 text-red-800",
-    "Manufacturing": "bg-blue-100 text-blue-800",
-    "Solar": "bg-green-100 text-green-800",
-    "Water Treatment": "bg-cyan-100 text-cyan-800"
+  const heroAnimation = useScrollAnimation();
+  const statsAnimation = useScrollAnimation();
+  const projectsAnimation = useStaggeredAnimation(filteredProjects.length);
+
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case "Completed":
+        return <CheckCircle className="w-4 h-4 text-green-600" />;
+      case "In Progress":
+        return <Clock className="w-4 h-4 text-blue-600" />;
+      default:
+        return null;
+    }
   };
 
-  const filteredProjects = selectedCategory === "all" 
-    ? PROJECTS 
-    : PROJECTS.filter(project => project.category === selectedCategory);
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case "Process Automation":
+        return <Cog className="w-5 h-5" />;
+      case "Power Systems":
+        return <Zap className="w-5 h-5" />;
+      case "Solar Solutions":
+        return <Building className="w-5 h-5" />;
+      case "Water Systems":
+        return <Factory className="w-5 h-5" />;
+      default:
+        return <Cog className="w-5 h-5" />;
+    }
+  };
 
   const stats = [
     { number: "1200+", label: "Projects Completed", icon: Award },
@@ -51,31 +215,37 @@ export default function Projects() {
   return (
     <>
       <SEO
-        title="Engineering Projects Portfolio - Industrial Automation Cases | Powerton Engineering"
-        description="Explore our portfolio of successfully completed engineering projects including power plants, manufacturing automation, solar installations, and water treatment systems across India."
-        keywords="engineering projects, automation projects, power plant automation, manufacturing automation, solar projects, water treatment automation, industrial projects India"
+        title="Engineering Projects & Portfolio - Industrial Automation Cases | Powerton Engineering"
+        description="Explore our comprehensive portfolio of 1200+ successfully completed engineering projects including power plants, manufacturing automation, solar installations, and water treatment systems across India."
+        keywords="engineering projects, automation projects, power plant automation, manufacturing automation, solar projects, water treatment automation, industrial projects India, project portfolio"
         canonicalUrl="https://powertonengineering.in/projects"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Powerton Engineering Pvt. Ltd.",
+          "description": "Industrial automation and electrical engineering projects portfolio"
+        }}
       />
 
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary to-blue-800 text-white">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className={`py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-responsive-2xl font-bold mb-4 sm:mb-6">
-              Our <span className="text-secondary">Project Portfolio</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6">
+              Our Engineering <span className="text-secondary">Projects & Portfolio</span>
             </h1>
-            <p className="text-responsive-base mb-6 sm:mb-8 opacity-90">
-              Explore our portfolio of successfully completed engineering projects showcasing our expertise in industrial automation and electrical engineering.
+            <p className="text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 opacity-90">
+              Discover our engineering excellence through 1200+ successful projects across diverse industries, showcasing innovation, quality, and reliability.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-              <Button className="btn-secondary mobile-full btn-responsive">
+              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 py-3 rounded-lg font-semibold transition-colors">
                 <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                 Download Portfolio
               </Button>
               <Link href="/contact" className="mobile-full">
                 <Button 
                   variant="outline" 
-                  className="btn-outline mobile-full btn-responsive border-white text-white hover:bg-white hover:text-primary"
+                  className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-lg font-semibold transition-all border-white text-white hover:bg-white hover:text-primary"
                 >
                   Discuss Your Project
                 </Button>
@@ -86,8 +256,8 @@ export default function Projects() {
       </section>
 
       {/* Project Statistics */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className={`py-12 md:py-16 lg:py-20 bg-muted/30 ${getAnimationClass('fade-in-up', statsAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat) => {
               const Icon = stat.icon;
@@ -105,107 +275,244 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Project Categories and Grid */}
-      <section className="section-padding bg-gray-50">
-        <div className="max-w-7xl mx-auto container-padding">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
-              Featured Projects by Category
+      {/* Main Content with Tabs */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Our Project Portfolio
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From power generation to water treatment, explore how we've delivered innovative engineering solutions across various industries.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              From power generation to manufacturing automation, explore how we've delivered innovative engineering solutions across various industries.
             </p>
           </div>
 
-          <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
-            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-5 gap-2 bg-white p-2 rounded-lg mb-8 shadow-sm">
-              {projectCategories.map((category) => (
-                <TabsTrigger
-                  key={category.id}
-                  value={category.id}
-                  className="data-[state=active]:bg-primary data-[state=active]:text-white"
-                >
-                  {category.name}
-                  <Badge variant="outline" className="ml-2">
-                    {category.count}
-                  </Badge>
-                </TabsTrigger>
-              ))}
+          <Tabs value={selectedTab} onValueChange={setSelectedTab} className="w-full">
+            <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8">
+              <TabsTrigger value="portfolio">Project Portfolio</TabsTrigger>
+              <TabsTrigger value="showcase">Featured Projects</TabsTrigger>
             </TabsList>
 
-            <TabsContent value={selectedCategory} className="space-y-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {filteredProjects.map((project) => (
-                  <Card 
-                    key={project.id} 
-                    className="overflow-hidden group hover:shadow-xl transition-all duration-300 card-hover"
+            <TabsContent value="portfolio" className="space-y-8">
+              {/* Search and Filters */}
+              <div className="space-y-6">
+                {/* Search Bar */}
+                <div className="max-w-md mx-auto">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Input
+                      placeholder="Search projects, clients, or technologies..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+
+                {/* Filter Toggle */}
+                <div className="text-center">
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setShowFilters(!showFilters)}
+                    className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                   >
-                    <div className="relative overflow-hidden">
+                    <Filter className="mr-2 w-4 h-4" />
+                    {showFilters ? 'Hide Filters' : 'Show Filters'}
+                  </Button>
+                </div>
+
+                {/* Filters */}
+                {showFilters && (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 bg-muted rounded-lg">
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">Industry</label>
+                      <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select Industry" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {INDUSTRIES.map(industry => (
+                            <SelectItem key={industry} value={industry}>{industry}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">Category</label>
+                      <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select Category" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {CATEGORIES.map(category => (
+                            <SelectItem key={category} value={category}>{category}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">Status</label>
+                      <Select value={selectedStatus} onValueChange={setSelectedStatus}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select Status" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {STATUSES.map(status => (
+                            <SelectItem key={status} value={status}>{status}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Results Summary */}
+              <div className="text-center text-muted-foreground">
+                Showing {filteredProjects.length} of {PORTFOLIO_PROJECTS.length} projects
+              </div>
+
+              {/* Project Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredProjects.map((project, index) => {
+                  const Icon = getCategoryIcon(project.category);
+                  return (
+                    <Card 
+                      key={project.id} 
+                      className={`bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer ${getAnimationClass('fade-in-up', projectsAnimation.visibleItems.has(index))}`}
+                    >
+                      <div className="aspect-video rounded-lg overflow-hidden mb-4">
+                        <img 
+                          src={project.image} 
+                          alt={`ID-${200 + project.id}: ${project.title} project showcase`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      
+                      <CardHeader className="p-0 mb-4">
+                        <div className="flex items-start justify-between mb-2">
+                          <CardTitle className="text-xl md:text-2xl font-semibold text-foreground line-clamp-2">
+                            {project.title}
+                          </CardTitle>
+                          <div className="flex items-center gap-1 ml-2">
+                            {Icon}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Building className="w-4 h-4" />
+                          <span>{project.client}</span>
+                        </div>
+                      </CardHeader>
+
+                      <CardContent className="p-0 space-y-4">
+                        <p className="text-sm text-muted-foreground line-clamp-3">
+                          {project.description}
+                        </p>
+
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between text-sm">
+                            <div className="flex items-center gap-1 text-muted-foreground">
+                              <MapPin className="w-4 h-4" />
+                              <span>{project.location}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              {getStatusIcon(project.status)}
+                              <span className={`text-sm ${project.status === 'Completed' ? 'text-green-600' : 'text-blue-600'}`}>
+                                {project.status}
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-between text-sm">
+                            <div className="flex items-center gap-1 text-muted-foreground">
+                              <Calendar className="w-4 h-4" />
+                              <span>{project.duration}</span>
+                            </div>
+                            <div className="flex items-center gap-1 text-muted-foreground">
+                              <DollarSign className="w-4 h-4" />
+                              <span>{project.budget}</span>
+                            </div>
+                          </div>
+
+                          <div className="flex flex-wrap gap-2">
+                            <Badge variant="secondary" className="text-xs">
+                              {project.category}
+                            </Badge>
+                            <Badge variant="outline" className="text-xs">
+                              {project.year}
+                            </Badge>
+                          </div>
+
+                          <div className="flex flex-wrap gap-1">
+                            {project.technologies.slice(0, 3).map(tech => (
+                              <Badge key={tech} variant="outline" className="text-xs">
+                                {tech}
+                              </Badge>
+                            ))}
+                            {project.technologies.length > 3 && (
+                              <Badge variant="outline" className="text-xs">
+                                +{project.technologies.length - 3} more
+                              </Badge>
+                            )}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+
+              {filteredProjects.length === 0 && (
+                <div className="text-center py-12">
+                  <div className="text-muted-foreground mb-4">No projects found matching your criteria</div>
+                  <Button 
+                    onClick={() => {
+                      setSearchTerm("");
+                      setSelectedIndustry("All");
+                      setSelectedCategory("All");
+                      setSelectedStatus("All");
+                    }}
+                    variant="outline"
+                  >
+                    Clear Filters
+                  </Button>
+                </div>
+              )}
+            </TabsContent>
+
+            <TabsContent value="showcase" className="space-y-8">
+              {/* Featured Projects Showcase */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {PORTFOLIO_PROJECTS.slice(0, 4).map((project) => (
+                  <Card key={project.id} className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
+                    <div className="aspect-video">
                       <img 
                         src={project.image} 
-                        alt={`${project.title} - ${project.description}`}
-                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
+                        alt={`ID-${250 + project.id}: ${project.title} featured project`}
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute top-4 left-4">
-                        <Badge 
-                          className={`${
-                            categoryColors[project.category] || 
-                            "bg-gray-100 text-gray-800"
-                          }`}
-                        >
-                          {project.category}
-                        </Badge>
-                      </div>
-                      <div className="absolute top-4 right-4">
-                        <Badge className="bg-white text-gray-900">
-                          {project.year}
-                        </Badge>
-                      </div>
                     </div>
-                    
-                    <CardContent className="p-8">
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">{project.title}</h3>
-                      <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
-                      
-                      {/* Project Details */}
-                      <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="flex items-center text-sm text-gray-500">
-                          <MapPin className="w-4 h-4 mr-2" />
-                          {project.location}
+                    <CardContent className="p-6">
+                      <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{project.title}</h3>
+                      <p className="text-muted-foreground mb-4">{project.description}</p>
+                      <div className="space-y-2 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-2">
+                          <Building className="w-4 h-4" />
+                          <span>{project.client}</span>
                         </div>
-                        <div className="flex items-center text-sm text-gray-500">
-                          <Clock className="w-4 h-4 mr-2" />
-                          {project.duration}
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4" />
+                          <span>{project.location}</span>
                         </div>
-                      </div>
-
-                      {/* Project Highlights */}
-                      <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-3">Key Achievements:</h4>
-                        <div className="grid grid-cols-2 gap-2">
-                          {project.highlights.map((highlight) => (
-                            <div key={highlight} className="flex items-center text-xs text-gray-600">
-                              <CheckCircle className="w-3 h-3 text-green-600 mr-2 flex-shrink-0" />
-                              {highlight}
-                            </div>
-                          ))}
+                        <div className="flex items-center gap-2">
+                          <TrendingUp className="w-4 h-4" />
+                          <span>{Object.values(project.results)[0]}</span>
                         </div>
                       </div>
-                      
-                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <div className="flex items-center text-sm text-gray-500">
-                          <TrendingUp className="w-4 h-4 mr-2 text-green-600" />
-                          <span>Successfully Completed</span>
-                        </div>
-                        <Button 
-                          variant="ghost" 
-                          className="text-secondary hover:text-secondary/80 font-semibold"
-                        >
-                          View Case Study <ArrowRight className="ml-2 w-4 h-4" />
-                        </Button>
-                      </div>
+                      <Button className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground" size="sm">
+                        Learn More
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
                     </CardContent>
                   </Card>
                 ))}
@@ -215,184 +522,26 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Detailed Case Study Section */}
-      {selectedCategory !== "all" && filteredProjects.length > 0 && (
-        <section className="section-padding bg-white">
-          <div className="max-w-7xl mx-auto container-padding">
-            {filteredProjects.map((project) => (
-              <div key={`details-${project.id}`} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <Badge 
-                    className={`mb-4 ${
-                      categoryColors[project.category] || 
-                      "bg-gray-100 text-gray-800"
-                    }`}
-                  >
-                    {project.category} Project
-                  </Badge>
-                  <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
-                    {project.title}
-                  </h2>
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-3">Project Scope</h3>
-                      <div className="space-y-2">
-                        {project.highlights.map((highlight) => (
-                          <div key={highlight} className="flex items-start">
-                            <CheckCircle className="w-4 h-4 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-600 text-sm">{highlight}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-3">Project Details</h3>
-                      <div className="space-y-3">
-                        <div className="flex items-center">
-                          <MapPin className="w-4 h-4 text-primary mr-3" />
-                          <span className="text-gray-600 text-sm">Location: {project.location}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="w-4 h-4 text-primary mr-3" />
-                          <span className="text-gray-600 text-sm">Duration: {project.duration}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Calendar className="w-4 h-4 text-primary mr-3" />
-                          <span className="text-gray-600 text-sm">Completed: {project.year}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <Link href="/contact">
-                    <Button className="btn-primary">
-                      Discuss Similar Project
-                    </Button>
-                  </Link>
-                </div>
-
-                <div>
-                  <Card className="border-none shadow-lg">
-                    <CardContent className="p-8">
-                      <h3 className="text-xl font-bold text-gray-900 mb-6">Project Impact</h3>
-                      
-                      <div className="space-y-6">
-                        <div className="bg-green-50 rounded-lg p-4">
-                          <h4 className="font-semibold text-green-800 mb-2">Energy Efficiency</h4>
-                          <p className="text-green-700 text-sm">
-                            Achieved 25-30% improvement in energy efficiency through advanced automation systems.
-                          </p>
-                        </div>
-
-                        <div className="bg-blue-50 rounded-lg p-4">
-                          <h4 className="font-semibold text-blue-800 mb-2">Operational Excellence</h4>
-                          <p className="text-blue-700 text-sm">
-                            Reduced manual intervention by 70% and improved process reliability significantly.
-                          </p>
-                        </div>
-
-                        <div className="bg-orange-50 rounded-lg p-4">
-                          <h4 className="font-semibold text-orange-800 mb-2">Safety Enhancement</h4>
-                          <p className="text-orange-700 text-sm">
-                            Implemented comprehensive safety systems ensuring zero incidents post-commissioning.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="mt-8 pt-6 border-t border-gray-200">
-                        <Button variant="outline" className="w-full">
-                          <Download className="mr-2 w-4 h-4" />
-                          Download Case Study
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Client Success Stories */}
-      <section className="section-padding bg-gray-50">
-        <div className="max-w-7xl mx-auto container-padding">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
-              What Our Clients Say About Our Projects
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="border-none shadow-lg">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">AA</span>
-                </div>
-                <p className="text-gray-600 mb-6 italic">
-                  "The solar installation project was executed flawlessly. The team's professionalism and technical expertise exceeded our expectations."
-                </p>
-                <div className="font-semibold text-gray-900">Anand Awasthi</div>
-                <div className="text-sm text-gray-600">West Bengal</div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">SP</span>
-                </div>
-                <p className="text-gray-600 mb-6 italic">
-                  "Excellent project management and on-time delivery. The automation system has significantly improved our manufacturing efficiency."
-                </p>
-                <div className="font-semibold text-gray-900">Sanjay Patil</div>
-                <div className="text-sm text-gray-600">Uttar Pradesh</div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">RS</span>
-                </div>
-                <p className="text-gray-600 mb-6 italic">
-                  "Outstanding technical support throughout the project lifecycle. The instrumentation system works perfectly as designed."
-                </p>
-                <div className="font-semibold text-gray-900">Rhea Sharma</div>
-                <div className="text-sm text-gray-600">Maharashtra</div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Call to Action */}
-      <section className="section-padding bg-primary text-white">
-        <div className="max-w-7xl mx-auto container-padding text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+      <section className="py-12 md:py-16 lg:py-20 bg-primary text-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Ready to Start Your Next Project?
           </h2>
-          <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
-            Let's discuss your project requirements and create a customized solution that delivers exceptional results for your business.
+          <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto opacity-90">
+            Let's discuss how our engineering expertise can bring your industrial automation project to life.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Link href="/contact">
-              <Button className="btn-secondary text-lg px-8 py-4">
-                Start Project Discussion
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/quote">
+              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 py-3 rounded-lg font-semibold transition-colors">
+                Get Project Quote
               </Button>
             </Link>
-            <Button 
-              variant="outline" 
-              className="btn-outline text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
-            >
-              <Download className="mr-2 w-5 h-5" />
-              Download Project Portfolio
-            </Button>
+            <Link href="/contact">
+              <Button variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground border-white text-white hover:bg-white hover:text-primary px-6 py-3 rounded-lg font-semibold transition-all">
+                Contact Our Team
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
