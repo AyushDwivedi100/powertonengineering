@@ -23,7 +23,7 @@ export default function ClientsSection() {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  // Auto-slide functionality for client logos (3 seconds interval) - infinite loop
+  // Auto-slide functionality for client logos (responsive timing)
   useEffect(() => {
     const logoInterval = setInterval(() => {
       setLogoSlideIndex((prevIndex) => {
@@ -33,7 +33,7 @@ export default function ClientsSection() {
         }
         return prevIndex + 1;
       });
-    }, 3000); // Change logos every 3 seconds
+    }, 2500); // Faster on mobile for better UX
     
     return () => clearInterval(logoInterval);
   }, []);
@@ -44,7 +44,7 @@ export default function ClientsSection() {
       // Reset position instantly after animation completes
       const timer = setTimeout(() => {
         setLogoSlideIndex(0);
-      }, 800); // Wait for animation to complete
+      }, 800);
       return () => clearTimeout(timer);
     }
   }, [logoSlideIndex]);
@@ -76,57 +76,63 @@ export default function ClientsSection() {
           </p>
         </div>
 
-        {/* Client Logos Slideshow - Infinite Circular */}
+        {/* Client Logos Slideshow - Infinite Circular - Responsive */}
         <div className="mb-16">
-          <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-8">
+          <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8">
             <motion.div
-              className="flex space-x-8"
+              className="flex space-x-4 md:space-x-6 lg:space-x-8"
               animate={{
-                x: `-${logoSlideIndex * (180 + 32)}px`
+                x: `-${logoSlideIndex * 136}px` // 120px width + 16px gap
               }}
               transition={{
-                duration: logoSlideIndex === 0 ? 0 : 0.8, // No transition when resetting
+                duration: logoSlideIndex === 0 ? 0 : 0.8,
                 ease: "easeInOut"
               }}
               style={{
-                width: `${(CLIENT_LOGOS.length * 2) * (180 + 32)}px` // Double width for seamless loop
+                width: `${(CLIENT_LOGOS.length * 2) * 136}px` // Total width for double set
               }}
             >
               {/* Create double set for truly infinite circular effect */}
               {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, index) => (
                 <motion.div
                   key={`${client.id}-${Math.floor(index / CLIENT_LOGOS.length)}-${index % CLIENT_LOGOS.length}`}
-                  className="flex-shrink-0 w-45 h-20 bg-white rounded-lg border border-gray-200 p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300"
+                  className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300"
                   initial={{ opacity: 0, x: 100 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: (index % 5) * 0.1 }}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  style={{ width: '180px' }}
+                  style={{ 
+                    width: '120px', // Base mobile width
+                    minWidth: '120px'
+                  }}
                 >
-                  <div className="text-center">
+                  <div className="text-center w-full">
                     <img 
                       src={client.logo} 
                       alt={`ID-820-${index}: ${client.name} company logo`}
-                      className="w-full h-12 object-contain mb-1"
+                      className="w-full h-8 md:h-10 lg:h-12 object-contain mb-1"
                       loading="lazy"
                       onError={(e) => {
-                        e.target.src = client.fallback;
+                        const target = e.target as HTMLImageElement;
+                        target.src = client.fallback;
                       }}
                     />
-                    <span className="text-xs font-medium text-gray-600">{client.name}</span>
+                    <span className="text-xs md:text-xs lg:text-sm font-medium text-gray-600 block truncate">
+                      {client.name}
+                    </span>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
             
-            {/* Subtle gradient overlays for seamless effect */}
-            <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10"></div>
-            <div className="absolute top-0 right-0 w-16 h-full bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10"></div>
+            {/* Responsive gradient overlays */}
+            <div className="absolute top-0 left-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10"></div>
+            <div className="absolute top-0 right-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10"></div>
           </div>
           
           {/* Auto-sliding indicator */}
-          <div className="text-center mt-4">
-            <p className="text-sm text-gray-500">
+          <div className="text-center mt-3 md:mt-4">
+            <p className="text-xs md:text-sm text-gray-500 px-4">
               Trusted by industry leaders • Continuous showcase of our valued partners
             </p>
           </div>
