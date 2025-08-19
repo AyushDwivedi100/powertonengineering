@@ -28,10 +28,10 @@ export default function ClientsSection() {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
-    // Control scroll on/off with intervals - longer pause to see cards properly
+    // Control scroll on/off with intervals - shorter pause for better flow
     const pauseResumeInterval = setInterval(() => {
       setIsScrolling(prev => !prev);
-    }, 6000); // Pause for 6 seconds, then scroll for 6 seconds
+    }, 2000); // Pause for 2 seconds, then scroll for 2 seconds
 
     return () => clearInterval(pauseResumeInterval);
   }, []);
@@ -93,7 +93,11 @@ export default function ClientsSection() {
 
         {/* Client Logos Slideshow - Infinite scroll with pause/resume */}
         <div className="mb-16">
-          <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8">
+          <div 
+            className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8"
+            onMouseEnter={() => setIsScrolling(false)}
+            onMouseLeave={() => setIsScrolling(true)}
+          >
             <div 
               className="flex transition-transform ease-linear"
               style={{
