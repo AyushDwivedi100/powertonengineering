@@ -25,7 +25,7 @@ import TermsOfService from "@/pages/terms-of-service";
 import PortfolioDownload from "@/pages/portfolio-download";
 
 import NotFound from "@/pages/not-found";
-import Chatbot from "@/components/chatbot/chatbot";
+import UniversalChatbot from "@/components/chatbot/universal-chatbot";
 
 function Router() {
   return (
@@ -48,7 +48,7 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>
-      <Chatbot />
+      <UniversalChatbot />
     </Layout>
   );
 }

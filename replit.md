@@ -96,13 +96,22 @@ Logo preference: Use official Powerton Engineering logo (https://powertonenginee
 
 ## System Architecture
 
+### **🚀 NEW: DEPLOYMENT-FLEXIBLE ARCHITECTURE (August 19, 2025)**
+
+**UNIVERSAL DEPLOYMENT SYSTEM** - Automatically adapts to any hosting platform:
+- **Auto-Detection**: Detects deployment environment (static, fullstack, serverless)
+- **Smart Form Handling**: Backend API ↔ Formspree fallback ↔ Static forms
+- **Intelligent Chatbot**: Backend AI ↔ Static responses with seamless switching
+- **Zero Configuration**: Works out-of-the-box on any hosting platform
+
 ### Frontend Architecture
 - **Framework**: React 18 with JavaScript (JSX)
 - **Routing**: Wouter for client-side routing
 - **Styling**: Tailwind CSS with custom design system and shadcn/ui components, utilizing CSS variables for theming. All custom CSS migrated to Tailwind utilities.
 - **State Management**: TanStack Query (React Query)
-- **Form Handling**: React Hook Form with Zod schema validation
+- **Form Handling**: React Hook Form with Zod schema validation + Universal Deployment System
 - **Build Tool**: Vite
+- **Deployment System**: Universal components that auto-adapt to hosting capabilities
 
 ### Backend Architecture
 - **Framework**: Express.js with TypeScript
@@ -110,6 +119,7 @@ Logo preference: Use official Powerton Engineering logo (https://powertonenginee
 - **Data Validation**: Zod schemas shared between frontend and backend
 - **Error Handling**: Centralized error middleware
 - **Development**: Hot reload with Vite middleware integration
+- **Deployment Flexibility**: Optional backend - website works with or without server
 
 ### Data Storage Solutions
 - **Database**: PostgreSQL
@@ -129,14 +139,21 @@ Logo preference: Use official Powerton Engineering logo (https://powertonenginee
 ### Component Architecture
 - **Design System**: shadcn/ui components.
 - **Layout System**: Shared responsive Header and Footer components.
-- **Form Components**: Reusable contact and quote forms.
+- **Universal Form System**: Deployment-aware forms that auto-configure for any hosting
+  - `UniversalContactForm`: Backend API → Formspree fallback → Email fallback
+  - `UniversalQuoteForm`: Complex project requirements with intelligent submission
+  - **Auto-Detection**: Detects hosting capabilities and adjusts accordingly
+- **Universal Chatbot System**: Intelligent assistant with multiple operation modes
+  - **Backend Mode**: Full AI with conversation history and database storage
+  - **Static Mode**: Smart keyword responses with professional customer support
+  - **Fallback Graceful**: Seamlessly switches modes based on hosting capabilities
 - **SEO Components**: Structured data and meta tag management.
 - **Responsive Design**: Mobile-first approach.
 - **Scroll Animations**: Custom scroll-triggered animations using Intersection Observer API.
 - **Animation System**: Smooth transitions and entrance animations with Tailwind CSS.
-- **Intelligent Chatbot**: Context-aware assistant with smart keyword analysis, dynamic routing, page-specific welcome messages, and direct navigation capabilities.
 - **UI/UX**: Features professional blurred background imagery across sections (Hero, Contact), auto-sliding testimonials carousel with navigation controls, and enhanced project portfolio with filtering and search.
 - **Navigation**: Streamlined navigation with core items: Projects (includes portfolio), News & Updates, and Contact.
+- **Deployment Intelligence**: `lib/deployment.ts` - Smart hosting detection and configuration
 
 ## External Dependencies
 
