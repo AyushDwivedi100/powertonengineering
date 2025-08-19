@@ -3,56 +3,72 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { StaggeredList } from "@/hooks/use-scroll-animation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-// Counter Component for animated counting
+// Counter Component for animated counting with intersection observer
 function AnimatedCounter({ 
   target, 
-  suffix = "", 
-  duration = 2000, 
-  delay = 0 
+  suffix = ""
 }: { 
   target: number; 
   suffix?: string; 
-  duration?: number; 
-  delay?: number; 
 }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const counterRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (hasAnimated) return; // Only animate once
-
-    const timer = setTimeout(() => {
-      setHasAnimated(true);
-      const startTime = Date.now();
-      const startValue = 0;
-      
-      const animate = () => {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        // Easing function for smooth animation
-        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-        const currentCount = Math.floor(startValue + (target - startValue) * easeOutQuart);
-        
-        setCount(currentCount);
-        
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        } else {
-          setCount(target); // Ensure we end at exactly the target
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setIsVisible(true);
         }
-      };
-      
-      requestAnimationFrame(animate);
-    }, delay);
+      },
+      { threshold: 0.1 }
+    );
 
-    return () => clearTimeout(timer);
-  }, [target, duration, delay, hasAnimated]);
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => {
+      if (counterRef.current) {
+        observer.unobserve(counterRef.current);
+      }
+    };
+  }, [hasAnimated]);
+
+  useEffect(() => {
+    if (!isVisible || hasAnimated) return;
+
+    setHasAnimated(true);
+    const startTime = Date.now();
+    const duration = 2000; // Always 2 seconds
+    const startValue = 1;
+    
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const currentCount = Math.floor(startValue + (target - startValue) * easeOutQuart);
+      
+      setCount(Math.max(1, currentCount)); // Ensure minimum value is 1
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setCount(target); // Ensure we end at exactly the target
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  }, [isVisible, target, hasAnimated]);
 
   return (
-    <span>
+    <span ref={counterRef}>
       {count}
       {suffix}
     </span>
@@ -211,63 +227,27 @@ export default function HeroSection() {
             delay={0.3}
           >
             <div className="will-animate">
-              <motion.div 
-                className="text-3xl lg:text-4xl font-bold text-secondary mb-2"
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: 0.8,
-                  ease: [0.34, 1.56, 0.64, 1]
-                }}
-              >
-                <AnimatedCounter target={15} suffix="+" delay={800} duration={2000} />
-              </motion.div>
+              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">
+                <AnimatedCounter target={15} suffix="+" />
+              </div>
               <div className="text-sm lg:text-base opacity-90">Years Experience</div>
             </div>
             <div className="will-animate">
-              <motion.div 
-                className="text-3xl lg:text-4xl font-bold text-secondary mb-2"
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: 0.9,
-                  ease: [0.34, 1.56, 0.64, 1]
-                }}
-              >
-                <AnimatedCounter target={1200} suffix="+" delay={900} duration={2500} />
-              </motion.div>
+              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">
+                <AnimatedCounter target={1200} suffix="+" />
+              </div>
               <div className="text-sm lg:text-base opacity-90">Projects Completed</div>
             </div>
             <div className="will-animate">
-              <motion.div 
-                className="text-3xl lg:text-4xl font-bold text-secondary mb-2"
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: 1.0,
-                  ease: [0.34, 1.56, 0.64, 1]
-                }}
-              >
-                <AnimatedCounter target={450} suffix="+" delay={1000} duration={2200} />
-              </motion.div>
+              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">
+                <AnimatedCounter target={450} suffix="+" />
+              </div>
               <div className="text-sm lg:text-base opacity-90">Happy Clients</div>
             </div>
             <div className="will-animate">
-              <motion.div 
-                className="text-3xl lg:text-4xl font-bold text-secondary mb-2"
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: 1.1,
-                  ease: [0.34, 1.56, 0.64, 1]
-                }}
-              >
+              <div className="text-3xl lg:text-4xl font-bold text-secondary mb-2">
                 <span>24/7</span>
-              </motion.div>
+              </div>
               <div className="text-sm lg:text-base opacity-90">Support Available</div>
             </div>
           </StaggeredList>
