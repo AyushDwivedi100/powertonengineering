@@ -32,11 +32,11 @@ export default function HeroSection() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-12">
-            <Link href="/services" className="w-full sm:w-auto">
+            <Link href="/configurator" className="w-full sm:w-auto">
               <Button 
                 className="btn-secondary w-full sm:w-auto text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 transform hover:scale-105 transition-all"
               >
-                Explore Our Services
+                Project Calculator
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
             </Link>

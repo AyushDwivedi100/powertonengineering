@@ -108,6 +108,26 @@ export default function Chatbot() {
           message: "Welcome to our Projects portfolio! You can see our 1200+ completed projects here. I can help you explore our work or guide you to other sections. How can I assist?",
           suggestions: ["Filter Projects", "Our Capabilities", "Get Quote", "Contact Us"]
         };
+      case '/portfolio':
+        return {
+          message: "Welcome to our detailed Portfolio! Explore our 1200+ successful projects with filtering options and detailed case studies. What type of projects interest you?",
+          suggestions: ["Filter by Industry", "View Results", "Get Quote", "Our Technology"]
+        };
+      case '/resources':
+        return {
+          message: "Welcome to our Knowledge Hub! Access whitepapers, case studies, webinars, and industry insights. What would you like to explore?",
+          suggestions: ["Download Guides", "Case Studies", "Watch Webinars", "Get Quote"]
+        };
+      case '/configurator':
+        return {
+          message: "Welcome to our Project Configurator! Get instant cost estimates for your automation project. I can guide you through the process. Ready to start?",
+          suggestions: ["Start Configuration", "Our Services", "View Examples", "Get Help"]
+        };
+      case '/technology':
+        return {
+          message: "Welcome to our Technology showcase! Discover our advanced automation technologies and innovation areas. What interests you most?",
+          suggestions: ["Our Tech Stack", "Innovation Areas", "Certifications", "Get Quote"]
+        };
       case '/contact':
         return {
           message: "Great! You're on our contact page. I can help you with contact information, directions, or guide you to fill out the contact form. What do you need help with?",
@@ -126,7 +146,7 @@ export default function Chatbot() {
       default:
         return {
           message: "Hello! I'm your intelligent guide for Powerton Engineering. I can help you navigate our website, answer questions about our services, or take you directly to any section you need. How can I assist you today?",
-          suggestions: ["Our Services", "View Products", "See Projects", "Get Quote"]
+          suggestions: ["Our Services", "Portfolio", "Cost Calculator", "Get Quote"]
         };
     }
   };
