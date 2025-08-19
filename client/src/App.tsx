@@ -17,7 +17,7 @@ import Projects from "@/pages/projects";
 import Contact from "@/pages/contact";
 import Quote from "@/pages/quote";
 
-import Resources from "@/pages/resources";
+import News from "@/pages/news";
 
 
 import NotFound from "@/pages/not-found";
@@ -33,7 +33,7 @@ function Router() {
         <Route path="/products" component={Products} />
         <Route path="/projects" component={Projects} />
 
-        <Route path="/resources" component={Resources} />
+        <Route path="/news" component={News} />
 
 
         <Route path="/quote" component={Quote} />
