@@ -3,6 +3,61 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { StaggeredList } from "@/hooks/use-scroll-animation";
+import { useState, useEffect } from "react";
+
+// Counter Component for animated counting
+function AnimatedCounter({ 
+  target, 
+  suffix = "", 
+  duration = 2000, 
+  delay = 0 
+}: { 
+  target: number; 
+  suffix?: string; 
+  duration?: number; 
+  delay?: number; 
+}) {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (hasAnimated) return; // Only animate once
+
+    const timer = setTimeout(() => {
+      setHasAnimated(true);
+      const startTime = Date.now();
+      const startValue = 0;
+      
+      const animate = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentCount = Math.floor(startValue + (target - startValue) * easeOutQuart);
+        
+        setCount(currentCount);
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          setCount(target); // Ensure we end at exactly the target
+        }
+      };
+      
+      requestAnimationFrame(animate);
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [target, duration, delay, hasAnimated]);
+
+  return (
+    <span>
+      {count}
+      {suffix}
+    </span>
+  );
+}
 
 export default function HeroSection() {
   const containerVariants = {
@@ -163,7 +218,7 @@ export default function HeroSection() {
                   ease: [0.34, 1.56, 0.64, 1]
                 }}
               >
-                15+
+                <AnimatedCounter target={15} suffix="+" delay={800} duration={2000} />
               </motion.div>
               <div className="text-sm lg:text-base opacity-90">Years Experience</div>
             </div>
@@ -178,7 +233,7 @@ export default function HeroSection() {
                   ease: [0.34, 1.56, 0.64, 1]
                 }}
               >
-                1200+
+                <AnimatedCounter target={1200} suffix="+" delay={900} duration={2500} />
               </motion.div>
               <div className="text-sm lg:text-base opacity-90">Projects Completed</div>
             </div>
@@ -193,7 +248,7 @@ export default function HeroSection() {
                   ease: [0.34, 1.56, 0.64, 1]
                 }}
               >
-                450+
+                <AnimatedCounter target={450} suffix="+" delay={1000} duration={2200} />
               </motion.div>
               <div className="text-sm lg:text-base opacity-90">Happy Clients</div>
             </div>
@@ -208,7 +263,7 @@ export default function HeroSection() {
                   ease: [0.34, 1.56, 0.64, 1]
                 }}
               >
-                24/7
+                <span>24/7</span>
               </motion.div>
               <div className="text-sm lg:text-base opacity-90">Support Available</div>
             </div>
