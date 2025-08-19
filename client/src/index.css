@@ -655,23 +655,7 @@ select:focus-visible {
   @apply will-change-auto;
 }
 
-/* Infinite scroll animation for client logos */
-@keyframes infiniteScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 
-.animate-infinite-scroll {
-  animation: infiniteScroll 20s linear infinite;
-}
-
-.animate-infinite-scroll:hover {
-  animation-play-state: paused;
-}
 
 * {
   @apply border-border;

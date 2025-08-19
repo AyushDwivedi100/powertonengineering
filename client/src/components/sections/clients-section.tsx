@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function ClientsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [logoCurrentIndex, setLogoCurrentIndex] = useState(0);
 
   // Auto-slide functionality for testimonials
   useEffect(() => {
@@ -21,6 +22,19 @@ export default function ClientsSection() {
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
+
+  // Auto-slide functionality for client logos - show 5 at a time
+  useEffect(() => {
+    const logoInterval = setInterval(() => {
+      setLogoCurrentIndex((prevIndex) => {
+        // Move to next set, cycling back to start when reaching the end
+        const nextIndex = prevIndex + 1;
+        return nextIndex >= CLIENT_LOGOS.length ? 0 : nextIndex;
+      });
+    }, 2500); // Change every 2.5 seconds
+
+    return () => clearInterval(logoInterval);
+  }, []);
 
   const goToPrevious = () => {
     setIsAutoPlaying(false);
@@ -56,46 +70,56 @@ export default function ClientsSection() {
           </p>
         </div>
 
-        {/* Client Logos Slideshow - Infinite Circular - Responsive */}
+        {/* Client Logos Slideshow - Show 5 at a time */}
         <div className="mb-16">
           <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8">
-            <div 
-              className="flex space-x-4 md:space-x-6 lg:space-x-8 animate-infinite-scroll"
-              style={{
-                width: `${CLIENT_LOGOS.length * 2 * 136}px`, // Total width for double set
-              }}
-            >
-              {/* Create double set for truly infinite circular effect */}
-              {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, index) => (
-                <motion.div
-                  key={`${client.id}-${Math.floor(index / CLIENT_LOGOS.length)}-${index % CLIENT_LOGOS.length}`}
-                  className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300 hover:animate-none"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: (index % 10) * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  style={{
-                    width: "120px", // Base mobile width
-                    minWidth: "120px",
-                  }}
-                >
-                  <div className="text-center w-full">
-                    <img
-                      src={client.logo}
-                      alt={`ID-820-${index}: ${client.name} company logo`}
-                      className="w-full h-8 md:h-10 lg:h-12 object-contain mb-1"
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = client.fallback;
-                      }}
-                    />
-                    <span className="text-xs md:text-xs lg:text-sm font-medium text-gray-600 block truncate">
-                      {client.name}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="flex justify-center">
+              <div className="flex space-x-4 md:space-x-6 lg:space-x-8">
+                <AnimatePresence mode="wait">
+                  {CLIENT_LOGOS.slice(logoCurrentIndex, logoCurrentIndex + 5)
+                    .concat(
+                      logoCurrentIndex + 5 > CLIENT_LOGOS.length
+                        ? CLIENT_LOGOS.slice(0, (logoCurrentIndex + 5) - CLIENT_LOGOS.length)
+                        : []
+                    )
+                    .slice(0, 5)
+                    .map((client, index) => (
+                      <motion.div
+                        key={`${client.id}-${logoCurrentIndex}-${index}`}
+                        className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300"
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -100 }}
+                        transition={{ 
+                          duration: 0.5,
+                          delay: index * 0.1,
+                          ease: "easeInOut"
+                        }}
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        style={{
+                          width: "120px", // Base mobile width
+                          minWidth: "120px",
+                        }}
+                      >
+                        <div className="text-center w-full">
+                          <img
+                            src={client.logo}
+                            alt={`ID-820-${logoCurrentIndex + index}: ${client.name} company logo`}
+                            className="w-full h-8 md:h-10 lg:h-12 object-contain mb-1"
+                            loading="lazy"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = client.fallback;
+                            }}
+                          />
+                          <span className="text-xs md:text-xs lg:text-sm font-medium text-gray-600 block truncate">
+                            {client.name}
+                          </span>
+                        </div>
+                      </motion.div>
+                    ))}
+                </AnimatePresence>
+              </div>
             </div>
 
             {/* Responsive gradient overlays */}
@@ -108,6 +132,18 @@ export default function ClientsSection() {
             <p className="text-xs md:text-sm text-gray-500 px-4">
               Trusted by industry leaders • showcase of our valued partners
             </p>
+            <div className="flex justify-center mt-2 space-x-1">
+              {CLIENT_LOGOS.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === logoCurrentIndex
+                      ? "bg-primary"
+                      : "bg-gray-300"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
