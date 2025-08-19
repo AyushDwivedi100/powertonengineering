@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import UniversalQuoteForm from "@/components/forms/universal-quote-form";
+import FrontendQuoteForm from "@/components/forms/frontend-quote-form";
 import { 
   Calculator, 
   CheckCircle, 
@@ -649,7 +649,7 @@ export default function Quote() {
                     </p>
                   </CardHeader>
                   <CardContent className="p-6">
-                    <UniversalQuoteForm />
+                    <FrontendQuoteForm />
                   </CardContent>
                 </Card>
               </div>

@@ -11,16 +11,10 @@ interface DeploymentConfig {
   storageType: 'memory' | 'database' | 'local';
 }
 
-// Environment detection
+// Environment detection - Frontend-only project
 const detectDeploymentMode = (): DeploymentMode => {
-  // Check if running in development
-  if (import.meta.env.DEV) {
-    return 'development';
-  }
-  
-  // For production builds, always use static mode
-  // This ensures npm run build + npm start works as static website
-  // No backend or database dependencies
+  // Always use static mode for frontend-only React project
+  // No backend server or database needed
   return 'static';
 };
 

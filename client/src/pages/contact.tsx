@@ -1,8 +1,8 @@
 import { SEO } from "@/lib/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import UniversalContactForm from "@/components/forms/universal-contact-form";
-import UniversalQuoteForm from "@/components/forms/universal-quote-form";
+import FrontendContactForm from "@/components/forms/frontend-contact-form";
+import FrontendQuoteForm from "@/components/forms/frontend-quote-form";
 import { 
   Phone, 
   Mail, 
@@ -195,7 +195,7 @@ export default function Contact() {
                     </p>
                   </CardHeader>
                   <CardContent>
-                    <UniversalContactForm />
+                    <FrontendContactForm />
                   </CardContent>
                 </Card>
               </TabsContent>
@@ -209,7 +209,7 @@ export default function Contact() {
                     </p>
                   </CardHeader>
                   <CardContent>
-                    <UniversalQuoteForm />
+                    <FrontendQuoteForm />
                   </CardContent>
                 </Card>
               </TabsContent>
