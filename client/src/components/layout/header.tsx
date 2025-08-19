@@ -18,7 +18,6 @@ export default function Header() {
     { name: "Products", href: "/products" },
     { name: "Projects", href: "/projects" },
     { name: "Calculator", href: "/configurator" },
-    { name: "Get Quote", href: "/quote" },
     { name: "Resources", href: "/resources" },
     { name: "Contact", href: "/contact" },
   ];
@@ -163,17 +162,7 @@ export default function Header() {
                 </Link>
               </motion.div>
             ))}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.8 }}
-            >
-              <Link href="/quote">
-                <Button className="btn-secondary hover-lift">
-                  Get Quote
-                </Button>
-              </Link>
-            </motion.div>
+
           </motion.div>
 
           {/* Mobile navigation */}
@@ -236,19 +225,7 @@ export default function Header() {
                       </Link>
                     </motion.div>
                   ))}
-                  <motion.div
-                    variants={{
-                      open: { opacity: 1, x: 0 },
-                      closed: { opacity: 0, x: -20 }
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Link href="/quote" onClick={() => setIsOpen(false)}>
-                      <Button className="btn-secondary w-full mt-4 hover-lift">
-                        Get Quote
-                      </Button>
-                    </Link>
-                  </motion.div>
+
                 </motion.nav>
               </AnimatePresence>
             </SheetContent>

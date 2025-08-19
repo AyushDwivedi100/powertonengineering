@@ -83,7 +83,7 @@ Logo preference: Use official Powerton Engineering logo (https://powertonenginee
 - ✅ **Removed Technology Page**: Technology page removed as requested - not essential enough
 - ✅ **Removed Portfolio Page**: Portfolio page removed and merged with Projects page for unified experience
 - ✅ **Enhanced Projects Page**: Now includes comprehensive portfolio functionality with filtering, search, and detailed project showcases
-- ✅ **Main Navigation Items**: Projects (includes portfolio), Calculator, Get Quote, and Resources are core navigation items
+- ✅ **Main Navigation Items**: Projects (includes portfolio), Calculator, and Resources are core navigation items (Get Quote removed from navigation but page remains accessible)
 - ✅ **Simplified Header**: Removed dropdown complexity, all items are direct navigation links
 - ✅ **Mobile Navigation**: Updated mobile menu to match simplified structure
 - **Result**: Cleaner, more accessible navigation focused on core business functions with enhanced project showcase capabilities
