@@ -7,7 +7,7 @@ const logoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
 export default function Footer() {
   return (
     <footer 
-      className="bg-primary text-white py-12" 
+      className="bg-gray-900 text-white py-12" 
       role="contentinfo"
     >
       {/* Content */}
@@ -121,7 +121,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-muted-foreground text-sm mb-4 md:mb-0">
               &copy; 2024 Powerton Engineering Pvt. Ltd. All rights reserved.
