@@ -23,26 +23,24 @@ export default function ClientsSection() {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  // Auto-slide functionality for client logos - infinite loop
+  // Auto-slide functionality for client logos - sliding window of 5
   useEffect(() => {
     const logoInterval = setInterval(() => {
-      setLogoCurrentIndex((prevIndex) => prevIndex + 1);
+      setLogoCurrentIndex((prevIndex) => (prevIndex + 1) % CLIENT_LOGOS.length);
     }, 2500); // Change every 2.5 seconds
 
     return () => clearInterval(logoInterval);
   }, []);
 
-  // Reset position when we've moved through all original clients
-  useEffect(() => {
-    if (logoCurrentIndex >= CLIENT_LOGOS.length) {
-      // Wait for animation to complete, then reset without animation
-      const resetTimer = setTimeout(() => {
-        setLogoCurrentIndex(0);
-      }, 500); // Wait for transition to complete
-      
-      return () => clearTimeout(resetTimer);
+  // Get 5 clients starting from current index (with wrapping)
+  const getVisibleClients = () => {
+    const visible = [];
+    for (let i = 0; i < 5; i++) {
+      const index = (logoCurrentIndex + i) % CLIENT_LOGOS.length;
+      visible.push({ ...CLIENT_LOGOS[index], displayIndex: index });
     }
-  }, [logoCurrentIndex]);
+    return visible;
+  };
 
   const goToPrevious = () => {
     setIsAutoPlaying(false);
@@ -78,44 +76,49 @@ export default function ClientsSection() {
           </p>
         </div>
 
-        {/* Client Logos Slideshow - Infinite carousel with 5 visible */}
+        {/* Client Logos Slideshow - Sliding window of 5 */}
         <div className="mb-16">
           <div className="relative overflow-hidden bg-gray-50 rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8">
-            <div 
-              className={`flex ${logoCurrentIndex >= CLIENT_LOGOS.length ? '' : 'transition-transform duration-500 ease-in-out'}`}
-              style={{
-                transform: `translateX(-${logoCurrentIndex * 136}px)`,
-                width: `${CLIENT_LOGOS.length * 2 * 136}px` // Double width for seamless loop
-              }}
-            >
-              {/* Render clients twice for seamless infinite loop */}
-              {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, index) => (
-                <motion.div
-                  key={`${client.id}-${Math.floor(index / CLIENT_LOGOS.length)}`}
-                  className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300 mx-2 md:mx-3 lg:mx-4"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  style={{
-                    width: "120px",
-                    minWidth: "120px",
-                  }}
-                >
-                  <div className="text-center w-full">
-                    <img
-                      src={client.logo}
-                      alt={`ID-820-${index}: ${client.name} company logo`}
-                      className="w-full h-8 md:h-10 lg:h-12 object-contain mb-1"
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = client.fallback;
+            <div className="flex justify-center">
+              <div className="flex space-x-4 md:space-x-6 lg:space-x-8">
+                <AnimatePresence initial={false}>
+                  {getVisibleClients().map((client, index) => (
+                    <motion.div
+                      key={`${client.id}-${logoCurrentIndex}-${index}`}
+                      className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300"
+                      initial={index === 4 ? { opacity: 0, x: 100, scale: 0.8 } : false}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      exit={index === 0 ? { opacity: 0, x: -100, scale: 0.8 } : false}
+                      transition={{ 
+                        duration: 0.5,
+                        ease: "easeInOut"
                       }}
-                    />
-                    <span className="text-xs md:text-xs lg:text-sm font-medium text-gray-600 block truncate">
-                      {client.name}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
+                      layout
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      style={{
+                        width: "120px",
+                        minWidth: "120px",
+                      }}
+                    >
+                      <div className="text-center w-full">
+                        <img
+                          src={client.logo}
+                          alt={`ID-820-${client.displayIndex}: ${client.name} company logo`}
+                          className="w-full h-8 md:h-10 lg:h-12 object-contain mb-1"
+                          loading="lazy"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = client.fallback;
+                          }}
+                        />
+                        <span className="text-xs md:text-xs lg:text-sm font-medium text-gray-600 block truncate">
+                          {client.name}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
             </div>
 
             {/* Responsive gradient overlays */}
