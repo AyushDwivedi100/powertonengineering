@@ -11,15 +11,20 @@ export default defineConfig({
     },
   },
   server: {
-    host: true,
+    host: "0.0.0.0",
     port: 5000,
     strictPort: false,
+    allowedHosts: true,
     hmr: {
       port: 5000,
+      host: "0.0.0.0",
+    },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
     },
   },
   preview: {
-    host: true,
+    host: "0.0.0.0",
     port: 5000,
   },
   build: {
