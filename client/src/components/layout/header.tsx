@@ -145,17 +145,20 @@ export default function Header() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Link href="/" className="flex items-center">
-              <motion.img
-                src={currentLogo}
-                alt="ID-001: Powerton Engineering Pvt. Ltd. logo"
-                className="h-8 sm:h-10 md:h-12 w-auto object-contain transition-all duration-300 ease-in-out"
-                style={{ minWidth: '120px', maxWidth: '200px', aspectRatio: 'auto' }}
-                loading="eager"
-                whileHover={{ scale: 1.05 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                transition={{ duration: 0.3 }}
-              />
+              <div className="relative w-[140px] sm:w-[160px] md:w-[180px] h-8 sm:h-10 md:h-12 overflow-hidden">
+                <motion.img
+                  key={isDark ? 'dark' : 'light'}
+                  src={currentLogo}
+                  alt="ID-001: Powerton Engineering Pvt. Ltd. logo"
+                  className="absolute inset-0 w-full h-full object-contain"
+                  loading="eager"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2, ease: 'easeInOut' }}
+                  whileHover={{ scale: 1.03 }}
+                />
+              </div>
             </Link>
           </motion.div>
 

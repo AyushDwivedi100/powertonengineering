@@ -39,13 +39,15 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <img 
-                src={currentLogo} 
-                alt="ID-002: Powerton Engineering Pvt. Ltd. logo" 
-                className="h-12 w-auto mb-3 object-contain transition-all duration-300 ease-in-out"
-                style={{ minWidth: '150px', maxWidth: '250px', aspectRatio: 'auto' }}
-                loading="lazy"
-              />
+              <div className="relative w-[200px] h-12 overflow-hidden">
+                <img 
+                  key={isDark ? 'dark' : 'light'}
+                  src={currentLogo} 
+                  alt="ID-002: Powerton Engineering Pvt. Ltd. logo" 
+                  className="absolute inset-0 w-full h-full object-contain transition-opacity duration-200 ease-in-out"
+                  loading="lazy"
+                />
+              </div>
             </div>
             <p className="text-muted-foreground mb-6">
               Your trusted partner in delivering high-quality engineering solutions and services for industrial automation and electrical systems.
