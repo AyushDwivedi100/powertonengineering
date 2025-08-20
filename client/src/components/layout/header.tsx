@@ -183,6 +183,35 @@ export default function Header() {
               <Link href="/quote">
                 <Button className="btn-secondary hover-lift">Get Quote</Button>
               </Link>
+              
+              {/* Contact details below Get Quote button */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+                className="mt-3 text-xs text-muted-foreground border-l-2 border-secondary pl-3 bg-muted/30 rounded-r-md py-2"
+              >
+                <div className="space-y-1">
+                  <div className="flex items-center">
+                    <Phone className="w-3 h-3 mr-2 text-secondary" />
+                    <a 
+                      href={`tel:${COMPANY_INFO.phone}`} 
+                      className="hover:text-primary transition-colors"
+                    >
+                      {COMPANY_INFO.phone}
+                    </a>
+                  </div>
+                  <div className="flex items-center">
+                    <Mail className="w-3 h-3 mr-2 text-secondary" />
+                    <a 
+                      href={`mailto:${COMPANY_INFO.email}`} 
+                      className="hover:text-primary transition-colors"
+                    >
+                      {COMPANY_INFO.email}
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           </motion.div>
 
