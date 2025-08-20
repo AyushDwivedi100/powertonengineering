@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { insertContactSchema } from "@shared/schema";
+import { insertContactSchema } from "@/lib/schemas";
 import { SERVICE_OPTIONS } from "@/data/constants";
 import { z } from "zod";
 

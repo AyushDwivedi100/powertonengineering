@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { insertQuoteRequestSchema } from "@shared/schema";
+import { insertQuoteRequestSchema } from "@/lib/schemas";
 import { SERVICE_OPTIONS } from "@/data/constants";
 import { z } from "zod";
 import { CheckCircle, FileText, Calculator } from "lucide-react";
