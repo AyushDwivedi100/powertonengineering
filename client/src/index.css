@@ -4,7 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hero Section Backgrounds */
+/* Hero Section Backgrounds with Image Management System IDs */
+/* ID-831: About page hero - Industrial automation facility background */
 .hero-bg-about {
   background-image: url('https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
   background-size: cover;
@@ -12,6 +13,7 @@
   background-repeat: no-repeat;
 }
 
+/* ID-832: Services page hero - Process automation systems background */
 .hero-bg-services {
   background-image: url('https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
   background-size: cover;
@@ -19,6 +21,7 @@
   background-repeat: no-repeat;
 }
 
+/* ID-833: Products page hero - Industrial equipment showcase background */
 .hero-bg-products {
   background-image: url('https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
   background-size: cover;
@@ -26,6 +29,7 @@
   background-repeat: no-repeat;
 }
 
+/* ID-834: Projects page hero - Power plant construction background */
 .hero-bg-projects {
   background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
   background-size: cover;
@@ -33,6 +37,7 @@
   background-repeat: no-repeat;
 }
 
+/* ID-835: Contact page hero - Professional office meeting background */
 .hero-bg-contact {
   background-image: url('https://images.unsplash.com/photo-1497215842964-222b430dc094?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
   background-size: cover;
@@ -40,6 +45,7 @@
   background-repeat: no-repeat;
 }
 
+/* ID-836: News page hero - Modern office environment background */
 .hero-bg-news {
   background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
   background-size: cover;

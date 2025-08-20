@@ -54,7 +54,8 @@
 - ID-810-813: Hero and contact background images ✓ ASSIGNED
 - ID-820-829: Client logo carousel images ✓ ASSIGNED
 - ID-830: Products showcase image ✓ ASSIGNED
-- **NEXT AVAILABLE**: ID-831+
+- ID-831-836: Hero section background images ✓ ASSIGNED (About, Services, Products, Projects, Contact, News)
+- **NEXT AVAILABLE**: ID-837+
 
 **PROCESS**:
 1. Find next available ID range
