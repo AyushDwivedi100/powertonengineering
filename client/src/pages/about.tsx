@@ -5,8 +5,11 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Users, Award, Globe, Target, Eye, Heart } from "lucide-react";
 import { Link } from "wouter";
 import { COMPANY_INFO } from "@/data/constants";
+import { AnimatedSection, useScrollAnimations } from "@/hooks/use-scroll-animation";
 
 export default function About() {
+  useScrollAnimations();
+
   const values = [
     {
       icon: Target,
@@ -70,8 +73,9 @@ export default function About() {
       </section>
 
       {/* Company Story */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto container-padding">
+      <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
+        <section className="section-padding bg-white">
+          <div className="max-w-7xl mx-auto container-padding">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <img 
@@ -111,9 +115,11 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* Mission & Vision */}
+      <AnimatedSection animation="fadeInLeft" delay={0.2} duration={0.9}>
       <section className="section-padding bg-muted">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -147,8 +153,10 @@ export default function About() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Core Values */}
+      <AnimatedSection animation="scaleIn" delay={0.15} duration={0.7}>
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
@@ -176,8 +184,10 @@ export default function About() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Certifications & Standards */}
+      <AnimatedSection animation="fadeInRight" delay={0.1} duration={0.8}>
       <section className="section-padding bg-muted">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
@@ -199,8 +209,10 @@ export default function About() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Call to Action */}
+      <AnimatedSection animation="slideInUp" delay={0.2} duration={0.9}>
       <section className="section-padding bg-primary text-white">
         <div className="max-w-7xl mx-auto container-padding text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
@@ -227,6 +239,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
     </>
   );
 }

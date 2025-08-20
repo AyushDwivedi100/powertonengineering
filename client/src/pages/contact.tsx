@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import FrontendContactForm from "@/components/forms/frontend-contact-form";
 import FrontendQuoteForm from "@/components/forms/frontend-quote-form";
+import { AnimatedSection, useScrollAnimations } from "@/hooks/use-scroll-animation";
 import { 
   Phone, 
   Mail, 
@@ -18,6 +19,8 @@ import {
 import { COMPANY_INFO } from "@/data/constants";
 
 export default function Contact() {
+  useScrollAnimations();
+
   const contactMethods = [
     {
       icon: Phone,

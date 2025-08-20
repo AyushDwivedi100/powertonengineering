@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PRODUCTS } from "@/data/constants";
+import { AnimatedSection, useScrollAnimations } from "@/hooks/use-scroll-animation";
 import { 
   Search,
   Filter,
@@ -19,6 +20,7 @@ import { Link } from "wouter";
 import { useState } from "react";
 
 export default function Products() {
+  useScrollAnimations();
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const productCategories = [

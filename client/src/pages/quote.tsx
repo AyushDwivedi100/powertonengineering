@@ -30,7 +30,7 @@ import {
   Star,
   Award
 } from "lucide-react";
-import { useScrollAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
+import { AnimatedSection, useScrollAnimations, useScrollAnimation, getAnimationClass } from "@/hooks/use-scroll-animation";
 
 interface ProjectConfig {
   projectType: string;

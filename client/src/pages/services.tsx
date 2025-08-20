@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SERVICES } from "@/data/constants";
+import { AnimatedSection, useScrollAnimations } from "@/hooks/use-scroll-animation";
 import { 
   Cpu, 
   Gauge, 
@@ -28,6 +29,8 @@ const iconMap = {
 };
 
 export default function Services() {
+  useScrollAnimations();
+
   const serviceDetails = {
     "process-automation": {
       overview: "Advanced automation systems designed to streamline industrial processes, reduce manual intervention, and optimize operational efficiency.",
