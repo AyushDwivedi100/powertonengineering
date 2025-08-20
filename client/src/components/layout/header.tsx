@@ -1,35 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY_INFO } from "@/data/constants";
-import { useTheme } from "@/hooks/use-theme";
 import { motion, AnimatePresence } from "framer-motion";
-import darkLogoImage from "@assets/ChatGPT Image 20 अग॰ 2025, 12_06_57 pm_1755672345958.jpg";
-
-// Use official Powerton Engineering logos
-const lightLogoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
+import logoImage from "@assets/mainlogopowerton (1)_1755674514195.png";
 
 export default function Header() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const { theme } = useTheme();
-  
-  // Determine current effective theme with system detection
-  const [systemDark, setSystemDark] = useState(false);
-  
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    setSystemDark(mediaQuery.matches);
-    
-    const handleChange = (e: MediaQueryListEvent) => setSystemDark(e.matches);
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-  
-  const isDark = theme === "dark" || (theme === "system" && systemDark);
-  const currentLogo = isDark ? darkLogoImage : lightLogoImage;
 
   const navigation = [
     { name: "About", href: "/about" },
@@ -147,7 +127,7 @@ export default function Header() {
             <Link href="/" className="flex items-center ml-4">
               <div className="relative w-[160px] sm:w-[180px] md:w-[220px] h-10 sm:h-12 md:h-14 overflow-hidden">
                 <img
-                  src={currentLogo}
+                  src={logoImage}
                   alt="ID-001: Powerton Engineering Pvt. Ltd. logo"
                   className="absolute inset-0 w-full h-full object-contain"
                   loading="eager"

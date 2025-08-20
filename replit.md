@@ -10,7 +10,7 @@ Preferred communication style: Simple, everyday language.
 Operating System: Windows 11 - PC setup optimized for Windows development environment.
 Hosting Goal: Deploy to Hostinger Premium hosting service for production website.
 PC Deployment: User wants to run this project locally on their personal computer for development and testing.
-Logo preference: Use official Powerton Engineering logo (https://powertonengineering.in/assets/img/logo-new.jpg) throughout the website.
+Logo preference: Use the updated single Powerton Engineering logo (mainlogopowerton (1)_1755674514195.png) throughout the website for both light and dark modes.
 #### **2. Color Scheme Enforcement (MANDATORY)**
 - **PRIMARY BRAND COLOR**: `hsl(215, 89%, 33%)` (Blue) - Use for headers, buttons, links, brand elements
 - **SECONDARY BRAND COLOR**: `hsl(20, 91%, 48%)` (Orange) - Use for accents, CTAs, highlights
