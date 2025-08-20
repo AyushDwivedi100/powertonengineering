@@ -72,7 +72,7 @@ export default function Chatbot() {
       
       // Check if click is on toggle button or its children (more thorough check)
       const toggleButton = document.querySelector('[data-chatbot-toggle="true"]');
-      if (toggleButton && (toggleButton === target || (toggleButton && toggleButton.contains(target)))) {
+      if (toggleButton && (toggleButton === target || toggleButton.contains(target as Node))) {
         return;
       }
       

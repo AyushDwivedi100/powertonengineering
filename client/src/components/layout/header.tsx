@@ -295,14 +295,21 @@ export default function Header() {
                             {COMPANY_INFO.email}
                           </a>
                         </div>
-                        <div className="flex items-start">
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.city}, ${COMPANY_INFO.address.state} ${COMPANY_INFO.address.pincode}`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-start hover:bg-muted/70 p-2 -m-2 rounded-md transition-colors cursor-pointer"
+                          onClick={() => setIsOpen(false)}
+                          aria-label="Open office location in Google Maps"
+                        >
                           <MapPin className="w-4 h-4 mr-3 text-secondary flex-shrink-0 mt-0.5" />
-                          <div className="text-sm text-muted-foreground">
+                          <div className="text-sm text-muted-foreground hover:text-primary transition-colors">
                             <div>{COMPANY_INFO.address.street}</div>
                             <div>{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state}</div>
                             <div>{COMPANY_INFO.address.pincode}</div>
                           </div>
-                        </div>
+                        </a>
                       </div>
                     </div>
                   </motion.div>
