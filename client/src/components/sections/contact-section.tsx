@@ -7,7 +7,7 @@ export default function ContactSection() {
   return (
     <section 
       id="contact" 
-      className="relative section-padding text-white overflow-hidden" 
+      className="relative py-12 md:py-16 lg:py-20 text-white overflow-hidden" 
       role="main"
     >
       {/* Blurred Background Image - Electrical Control Panels */}
@@ -39,25 +39,25 @@ export default function ContactSection() {
       </div>
 
       {/* Dark overlay for optimal text contrast */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
       
       {/* Gradient overlay with brand colors */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-blue-800/60 to-primary/80"></div>
       
       {/* Content */}
       <div className="relative z-10">
-        <div className="container-responsive container-padding">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-secondary font-semibold text-lg">Contact Us</span>
           <h2 className="text-responsive-title font-bold mt-4 mb-6">
             Let's Discuss Your Engineering Needs
           </h2>
-          <p className="text-responsive-body opacity-90 container-responsive">
+          <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto">
             Ready to start your next project? Get in touch with our expert team for customized solutions and professional consultation.
           </p>
         </div>
 
-        <div className="flex-responsive gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           <div>
             <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
             

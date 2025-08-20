@@ -108,9 +108,9 @@ export default function Chatbot() {
   }
 
   return (
-    <Card className="chatbot-container fixed bottom-4 right-4 w-96 h-[500px] z-50 flex flex-col shadow-2xl border-border">
+    <Card className="chatbot-container fixed bottom-4 right-4 w-96 h-[500px] z-50 flex flex-col shadow-2xl border-border bg-card dark:bg-gray-900">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-border bg-primary text-primary-foreground rounded-t-lg">
+      <div className="flex items-center justify-between p-4 border-b border-border bg-primary text-primary-foreground rounded-t-lg dark:bg-primary dark:border-gray-600">
         <div className="flex items-center space-x-2">
           <MessageCircle className="w-5 h-5" />
           <span className="font-semibold">Powerton Engineering</span>

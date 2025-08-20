@@ -38,8 +38,8 @@ export default function AboutSection() {
       }}
     >
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-muted/95"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-gray-100/80"></div>
+      <div className="absolute inset-0 bg-muted/95 dark:bg-gray-900/95"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-gray-100/80 dark:from-gray-900/90 dark:to-gray-800/80"></div>
       
       {/* Content */}
       <div className="relative z-10">

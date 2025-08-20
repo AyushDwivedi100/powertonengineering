@@ -28,7 +28,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50" role="banner">
+    <header className="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50" role="banner">
       {/* Top bar */}
       <motion.div
         className="bg-primary text-white py-1 sm:py-2"

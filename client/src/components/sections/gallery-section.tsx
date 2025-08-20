@@ -60,8 +60,8 @@ export default function GallerySection() {
   };
 
   return (
-    <section className="section-padding bg-muted/30" role="main">
-      <div className="max-w-7xl mx-auto container-padding">
+    <section className="py-12 md:py-16 lg:py-20 bg-muted/30 dark:bg-gray-800/30" role="main">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <span className="text-secondary font-semibold text-responsive-sm">Our Work</span>
           <h2 className="text-responsive-xl font-bold text-primary mt-2 sm:mt-4 mb-4 sm:mb-6">

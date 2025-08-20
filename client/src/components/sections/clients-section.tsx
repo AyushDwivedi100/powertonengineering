@@ -67,8 +67,8 @@ export default function ClientsSection() {
   };
 
   return (
-    <section className="section-padding bg-white" role="main">
-      <div className="max-w-7xl mx-auto container-padding">
+    <section className="py-12 md:py-16 lg:py-20 bg-white dark:bg-gray-900" role="main">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-secondary font-semibold text-lg">
             Our Clients
@@ -85,7 +85,7 @@ export default function ClientsSection() {
         {/* Client Logos Slideshow - Continuous infinite scroll */}
         <div className="mb-16">
           <div 
-            className="relative overflow-hidden bg-muted rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8"
+            className="relative overflow-hidden bg-muted dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 py-4 md:py-6 lg:py-8"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
@@ -100,7 +100,7 @@ export default function ClientsSection() {
               {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, index) => (
                 <div
                   key={`${client.id}-${Math.floor(index / CLIENT_LOGOS.length)}`}
-                  className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300 mx-2 md:mx-3 lg:mx-4"
+                  className="flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300 mx-2 md:mx-3 lg:mx-4"
                   style={{
                     width: "130px",
                     minWidth: "130px",
