@@ -8,6 +8,7 @@ This platform is a business website for Powerton Engineering Pvt. Ltd., focusing
 
 Preferred communication style: Simple, everyday language.
 Operating System: Windows 11 - PC setup optimized for Windows development environment.
+Hosting Goal: Deploy to Hostinger Premium hosting service for production website.
 PC Deployment: User wants to run this project locally on their personal computer for development and testing.
 Logo preference: Use official Powerton Engineering logo (https://powertonengineering.in/assets/img/logo-new.jpg) throughout the website.
 #### **2. Color Scheme Enforcement (MANDATORY)**
