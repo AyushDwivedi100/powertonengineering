@@ -262,7 +262,7 @@ export default function News() {
 
       {/* Hero Section */}
       <section className={`relative py-12 md:py-16 lg:py-20 overflow-hidden ${getAnimationClass('fade-in-up', true)}`}>
-        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
+        <div className="absolute inset-0 hero-bg-news"></div>
         <div className="absolute inset-0 bg-primary/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 text-white">
           <div className="max-w-4xl mx-auto text-center">

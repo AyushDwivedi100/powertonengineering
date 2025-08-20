@@ -4,6 +4,49 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hero Section Backgrounds */
+.hero-bg-about {
+  background-image: url('https://images.unsplash.com/photo-1565087826739-dac3fb4d34b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg-services {
+  background-image: url('https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg-products {
+  background-image: url('https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg-projects {
+  background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg-contact {
+  background-image: url('https://images.unsplash.com/photo-1497215842964-222b430dc094?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg-news {
+  background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(210, 25%, 7%);
