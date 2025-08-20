@@ -60,7 +60,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
+            <h4 className="text-lg font-semibold mb-4 text-secondary">Services</h4>
             <ul className="space-y-3 text-muted-foreground">
               {SERVICES.slice(0, 5).map((service) => (
                 <li key={service.id}>
@@ -77,7 +77,7 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Products</h4>
+            <h4 className="text-lg font-semibold mb-4 text-secondary">Products</h4>
             <ul className="space-y-3 text-muted-foreground">
               {PRODUCTS.slice(0, 5).map((product) => (
                 <li key={product.id}>
@@ -94,7 +94,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
+            <h4 className="text-lg font-semibold mb-4 text-secondary">Contact Info</h4>
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-center">
                 <Phone className="w-4 h-4 mr-3 text-secondary" aria-hidden="true" />
