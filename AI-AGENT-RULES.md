@@ -224,6 +224,38 @@ Use ONLY these three button patterns:
 
 **🎯 Overall Website Consistency: 100% (Perfect)**
 
+### **HERO SECTION STANDARDIZATION (August 20, 2025)**
+**MANDATORY FOR ALL PAGES EXCEPT HOME**
+
+**STANDARD HERO PATTERN** (use for all pages except home.tsx):
+```jsx
+{/* Hero Section */}
+<section className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
+  <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('[PAGE-SPECIFIC-BACKGROUND-IMAGE]')"}}></div>
+  <div className="absolute inset-0 bg-primary/20"></div>
+  <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 text-white">
+    {/* Hero content */}
+  </div>
+</section>
+```
+
+**REQUIREMENTS**:
+- **Background Image**: Each page must have a relevant background image
+- **Blue Tint**: Consistent `bg-primary/20` overlay (20% opacity)
+- **No Gradients**: Remove all gradient backgrounds (`bg-gradient-to-br`)
+- **Standard Dimensions**: `py-12 md:py-16 lg:py-20`
+- **Text Color**: `text-white` for all hero content
+- **Home Page Exception**: DO NOT modify home page hero - it's perfect as-is
+
+**PAGE-SPECIFIC BACKGROUND IMAGES**:
+- About: Industrial facility/engineering team
+- Services: Process automation/control systems
+- Products: Product showcase/technical equipment
+- Projects: Project implementation/construction
+- Contact: Office/professional meeting
+- News: Modern office/announcements
+- (Assign IDs ID-850-859 for hero background images)
+
 ---
 
 ## 🚫 CRITICAL VIOLATIONS - NEVER DO THESE

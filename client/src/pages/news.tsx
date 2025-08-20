@@ -261,25 +261,27 @@ export default function News() {
       />
 
       {/* Hero Section */}
-      <section className={`py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary via-primary to-primary/80 dark:from-primary dark:via-primary/90 dark:to-primary/70 text-primary-foreground ${getAnimationClass('fade-in-up', true)}`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <section className={`relative py-12 md:py-16 lg:py-20 overflow-hidden ${getAnimationClass('fade-in-up', true)}`}>
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
+        <div className="absolute inset-0 bg-primary/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 text-white">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 sm:mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               News & <span className="text-secondary">Updates</span>
             </h1>
-            <p className="text-base md:text-lg text-primary-foreground/90 mb-8">
+            <p className="text-base md:text-lg opacity-90 mb-8">
               Stay informed about our latest achievements, upcoming projects, industry recognition, and strategic vision for the future of industrial automation.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <Award className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Award Winning</span>
               </div>
-              <div className="flex items-center bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <TrendingUp className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Growing Strong</span>
               </div>
-              <div className="flex items-center bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <Rocket className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Future Ready</span>
               </div>

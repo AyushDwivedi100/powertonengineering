@@ -101,8 +101,10 @@ export default function Contact() {
       />
 
       {/* Hero Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1497215842964-222b430dc094?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
+        <div className="absolute inset-0 bg-primary/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 text-white">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Get in <span className="text-secondary">Touch</span>

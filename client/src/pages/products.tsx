@@ -148,25 +148,26 @@ export default function Products() {
       />
 
       {/* Hero Section */}
-      <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: "url('https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
-        <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
+        <div className="absolute inset-0 bg-primary/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 text-white">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-responsive-2xl font-bold mb-4 sm:mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               Industrial <span className="text-secondary">Product Catalog</span>
             </h1>
-            <p className="text-responsive-base mb-6 sm:mb-8 opacity-90">
+            <p className="text-base md:text-lg mb-6 sm:mb-8 opacity-90">
               Comprehensive range of electrical and automation products designed for reliability, efficiency, and superior performance in industrial environments.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-              <Button className="btn-secondary mobile-full btn-responsive">
+              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 py-3 rounded-lg font-semibold transition-colors">
                 <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                 Download Catalog
               </Button>
               <Link href="/contact" className="mobile-full">
                 <Button 
                   variant="outline" 
-                  className="btn-outline mobile-full btn-responsive border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                  className="border-2 border-white text-white hover:bg-white hover:text-primary px-6 py-3 rounded-lg font-semibold transition-all"
                 >
                   Request Quote
                 </Button>

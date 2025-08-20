@@ -228,13 +228,15 @@ export default function Projects() {
       />
 
       {/* Hero Section */}
-      <section className={`py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white ${getAnimationClass('fade-in-up', true)}`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <section className={`relative py-12 md:py-16 lg:py-20 overflow-hidden ${getAnimationClass('fade-in-up', true)}`}>
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
+        <div className="absolute inset-0 bg-primary/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 text-white">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               Our Engineering <span className="text-secondary">Projects & Portfolio</span>
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 opacity-90">
+            <p className="text-base md:text-lg mb-6 sm:mb-8 opacity-90">
               Discover our engineering excellence through 1200+ successful projects across diverse industries, showcasing innovation, quality, and reliability.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
@@ -245,7 +247,7 @@ export default function Projects() {
               <Link href="/contact" className="mobile-full">
                 <Button 
                   variant="outline" 
-                  className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-6 py-3 rounded-lg font-semibold transition-all"
+                  className="border-2 border-white text-white hover:bg-white hover:text-primary px-6 py-3 rounded-lg font-semibold transition-all"
                 >
                   Discuss Your Project
                 </Button>

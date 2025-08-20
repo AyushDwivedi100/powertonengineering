@@ -116,9 +116,10 @@ export default function Services() {
       />
 
       {/* Hero Section */}
-      <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: "url('https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
-        <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
+        <div className="absolute inset-0 bg-primary/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 text-white">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Professional <span className="text-secondary">Engineering Services</span>
@@ -127,7 +128,7 @@ export default function Services() {
               From process automation to maintenance contracts, we provide comprehensive engineering solutions tailored to your industrial requirements.
             </p>
             <Link href="/contact">
-              <Button className="btn-secondary text-lg px-8 py-4">
+              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-lg px-8 py-4">
                 Request Service Quote
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
