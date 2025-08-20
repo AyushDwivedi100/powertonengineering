@@ -17,7 +17,7 @@ const host = '0.0.0.0';
 log(`Starting Vite development server on ${host}:${port}`);
 
 // Start vite server directly from client directory
-const viteProcess = spawn('npx', ['vite', '--host', host, '--port', port], {
+const viteProcess = spawn('npx', ['vite', '--host', '--port', port], {
   cwd: resolve(__dirname, "..", "client"),
   stdio: 'inherit'
 });

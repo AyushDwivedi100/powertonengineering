@@ -11,9 +11,16 @@ export default defineConfig({
     },
   },
   server: {
-    host: "0.0.0.0",
+    host: true,
     port: 5000,
-    allowedHosts: "all",
+    strictPort: false,
+    hmr: {
+      port: 5000,
+    },
+  },
+  preview: {
+    host: true,
+    port: 5000,
   },
   build: {
     outDir: path.resolve(__dirname, "..", "dist", "public"),
