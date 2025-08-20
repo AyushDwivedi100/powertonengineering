@@ -222,7 +222,7 @@ export default function Products() {
             <TabsContent value={selectedCategory} className="space-y-6 sm:space-y-8">
               <div className="grid-responsive-cards">
                 {filteredProducts.map((product) => {
-                  const details = productDetails[product.id];
+                  const details = productDetails[product.id as keyof typeof productDetails];
                   
                   return (
                     <Card 
@@ -253,7 +253,7 @@ export default function Products() {
                             <div>
                               <h4 className="text-sm font-semibold text-foreground mb-2">Key Features:</h4>
                               <div className="space-y-1">
-                                {details.features.slice(0, 2).map((feature) => (
+                                {details.features.slice(0, 2).map((feature: string) => (
                                   <div key={feature} className="flex items-center text-xs text-muted-foreground">
                                     <CheckCircle className="w-3 h-3 text-green-600 mr-2 flex-shrink-0" />
                                     {feature}
@@ -262,7 +262,7 @@ export default function Products() {
                               </div>
                             </div>
                             
-                            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <div className="flex items-center justify-between pt-4 border-t border-border">
                               <div className="flex space-x-2">
                                 <Badge variant="outline" className="text-xs">
                                   <Zap className="w-3 h-3 mr-1" />
@@ -298,7 +298,7 @@ export default function Products() {
         <section className="py-12 md:py-16 lg:py-20 bg-muted">
           <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
             {filteredProducts.map((product) => {
-              const details = productDetails[product.id];
+              const details = productDetails[product.id as keyof typeof productDetails];
               if (!details) return null;
 
               return (
@@ -315,7 +315,7 @@ export default function Products() {
                       <div>
                         <h3 className="text-xl font-bold text-foreground mb-4">Applications</h3>
                         <div className="space-y-2">
-                          {details.applications.map((app) => (
+                          {details.applications.map((app: string) => (
                             <div key={app} className="flex items-center">
                               <CheckCircle className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" />
                               <span className="text-muted-foreground">{app}</span>
@@ -327,7 +327,7 @@ export default function Products() {
                       <div>
                         <h3 className="text-xl font-bold text-foreground mb-4">Key Features</h3>
                         <div className="space-y-2">
-                          {details.features.map((feature) => (
+                          {details.features.map((feature: string) => (
                             <div key={feature} className="flex items-center">
                               <Settings className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
                               <span className="text-muted-foreground">{feature}</span>
@@ -347,7 +347,7 @@ export default function Products() {
                       </CardHeader>
                       <CardContent>
                         <div className="space-y-4">
-                          {details.specifications.map((spec, index) => (
+                          {details.specifications.map((spec: string, index: number) => (
                             <div key={index} className="flex items-start">
                               <div className="w-2 h-2 bg-secondary rounded-full mr-3 mt-2 flex-shrink-0"></div>
                               <span className="text-muted-foreground">{spec}</span>
@@ -355,7 +355,7 @@ export default function Products() {
                           ))}
                         </div>
                         
-                        <div className="mt-8 pt-6 border-t border-gray-200">
+                        <div className="mt-8 pt-6 border-t border-border">
                           <div className="flex flex-col space-y-3">
                             <Button className="btn-primary w-full">
                               Request Technical Datasheet

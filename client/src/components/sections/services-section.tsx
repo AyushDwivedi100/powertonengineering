@@ -33,8 +33,8 @@ export default function ServicesSection() {
       }}
     >
       {/* Background overlay for readability */}
-      <div className="absolute inset-0 bg-white/92 dark:bg-gray-900/92"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-white/95 to-gray-50/85 dark:from-gray-900/95 dark:to-gray-800/85"></div>
+      <div className="absolute inset-0 bg-background/92"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-background/95 to-muted/85"></div>
       
       {/* Content */}
       <div className="relative z-10">

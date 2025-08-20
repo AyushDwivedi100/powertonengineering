@@ -65,12 +65,12 @@ export default function NewsArticle() {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      "Project Success": "bg-green-100 text-green-800 border-green-300",
-      "Technology": "bg-blue-100 text-blue-800 border-blue-300",
-      "Industry News": "bg-purple-100 text-purple-800 border-purple-300",
-      "Company Update": "bg-orange-100 text-orange-800 border-orange-300"
+      "Project Success": "bg-primary/10 text-primary border-primary/20",
+      "Technology": "bg-accent/10 text-accent-foreground border-accent/20",
+      "Industry News": "bg-secondary/10 text-secondary border-secondary/20",
+      "Company Update": "bg-primary/20 text-primary border-primary/30"
     };
-    return colors[category as keyof typeof colors] || "bg-muted text-foreground border-gray-300";
+    return colors[category as keyof typeof colors] || "bg-muted text-foreground border-border";
   };
 
   return (
@@ -180,7 +180,7 @@ export default function NewsArticle() {
             <h3 className="text-2xl font-semibold text-foreground mb-6">Related Articles</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-card border border-border rounded-lg p-6">
-                <Badge className="bg-blue-100 text-blue-800 border-blue-300 mb-3">
+                <Badge className="bg-primary/10 text-primary border-primary/30 mb-3">
                   Technology
                 </Badge>
                 <h4 className="font-semibold text-foreground mb-2">

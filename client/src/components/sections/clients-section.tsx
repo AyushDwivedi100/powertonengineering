@@ -67,7 +67,7 @@ export default function ClientsSection() {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white dark:bg-gray-900" role="main">
+    <section className="py-12 md:py-16 lg:py-20 bg-background" role="main">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-secondary font-semibold text-lg">
@@ -85,7 +85,7 @@ export default function ClientsSection() {
         {/* Client Logos Slideshow - Continuous infinite scroll */}
         <div className="mb-16">
           <div 
-            className="relative overflow-hidden bg-muted dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 py-4 md:py-6 lg:py-8"
+            className="relative overflow-hidden bg-muted rounded-lg border border-border py-4 md:py-6 lg:py-8"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
@@ -100,7 +100,7 @@ export default function ClientsSection() {
               {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, index) => (
                 <div
                   key={`${client.id}-${Math.floor(index / CLIENT_LOGOS.length)}`}
-                  className="flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300 mx-2 md:mx-3 lg:mx-4"
+                  className="flex-shrink-0 bg-card rounded-lg border border-border p-2 md:p-3 lg:p-4 flex items-center justify-center hover:shadow-lg transition-all duration-300 mx-2 md:mx-3 lg:mx-4"
                   style={{
                     width: "130px",
                     minWidth: "130px",
@@ -129,8 +129,8 @@ export default function ClientsSection() {
 
 
             {/* Responsive gradient overlays */}
-            <div className="absolute top-0 left-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10"></div>
-            <div className="absolute top-0 right-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10"></div>
+            <div className="absolute top-0 left-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-r from-muted to-transparent pointer-events-none z-10"></div>
+            <div className="absolute top-0 right-0 w-8 md:w-12 lg:w-16 h-full bg-gradient-to-l from-muted to-transparent pointer-events-none z-10"></div>
           </div>
 
 
@@ -149,7 +149,7 @@ export default function ClientsSection() {
             variant="outline"
             size="icon"
             onClick={goToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-muted border-gray-200 shadow-lg"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-card hover:bg-muted border-border shadow-lg"
             aria-label="Previous testimonial"
             data-testid="button-previous-testimonial"
           >
@@ -160,7 +160,7 @@ export default function ClientsSection() {
             variant="outline"
             size="icon"
             onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-muted border-gray-200 shadow-lg"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-card hover:bg-muted border-border shadow-lg"
             aria-label="Next testimonial"
             data-testid="button-next-testimonial"
           >
@@ -177,7 +177,7 @@ export default function ClientsSection() {
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
-                <Card className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 shadow-lg">
+                <Card className="bg-gradient-to-br from-muted/50 to-muted border border-border shadow-lg">
                   <CardContent className="p-8 md:p-12">
                     <div className="text-center">
                       {/* Rating Stars */}

@@ -156,7 +156,7 @@ export default function Services() {
               return (
                 <Card 
                   key={service.id} 
-                  className="border border-gray-100 group hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  className="border border-border group hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                 >
                   <CardHeader>
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">

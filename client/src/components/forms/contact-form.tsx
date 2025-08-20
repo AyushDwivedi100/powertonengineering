@@ -108,7 +108,7 @@ export default function ContactForm() {
                     <FormControl>
                       <Input 
                         {...field} 
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent text-sm sm:text-base"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent text-sm sm:text-base"
                         placeholder="Enter your first name"
                       />
                     </FormControl>
@@ -128,7 +128,7 @@ export default function ContactForm() {
                     <FormControl>
                       <Input 
                         {...field} 
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
                         placeholder="Enter your last name"
                       />
                     </FormControl>
@@ -151,7 +151,7 @@ export default function ContactForm() {
                       <Input 
                         {...field} 
                         type="email"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
                         placeholder="Enter your email address"
                       />
                     </FormControl>
@@ -172,7 +172,7 @@ export default function ContactForm() {
                       <Input 
                         {...field} 
                         type="tel"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
                         placeholder="Enter your phone number"
                       />
                     </FormControl>
@@ -192,7 +192,7 @@ export default function ContactForm() {
                   </FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
+                      <SelectTrigger className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
                         <SelectValue placeholder="Select a service..." />
                       </SelectTrigger>
                     </FormControl>
@@ -221,7 +221,7 @@ export default function ContactForm() {
                     <Textarea 
                       {...field} 
                       rows={4}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
                       placeholder="Please describe your project requirements, timeline, and any specific technical specifications..."
                     />
                   </FormControl>

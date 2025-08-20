@@ -217,12 +217,12 @@ export default function News() {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      "Awards": "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200",
+      "Awards": "bg-accent/10 text-accent-foreground",
       "Business": "bg-secondary/10 text-secondary",
-      "Company": "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200",
-      "Infrastructure": "bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200",
-      "Partnership": "bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200",
-      "Quality": "bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-200"
+      "Company": "bg-primary/10 text-primary",
+      "Infrastructure": "bg-accent/20 text-accent-foreground",
+      "Partnership": "bg-primary/20 text-primary",
+      "Quality": "bg-secondary/20 text-secondary"
     };
     return colors[category as keyof typeof colors] || "bg-muted text-muted-foreground";
   };
@@ -230,9 +230,9 @@ export default function News() {
   const getStatusColor = (status: string) => {
     const colors = {
       "Planning Phase": "bg-secondary/10 text-secondary",
-      "Contract Signed": "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200",
-      "Engineering Phase": "bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200",
-      "In Progress": "bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200"
+      "Contract Signed": "bg-primary/10 text-primary",
+      "Engineering Phase": "bg-accent/10 text-accent-foreground",
+      "In Progress": "bg-secondary/20 text-secondary"
     };
     return colors[status as keyof typeof colors] || "bg-muted text-muted-foreground";
   };

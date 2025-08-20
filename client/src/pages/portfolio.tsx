@@ -175,7 +175,7 @@ export default function Portfolio() {
       case "Completed":
         return <CheckCircle className="w-4 h-4 text-green-600" />;
       case "In Progress":
-        return <Clock className="w-4 h-4 text-blue-600" />;
+        return <Clock className="w-4 h-4 text-primary" />;
       default:
         return null;
     }
@@ -206,7 +206,7 @@ export default function Portfolio() {
       />
 
       {/* Hero Section */}
-      <section className={`py-12 md:py-16 lg:py-20 hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+      <section className={`py-12 md:py-16 lg:py-20 hero-gradient text-white ${getAnimationClass('fade-in-up', (heroAnimation as any).isVisible)}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="hero-content">
             <h1 className="hero-title">
@@ -234,7 +234,7 @@ export default function Portfolio() {
       </section>
 
       {/* Stats Section */}
-      <section className={`py-12 md:py-16 lg:py-20 bg-muted/30 ${getAnimationClass('fade-in-up', statsAnimation.isVisible)}`}>
+      <section className={`py-12 md:py-16 lg:py-20 bg-muted/30 ${getAnimationClass('fade-in-up', (statsAnimation as any).isVisible)}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 text-center">
             <div>

@@ -267,7 +267,7 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    <div className="mt-6 pt-6 border-t border-gray-200">
+                    <div className="mt-6 pt-6 border-t border-border">
                       <a 
                         href="https://maps.app.goo.gl/jiap3sBYbM3r8Pn68"
                         target="_blank"

@@ -8,7 +8,7 @@ import { AnimatedSection, StaggeredList } from "@/hooks/use-scroll-animation";
 
 export default function ProductsSection() {
   return (
-    <section id="products" className="py-12 md:py-16 lg:py-20 bg-muted dark:bg-gray-800" role="main">
+    <section id="products" className="py-12 md:py-16 lg:py-20 bg-muted" role="main">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
           <div className="text-center mb-16">

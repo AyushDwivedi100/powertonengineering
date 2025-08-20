@@ -340,7 +340,7 @@ export default function Chatbot() {
                         <button
                           key={suggestion}
                           onClick={() => handleSuggestionClick(suggestion)}
-                          className="text-xs bg-white border border-gray-300 hover:border-primary hover:text-primary px-3 py-1 rounded-full transition-colors"
+                          className="text-xs bg-card border border-border hover:border-primary hover:text-primary px-3 py-1 rounded-full transition-colors"
                         >
                           {suggestion}
                         </button>

@@ -60,7 +60,7 @@ export default function GallerySection() {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-muted/30 dark:bg-gray-800/30" role="main">
+    <section className="py-12 md:py-16 lg:py-20 bg-muted/30" role="main">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <span className="text-secondary font-semibold text-responsive-sm">Our Work</span>

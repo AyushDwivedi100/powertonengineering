@@ -83,7 +83,7 @@ export default function QuoteForm() {
     }
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     quoteMutation.mutate(data);
   };
 
@@ -156,7 +156,7 @@ export default function QuoteForm() {
                       <FormControl>
                         <Input 
                           {...field} 
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                          className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
                           placeholder="Enter your first name"
                         />
                       </FormControl>
@@ -176,7 +176,7 @@ export default function QuoteForm() {
                       <FormControl>
                         <Input 
                           {...field} 
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                          className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
                           placeholder="Enter your last name"
                         />
                       </FormControl>
@@ -199,7 +199,7 @@ export default function QuoteForm() {
                         <Input 
                           {...field} 
                           type="email"
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                          className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
                           placeholder="Enter your email address"
                         />
                       </FormControl>
@@ -220,7 +220,7 @@ export default function QuoteForm() {
                         <Input 
                           {...field} 
                           type="tel"
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                          className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
                           placeholder="Enter your phone number"
                         />
                       </FormControl>
@@ -242,7 +242,7 @@ export default function QuoteForm() {
                       <Input 
                         {...field} 
                         value={field.value || ""}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
                         placeholder="Enter your company name (optional)"
                       />
                     </FormControl>
@@ -266,7 +266,7 @@ export default function QuoteForm() {
                     </FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <SelectTrigger className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
+                        <SelectTrigger className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
                           <SelectValue placeholder="Select the primary service you need..." />
                         </SelectTrigger>
                       </FormControl>
@@ -295,7 +295,7 @@ export default function QuoteForm() {
                       <Textarea 
                         {...field} 
                         rows={6}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
                         placeholder="Please provide detailed information about your project including:
 • Scope of work and objectives
 • Technical requirements and specifications
@@ -321,7 +321,7 @@ export default function QuoteForm() {
                       </FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                          <SelectTrigger className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
+                          <SelectTrigger className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
                             <SelectValue placeholder="Select budget range (optional)" />
                           </SelectTrigger>
                         </FormControl>
@@ -348,7 +348,7 @@ export default function QuoteForm() {
                       </FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                          <SelectTrigger className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
+                          <SelectTrigger className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
                             <SelectValue placeholder="Select timeline (optional)" />
                           </SelectTrigger>
                         </FormControl>
@@ -370,10 +370,10 @@ export default function QuoteForm() {
             {/* Additional Information */}
             <div className="bg-primary/10 rounded-lg p-4">
               <div className="flex items-start">
-                <FileText className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                <div className="text-sm text-blue-800">
+                <FileText className="w-5 h-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                <div className="text-sm text-primary">
                   <p className="font-semibold mb-2">What happens next?</p>
-                  <ul className="space-y-1 text-blue-700">
+                  <ul className="space-y-1 text-primary/80">
                     <li>• Our engineering team will review your requirements</li>
                     <li>• We may contact you for clarifications or additional details</li>
                     <li>• A comprehensive quote will be prepared within 24-48 hours</li>

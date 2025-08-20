@@ -184,7 +184,7 @@ export default function Projects() {
       case "Completed":
         return <CheckCircle className="w-4 h-4 text-green-600" />;
       case "In Progress":
-        return <Clock className="w-4 h-4 text-blue-600" />;
+        return <Clock className="w-4 h-4 text-primary" />;
       default:
         return null;
     }
@@ -419,7 +419,7 @@ export default function Projects() {
                             </div>
                             <div className="flex items-center gap-1">
                               {getStatusIcon(project.status)}
-                              <span className={`text-sm ${project.status === 'Completed' ? 'text-green-600' : 'text-blue-600'}`}>
+                              <span className={`text-sm ${project.status === 'Completed' ? 'text-green-600' : 'text-primary'}`}>
                                 {project.status}
                               </span>
                             </div>

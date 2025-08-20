@@ -7,7 +7,7 @@ import logoImage from "@assets/mainlogopowerton (1)_1755674514195.png";
 export default function Footer() {
   return (
     <footer 
-      className="bg-gray-900 dark:bg-gray-950 text-white py-12" 
+      className="bg-card border-t border-border text-foreground py-12" 
       role="contentinfo"
     >
       {/* Content */}
@@ -62,7 +62,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-gray-100">Services</h4>
+            <h4 className="text-lg font-semibold mb-4 text-foreground">Services</h4>
             <ul className="space-y-3 text-muted-foreground">
               {SERVICES.slice(0, 5).map((service) => (
                 <li key={service.id}>
@@ -79,7 +79,7 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-gray-100">Products</h4>
+            <h4 className="text-lg font-semibold mb-4 text-foreground">Products</h4>
             <ul className="space-y-3 text-muted-foreground">
               {PRODUCTS.slice(0, 5).map((product) => (
                 <li key={product.id}>
@@ -96,7 +96,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-gray-100">Contact Info</h4>
+            <h4 className="text-lg font-semibold mb-4 text-foreground">Contact Info</h4>
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-center">
                 <Phone className="w-4 h-4 mr-3 text-secondary" aria-hidden="true" />

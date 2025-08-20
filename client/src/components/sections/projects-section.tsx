@@ -14,7 +14,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-12 md:py-16 lg:py-20 bg-muted dark:bg-gray-800" role="main">
+    <section id="projects" className="py-12 md:py-16 lg:py-20 bg-muted" role="main">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-secondary font-semibold text-lg">Our Projects</span>
