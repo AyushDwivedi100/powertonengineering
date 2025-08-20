@@ -41,10 +41,9 @@ export default function Footer() {
             <div className="mb-4">
               <div className="relative w-[200px] h-12 overflow-hidden">
                 <img 
-                  key={isDark ? 'dark' : 'light'}
                   src={currentLogo} 
                   alt="ID-002: Powerton Engineering Pvt. Ltd. logo" 
-                  className="absolute inset-0 w-full h-full object-contain transition-opacity duration-200 ease-in-out"
+                  className="absolute inset-0 w-full h-full object-contain"
                   loading="lazy"
                 />
               </div>

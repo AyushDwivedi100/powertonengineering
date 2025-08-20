@@ -146,17 +146,11 @@ export default function Header() {
           >
             <Link href="/" className="flex items-center">
               <div className="relative w-[140px] sm:w-[160px] md:w-[180px] h-8 sm:h-10 md:h-12 overflow-hidden">
-                <motion.img
-                  key={isDark ? 'dark' : 'light'}
+                <img
                   src={currentLogo}
                   alt="ID-001: Powerton Engineering Pvt. Ltd. logo"
                   className="absolute inset-0 w-full h-full object-contain"
                   loading="eager"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2, ease: 'easeInOut' }}
-                  whileHover={{ scale: 1.03 }}
                 />
               </div>
             </Link>
