@@ -1,24 +1,28 @@
+#!/usr/bin/env node
+// Simple startup script for pure frontend React application
+// Redirects to client directory and starts Vite development server
+
 import { spawn } from "child_process";
+import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-import { dirname, resolve } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 function log(message: string) {
   const timestamp = new Date().toLocaleTimeString();
-  console.log(`${timestamp} [express] ${message}`);
+  console.log(`${timestamp} [powerton] ${message}`);
 }
 
-// Pure frontend serving - run vite directly
+const clientDir = resolve(__dirname, "..", "client");
 const port = process.env.PORT || '5000';
-const host = '0.0.0.0';
 
-log(`Starting Vite development server on ${host}:${port}`);
+log(`Starting Powerton Engineering website...`);
+log(`Client directory: ${clientDir}`);
 
-// Start vite server directly from client directory
+// Start Vite development server from client directory
 const viteProcess = spawn('npx', ['vite', '--host', '0.0.0.0', '--port', port], {
-  cwd: resolve(__dirname, "..", "client"),
+  cwd: clientDir,
   stdio: 'inherit'
 });
 
@@ -34,11 +38,11 @@ viteProcess.on('close', (code) => {
 
 // Handle process termination
 process.on('SIGINT', () => {
-  log('Shutting down...');
+  log('Shutting down Powerton Engineering website...');
   viteProcess.kill('SIGINT');
 });
 
 process.on('SIGTERM', () => {
-  log('Shutting down...');
+  log('Shutting down Powerton Engineering website...');
   viteProcess.kill('SIGTERM');
 });

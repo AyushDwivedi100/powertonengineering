@@ -1,6 +1,4 @@
 import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { HelmetProvider } from "react-helmet-async";
@@ -21,7 +19,6 @@ import Quote from "@/pages/quote";
 import News from "@/pages/news";
 import NewsArticle from "@/pages/news-article";
 import Sitemap from "@/pages/sitemap";
-
 import TermsOfService from "@/pages/terms-of-service";
 import PortfolioDownload from "@/pages/portfolio-download";
 
@@ -55,14 +52,12 @@ function Router() {
 function App() {
   return (
     <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider defaultTheme="system" storageKey="powerton-ui-theme">
-          <TooltipProvider>
-            <Toaster />
-            <Router />
-          </TooltipProvider>
-        </ThemeProvider>
-      </QueryClientProvider>
+      <ThemeProvider defaultTheme="system" storageKey="powerton-ui-theme">
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </ThemeProvider>
     </HelmetProvider>
   );
 }
