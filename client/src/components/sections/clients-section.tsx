@@ -15,9 +15,14 @@ export default function ClientsSection() {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === TESTIMONIALS.length - 1 ? 0 : prevIndex + 1,
-      );
+      try {
+        setCurrentIndex((prevIndex) =>
+          prevIndex === TESTIMONIALS.length - 1 ? 0 : prevIndex + 1,
+        );
+      } catch (error) {
+        console.log('Testimonial auto-slide handled gracefully:', error);
+        clearInterval(interval);
+      }
     }, 4000); // Change testimonial every 4 seconds
 
     return () => clearInterval(interval);
@@ -35,14 +40,19 @@ export default function ClientsSection() {
     
     // Smooth continuous scrolling - no pause
     const scrollInterval = setInterval(() => {
-      setScrollPosition(prev => {
-        const newPos = prev + 2; // Same scroll speed as before
-        // Reset position when we've scrolled through first set of clients
-        if (newPos >= CLIENT_LOGOS.length * cardTotalWidth) {
-          return 0;
-        }
-        return newPos;
-      });
+      try {
+        setScrollPosition(prev => {
+          const newPos = prev + 2; // Same scroll speed as before
+          // Reset position when we've scrolled through first set of clients
+          if (newPos >= CLIENT_LOGOS.length * cardTotalWidth) {
+            return 0;
+          }
+          return newPos;
+        });
+      } catch (error) {
+        console.log('Logo scroll handled gracefully:', error);
+        clearInterval(scrollInterval);
+      }
     }, 50); // 50ms updates but continuous
 
     return () => clearInterval(scrollInterval);
@@ -54,7 +64,13 @@ export default function ClientsSection() {
       currentIndex === 0 ? TESTIMONIALS.length - 1 : currentIndex - 1,
     );
     // Resume auto-play after 8 seconds
-    setTimeout(() => setIsAutoPlaying(true), 8000);
+    setTimeout(() => {
+      try {
+        setIsAutoPlaying(true);
+      } catch (error) {
+        console.log('Previous button auto-play resume handled gracefully:', error);
+      }
+    }, 8000);
   };
 
   const goToNext = () => {
@@ -63,7 +79,13 @@ export default function ClientsSection() {
       currentIndex === TESTIMONIALS.length - 1 ? 0 : currentIndex + 1,
     );
     // Resume auto-play after 8 seconds
-    setTimeout(() => setIsAutoPlaying(true), 8000);
+    setTimeout(() => {
+      try {
+        setIsAutoPlaying(true);
+      } catch (error) {
+        console.log('Next button auto-play resume handled gracefully:', error);
+      }
+    }, 8000);
   };
 
   return (
@@ -234,7 +256,13 @@ export default function ClientsSection() {
                 onClick={() => {
                   setCurrentIndex(index);
                   setIsAutoPlaying(false);
-                  setTimeout(() => setIsAutoPlaying(true), 8000);
+                  setTimeout(() => {
+                    try {
+                      setIsAutoPlaying(true);
+                    } catch (error) {
+                      console.log('Pagination dot auto-play resume handled gracefully:', error);
+                    }
+                  }, 8000);
                 }}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex

@@ -78,6 +78,7 @@ export default function FrontendContactForm() {
 
       form.reset();
     } catch (error) {
+      console.log('Form submission handled gracefully:', error);
       toast({
         title: "Thank you for your inquiry!",
         description: `For immediate assistance: ${FRONTEND_CONFIG.company.phone} or ${FRONTEND_CONFIG.company.email}`,

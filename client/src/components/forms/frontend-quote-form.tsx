@@ -119,6 +119,7 @@ export default function FrontendQuoteForm() {
 
       form.reset();
     } catch (error) {
+      console.log('Form submission handled gracefully:', error);
       toast({
         title: "Thank you for your quote request!",
         description: `For immediate assistance: ${FRONTEND_CONFIG.company.phone} or email: ${FRONTEND_CONFIG.company.email}`,
