@@ -59,8 +59,8 @@ export default function About() {
       />
 
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               About <span className="text-secondary">Powerton Engineering</span>
@@ -74,8 +74,8 @@ export default function About() {
 
       {/* Company Story */}
       <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
-        <section className="section-padding bg-background">
-          <div className="max-w-7xl mx-auto container-padding">
+        <section className="py-12 md:py-16 lg:py-20 bg-background">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <img 
@@ -121,7 +121,7 @@ export default function About() {
       {/* Mission & Vision */}
       <AnimatedSection animation="fadeInLeft" delay={0.2} duration={0.9}>
       <section className="section-padding bg-muted">
-        <div className="max-w-7xl mx-auto container-padding">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Card className="border-none shadow-lg">
               <CardContent className="p-8">
@@ -158,7 +158,7 @@ export default function About() {
       {/* Core Values */}
       <AnimatedSection animation="scaleIn" delay={0.15} duration={0.7}>
       <section className="section-padding bg-background">
-        <div className="max-w-7xl mx-auto container-padding">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Our Core Values</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -189,7 +189,7 @@ export default function About() {
       {/* Certifications & Standards */}
       <AnimatedSection animation="fadeInRight" delay={0.1} duration={0.8}>
       <section className="section-padding bg-muted">
-        <div className="max-w-7xl mx-auto container-padding">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Certifications & Quality Standards

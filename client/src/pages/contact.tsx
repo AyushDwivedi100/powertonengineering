@@ -101,8 +101,8 @@ export default function Contact() {
       />
 
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary to-blue-800 text-white">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Get in <span className="text-secondary">Touch</span>
@@ -129,8 +129,8 @@ export default function Contact() {
       </section>
 
       {/* Contact Methods */}
-      <section className="section-padding bg-background">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Multiple Ways to Reach Us
@@ -167,8 +167,8 @@ export default function Contact() {
       </section>
 
       {/* Contact Forms */}
-      <section className="section-padding bg-muted">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-muted">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Send Us a Message
@@ -222,8 +222,8 @@ export default function Contact() {
       </section>
 
       {/* Office Information */}
-      <section className="section-padding bg-background">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8">
@@ -326,8 +326,8 @@ export default function Contact() {
       </section>
 
       {/* Business Hours */}
-      <section className="section-padding bg-muted">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-muted">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Business Hours & Availability

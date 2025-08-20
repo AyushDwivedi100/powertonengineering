@@ -116,9 +116,9 @@ export default function Services() {
       />
 
       {/* Hero Section */}
-      <section className="relative section-padding bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
+      <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: "url('https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
-        <div className="relative max-w-7xl mx-auto container-padding">
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Professional <span className="text-secondary">Engineering Services</span>
@@ -137,8 +137,8 @@ export default function Services() {
       </section>
 
       {/* Services Overview */}
-      <section className="section-padding bg-background">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Our Service Portfolio
@@ -204,9 +204,9 @@ export default function Services() {
           <section 
             key={service.id}
             id={`service-${service.id}`}
-            className={`section-padding ${isEven ? 'bg-muted' : 'bg-background'}`}
+            className={`py-12 md:py-16 lg:py-20 ${isEven ? 'bg-muted' : 'bg-background'}`}
           >
-            <div className="max-w-7xl mx-auto container-padding">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className={isEven ? '' : 'lg:order-2'}>
                   <div className="flex items-center mb-6">
@@ -292,8 +292,8 @@ export default function Services() {
       })}
 
       {/* Call to Action */}
-      <section className="section-padding bg-primary text-white">
-        <div className="max-w-7xl mx-auto container-padding text-center">
+      <section className="py-12 md:py-16 lg:py-20 bg-primary text-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
             Ready to Transform Your Operations?
           </h2>

@@ -148,9 +148,9 @@ export default function Products() {
       />
 
       {/* Hero Section */}
-      <section className="relative section-padding bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
+      <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: "url('https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}></div>
-        <div className="relative max-w-7xl mx-auto container-padding">
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-responsive-2xl font-bold mb-4 sm:mb-6">
               Industrial <span className="text-secondary">Product Catalog</span>
@@ -177,8 +177,8 @@ export default function Products() {
       </section>
 
       {/* Product Categories */}
-      <section className="section-padding bg-background">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-responsive-xl font-bold text-primary mb-4 sm:mb-6">
               Product Categories
@@ -294,8 +294,8 @@ export default function Products() {
 
       {/* Detailed Product Information */}
       {selectedCategory !== "all" && (
-        <section className="section-padding bg-muted">
-          <div className="max-w-7xl mx-auto container-padding">
+        <section className="py-12 md:py-16 lg:py-20 bg-muted">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
             {filteredProducts.map((product) => {
               const details = productDetails[product.id];
               if (!details) return null;
@@ -377,8 +377,8 @@ export default function Products() {
       )}
 
       {/* Why Choose Our Products */}
-      <section className="section-padding bg-background">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
               Why Choose Powerton Products?
@@ -426,8 +426,8 @@ export default function Products() {
       </section>
 
       {/* Call to Action */}
-      <section className="section-padding bg-primary text-white">
-        <div className="max-w-7xl mx-auto container-padding text-center">
+      <section className="py-12 md:py-16 lg:py-20 bg-primary text-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
             Need Custom Product Solutions?
           </h2>

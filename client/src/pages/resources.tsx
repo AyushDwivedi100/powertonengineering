@@ -174,8 +174,8 @@ export default function Resources() {
       />
 
       {/* Hero Section */}
-      <section className={`section-padding hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className={`py-12 md:py-16 lg:py-20 hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="hero-content">
             <h1 className="hero-title">
               Knowledge <span className="text-secondary">Hub</span>
@@ -206,8 +206,8 @@ export default function Resources() {
       </section>
 
       {/* Search Section */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />

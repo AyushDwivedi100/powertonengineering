@@ -206,8 +206,8 @@ export default function Portfolio() {
       />
 
       {/* Hero Section */}
-      <section className={`section-padding hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className={`py-12 md:py-16 lg:py-20 hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="hero-content">
             <h1 className="hero-title">
               Our Project <span className="text-secondary">Portfolio</span>
@@ -234,8 +234,8 @@ export default function Portfolio() {
       </section>
 
       {/* Stats Section */}
-      <section className={`section-padding bg-muted/30 ${getAnimationClass('fade-in-up', statsAnimation.isVisible)}`}>
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className={`py-12 md:py-16 lg:py-20 bg-muted/30 ${getAnimationClass('fade-in-up', statsAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 text-center">
             <div>
               <div className="text-responsive-xl font-bold text-primary mb-2">1200+</div>

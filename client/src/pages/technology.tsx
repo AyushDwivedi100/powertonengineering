@@ -146,8 +146,8 @@ export default function Technology() {
       />
 
       {/* Hero Section */}
-      <section className={`section-padding hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className={`py-12 md:py-16 lg:py-20 hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="hero-content">
             <h1 className="hero-title">
               Technology & <span className="text-secondary">Innovation</span>
@@ -178,8 +178,8 @@ export default function Technology() {
       </section>
 
       {/* Technology Stack */}
-      <section className={`section-padding bg-white ${getAnimationClass('fade-in-up', stackAnimation.isVisible)}`}>
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className={`py-12 md:py-16 lg:py-20 bg-white ${getAnimationClass('fade-in-up', stackAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="section-title">Our Technology Stack</h2>
               <p className="section-subtitle">
@@ -239,8 +239,8 @@ export default function Technology() {
       </section>
 
       {/* Innovation Areas */}
-      <section className={`section-padding bg-muted/30 ${getAnimationClass('fade-in-up', innovationAnimation.isVisible)}`}>
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className={`py-12 md:py-16 lg:py-20 bg-muted/30 ${getAnimationClass('fade-in-up', innovationAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="section-title">Innovation Frontiers</h2>
             <p className="section-subtitle">
@@ -290,8 +290,8 @@ export default function Technology() {
       </section>
 
       {/* Certifications */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="section-title">Certifications & Partnerships</h2>
             <p className="section-subtitle">
@@ -313,8 +313,8 @@ export default function Technology() {
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding bg-primary text-white">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-primary text-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 text-center">
             <div>
               <div className="text-4xl font-bold mb-2">15+</div>
@@ -337,8 +337,8 @@ export default function Technology() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-muted/30">
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className="py-12 md:py-16 lg:py-20 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="section-title mb-6">
               Ready to Leverage Advanced Technologies?

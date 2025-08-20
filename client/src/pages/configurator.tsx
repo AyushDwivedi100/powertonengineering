@@ -186,8 +186,8 @@ export default function Configurator() {
       />
 
       {/* Hero Section */}
-      <section className={`section-padding hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
-        <div className="max-w-7xl mx-auto container-padding">
+      <section className={`py-12 md:py-16 lg:py-20 hero-gradient text-white ${getAnimationClass('fade-in-up', heroAnimation.isVisible)}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="hero-content">
             <h1 className="hero-title">
               Project <span className="text-secondary">Configurator</span>
