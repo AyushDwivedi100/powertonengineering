@@ -63,7 +63,7 @@ export default function ContactForm() {
     }
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     contactMutation.mutate(data);
   };
 
@@ -96,7 +96,7 @@ export default function ContactForm() {
       <CardContent className="p-4 sm:p-6 md:p-8">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
-            <div className="grid-responsive-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <FormField
                 control={form.control}
                 name="firstName"

@@ -123,7 +123,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 dark:border-gray-600 pt-8">
+        <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-center md:justify-between items-center">
             <p className="text-muted-foreground text-sm mb-4 md:mb-0">
               &copy; 2024 Powerton Engineering Pvt. Ltd. All rights reserved.

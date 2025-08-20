@@ -159,15 +159,15 @@ export default function Products() {
             <p className="text-base md:text-lg mb-6 sm:mb-8 opacity-90">
               Comprehensive range of electrical and automation products designed for reliability, efficiency, and superior performance in industrial environments.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 py-3 rounded-lg font-semibold transition-colors">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-md mx-auto">
+              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 py-3 rounded-lg font-semibold transition-colors w-full sm:w-auto">
                 <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                 Download Catalog
               </Button>
-              <Link href="/contact" className="mobile-full">
+              <Link href="/contact" className="w-full sm:w-auto">
                 <Button 
                   variant="outline" 
-                  className="border-2 border-white text-white hover:bg-white hover:text-primary px-6 py-3 rounded-lg font-semibold transition-all"
+                  className="border-2 border-white text-white hover:bg-white hover:text-primary px-6 py-3 rounded-lg font-semibold transition-all w-full"
                 >
                   Request Quote
                 </Button>

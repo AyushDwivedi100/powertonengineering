@@ -73,10 +73,10 @@ export default function ClientsSection() {
           <span className="text-secondary font-semibold text-lg">
             Our Clients
           </span>
-          <h2 className="text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-primary mt-4 mb-6">
             Trusted By Leading Brands and Organizations
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
             We've partnered with industry leaders across various sectors to
             deliver exceptional engineering solutions.
           </p>

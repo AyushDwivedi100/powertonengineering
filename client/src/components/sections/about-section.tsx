@@ -93,7 +93,7 @@ export default function AboutSection() {
             </motion.p>
             
             <StaggeredList 
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 sm:mb-8"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8"
               stagger={0.15}
               delay={0.6}
             >

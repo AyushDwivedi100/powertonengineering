@@ -69,7 +69,7 @@ export default function ServicesSection() {
         </AnimatedSection>
 
         <StaggeredList 
-          className="grid-responsive-3"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           stagger={0.15}
           delay={0.3}
         >
@@ -82,7 +82,7 @@ export default function ServicesSection() {
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <Card className="border border-gray-100 group hover:shadow-xl transition-all duration-300 hover-lift will-animate h-full flex flex-col">
+                <Card className="border border-border group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                   <CardContent className="p-4 sm:p-6 md:p-8 flex-1 flex flex-col">
                     <motion.div 
                       className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform"

@@ -57,7 +57,7 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           <div>
             <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
             

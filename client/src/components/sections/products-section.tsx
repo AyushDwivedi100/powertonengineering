@@ -40,7 +40,7 @@ export default function ProductsSection() {
         </AnimatedSection>
 
         <StaggeredList 
-          className="grid-responsive-cards mb-12 items-stretch"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 items-stretch"
           stagger={0.12}
           delay={0.3}
         >

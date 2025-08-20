@@ -328,6 +328,44 @@ body {
   @apply overflow-y-auto static antialiased;
 }
 
+/* Responsive container utilities */
+.container-responsive {
+  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+}
+
+/* Enhanced button responsive design */
+.btn-responsive {
+  @apply px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base lg:px-8 lg:py-4 lg:text-lg;
+}
+
+/* Mobile-first spacing utilities */
+.spacing-responsive {
+  @apply space-y-4 sm:space-y-6 lg:space-y-8;
+}
+
+/* Responsive gap utilities */
+.gap-responsive {
+  @apply gap-4 sm:gap-6 lg:gap-8;
+}
+
+/* Mobile navigation improvements */
+@media (max-width: 1023px) {
+  .nav-mobile-hidden {
+    @apply hidden;
+  }
+  
+  .nav-mobile-visible {
+    @apply block;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-optimized {
+    @apply px-6 py-4;
+  }
+}
+
 /* Blur overlay should not affect page scrolling */
 .chatbot-overlay {
   @apply pointer-events-none;

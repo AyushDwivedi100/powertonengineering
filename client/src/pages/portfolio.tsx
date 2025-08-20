@@ -288,7 +288,7 @@ export default function Portfolio() {
 
             {/* Filters */}
             {showFilters && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 p-6 bg-muted rounded-lg">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 p-4 sm:p-6 bg-muted rounded-lg">
                 <div>
                   <label className="block text-sm font-medium mb-2">Industry</label>
                   <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
@@ -345,7 +345,7 @@ export default function Portfolio() {
       <section className="py-12 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {filteredProjects.map((project, index) => (
                 <Card 
                   key={project.id} 
