@@ -23,58 +23,30 @@ export default function ClientsSection() {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  // Infinite scroll with pause/resume intervals
-  const [isScrolling, setIsScrolling] = useState(true);
+  // Infinite scroll - continuous without pause
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [scrollPhase, setScrollPhase] = useState('scroll'); // 'scroll' or 'pause'
 
   useEffect(() => {
-    // Control scroll/pause cycle with different timings
-    const pauseResumeInterval = setInterval(() => {
-      setScrollPhase(prev => {
-        if (prev === 'scroll') {
-          setIsScrolling(false);
-          return 'pause';
-        } else {
-          setIsScrolling(true);
-          return 'scroll';
-        }
-      });
-    }, scrollPhase === 'scroll' ? 4000 : 2000); // 4 seconds scrolling, 2 seconds pause
-
-    return () => clearInterval(pauseResumeInterval);
-  }, [scrollPhase]);
-
-  // Immediate hover control - override automatic cycle
-  useEffect(() => {
-    if (isHovered) {
-      setIsScrolling(false);
-    } else if (!isHovered && scrollPhase === 'scroll') {
-      setIsScrolling(true);
-    }
-  }, [isHovered, scrollPhase]);
-
-  useEffect(() => {
-    if (!isScrolling || isHovered) return;
+    if (isHovered) return;
 
     // Card width (130px) + margins (16px left + 16px right) = 162px total per card
     const cardTotalWidth = 162;
     
-    // Smooth continuous scrolling when active - timed to show exactly one card transition
+    // Smooth continuous scrolling - no pause
     const scrollInterval = setInterval(() => {
       setScrollPosition(prev => {
-        const newPos = prev + 2; // Slower scroll speed for better visibility
+        const newPos = prev + 2; // Same scroll speed as before
         // Reset position when we've scrolled through first set of clients
         if (newPos >= CLIENT_LOGOS.length * cardTotalWidth) {
           return 0;
         }
         return newPos;
       });
-    }, 50); // 50ms updates but slower increment
+    }, 50); // 50ms updates but continuous
 
     return () => clearInterval(scrollInterval);
-  }, [isScrolling, isHovered]);
+  }, [isHovered]);
 
   const goToPrevious = () => {
     setIsAutoPlaying(false);
@@ -122,7 +94,6 @@ export default function ClientsSection() {
               style={{
                 transform: `translateX(-${scrollPosition}px)`,
                 width: `${CLIENT_LOGOS.length * 2 * 162}px`, // Double width for seamless loop (162px per card)
-                transitionDuration: isScrolling ? '0ms' : '300ms' // Smooth when pausing
               }}
             >
               {/* Render clients twice for seamless infinite loop */}
