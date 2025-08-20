@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, Mail, MapPin } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { COMPANY_INFO } from "@/data/constants";
 // Use official Powerton Engineering logo from website
 const logoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
@@ -28,7 +29,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50" role="banner">
+    <header className="bg-background border-b border-border shadow-sm sticky top-0 z-50" role="banner">
       {/* Top bar */}
       <motion.div
         className="bg-primary text-white py-1 sm:py-2"
@@ -179,8 +180,9 @@ export default function Header() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.8 }}
-              className="ml-2"
+              className="ml-2 flex items-center gap-2"
             >
+              <ThemeToggle />
               <Link href="/quote">
                 <Button className="btn-secondary hover-lift">Get Quote</Button>
               </Link>

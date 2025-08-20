@@ -212,7 +212,7 @@
 /* Chatbot custom scroll bar styles */
 .chatbot-messages {
   scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 #f1f5f9;
+  scrollbar-color: hsl(var(--muted-foreground)) hsl(var(--muted));
   overflow-y: scroll !important;
   scrollbar-gutter: stable;
 }
@@ -227,20 +227,18 @@
 }
 
 .chatbot-messages::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: hsl(var(--muted));
   border-radius: 4px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
 }
 
 .chatbot-messages::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: hsl(var(--muted-foreground));
   border-radius: 4px;
-  border: 1px solid #f1f5f9;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  border: 1px solid hsl(var(--muted));
 }
 
 .chatbot-messages::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: hsl(var(--foreground) / 0.7);
 }
 
 /* Prevent chatbot positioning drift */
@@ -585,24 +583,6 @@ html {
   @apply scroll-smooth;
 }
 
-/* Custom scrollbar for chatbot */
-.chatbot-messages::-webkit-scrollbar {
-  width: 6px;
-}
-
-.chatbot-messages::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 3px;
-}
-
-.chatbot-messages::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 3px;
-}
-
-.chatbot-messages::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
-}
 
 /* Container padding utility */
 .container-padding {
@@ -745,7 +725,7 @@ html {
   }
   
   .hero-overlay {
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(59, 130, 246, 0.8) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.9) 0%, hsl(var(--primary) / 0.8) 100%);
   }
   
   .card-hover {
@@ -753,11 +733,11 @@ html {
   }
   
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold transition-all;
+    @apply bg-primary text-primary-foreground hover:opacity-90 px-6 py-3 rounded-lg font-semibold transition-all;
   }
   
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-orange-600 px-6 py-3 rounded-lg font-semibold transition-all;
+    @apply bg-secondary text-secondary-foreground hover:opacity-90 px-6 py-3 rounded-lg font-semibold transition-all;
   }
   
   .btn-outline {

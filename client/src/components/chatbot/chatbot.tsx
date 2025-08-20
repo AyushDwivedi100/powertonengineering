@@ -8,13 +8,25 @@ import { motion, AnimatePresence } from "framer-motion";
 // Message shape: { id, text, sender: 'user'|'bot', timestamp }
 // ChatbotResponse shape: { message, suggestions? }
 
+interface Message {
+  id: string;
+  text: string;
+  sender: 'user' | 'bot';
+  timestamp: Date;
+}
+
+interface ChatbotResponse {
+  message: string;
+  suggestions?: string[];
+}
+
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const messagesEndRef = useRef(null);
-  const chatWindowRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatWindowRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -50,8 +62,8 @@ export default function Chatbot() {
   useEffect(() => {
     if (!isOpen) return;
 
-    const handleClickOutside = (event) => {
-      const target = event.target;
+    const handleClickOutside = (event: Event) => {
+      const target = event.target as Element;
       
       // Check if click is inside chatbot window
       if (chatWindowRef.current?.contains(target)) {
@@ -105,7 +117,7 @@ export default function Chatbot() {
     }
   }, [isOpen, messages.length]);
 
-  const addMessage = (text, sender) => {
+  const addMessage = (text: string, sender: 'user' | 'bot') => {
     const newMessage = {
       id: Date.now().toString(),
       text,
@@ -115,7 +127,7 @@ export default function Chatbot() {
     setMessages(prev => [...prev, newMessage]);
   };
 
-  const addBotMessage = (response) => {
+  const addBotMessage = (response: ChatbotResponse) => {
     setIsTyping(true);
     setTimeout(() => {
       addMessage(response.message, 'bot');
@@ -123,7 +135,7 @@ export default function Chatbot() {
     }, 1000);
   };
 
-  const generateResponse = (userInput) => {
+  const generateResponse = (userInput: string): ChatbotResponse => {
     const input = userInput.toLowerCase();
 
     // Services related queries
@@ -198,13 +210,13 @@ export default function Chatbot() {
     setInputValue("");
   };
 
-  const handleSuggestionClick = (suggestion) => {
+  const handleSuggestionClick = (suggestion: string) => {
     addMessage(suggestion, 'user');
     const response = generateResponse(suggestion);
     addBotMessage(response);
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleSendMessage();
     }
@@ -220,7 +232,7 @@ export default function Chatbot() {
         transition={{ delay: 2 }}
       >
         <Button
-          onClick={(e) => {
+          onClick={(e: React.MouseEvent) => {
             e.preventDefault();
             e.stopPropagation();
             setIsOpen(prev => !prev);

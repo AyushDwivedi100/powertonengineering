@@ -56,7 +56,7 @@ function App() {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider defaultTheme="light" storageKey="powerton-ui-theme">
+        <ThemeProvider defaultTheme="system" storageKey="powerton-ui-theme">
           <TooltipProvider>
             <Toaster />
             <Router />
