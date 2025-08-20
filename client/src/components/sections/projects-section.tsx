@@ -26,11 +26,11 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {PROJECTS.map((project) => (
             <Card 
               key={project.id} 
-              className="overflow-hidden group hover:shadow-xl transition-all duration-300 card-hover h-full flex flex-col"
+              className="overflow-hidden group bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 h-full flex flex-col"
             >
               <div className="relative overflow-hidden">
                 <img 

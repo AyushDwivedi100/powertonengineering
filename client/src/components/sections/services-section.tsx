@@ -26,7 +26,7 @@ export default function ServicesSection() {
   return (
     <section 
       id="services" 
-      className="relative section-padding overflow-hidden" 
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden" 
       role="main"
       style={{
         backgroundImage: "url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
@@ -38,7 +38,7 @@ export default function ServicesSection() {
       
       {/* Content */}
       <div className="relative z-10">
-      <div className="container-responsive container-padding">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
           <div className="text-center mb-12 sm:mb-16">
             <motion.span 

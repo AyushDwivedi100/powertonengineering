@@ -128,7 +128,7 @@ export default function HeroSection() {
   return (
     <section 
       id="home" 
-      className="relative bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden"
+      className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white overflow-hidden"
       role="banner"
     >
       {/* Blurred Background Image - Industrial Engineering */}
@@ -165,7 +165,7 @@ export default function HeroSection() {
       {/* Gradient overlay for brand colors */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-blue-800/60 to-primary/80"></div>
       
-      <div className="relative max-w-7xl mx-auto container-padding py-12 sm:py-16 md:py-20 lg:py-32">
+      <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-32">
         <motion.div 
           className="max-w-4xl"
           initial="hidden"
@@ -192,7 +192,7 @@ export default function HeroSection() {
           >
             <motion.div variants={buttonVariants}>
               <Link href="/services" className="w-full sm:w-auto">
-                <Button className="btn-primary w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 hover-lift transition-all duration-300 hover:bg-secondary">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 transition-all duration-200">
                   Explore Our Services
                   <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>

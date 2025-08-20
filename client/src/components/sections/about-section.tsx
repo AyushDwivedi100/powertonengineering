@@ -31,7 +31,7 @@ export default function AboutSection() {
   return (
     <section 
       id="about" 
-      className="relative section-padding overflow-hidden" 
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden" 
       role="main"
       style={{
         backgroundImage: "url('https://images.unsplash.com/photo-1563789031959-4c02607c3c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
@@ -43,8 +43,8 @@ export default function AboutSection() {
       
       {/* Content */}
       <div className="relative z-10">
-      <div className="container-responsive container-padding">
-        <div className="flex-responsive items-center">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <AnimatedSection 
             animation="fadeInLeft" 
             delay={0.2}
@@ -54,7 +54,7 @@ export default function AboutSection() {
             <motion.img 
               src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
               alt="ID-003: Professional Indian engineers working on industrial automation and control systems" 
-              className="rounded-xl shadow-2xl w-full hover-lift will-animate"
+              className="rounded-xl shadow-2xl w-full hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
               loading="lazy"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
@@ -93,14 +93,14 @@ export default function AboutSection() {
             </motion.p>
             
             <StaggeredList 
-              className="grid-responsive-2 mb-6 sm:mb-8"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 sm:mb-8"
               stagger={0.15}
               delay={0.6}
             >
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <div key={feature.title} className="flex items-start space-x-3 hover-scale will-animate">
+                  <div key={feature.title} className="flex items-start space-x-3 hover:scale-[1.02] transition-all duration-300">
                     <motion.div 
                       className="flex-shrink-0 w-8 h-8 bg-secondary rounded-full flex items-center justify-center"
                       whileHover={{ scale: 1.1, rotate: 5 }}
@@ -123,7 +123,7 @@ export default function AboutSection() {
               transition={{ delay: 0.9, duration: 0.6 }}
             >
               <Link href="/about">
-                <Button className="btn-primary hover-lift">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-semibold transition-all duration-200">
                   Learn More About Us
                 </Button>
               </Link>
