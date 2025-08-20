@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useTheme } from "@/hooks/use-theme";
 import { COMPANY_INFO, SERVICES, PRODUCTS } from "@/data/constants";
-import darkLogoImage from "@assets/ChatGPT Image 20 अग॰ 2025, 12_06_57 pm_1755671828138.png";
+import darkLogoImage from "@assets/ChatGPT Image 20 अग॰ 2025, 12_06_57 pm_1755672345958.jpg";
 
 // Use official Powerton Engineering logos
 const lightLogoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
