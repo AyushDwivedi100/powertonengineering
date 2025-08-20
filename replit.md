@@ -7,6 +7,7 @@ This platform is a business website for Powerton Engineering Pvt. Ltd., focusing
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+PC Deployment: User wants to run this project locally on their personal computer for development and testing.
 Logo preference: Use official Powerton Engineering logo (https://powertonengineering.in/assets/img/logo-new.jpg) throughout the website.
 #### **2. Color Scheme Enforcement (MANDATORY)**
 - **PRIMARY BRAND COLOR**: `hsl(215, 89%, 33%)` (Blue) - Use for headers, buttons, links, brand elements
