@@ -292,8 +292,8 @@ export default function Quote() {
       />
 
       {/* Hero Section */}
-      <section className={`relative bg-gradient-to-br from-primary to-blue-800 text-white py-16 lg:py-24 ${getAnimationClass('fade-in-up', true)}`}>
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+      <section className={`relative bg-gradient-to-br from-primary via-primary to-primary/80 dark:from-primary dark:via-primary/90 dark:to-primary/70 text-primary-foreground py-16 lg:py-24 ${getAnimationClass('fade-in-up', true)}`}>
+        <div className="absolute inset-0 bg-black/20 dark:bg-black/40"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
@@ -303,27 +303,27 @@ export default function Quote() {
         
         <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
               Get Your Custom <span className="text-secondary">Engineering Quote</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-muted-foreground opacity-90 mb-8 leading-relaxed">
+            <p className="text-xl lg:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
               Professional assessment, competitive pricing, and expert consultation for your industrial automation and electrical engineering projects. Use our cost calculator for instant estimates.
             </p>
             
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg px-4 py-2">
                 <CheckCircle className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Free Consultation</span>
               </div>
-              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg px-4 py-2">
                 <CheckCircle className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">24-48 Hour Response</span>
               </div>
-              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg px-4 py-2">
                 <CheckCircle className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Instant Cost Estimates</span>
               </div>
-              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg px-4 py-2">
                 <CheckCircle className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">No Hidden Costs</span>
               </div>
@@ -374,7 +374,7 @@ export default function Quote() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Configuration Panel */}
                   <div className="lg:col-span-2">
-                    <Card className="bg-card border border-border rounded-lg shadow-sm">
+                    <Card className="bg-card dark:bg-card border border-border dark:border-border rounded-lg shadow-sm hover:shadow-md dark:shadow-lg transition-all duration-300">
                       <CardHeader className="p-6">
                         <CardTitle className="text-xl md:text-2xl font-semibold text-foreground">
                           {currentStep === 1 && "Project Type & Industry"}
@@ -639,7 +639,7 @@ export default function Quote() {
             <TabsContent value="quote" className="space-y-8">
               {/* Quote Form Section */}
               <div className="max-w-4xl mx-auto">
-                <Card className="bg-card border border-border rounded-lg shadow-sm">
+                <Card className="bg-card dark:bg-card border border-border dark:border-border rounded-lg shadow-sm hover:shadow-md dark:shadow-lg transition-all duration-300">
                   <CardHeader className="p-6">
                     <CardTitle className="text-xl md:text-2xl font-semibold text-foreground">
                       Request Custom Quote
@@ -674,9 +674,9 @@ export default function Quote() {
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <Card key={index} className="bg-card border border-border rounded-lg p-6 shadow-sm text-center hover:shadow-md hover:scale-[1.02] transition-all duration-300">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-white" />
+                <Card key={index} className="bg-card dark:bg-card border border-border dark:border-border rounded-lg p-6 shadow-sm hover:shadow-md dark:shadow-lg text-center hover:scale-[1.02] transition-all duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-primary-foreground" />
                   </div>
                   <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-3">{benefit.title}</h3>
                   <p className="text-muted-foreground">{benefit.description}</p>
@@ -688,7 +688,7 @@ export default function Quote() {
       </section>
 
       {/* Process Steps */}
-      <section className="py-12 md:py-16 lg:py-20 bg-white">
+      <section className="py-12 md:py-16 lg:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
@@ -703,7 +703,7 @@ export default function Quote() {
             {processSteps.map((step, index) => (
               <div key={index} className="relative">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-xl">
                     {step.step}
                   </div>
                   <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-3">{step.title}</h3>

@@ -217,24 +217,24 @@ export default function News() {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      "Awards": "bg-yellow-100 text-yellow-800",
+      "Awards": "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200",
       "Business": "bg-secondary/10 text-secondary",
-      "Company": "bg-green-100 text-green-800",
-      "Infrastructure": "bg-purple-100 text-purple-800",
-      "Partnership": "bg-indigo-100 text-indigo-800",
-      "Quality": "bg-pink-100 text-pink-800"
+      "Company": "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200",
+      "Infrastructure": "bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200",
+      "Partnership": "bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200",
+      "Quality": "bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-200"
     };
-    return colors[category as keyof typeof colors] || "bg-muted text-foreground";
+    return colors[category as keyof typeof colors] || "bg-muted text-muted-foreground";
   };
 
   const getStatusColor = (status: string) => {
     const colors = {
       "Planning Phase": "bg-secondary/10 text-secondary",
-      "Contract Signed": "bg-green-100 text-green-800",
-      "Engineering Phase": "bg-purple-100 text-purple-800",
-      "In Progress": "bg-orange-100 text-orange-800"
+      "Contract Signed": "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200",
+      "Engineering Phase": "bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200",
+      "In Progress": "bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200"
     };
-    return colors[status as keyof typeof colors] || "bg-muted text-foreground";
+    return colors[status as keyof typeof colors] || "bg-muted text-muted-foreground";
   };
 
   const structuredData = {
@@ -261,25 +261,25 @@ export default function News() {
       />
 
       {/* Hero Section */}
-      <section className={`py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary to-blue-800 text-white ${getAnimationClass('fade-in-up', true)}`}>
+      <section className={`py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary via-primary to-primary/80 dark:from-primary dark:via-primary/90 dark:to-primary/70 text-primary-foreground ${getAnimationClass('fade-in-up', true)}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 sm:mb-6">
               News & <span className="text-secondary">Updates</span>
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground mb-8 opacity-90">
+            <p className="text-base md:text-lg text-primary-foreground/90 mb-8">
               Stay informed about our latest achievements, upcoming projects, industry recognition, and strategic vision for the future of industrial automation.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg px-4 py-2">
                 <Award className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Award Winning</span>
               </div>
-              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg px-4 py-2">
                 <TrendingUp className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Growing Strong</span>
               </div>
-              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-lg px-4 py-2">
                 <Rocket className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Future Ready</span>
               </div>
@@ -289,7 +289,7 @@ export default function News() {
       </section>
 
       {/* Main Content with Tabs */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <Tabs value={selectedTab} onValueChange={setSelectedTab} className="w-full">
             <TabsList className="grid w-full grid-cols-4 max-w-2xl mx-auto mb-12">
@@ -389,7 +389,7 @@ export default function News() {
                       </div>
                       <CardContent className="p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <Badge className={getCategoryColor(item.category)} size="sm">
+                          <Badge className={getCategoryColor(item.category)}>
                             {item.category}
                           </Badge>
                           <div className="flex items-center text-xs text-muted-foreground">
