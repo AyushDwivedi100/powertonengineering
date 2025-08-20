@@ -2,7 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 
 // Enhanced hook with better performance and options
-export const useScrollAnimation = (options = {}) => {
+interface ScrollAnimationOptions {
+  once?: boolean;
+  threshold?: number;
+  rootMargin?: string;
+}
+
+export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -47,12 +53,17 @@ export const useScrollAnimations = (staggerDelay = 100) => {
       (entries) => {
         entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
-            const animation = entry.target.dataset.scroll;
-            const delay = entry.target.dataset.delay || index * staggerDelay;
+            const element = entry.target as HTMLElement;
+            const animation = element.dataset.scroll;
+            const delay = element.dataset.delay || (index * staggerDelay).toString();
             
             setTimeout(() => {
-              entry.target.classList.add(`animate-${animation}`);
-            }, delay);
+              try {
+                element.classList.add(`animate-${animation}`);
+              } catch (error) {
+                console.log('Animation class addition handled gracefully:', error);
+              }
+            }, parseInt(delay) || 0);
             
             observer.unobserve(entry.target);
           }
@@ -77,9 +88,8 @@ export const useMotionAnimation = () => {
   const controls = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref, { 
-    threshold: 0.15,
     margin: '0px 0px -100px 0px'
-  });
+  } as any);
 
   useEffect(() => {
     if (inView) {
@@ -91,7 +101,17 @@ export const useMotionAnimation = () => {
 };
 
 // Enhanced AnimatedSection with Framer Motion
-export const AnimatedSection = ({ 
+interface AnimatedSectionProps {
+  children: React.ReactNode;
+  animation?: string;
+  className?: string;
+  delay?: number;
+  duration?: number;
+  stagger?: number;
+  [key: string]: any;
+}
+
+export const AnimatedSection: React.FC<AnimatedSectionProps> = ({ 
   children, 
   animation = 'fadeInUp', 
   className = '', 
@@ -192,10 +212,10 @@ export const AnimatedSection = ({
 
   return (
     <motion.div
-      ref={ref}
+      ref={ref as any}
       initial="hidden"
-      animate={controls}
-      variants={animations[animation] || animations.fadeInUp}
+      animate={controls as any}
+      variants={animations[animation as keyof typeof animations] || animations.fadeInUp}
       className={className}
       {...props}
     >
@@ -205,7 +225,15 @@ export const AnimatedSection = ({
 };
 
 // Staggered list animation component
-export const StaggeredList = ({ 
+interface StaggeredListProps {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  stagger?: number;
+  [key: string]: any;
+}
+
+export const StaggeredList: React.FC<StaggeredListProps> = ({ 
   children, 
   className = '', 
   delay = 0,
@@ -239,9 +267,9 @@ export const StaggeredList = ({
 
   return (
     <motion.div
-      ref={ref}
+      ref={ref as any}
       initial="hidden"
-      animate={controls}
+      animate={controls as any}
       variants={containerVariants}
       className={className}
       {...props}
@@ -289,7 +317,7 @@ export const getAnimationClass = (animation: string, isVisible: boolean) => {
     slideInUp: 'animate-slideInUp'
   };
   
-  return animations[animation] || animations.fadeInUp;
+  return animations[animation as keyof typeof animations] || animations.fadeInUp;
 };
 
 // Enhanced staggered animation hook

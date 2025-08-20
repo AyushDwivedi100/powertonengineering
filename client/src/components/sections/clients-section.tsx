@@ -25,7 +25,13 @@ export default function ClientsSection() {
       }
     }, 4000); // Change testimonial every 4 seconds
 
-    return () => clearInterval(interval);
+    return () => {
+      try {
+        clearInterval(interval);
+      } catch (error) {
+        console.log('Clearing testimonial interval handled gracefully:', error);
+      }
+    };
   }, [isAutoPlaying]);
 
   // Infinite scroll - continuous without pause
@@ -55,7 +61,13 @@ export default function ClientsSection() {
       }
     }, 50); // 50ms updates but continuous
 
-    return () => clearInterval(scrollInterval);
+    return () => {
+      try {
+        clearInterval(scrollInterval);
+      } catch (error) {
+        console.log('Clearing scroll interval handled gracefully:', error);
+      }
+    };
   }, [isHovered]);
 
   const goToPrevious = () => {

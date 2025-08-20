@@ -15,10 +15,7 @@ export default defineConfig({
     port: 5000,
     strictPort: false,
     allowedHosts: true,
-    hmr: {
-      port: 5000,
-      host: "0.0.0.0",
-    },
+    hmr: false, // Disabled to prevent console flooding with unhandled promise rejections
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
