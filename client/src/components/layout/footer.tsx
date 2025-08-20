@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -11,8 +12,19 @@ const lightLogoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
 export default function Footer() {
   const { theme } = useTheme();
   
-  // Determine current effective theme
-  const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  // Determine current effective theme with system detection  
+  const [systemDark, setSystemDark] = useState(false);
+  
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    setSystemDark(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => setSystemDark(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+  
+  const isDark = theme === "dark" || (theme === "system" && systemDark);
   const currentLogo = isDark ? darkLogoImage : lightLogoImage;
   
   return (
@@ -30,7 +42,8 @@ export default function Footer() {
               <img 
                 src={currentLogo} 
                 alt="ID-002: Powerton Engineering Pvt. Ltd. logo" 
-                className="h-12 w-auto mb-3"
+                className="h-12 w-auto mb-3 object-contain transition-all duration-300 ease-in-out"
+                style={{ minWidth: '150px', maxWidth: '250px', aspectRatio: 'auto' }}
                 loading="lazy"
               />
             </div>

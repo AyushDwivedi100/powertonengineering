@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -16,8 +16,19 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme } = useTheme();
   
-  // Determine current effective theme
-  const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  // Determine current effective theme with system detection
+  const [systemDark, setSystemDark] = useState(false);
+  
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    setSystemDark(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => setSystemDark(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+  
+  const isDark = theme === "dark" || (theme === "system" && systemDark);
   const currentLogo = isDark ? darkLogoImage : lightLogoImage;
 
   const navigation = [
@@ -137,9 +148,12 @@ export default function Header() {
               <motion.img
                 src={currentLogo}
                 alt="ID-001: Powerton Engineering Pvt. Ltd. logo"
-                className="h-8 sm:h-10 md:h-12 w-auto"
+                className="h-8 sm:h-10 md:h-12 w-auto object-contain transition-all duration-300 ease-in-out"
+                style={{ minWidth: '120px', maxWidth: '200px', aspectRatio: 'auto' }}
                 loading="eager"
                 whileHover={{ scale: 1.05 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
                 transition={{ duration: 0.3 }}
               />
             </Link>
