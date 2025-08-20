@@ -7,6 +7,7 @@ This platform is a business website for Powerton Engineering Pvt. Ltd., focusing
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Operating System: Windows 11 - PC setup optimized for Windows development environment.
 PC Deployment: User wants to run this project locally on their personal computer for development and testing.
 Logo preference: Use official Powerton Engineering logo (https://powertonengineering.in/assets/img/logo-new.jpg) throughout the website.
 #### **2. Color Scheme Enforcement (MANDATORY)**
