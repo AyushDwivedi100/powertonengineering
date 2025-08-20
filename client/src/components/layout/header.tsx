@@ -183,35 +183,6 @@ export default function Header() {
               <Link href="/quote">
                 <Button className="btn-secondary hover-lift">Get Quote</Button>
               </Link>
-              
-              {/* Contact details below Get Quote button */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 }}
-                className="mt-3 text-xs text-muted-foreground border-l-2 border-secondary pl-3 bg-muted/30 rounded-r-md py-2"
-              >
-                <div className="space-y-1">
-                  <div className="flex items-center">
-                    <Phone className="w-3 h-3 mr-2 text-secondary" />
-                    <a 
-                      href={`tel:${COMPANY_INFO.phone}`} 
-                      className="hover:text-primary transition-colors"
-                    >
-                      {COMPANY_INFO.phone}
-                    </a>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail className="w-3 h-3 mr-2 text-secondary" />
-                    <a 
-                      href={`mailto:${COMPANY_INFO.email}`} 
-                      className="hover:text-primary transition-colors"
-                    >
-                      {COMPANY_INFO.email}
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
             </motion.div>
           </motion.div>
 
@@ -296,6 +267,44 @@ export default function Header() {
                         Get Quote
                       </Button>
                     </Link>
+                    
+                    {/* Contact details below Get Quote button in mobile navigation */}
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg border border-border">
+                      <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center">
+                        <Phone className="w-4 h-4 mr-2 text-secondary" />
+                        Contact Us
+                      </h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center">
+                          <Phone className="w-4 h-4 mr-3 text-secondary flex-shrink-0" />
+                          <a 
+                            href={`tel:${COMPANY_INFO.phone}`} 
+                            className="text-sm text-foreground hover:text-primary transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {COMPANY_INFO.phone}
+                          </a>
+                        </div>
+                        <div className="flex items-center">
+                          <Mail className="w-4 h-4 mr-3 text-secondary flex-shrink-0" />
+                          <a 
+                            href={`mailto:${COMPANY_INFO.email}`} 
+                            className="text-sm text-foreground hover:text-primary transition-colors break-all"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {COMPANY_INFO.email}
+                          </a>
+                        </div>
+                        <div className="flex items-start">
+                          <MapPin className="w-4 h-4 mr-3 text-secondary flex-shrink-0 mt-0.5" />
+                          <div className="text-sm text-muted-foreground">
+                            <div>{COMPANY_INFO.address.street}</div>
+                            <div>{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state}</div>
+                            <div>{COMPANY_INFO.address.pincode}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </motion.div>
                 </motion.nav>
               </AnimatePresence>
