@@ -129,7 +129,6 @@ export default function Footer() {
             </p>
             <div className="flex items-center space-x-6 text-sm text-muted-foreground">
               <ThemeToggle />
-              <a href="/terms-of-service" className="hover:text-secondary transition-colors">Terms of Service</a>
               <a href="/sitemap" className="hover:text-secondary transition-colors">Sitemap</a>
             </div>
           </div>
