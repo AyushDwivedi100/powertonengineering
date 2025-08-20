@@ -47,6 +47,16 @@
   background-repeat: no-repeat;
 }
 
+/* Full Screen Hero Sections */
+.hero-fullscreen {
+  width: 100vw;
+  height: calc(100vh - 80px); /* Subtract header height */
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(210, 25%, 7%);
