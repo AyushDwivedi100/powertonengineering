@@ -82,7 +82,7 @@ export default function ClientsSection() {
           </p>
         </div>
 
-        {/* Client Logos Slideshow - Infinite scroll with pause/resume */}
+        {/* Client Logos Slideshow - Continuous infinite scroll */}
         <div className="mb-16">
           <div 
             className="relative overflow-hidden bg-muted rounded-lg border border-gray-100 py-4 md:py-6 lg:py-8"
