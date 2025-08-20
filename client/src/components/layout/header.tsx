@@ -144,8 +144,8 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Link href="/" className="flex items-center">
-              <div className="relative w-[140px] sm:w-[160px] md:w-[180px] h-8 sm:h-10 md:h-12 overflow-hidden">
+            <Link href="/" className="flex items-center ml-4">
+              <div className="relative w-[160px] sm:w-[180px] md:w-[220px] h-10 sm:h-12 md:h-14 overflow-hidden">
                 <img
                   src={currentLogo}
                   alt="ID-001: Powerton Engineering Pvt. Ltd. logo"
