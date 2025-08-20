@@ -245,7 +245,7 @@ export default function Projects() {
               <Link href="/contact" className="mobile-full">
                 <Button 
                   variant="outline" 
-                  className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-lg font-semibold transition-all border-white text-white hover:bg-white hover:text-primary"
+                  className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-6 py-3 rounded-lg font-semibold transition-all"
                 >
                   Discuss Your Project
                 </Button>
@@ -276,7 +276,7 @@ export default function Projects() {
       </section>
 
       {/* Main Content with Tabs */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
@@ -538,7 +538,7 @@ export default function Projects() {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground border-white text-white hover:bg-white hover:text-primary px-6 py-3 rounded-lg font-semibold transition-all">
+              <Button variant="outline" className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-6 py-3 rounded-lg font-semibold transition-all">
                 Contact Our Team
               </Button>
             </Link>

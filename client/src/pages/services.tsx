@@ -137,7 +137,7 @@ export default function Services() {
       </section>
 
       {/* Services Overview */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-background">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
@@ -204,7 +204,7 @@ export default function Services() {
           <section 
             key={service.id}
             id={`service-${service.id}`}
-            className={`section-padding ${isEven ? 'bg-muted' : 'bg-white'}`}
+            className={`section-padding ${isEven ? 'bg-muted' : 'bg-background'}`}
           >
             <div className="max-w-7xl mx-auto container-padding">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -309,7 +309,7 @@ export default function Services() {
             <Link href="/projects">
               <Button 
                 variant="outline" 
-                className="btn-outline text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
+                className="btn-outline text-lg px-8 py-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
               >
                 View Our Projects
               </Button>

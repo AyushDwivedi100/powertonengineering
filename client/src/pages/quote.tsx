@@ -311,19 +311,19 @@ export default function Quote() {
             </p>
             
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <CheckCircle className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Free Consultation</span>
               </div>
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <CheckCircle className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">24-48 Hour Response</span>
               </div>
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <CheckCircle className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Instant Cost Estimates</span>
               </div>
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <CheckCircle className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">No Hidden Costs</span>
               </div>
@@ -333,7 +333,7 @@ export default function Quote() {
       </section>
 
       {/* Main Content with Tabs */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">

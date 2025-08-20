@@ -129,7 +129,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Methods */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-background">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
@@ -222,7 +222,7 @@ export default function Contact() {
       </section>
 
       {/* Office Information */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-background">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>

@@ -166,7 +166,7 @@ export default function Products() {
               <Link href="/contact" className="mobile-full">
                 <Button 
                   variant="outline" 
-                  className="btn-outline mobile-full btn-responsive border-white text-white hover:bg-white hover:text-primary"
+                  className="btn-outline mobile-full btn-responsive border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
                 >
                   Request Quote
                 </Button>
@@ -177,7 +177,7 @@ export default function Products() {
       </section>
 
       {/* Product Categories */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-background">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-responsive-xl font-bold text-primary mb-4 sm:mb-6">
@@ -377,7 +377,7 @@ export default function Products() {
       )}
 
       {/* Why Choose Our Products */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-background">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
@@ -442,7 +442,7 @@ export default function Products() {
             </Link>
             <Button 
               variant="outline" 
-              className="btn-outline text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
+              className="btn-outline text-lg px-8 py-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
             >
               <Download className="mr-2 w-5 h-5" />
               Download Complete Catalog

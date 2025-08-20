@@ -59,13 +59,13 @@ export default function About() {
       />
 
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary to-blue-800 text-white">
+      <section className="section-padding bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               About <span className="text-secondary">Powerton Engineering</span>
             </h1>
-            <p className="text-xl lg:text-2xl mb-8 opacity-90">
+            <p className="text-xl lg:text-2xl mb-8 text-primary-foreground/90">
               Your trusted partner in delivering high-quality engineering solutions and services for over 15 years.
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function About() {
 
       {/* Company Story */}
       <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-background">
           <div className="max-w-7xl mx-auto container-padding">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -157,7 +157,7 @@ export default function About() {
 
       {/* Core Values */}
       <AnimatedSection animation="scaleIn" delay={0.15} duration={0.7}>
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-background">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Our Core Values</h2>
@@ -201,7 +201,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert) => (
-              <div key={cert} className="flex items-center p-4 bg-white rounded-lg shadow">
+              <div key={cert} className="flex items-center p-4 bg-card border rounded-lg shadow">
                 <CheckCircle className="w-6 h-6 text-green-600 mr-4 flex-shrink-0" />
                 <span className="font-medium text-foreground">{cert}</span>
               </div>
@@ -231,7 +231,7 @@ export default function About() {
             <Link href="/services">
               <Button 
                 variant="outline" 
-                className="btn-outline text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
+                className="btn-outline text-lg px-8 py-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
               >
                 Explore Our Services
               </Button>

@@ -218,7 +218,7 @@ export default function News() {
   const getCategoryColor = (category: string) => {
     const colors = {
       "Awards": "bg-yellow-100 text-yellow-800",
-      "Business": "bg-blue-100 text-blue-800",
+      "Business": "bg-secondary/10 text-secondary",
       "Company": "bg-green-100 text-green-800",
       "Infrastructure": "bg-purple-100 text-purple-800",
       "Partnership": "bg-indigo-100 text-indigo-800",
@@ -229,7 +229,7 @@ export default function News() {
 
   const getStatusColor = (status: string) => {
     const colors = {
-      "Planning Phase": "bg-blue-100 text-blue-800",
+      "Planning Phase": "bg-secondary/10 text-secondary",
       "Contract Signed": "bg-green-100 text-green-800",
       "Engineering Phase": "bg-purple-100 text-purple-800",
       "In Progress": "bg-orange-100 text-orange-800"
@@ -271,15 +271,15 @@ export default function News() {
               Stay informed about our latest achievements, upcoming projects, industry recognition, and strategic vision for the future of industrial automation.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <Award className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Award Winning</span>
               </div>
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <TrendingUp className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Growing Strong</span>
               </div>
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
+              <div className="flex items-center bg-primary-foreground/10 backdrop-blur-sm rounded-lg px-4 py-2">
                 <Rocket className="w-5 h-5 mr-2 text-secondary" />
                 <span className="text-sm">Future Ready</span>
               </div>
