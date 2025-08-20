@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { COMPANY_INFO, SERVICES, PRODUCTS } from "@/data/constants";
 // Use official Powerton Engineering logo from website
 const logoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
@@ -126,8 +127,8 @@ export default function Footer() {
             <p className="text-muted-foreground text-sm mb-4 md:mb-0">
               &copy; 2024 Powerton Engineering Pvt. Ltd. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm text-muted-foreground">
-              <a href="/privacy-policy" className="hover:text-secondary transition-colors">Privacy Policy</a>
+            <div className="flex items-center space-x-6 text-sm text-muted-foreground">
+              <ThemeToggle />
               <a href="/terms-of-service" className="hover:text-secondary transition-colors">Terms of Service</a>
               <a href="/sitemap" className="hover:text-secondary transition-colors">Sitemap</a>
             </div>
