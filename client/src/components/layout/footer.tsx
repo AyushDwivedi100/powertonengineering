@@ -1,11 +1,20 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { useTheme } from "@/hooks/use-theme";
 import { COMPANY_INFO, SERVICES, PRODUCTS } from "@/data/constants";
-// Use official Powerton Engineering logo from website
-const logoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
+import darkLogoImage from "@assets/ChatGPT Image 20 अग॰ 2025, 12_06_57 pm_1755671828138.png";
+
+// Use official Powerton Engineering logos
+const lightLogoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
 
 export default function Footer() {
+  const { theme } = useTheme();
+  
+  // Determine current effective theme
+  const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  const currentLogo = isDark ? darkLogoImage : lightLogoImage;
+  
   return (
     <footer 
       className="bg-gray-900 dark:bg-gray-950 text-white py-12" 
@@ -19,7 +28,7 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <img 
-                src={logoImage} 
+                src={currentLogo} 
                 alt="ID-002: Powerton Engineering Pvt. Ltd. logo" 
                 className="h-12 w-auto mb-3"
                 loading="lazy"

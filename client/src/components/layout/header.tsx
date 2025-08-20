@@ -4,13 +4,21 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, Mail, MapPin } from "lucide-react";
 import { COMPANY_INFO } from "@/data/constants";
-// Use official Powerton Engineering logo from website
-const logoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
+import { useTheme } from "@/hooks/use-theme";
 import { motion, AnimatePresence } from "framer-motion";
+import darkLogoImage from "@assets/ChatGPT Image 20 अग॰ 2025, 12_06_57 pm_1755671828138.png";
+
+// Use official Powerton Engineering logos
+const lightLogoImage = "https://powertonengineering.in/assets/img/logo-new.jpg";
 
 export default function Header() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const { theme } = useTheme();
+  
+  // Determine current effective theme
+  const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  const currentLogo = isDark ? darkLogoImage : lightLogoImage;
 
   const navigation = [
     { name: "About", href: "/about" },
@@ -127,7 +135,7 @@ export default function Header() {
           >
             <Link href="/" className="flex items-center">
               <motion.img
-                src={logoImage}
+                src={currentLogo}
                 alt="ID-001: Powerton Engineering Pvt. Ltd. logo"
                 className="h-8 sm:h-10 md:h-12 w-auto"
                 loading="eager"
