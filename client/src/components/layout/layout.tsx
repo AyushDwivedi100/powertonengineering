@@ -1,5 +1,6 @@
 import Header from "./header";
 import Footer from "./footer";
+import Chatbot from "../chatbot/chatbot";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ export default function Layout({ children }: LayoutProps) {
         {children}
       </main>
       <Footer />
+      <Chatbot />
     </div>
   );
 }

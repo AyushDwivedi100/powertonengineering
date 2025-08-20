@@ -247,16 +247,17 @@
 .chatbot-container {
   position: fixed !important;
   right: 1rem !important;
-  bottom: 5rem !important;
+  bottom: 1rem !important;
   max-width: calc(100vw - 2rem) !important;
   transform: none !important;
   pointer-events: auto !important;
+  z-index: 50 !important;
 }
 
 @media (max-width: 640px) {
   .chatbot-container {
     right: 0.5rem !important;
-    bottom: 4.5rem !important;
+    bottom: 0.5rem !important;
     max-width: calc(100vw - 1rem) !important;
   }
 }
@@ -279,15 +280,7 @@ body {
   @apply pointer-events-auto;
 }
 
-/* Container utilities for consistent responsive spacing */
-.container-padding {
-  @apply px-4 sm:px-6 lg:px-8 xl:px-12;
-}
-
-/* Section padding utilities for responsive design */
-.section-padding {
-  @apply py-12 sm:py-16 lg:py-24 xl:py-32;
-}
+/* Legacy classes removed - use standard Tailwind utilities */
 
 /* Responsive image utilities */
 .responsive-image {
@@ -311,49 +304,11 @@ body {
   @apply text-sm sm:text-base lg:text-lg leading-relaxed;
 }
 
-/* Responsive grid utilities */
-.grid-responsive-2 {
-  @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6;
-}
+/* Legacy grid classes removed - use standard Tailwind grid utilities */
 
-.grid-responsive-3 {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6;
-}
+/* Legacy responsive utilities removed - use standard Tailwind utilities */
 
-.grid-responsive-4 {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-6;
-}
-
-/* Enhanced responsive utilities for all screen sizes */
-.grid-responsive-cards {
-  @apply grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-6 xl:gap-8;
-}
-
-.flex-responsive {
-  @apply flex flex-col xs:flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 lg:gap-8;
-}
-
-/* Responsive padding for different screen sizes */
-.padding-responsive-xs {
-  @apply p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6;
-}
-
-.padding-responsive-sm {
-  @apply p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8;
-}
-
-.padding-responsive-md {
-  @apply p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12;
-}
-
-/* Responsive margins */
-.margin-responsive-y {
-  @apply my-3 sm:my-4 md:my-6 lg:my-8 xl:my-12;
-}
-
-.margin-responsive-x {
-  @apply mx-2 sm:mx-3 md:mx-4 lg:mx-6 xl:mx-8;
-}
+/* Legacy responsive padding/margin classes removed - use standard Tailwind utilities */
 
 /* Enhanced responsive text sizes for better scaling */
 .text-responsive-hero {
@@ -376,18 +331,7 @@ body {
   @apply text-xs xs:text-sm sm:text-base leading-relaxed;
 }
 
-/* Button responsive sizing */
-.btn-responsive-sm {
-  @apply px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 text-xs sm:text-sm md:text-base;
-}
-
-.btn-responsive-md {
-  @apply px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 text-sm sm:text-base md:text-lg;
-}
-
-.btn-responsive-lg {
-  @apply px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 text-base sm:text-lg md:text-xl;
-}
+/* Legacy button responsive classes removed - use standard Tailwind utilities */
 
 /* Card responsive design */
 .card-responsive {
@@ -417,28 +361,7 @@ body {
   @apply hidden lg:flex;
 }
 
-/* Responsive flex utilities */
-.flex-responsive-center {
-  @apply flex flex-col xs:flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6;
-}
-
-.flex-responsive-between {
-  @apply flex flex-col xs:flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4;
-}
-
-/* Enhanced container utilities for ultra-wide screens */
-.container-responsive {
-  @apply max-w-sm xs:max-w-md sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-7xl mx-auto;
-}
-
-/* Responsive spacing utilities */
-.space-y-responsive {
-  @apply space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6 xl:space-y-8;
-}
-
-.space-x-responsive {
-  @apply space-x-2 sm:space-x-3 md:space-x-4 lg:space-x-6 xl:space-x-8;
-}
+/* Legacy flex and spacing responsive utilities removed - use standard Tailwind utilities */
 
 /* Typography line height adjustments for mobile */
 @media (max-width: 640px) {
@@ -516,14 +439,7 @@ select:focus-visible {
   @apply text-muted-foreground max-w-3xl mx-auto;
 }
 
-/* Responsive Grid System */
-.grid-responsive-cards {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
-}
-
-.grid-responsive-features {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8;
-}
+/* Legacy responsive grid classes removed - use standard Tailwind utilities */
 
 /* Loading states for better UX */
 .loading-shimmer {
