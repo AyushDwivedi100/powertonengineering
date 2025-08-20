@@ -169,58 +169,61 @@ export default function ClientsSection() {
 
           {/* Testimonial Display */}
           <div className="px-12 py-4">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              >
-                <Card className="bg-gradient-to-br from-muted/50 to-muted border border-border shadow-lg">
-                  <CardContent className="p-8 md:p-12">
-                    <div className="text-center">
-                      {/* Rating Stars */}
-                      <div className="flex justify-center items-center mb-6">
-                        <div className="flex text-secondary">
-                          {[...Array(TESTIMONIALS[currentIndex].rating)].map(
-                            (_, i) => (
-                              <Star
-                                key={i}
-                                className="w-5 h-5 fill-current"
-                                aria-hidden="true"
-                              />
-                            ),
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Testimonial Text */}
-                      <blockquote className="text-lg md:text-xl text-foreground mb-8 italic leading-relaxed">
-                        "{TESTIMONIALS[currentIndex].comment}"
-                      </blockquote>
-
-                      {/* Client Info */}
-                      <div className="flex items-center justify-center">
-                        <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white font-semibold mr-4">
-                          <span className="text-lg">
-                            {TESTIMONIALS[currentIndex].initials}
-                          </span>
-                        </div>
-                        <div className="text-left">
-                          <div className="font-bold text-foreground text-lg">
-                            {TESTIMONIALS[currentIndex].name}
-                          </div>
-                          <div className="text-muted-foreground">
-                            {TESTIMONIALS[currentIndex].location}
+            <div className="min-h-[280px] md:min-h-[320px] flex items-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="w-full"
+                >
+                  <Card className="bg-gradient-to-br from-muted/50 to-muted border border-border shadow-lg">
+                    <CardContent className="p-8 md:p-12">
+                      <div className="text-center">
+                        {/* Rating Stars */}
+                        <div className="flex justify-center items-center mb-6">
+                          <div className="flex text-secondary">
+                            {[...Array(TESTIMONIALS[currentIndex].rating)].map(
+                              (_, i) => (
+                                <Star
+                                  key={i}
+                                  className="w-5 h-5 fill-current"
+                                  aria-hidden="true"
+                                />
+                              ),
+                            )}
                           </div>
                         </div>
+
+                        {/* Testimonial Text */}
+                        <blockquote className="text-lg md:text-xl text-foreground mb-8 italic leading-relaxed min-h-[60px] md:min-h-[80px] flex items-center justify-center">
+                          "{TESTIMONIALS[currentIndex].comment}"
+                        </blockquote>
+
+                        {/* Client Info */}
+                        <div className="flex items-center justify-center">
+                          <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                            <span className="text-lg">
+                              {TESTIMONIALS[currentIndex].initials}
+                            </span>
+                          </div>
+                          <div className="text-left">
+                            <div className="font-bold text-foreground text-lg">
+                              {TESTIMONIALS[currentIndex].name}
+                            </div>
+                            <div className="text-muted-foreground">
+                              {TESTIMONIALS[currentIndex].location}
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </AnimatePresence>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Pagination Dots */}
