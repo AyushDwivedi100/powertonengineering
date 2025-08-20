@@ -51,7 +51,7 @@ export default function Contact() {
       title: "Visit Our Office",
       subtitle: "By appointment only",
       content: `${COMPANY_INFO.address.city}, ${COMPANY_INFO.address.state}`,
-      action: "https://maps.app.goo.gl/Nx4A15nXJcvVAG668",
+      action: "https://maps.app.goo.gl/jiap3sBYbM3r8Pn68",
       description: "Schedule a visit to our headquarters in Noida"
     }
   ];
@@ -267,7 +267,7 @@ export default function Contact() {
 
                     <div className="mt-6 pt-6 border-t border-gray-200">
                       <a 
-                        href="https://maps.app.goo.gl/Nx4A15nXJcvVAG668"
+                        href="https://maps.app.goo.gl/jiap3sBYbM3r8Pn68"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-secondary hover:text-secondary/80 font-medium"
