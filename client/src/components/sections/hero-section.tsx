@@ -173,7 +173,7 @@ export default function HeroSection() {
           variants={containerVariants}
         >
           <motion.h1 
-            className="text-responsive-hero font-bold mb-4 sm:mb-6 leading-tight will-animate"
+            className="text-responsive-hero font-bold mb-6 sm:mb-8 leading-tight will-animate"
             variants={itemVariants}
           >
             Comprehensive Solutions for <span className="text-secondary">Industrial Success</span>

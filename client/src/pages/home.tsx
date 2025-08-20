@@ -68,19 +68,19 @@ export default function Home() {
       <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
         <AboutSection />
       </AnimatedSection>
-      <AnimatedSection animation="fadeInLeft" delay={0.2} duration={0.9}>
+      <AnimatedSection animation="fadeInLeft" delay={0.2} duration={0.8}>
         <ServicesSection />
       </AnimatedSection>
       <AnimatedSection animation="fadeInRight" delay={0.1} duration={0.8}>
         <ProductsSection />
       </AnimatedSection>
-      <AnimatedSection animation="scaleIn" delay={0.15} duration={0.7}>
+      <AnimatedSection animation="scaleIn" delay={0.2} duration={0.8}>
         <ClientsSection />
       </AnimatedSection>
-      <AnimatedSection animation="slideInUp" delay={0.2} duration={0.9}>
+      <AnimatedSection animation="slideInUp" delay={0.1} duration={0.8}>
         <ProjectsSection />
       </AnimatedSection>
-      <AnimatedSection animation="fadeInUp" delay={0.1} duration={0.8}>
+      <AnimatedSection animation="fadeInUp" delay={0.2} duration={0.8}>
         <ContactSection />
       </AnimatedSection>
     </>

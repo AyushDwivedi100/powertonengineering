@@ -76,7 +76,7 @@ export default function AboutSection() {
               About Us
             </motion.span>
             <motion.h2 
-              className="text-responsive-xl font-bold text-primary mt-2 sm:mt-4 mb-4 sm:mb-6"
+              className="text-responsive-xl font-bold text-primary mt-4 sm:mt-6 mb-6 sm:mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.7 }}

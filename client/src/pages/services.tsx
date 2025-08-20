@@ -164,9 +164,9 @@ export default function Services() {
                     <CardTitle className="text-xl font-bold text-foreground">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground mb-6">{service.description}</p>
+                    <p className="text-muted-foreground mb-8">{service.description}</p>
                     
-                    <div className="space-y-2 mb-6">
+                    <div className="space-y-2 mb-8">
                       <h4 className="font-semibold text-foreground text-sm">Key Features:</h4>
                       {service.features.slice(0, 3).map((feature) => (
                         <div key={feature} className="flex items-center text-sm text-muted-foreground">
