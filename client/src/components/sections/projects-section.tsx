@@ -36,7 +36,7 @@ export default function ProjectsSection() {
                 <img 
                   src={project.image} 
                   alt={`ID-050: ${project.title} - ${project.description}`}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-64 object-cover group-hover:scale-[1.02] transition-transform duration-300"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

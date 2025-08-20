@@ -173,14 +173,14 @@ export default function HeroSection() {
           variants={containerVariants}
         >
           <motion.h1 
-            className="text-responsive-hero font-bold mb-6 sm:mb-8 leading-tight will-animate"
+            className="text-responsive-hero font-bold mb-6 sm:mb-8 leading-tight"
             variants={itemVariants}
           >
             Comprehensive Solutions for <span className="text-secondary">Industrial Success</span>
           </motion.h1>
           
           <motion.p 
-            className="text-responsive-body mb-6 sm:mb-8 opacity-90 leading-relaxed will-animate"
+            className="text-responsive-body mb-6 sm:mb-8 opacity-90 leading-relaxed"
             variants={itemVariants}
           >
             Our broad portfolio of products and services provides all-encompassing solutions that drive industrial success, ensuring that every aspect of your engineering needs is covered.

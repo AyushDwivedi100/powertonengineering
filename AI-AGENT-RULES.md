@@ -232,6 +232,9 @@ Use ONLY these three button patterns:
 5. **❌ Ignore accessibility standards**
 6. **❌ Modify core color scheme values**
 7. **❌ Use different button or card styles**
+8. **❌ Use custom spacing classes like `section-padding`, `container-padding`**
+9. **❌ Use custom grid classes like `grid-responsive-*`, `flex-responsive`**
+10. **❌ Use custom animation classes like `hover-lift`, `will-animate`, `card-hover`**
 
 ---
 
